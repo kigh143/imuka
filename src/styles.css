@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+ height: 100%;
+}
+
+.banner{
+    background: #fff !important;
+    padding:8px !important;
+    width:100%;
+    font-weight: bold;
+    border-top: 3px solid #083530 !important;
+    color:#083530 !important;
+}
+
+.carddata{
+    padding:10px;
+}

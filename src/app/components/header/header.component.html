@@ -1,27 +1,31 @@
 <header class="top">
     <nav class="navbar navbar-expand-md navbar-dark container">
-      <a class="navbar-brand" href="#">ImukaAccess</a>
+      <a class="navbar-brand" routerLink="#">
+        <img src="assets/icon1.png" alt="" id="logo">
+        ImukaAccess
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto"></ul>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ml-auto">
+
           <li class="nav-item">
-          <a class="nav-link" href="/connections"> <i class="fa fa-users"></i> People</a>
+            <a class="nav-link" routerLink="/people">People</a>
           </li>
 
           <li class="nav-item">
-          <a class="nav-link" href="/chat"> <i class="fa fa-inbox"></i> Messages</a>
+            <a class="nav-link" routerLink="/chat">Messages</a>
           </li>
 
           <li class="nav-item">
-          <a class="nav-link" href="/notification"> <i class="fa fa-notifications"></i> Notifications</a>
+            <a class="nav-link" routerLink="/notifications"> Notifications</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/profile">Profile</a>
+            <a  routerLink="/profile"><img src="assets/user.png" class="profile"></a>
           </li>
+
         </ul>
       </div>
     </nav>

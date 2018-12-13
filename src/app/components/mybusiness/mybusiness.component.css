@@ -15,7 +15,6 @@
     background: #fff;
     border:1px solid #eee; 
     border-radius: 3px;
-    padding:10px;
 }
 
 .container{
@@ -29,3 +28,4 @@
 .col-md-3{
     background: none !important;
 }
+

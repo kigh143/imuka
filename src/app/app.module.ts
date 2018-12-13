@@ -20,13 +20,23 @@ import { EventsComponent } from './components/events/events.component';
 import { OpportunitiesComponent } from './components/opportunities/opportunities.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MybusinessComponent } from './components/mybusiness/mybusiness.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "verify", component: VerifyComponent },
   { path: "forgotPassword", component: ForgotpassComponent },
-  { path: "dashboard", component: HomeComponent }
+  { path: "dashboard", component: HomeComponent },
+  { path: "profile", component: ProfileComponent },
+  { path: "people", component: PeopleComponent },
+  { path: "opportunities", component: OpportunitiesComponent },
+  { path: "events", component: EventsComponent },
+  { path: "settings", component: SettingsComponent },
+  { path: "notifications", component: NotificationsComponent },
+  { path: "chat", component: ChatComponent },
+  { path: "my_businesses", component: MybusinessComponent },
 ];
 
 @NgModule({
@@ -47,9 +57,10 @@ const app_routes: Routes = [
     EventsComponent,
     OpportunitiesComponent,
     SettingsComponent,
-    ProfileComponent
+    ProfileComponent,
+    MybusinessComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule],
+  imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })

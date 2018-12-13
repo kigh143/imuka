@@ -20,8 +20,9 @@
 }
 
 .bottom > span {
-  font-weight: lighter;
+  font-weight: light;
   display: block;
+  color:#666;
 }
 
 .top {
@@ -51,4 +52,11 @@
   height:10px !important;
   width:100% !important;
   background: transparent;
+}
+
+li > a {
+  font-size: 14px;
+  text-decoration: none;
+  color:#333;
+  
 }

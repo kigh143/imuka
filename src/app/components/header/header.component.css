@@ -10,3 +10,19 @@
  .navbar-nav{
    float: left !important;
  }
+
+ .profile{
+   height:30px;
+   width:30px;
+   border-radius: 50%;
+ }
+
+ .nav-item a{
+   font-size:14px !important; 
+ }
+
+ #logo{
+   height:30px;
+   width:30px;
+   margin-right: 20px;
+ }

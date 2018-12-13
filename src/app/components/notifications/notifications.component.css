@@ -1,0 +1,30 @@
+.mainmenu{
+    background: #fff;
+    border:1px solid #eee;
+    border-radius: 3px;
+}
+
+.feeds{
+    background: #fff;
+    border:1px solid #eee; 
+    border-radius: 3px;
+    background: none;
+}
+
+.content{
+    background: #fff;
+    border:1px solid #eee; 
+    border-radius: 3px;
+}
+
+.container{
+    margin-top:10px;
+}
+
+.body{
+    background:#f2f2f2;
+}
+
+.col-md-3{
+    background: none !important;
+}
