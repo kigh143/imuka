@@ -2,16 +2,34 @@
   <app-header></app-header>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <div class="mainmenu"><app-mainmenu></app-mainmenu></div>
-      </div>
-      <div class="col-md-6">
-        <div class="banner">
-          My Businesses
-          
-        </div>
-        <div class="content">
-            
+      <div class="col-md-9">
+        <div class="banner">My Businesses</div>
+        <div class="content row">
+          <div class="col-md-6 carddata" *ngFor="let business of businesses">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="assets/v.jpg"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Business name</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Pitch book</li>
+                <li class="list-group-item">Documents</li>
+                <li class="list-group-item">Daily Updates</li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="card-link">12 Follows</a>
+                <a href="#" class="card-link"></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-3 feeds">
