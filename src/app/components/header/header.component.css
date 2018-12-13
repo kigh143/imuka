@@ -1,0 +1,12 @@
+.fixed-top{
+  background: rgb(8, 53, 48) !important;
+}
+
+.top{
+    background: #083530 !important;
+    height:56px;
+ }
+
+ .navbar-nav{
+   float: left !important;
+ }

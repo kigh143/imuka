@@ -1,0 +1,54 @@
+*{
+  background: transparent !important;
+}
+.profile {
+  position: relative;
+  height: 250px;
+}
+
+.bottom > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #fff !important;
+}
+
+.bottom > b {
+  font-weight: bolder;
+  font-size: 20px;
+  display: block;
+}
+
+.bottom > span {
+  font-weight: lighter;
+  display: block;
+}
+
+.top {
+  background: rgb(8, 53, 48) !important;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  border-top-right-radius: 3px !important;
+  border-top-left-radius: 3px !important;
+}
+
+.bottom {
+  text-align: center !important;
+  background: transparent;
+  height: 200px;
+  position: absolute;
+  z-index: 100;
+  top:50px;
+  left: 65px;
+
+}
+
+.free10{
+  height:10px !important;
+  width:100% !important;
+  background: transparent;
+}
