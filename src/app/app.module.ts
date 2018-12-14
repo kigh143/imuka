@@ -23,6 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MybusinessComponent } from './components/mybusiness/mybusiness.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AddBusinessComponent } from './components/add-business/add-business.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -63,7 +65,7 @@ const app_routes: Routes = [
     MybusinessComponent,
     AddBusinessComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot()],
+  imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })
