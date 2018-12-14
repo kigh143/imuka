@@ -15,6 +15,9 @@
     background: #fff;
     border:1px solid #eee; 
     border-radius: 3px;
+    height:75vh;
+    background:red;
+    position: relative;
 }
 
 .container{
@@ -34,3 +37,40 @@
     margin: 0;
     padding: 5px;
 }
+
+.chat_item{
+    display: flex;
+    flex-direction: row;
+    padding-top:6px;
+    padding-bottom:6px;
+}
+
+.chat_item + .chat_item {
+    border-top:1px solid #eee !important;
+}
+
+.chat_item > .img{
+  flex:1;
+  text-align:Center;
+  padding-top:1px;
+}
+
+.chat_item > .name{
+    flex:5;
+    padding-left: 8px;
+}
+
+.link_chat{
+    text-decoration: none;
+}
+
+.span1{
+    color:#111 !important; 
+    display: block;
+}
+
+.span2{
+    color:#aaa !important; 
+    font-size:13px;
+}
+
