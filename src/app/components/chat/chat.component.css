@@ -28,3 +28,9 @@
 .col-md-3{
     background: none !important;
 }
+
+.chat{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
