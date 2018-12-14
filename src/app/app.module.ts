@@ -25,6 +25,14 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AddBusinessComponent } from './components/add-business/add-business.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { EinoviceComponent } from './components/einovice/einovice.component';
+import { PitchbookComponent } from './components/pitchbook/pitchbook.component';
+import { InvestmentRequestComponent } from './components/investment-request/investment-request.component';
+import { ProductComponent } from './components/product/product.component';
+import { SearchComponent } from './components/search/search.component';
+import { InvestmentoppComponent } from './components/investmentopp/investmentopp.component';
+import { BusinessComponent } from './components/business/business.component';
+import { EInvoiceComponent } from './components/e-invoice/e-invoice.component';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -42,6 +50,14 @@ const app_routes: Routes = [
   { path: "chat/:id", component: ChatComponent },
   { path: "my_businesses", component: MybusinessComponent },
   { path: "add_business", component: AddBusinessComponent },
+  { path: "business", component: BusinessComponent },
+  { path: "pitchbook", component: PitchbookComponent }, 
+  { path: "search", component: SearchComponent },
+  { path: "investmentopp", component: InvestmentoppComponent},
+  { path: "investmentrequest", component: InvestmentRequestComponent},
+  { path: "einvoice", component: EInvoiceComponent},
+  { path: "Product", component: ProductComponent},
+
 ];
 
 @NgModule({
@@ -64,7 +80,15 @@ const app_routes: Routes = [
     SettingsComponent,
     ProfileComponent,
     MybusinessComponent,
-    AddBusinessComponent
+    AddBusinessComponent,
+    EinoviceComponent,
+    PitchbookComponent,
+    InvestmentRequestComponent,
+    ProductComponent,
+    SearchComponent,
+    InvestmentoppComponent,
+    BusinessComponent,
+    EInvoiceComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot()],
   providers: [],
