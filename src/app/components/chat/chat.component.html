@@ -3,18 +3,21 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-            <div>
+            <div style="background:#fff; padding:5px;">
                 <h5>Chat List</h5>
             </div>
             <div class="mainmenu">
                 <ul class="chat">
-                    <li class="chat_item">
-                        <div>
+                    <li class="chat_item" *ngFor="let user of chat_list;let i= index">
+                        <div class="img">
                             <img src="assets/user.png" alt="">
                         </div>
-                        <div>
-                            <span>Katende Ivan</span><br/>
-                            <span>Investors(Ug)</span>
+                        <div class="name">
+                            <a routerLink="/chat/{{i}}" class="link_chat">
+                                <span class="span1">{{user?.name}}</span>
+                                <span class="span2">{{user?.type}}</span>
+                                <div class="online" *ngIf="user.online"></div>
+                            </a>
                         </div>
 
                     </li>
@@ -22,8 +25,24 @@
             </div>
         </div>
         <div class="col-md-6">
+            <div style="background:#fff; padding:5px;">
+                <li class="chat_item" >
+                    <div class="img">
+                        <img src="assets/user.png" alt="">
+                    </div>
+                    <div class="name">
+                        <a routerLink="/chat/{{user?.user_id}}" class="link_chat">
+                            <span class="span1">{{active_chat?.name}}</span>
+                            <span class="span2">{{active_chat?.type}}</span>
+                            <div class="online" *ngIf="active_chat.online"></div>
+                        </a>
+                    </div>
+
+                </li>
+            </div>
             <div class="content">
-    
+                <div></div>
+                <div></div>
             </div>
         </div>
         <div class="col-md-3 feeds">

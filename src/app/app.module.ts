@@ -37,6 +37,7 @@ const app_routes: Routes = [
   { path: "settings", component: SettingsComponent },
   { path: "notifications", component: NotificationsComponent },
   { path: "chat", component: ChatComponent },
+  { path: "chat/:id", component: ChatComponent },
   { path: "my_businesses", component: MybusinessComponent },
   { path: "add_business", component: AddBusinessComponent },
 ];
