@@ -22,6 +22,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MybusinessComponent } from './components/mybusiness/mybusiness.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AddBusinessComponent } from './components/add-business/add-business.component';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -37,6 +38,7 @@ const app_routes: Routes = [
   { path: "notifications", component: NotificationsComponent },
   { path: "chat", component: ChatComponent },
   { path: "my_businesses", component: MybusinessComponent },
+  { path: "add_business", component: AddBusinessComponent },
 ];
 
 @NgModule({
@@ -58,7 +60,8 @@ const app_routes: Routes = [
     OpportunitiesComponent,
     SettingsComponent,
     ProfileComponent,
-    MybusinessComponent
+    MybusinessComponent,
+    AddBusinessComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot()],
   providers: [],
