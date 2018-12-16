@@ -1,16 +1,28 @@
 <div class="body"> 
 <app-header></app-header>
 <div class="container">
+<form>
+<div class="form-group">
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Search people on imukaAccess ">
+</div>
+</form>
 <div class="row">
 <div class="col-md-9">
     <div class="banner">People and connections </div>
     <div class="content">
-
+       <div class="row">
+           <div class="col-md-2 user" *ngFor="let user of people">
+               <img src="assets/user.png" alt="">
+               <span class="name">Bivian Virungi</span>
+               <span class="position">Investor</span>
+           </div>
+       </div>
     </div>
 </div>
 <div class="col-md-3 feeds">
+    <p>Friend Requests.</p>
     <div class="feeds">
-        <app-feeds></app-feeds>
+        
     </div>
 </div>
 </div>

@@ -12,13 +12,14 @@
 }
 
 .content{
-    background: #fff;
+    background: transparent;
     border:1px solid #eee; 
     border-radius: 3px;
 }
 
 .container{
     margin-top:10px;
+    background: transparent;
 }
 
 .body{
@@ -28,3 +29,32 @@
 .col-md-3{
     background: none !important;
 }
+
+.user{
+    text-align: center;
+    padding:30px;
+
+}
+
+.user > img{
+   height: 70px;
+   width:70px;
+   border-radius: 50%;
+    
+}
+
+.user > span {
+    display: block;
+    font-size: 12px !important;
+ }
+
+ .name{
+     font-weight: bold;
+     color:#222;
+ }
+
+ .position{
+     color:#556;
+     font-weight: lighter;
+
+ }

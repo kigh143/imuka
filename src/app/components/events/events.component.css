@@ -12,7 +12,7 @@
 }
 
 .content{
-    background: #fff;
+    background: transparent;
     border:1px solid #eee; 
     border-radius: 3px;
     padding:10px;
