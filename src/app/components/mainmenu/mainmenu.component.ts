@@ -12,4 +12,8 @@ export class MainmenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout(){
+    alert(89)
+  }
+
 }

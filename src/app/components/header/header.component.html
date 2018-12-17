@@ -1,13 +1,12 @@
 <header class="top">
-    <nav class="navbar navbar-expand-md navbar-dark container">
+    <nav class="navbar navbar-expand-md navbar-dark container show">
       <a class="navbar-brand" routerLink="/dashboard">
-        <img src="assets/icon1.png" alt="" id="logo">
         ImukaAccess
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" aria-expanded="true">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-between show" id="navbarCollapse">
+      <div class="collapse navbar-collapse show">
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
@@ -23,8 +22,8 @@
           </li>
 
           <li class="nav-item">
-            <a  routerLink="/profile"><img src="assets/user.png" class="profile"></a>
-          </li>
+              <a class="nav-link" routerLink="/profile"> Profile</a>
+            </li>
 
         </ul>
       </div>

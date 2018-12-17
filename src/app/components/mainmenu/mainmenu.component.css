@@ -57,6 +57,15 @@
 li > a {
   font-size: 14px;
   text-decoration: none;
-  color:#333;
+  color:#aaa;
   
+}
+
+a:hover{
+  color: #333 !important;
+}
+
+
+.list-group-item{
+  cursor: pointer;
 }

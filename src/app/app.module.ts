@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { MainmenuComponent } from "./components/mainmenu/mainmenu.component";

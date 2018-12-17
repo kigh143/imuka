@@ -43,7 +43,7 @@
     
 }
 
-.user > span {
+.user > div > span {
     display: block;
     font-size: 12px !important;
  }
@@ -58,3 +58,56 @@
      font-weight: lighter;
 
  }
+
+ @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+   .col-xs-12{
+      width: 100%;
+    }
+
+
+    .user{
+        text-align: center;
+        padding:30px;
+        display: flex;
+        width:100%;
+        background: #fff !important;
+        text-align: left;
+    }
+
+    .user > img{
+        height: 40px;
+        width:40px;
+        border-radius: 50%;
+    }
+
+    .user > div > span {
+        font-size: 15px !important;
+        text-align: left;
+    }
+
+    .name{
+        font-weight: bold;
+        color:#222;
+        margin-left:10px;
+    }
+
+    .position{
+        color:#556;
+        font-weight: lighter;
+        margin-left:10px;
+        display: block;
+    }
+
+    .mob-name{
+        flex:5;
+    }
+
+    .mob-pic{
+        flex:1;
+    }
+
+    .mob-btn{
+        flex:1;
+    }
+  }
