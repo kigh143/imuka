@@ -34,6 +34,8 @@ import { SearchComponent } from './components/search/search.component';
 import { InvestmentoppComponent } from './components/investmentopp/investmentopp.component';
 import { BusinessComponent } from './components/business/business.component';
 import { EInvoiceComponent } from './components/e-invoice/e-invoice.component';
+import { OrganisationsComponent } from './components/organisations/organisations.component';
+import { OrganisationComponent } from './components/organisation/organisation.component';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -89,7 +91,9 @@ const app_routes: Routes = [
     SearchComponent,
     InvestmentoppComponent,
     BusinessComponent,
-    EInvoiceComponent
+    EInvoiceComponent,
+    OrganisationsComponent,
+    OrganisationComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot()],
   providers: [],
