@@ -36,6 +36,7 @@ import { BusinessComponent } from './components/business/business.component';
 import { EInvoiceComponent } from './components/e-invoice/e-invoice.component';
 import { OrganisationsComponent } from './components/organisations/organisations.component';
 import { OrganisationComponent } from './components/organisation/organisation.component';
+import { RequestComponent } from './components/request/request.component';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -60,6 +61,7 @@ const app_routes: Routes = [
   { path: "investmentrequest", component: InvestmentRequestComponent},
   { path: "einvoice", component: EInvoiceComponent},
   { path: "Product", component: ProductComponent},
+  {path: "request", component: RequestComponent},
 
 ];
 
@@ -93,7 +95,9 @@ const app_routes: Routes = [
     BusinessComponent,
     EInvoiceComponent,
     OrganisationsComponent,
-    OrganisationComponent
+    OrganisationComponent,
+    RequestComponent
+
   ],
   imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot()],
   providers: [],

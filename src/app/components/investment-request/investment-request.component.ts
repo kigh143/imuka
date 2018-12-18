@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./investment-request.component.css']
 })
 export class InvestmentRequestComponent implements OnInit {
-
+  requests=[1, 2, 3, 4, 5];
   constructor() { }
 
   ngOnInit() {
