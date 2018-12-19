@@ -3,25 +3,56 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-            <div class="banner">Events</div>
+            <div class="banner">My Invoices</div>
             <div class="content">
-                <p>Find upcoming networking and training events in your sector and region,
-                including Imuka Series events.</p>
+                <p>Checkout your invoices and their status</p>
 
                 <div class="row">
                     <div class="col-md-6 carddata" *ngFor="let event of events">
+                    <button class="btn btn-round" style="border-radius: 30%; margin-bottom:10px">Sent</button>
                         <div class="card">
-                        <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
+                       <div class="row">
+                       <div class="col-6" style="padding-left:20px">
+                       <img src="assets/user.png">
+                       
+                       </div>
+                       <div  class="col-6" style="padding-left:10px">
+                       <h1>INVOICE</h1>
+                       <hr style="border:3px red solid;">
+                       </div>
+                       </div>
                         <div class="card-body">
+
+                        <div>
                             <h5 class="card-title">Event title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></div>
+                        </div>
+                        
+                        <div>
+
+                        <table id="customers">
+                            <thead>
+                                <tr>
+                                <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr mdbTableCol *ngFor="let el of elements">
+                                <td scope="row">{{el.id}}</td>
+                                <td>{{el.first}}</td>
+                                <td>{{el.last}}</td>
+                                <td>{{el.handle}}</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                           </div>
+
+                        <div>
+                            <h5 style="color:blue">Thank you for your Business</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Time odio</li>
-                            <li class="list-group-item">Vennue ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
                         </div>
+                        
                     </div>
                 </div>
             </div>

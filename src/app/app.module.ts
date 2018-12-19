@@ -34,6 +34,11 @@ import { SearchComponent } from './components/search/search.component';
 import { InvestmentoppComponent } from './components/investmentopp/investmentopp.component';
 import { BusinessComponent } from './components/business/business.component';
 import { EInvoiceComponent } from './components/e-invoice/e-invoice.component';
+import { OrganisationsComponent } from './components/organisations/organisations.component';
+import { OrganisationComponent } from './components/organisation/organisation.component';
+import { RequestComponent } from './components/request/request.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -58,6 +63,10 @@ const app_routes: Routes = [
   { path: "investmentrequest", component: InvestmentRequestComponent},
   { path: "einvoice", component: EInvoiceComponent},
   { path: "Product", component: ProductComponent},
+  { path: "request", component: RequestComponent},
+  { path:"organisations", component : OrganisationsComponent},
+  { path:"organisation/:id", component : OrganisationComponent},
+  { path:"user:/user_id", component : UserProfileComponent}
 
 ];
 
@@ -89,9 +98,21 @@ const app_routes: Routes = [
     SearchComponent,
     InvestmentoppComponent,
     BusinessComponent,
-    EInvoiceComponent
+    EInvoiceComponent,
+    OrganisationsComponent,
+    OrganisationComponent,
+    RequestComponent,
+    UserProfileComponent
+
   ],
-  imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot()],
+  imports: [
+    BrowserModule, 
+    RouterModule.forRoot(app_routes), 
+    AngularFontAwesomeModule, 
+    CarouselModule.forRoot(), 
+    TabsModule.forRoot(), 
+    AccordionModule.forRoot(), ModalModule.forRoot()
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
