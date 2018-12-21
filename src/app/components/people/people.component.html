@@ -11,7 +11,7 @@
     <div class="banner">People and connections </div>
     <div class="content">
        <div class="row">
-           <div class="col-md-2 col-xs-12 user" *ngFor="let user of people">
+           <div class="col-md-2 col-xs-12 user" *ngFor="let user of people" (click)="go_to_profile(user)">
                <div class="mob-pic">
                     <img src="assets/user.png" alt="">
                </div>

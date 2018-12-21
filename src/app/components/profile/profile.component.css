@@ -28,3 +28,16 @@
 .col-md-3{
     background: none !important;
 }
+.circle-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .circle-img img {
+    height: 100%;
+    transform: translateX(-50%);
+    margin-left: 50%;
+    
+  }
