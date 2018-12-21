@@ -2,6 +2,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
 
 
 import { AppComponent } from "./app.component";
@@ -35,6 +38,8 @@ import { InvestmentoppComponent } from './components/investmentopp/investmentopp
 import { BusinessComponent } from './components/business/business.component';
 import { EInvoiceComponent } from './components/e-invoice/e-invoice.component';
 import { RequestComponent } from './components/request/request.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AddinvoiceComponent } from './components/addinvoice/addinvoice.component';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -60,6 +65,7 @@ const app_routes: Routes = [
   { path: "einvoice", component: EInvoiceComponent},
   { path: "Product", component: ProductComponent},
   {path: "request", component: RequestComponent},
+  {path: "addinvoice", component: AddinvoiceComponent},
 
 ];
 
@@ -92,9 +98,11 @@ const app_routes: Routes = [
     InvestmentoppComponent,
     BusinessComponent,
     EInvoiceComponent,
-    RequestComponent
+    RequestComponent,
+    AddinvoiceComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot()],
+ 
+imports: [BrowserModule,ReactiveFormsModule,FormsModule,  RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot(), BsDropdownModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })

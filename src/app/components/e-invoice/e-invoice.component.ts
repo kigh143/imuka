@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @Component({
   selector: 'app-e-invoice',
@@ -8,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class EInvoiceComponent implements OnInit {
   events = [1,2,3];
   elements: any = [
-    {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo'},
-    {id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat'},
-    {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
+    {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo', price:"3000"},
+    {id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat', price:"1000"},
+    {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter', price:"4000"},
   ];
 
-  headElements = ['ID', 'ITEM', 'UNIT PRICE', 'UNIT', 'PRICE'];
+  headElements = ['Id', 'Item', 'unit price', 'Unit', 'Price'];
 
   constructor() { }
 

@@ -1,0 +1,32 @@
+body {font-family:arial;}
+table{
+  width:100% 
+}
+.first{
+    display: flex;
+    flex-direction: row;
+    font-size:12px;
+
+}
+.one{
+flex:1
+}
+.two{
+flex:5
+}
+.three{
+flex:3
+}
+.second{
+  display: flex;
+  flex-direction: row;
+  font-size:12px;
+ 
+}
+.three1{
+  flex:2;
+  float:right
+  }
+  .two{
+    flex:8
+    }
