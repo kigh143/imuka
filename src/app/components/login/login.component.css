@@ -1,6 +1,6 @@
 
 .col-md-8{
-  background:red;
+  background:#1798d4;
   height:100vh !important;
   }
   
@@ -18,7 +18,7 @@
   
   @media only screen and (max-width: 768px) {
   .col-md-8{
-    background:red;
+    background:#1798d4;
     height:50vh !important;
     padding:20px;
   
