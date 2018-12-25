@@ -1,19 +1,40 @@
-.tutorials {
-    background: rgb(8, 53, 48) !important;
-    flex: 1;
-    color: #fff;
-    padding: 100px;
-    text-align: center;
+
+.col-md-8{
+background:red;
+height:100vh !important;
+}
+
+
+.col-md-4{
+  background:#fff;
+  height:100vh !important;
+  }
+
+body{
+  height: 100vh !important;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+  
+.col-md-8{
+  background:red;
+  height:50vh !important;
+  text-align: center;
+  padding:20px;
+
   }
   
-  .forms {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-  }
-  .myrow {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
   
+  .col-md-4{
+    background:#fff;
+    height:50vh !important;
+  text-align: center;
+   padding:20px;
+    }
+
+    
+
+}

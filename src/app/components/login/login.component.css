@@ -1,26 +1,33 @@
-.tutorials {
-  flex: 1;
-  color: #fff;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-}
 
-.forms {
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  padding:50px;
-}
-
-.myrow {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
-
-body{
-  height: 100vh !important;
-}
+.col-md-8{
+  background:red;
+  height:100vh !important;
+  }
+  
+  
+  .col-md-4{
+    background:#fff;
+    height:100vh !important;
+    }
+  
+  body{
+    height: 100vh !important;
+  }
+  
+  
+  
+  @media only screen and (max-width: 768px) {
+  .col-md-8{
+    background:red;
+    height:50vh !important;
+    padding:20px;
+  
+    }
+    
+    
+    .col-md-4{
+      background:#fff;
+      height:50vh !important;
+     padding:20px;
+      }
+  }
