@@ -1,36 +1,37 @@
 <div class="body"> 
-        <app-header></app-header>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9">
-                <div class="banner">Opportunities</div>
-                <div class="content">
-                    <p>Explore funding, skilling and resource opportunities in your business sector and region.</p>
-    
-                    <div class="row">
-                        <div class="col-md-6 carddata" *ngFor="let opportunity of opportunities">
-                            <div class="card">
-                            <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Opportunity title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Time odio</li>
-                                <li class="list-group-item">Vennue ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                            </ul>
-                            </div>
-                        </div>
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+    <div class="col-md-9">
+        <div class="jumbotron">
+        <h1 class="display-4">Opportunities</h1>
+        <p>Explore funding, skilling and resource opportunities in your business sector and region.</p>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6 carddata" *ngFor="let opportunity of opportunities">
+                    <div class="card">
+                    <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Opportunity title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Time odio</li>
+                        <li class="list-group-item">Vennue ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 feeds">
-                <div class="feeds">
-                    <app-feeds></app-feeds>
-                </div>
-            </div>
-          </div>
         </div>
+    </div>
+    <div class="col-md-3 feeds">
+        <div class="feeds">
+            <app-feeds></app-feeds>
         </div>
+    </div>
+    </div>
+</div>
+</div>
         

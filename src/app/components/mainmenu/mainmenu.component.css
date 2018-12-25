@@ -56,7 +56,7 @@
 li > a {
   font-size: 14px;
   text-decoration: none;
-  color: #aaa;
+  color: rgb(56, 71, 73);
 }
 
 a:hover {

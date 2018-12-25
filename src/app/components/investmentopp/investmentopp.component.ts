@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./investmentopp.component.css']
 })
 export class InvestmentoppComponent implements OnInit {
+  
+  businesses = [1, 2];
 
   constructor() { }
 

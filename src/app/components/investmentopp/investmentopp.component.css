@@ -1,0 +1,53 @@
+.mainmenu {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+  }
+  
+  .feeds {
+    background: rgb(223, 156, 156);
+    border: 1px solid #eee;
+    border-radius: 3px;
+    background: none;
+  }
+  
+  .content {
+    background: transparent;
+    border: 1px solid #eee;
+    border-radius: 3px;
+  }
+  
+  .container {
+    margin-top: 10px;
+  }
+  
+  .body {
+    background: #f2f2f2;
+  }
+  
+  .col-md-3 {
+    background: none !important;
+  }
+  
+  .add_btn {
+    font-size: 60px;
+    color: #555;
+  }
+  
+  .add {
+    text-align: center;
+    padding: 60px;
+  }
+  
+  .form {
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+  }
+
+  
+app-mainmenu{
+    background: #fff;
+}
+  
+  

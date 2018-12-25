@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mybusiness.component.css']
 })
 export class MybusinessComponent implements OnInit {
-  businesses = [1, 2, 3, 4, 5];
+  businesses = [1, 2];
   constructor() {
 
   }

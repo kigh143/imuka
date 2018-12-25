@@ -4,9 +4,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
-
-
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { MainmenuComponent } from "./components/mainmenu/mainmenu.component";
@@ -40,13 +37,10 @@ import { EInvoiceComponent } from './components/e-invoice/e-invoice.component';
 import { OrganisationsComponent } from './components/organisations/organisations.component';
 import { OrganisationComponent } from './components/organisation/organisation.component';
 import { RequestComponent } from './components/request/request.component';
-
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AddinvoiceComponent } from './components/addinvoice/addinvoice.component';
-
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -67,18 +61,15 @@ const app_routes: Routes = [
   { path: "business", component: BusinessComponent },
   { path: "pitchbook", component: PitchbookComponent }, 
   { path: "search", component: SearchComponent },
-  { path: "investmentopp", component: InvestmentoppComponent},
+  { path: "investiment_opportunities", component: InvestmentoppComponent},
   { path: "investmentrequest", component: InvestmentRequestComponent},
   { path: "einvoice", component: EInvoiceComponent},
   { path: "Product", component: ProductComponent},
-
   {path: "request", component: RequestComponent},
   {path: "addinvoice", component: AddinvoiceComponent},
   { path:"organisations", component : OrganisationsComponent},
   { path:"organisation/:id", component : OrganisationComponent},
-  { path:"user:/user_id", component : UserProfileComponent}
-
-
+  { path:"user/:user_id", component : UserProfileComponent}
 ];
 
 @NgModule({
@@ -116,12 +107,20 @@ const app_routes: Routes = [
     OrganisationComponent,
     RequestComponent,
     UserProfileComponent
-
   ],
  
-imports: [BrowserModule,ReactiveFormsModule,FormsModule,  RouterModule.forRoot(app_routes), AngularFontAwesomeModule, CarouselModule.forRoot(), TabsModule.forRoot(), AccordionModule.forRoot(), ModalModule.forRoot(), BsDropdownModule.forRoot()],
-
-
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,  
+    RouterModule.forRoot(app_routes), 
+    AngularFontAwesomeModule, 
+    CarouselModule.forRoot(), 
+    TabsModule.forRoot(), 
+    AccordionModule.forRoot(), 
+    ModalModule.forRoot(), 
+    BsDropdownModule.forRoot()
+  ],
 
   providers: [],
   bootstrap: [AppComponent]
