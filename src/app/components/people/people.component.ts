@@ -17,4 +17,8 @@ export class PeopleComponent implements OnInit {
       this.router.navigate(['user', {user_id:user}])
   }
 
+  connect_now(user){
+    console.log(user);
+  }
+
 }

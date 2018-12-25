@@ -4,10 +4,15 @@
     padding:8px !important;
     width:100%;
     font-weight: bold;
-    border-top: 3px solid #083530 !important;
+    border-top: 3px solid rgb(105, 168, 255) !important;
     color:#083530 !important;
 }
 
 .carddata{
     padding:10px;
+}
+
+.card-header{
+    background: rgb(105, 168, 255);
+    color:white;
 }

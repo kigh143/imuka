@@ -8,7 +8,8 @@
       </div>
       <div class="col-md-4">
          <div style="text-align:center; padding:50px">Login into your Account today.</div>
-      <form>
+
+      <form  [formGroup]="loginForm" (submit)="login()">
       <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input
@@ -17,6 +18,7 @@
       id="exampleInputEmail1"
       aria-describedby="emailHelp"
       placeholder="Enter email"
+       formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
       />
       </div>
       <div class="form-group">
@@ -26,17 +28,20 @@
         class="form-control"
         id="exampleInputPassword1"
         placeholder="Password"
+         formControlName="password" 
+         [class.invalid]="loginForm.controls.password.invalid"
         />
       </div>
 
      <div style="text-align:center; padding:20px"><a routerLink="/forgotPassword" class="btn btn-default">Forgot password?</a></div>
-      <button type="submit" class="btn btn-primary btn-block" (click)="login()">
+
+      <button type="submit" class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">
       Login Now
       </button>
     </form>
 
        <div style="text-align:center; padding:50px; font-size:12px;">
-      I don't have an account? <b><a routerLink="/signup">Create Account here</a></b>
+      I don't have an account? <b><a routerLink="/signup">get your Account here</a></b>
     </div>
       </div>
     </div>

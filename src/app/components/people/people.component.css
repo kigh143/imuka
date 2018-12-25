@@ -111,3 +111,8 @@
         flex:1;
     }
   }
+
+
+  .mob-btn .btn{
+        font-size:12px !important;
+  }

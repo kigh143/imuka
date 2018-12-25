@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verify',
   templateUrl: './verify.component.html',
   styleUrls: ['./verify.component.css']
 })
-export class VerifyComponent implements OnInit {
+export class VerifyComponent  {
 
-  constructor() { }
+  constructor( public router: Router) { }
 
-  ngOnInit() {
+  verify(){
+      this.router.navigate(['/dashboard'])
   }
 
 }
