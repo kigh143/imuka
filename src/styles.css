@@ -4,8 +4,6 @@
     padding:8px !important;
     width:100%;
     font-weight: bold;
-    border-top: 3px solid rgb(105, 168, 255) !important;
-    color:#083530 !important;
 }
 
 .carddata{
@@ -17,7 +15,6 @@
    .mainmenu{
        display: none;
    }
-
    .jumbotron > h1{
       font-size: 28px;
       margin-bottom:10px;

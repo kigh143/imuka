@@ -14,8 +14,6 @@
     height: 100vh !important;
   }
   
-  
-  
   @media only screen and (max-width: 768px) {
       .col-md-8{
       background:#1798d4;
@@ -29,4 +27,8 @@
       height:50vh !important;
       padding:20px;
       }
+  }
+
+  body{
+    background: #b8c2c7 !important;
   }
