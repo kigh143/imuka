@@ -11,7 +11,7 @@ import {
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
 
@@ -27,7 +27,7 @@ export class SignupComponent {
 
 
   signup(){
-        this.router.navigate(["/verify"]);
+      this.router.navigate(["/verify"]);
   }
 
 }

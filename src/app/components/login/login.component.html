@@ -1,48 +1,49 @@
-<div>
-    <div class="row">
-      <div class="col-md-8">
-         <div style="text-align:center; padding:20px">
-             <h2>Imuka Access Tool</h2>
-             <p>Made changes to the application page.</p>
-         </div>
-      </div>
-      <div class="col-md-4">
-         <div style="text-align:center; padding:50px">Login into your Account today.</div>
+<div class="main">
+    <div class="center">
+        <div class="row">
+            <div class="col-md-6 info">
+              <h2>Imuka Access Tool</h2>
+              <p>Made changes to the application page.</p>
+            </div>
+            <div class="col-md-6 form">
+                <form  [formGroup]="loginForm" (submit)="login()">
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                    formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
+                    />
+                    </div>
+                    <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Password"
+                    formControlName="password" 
+                    [class.invalid]="loginForm.controls.password.invalid"
+                    />
+                    </div>
 
-      <form  [formGroup]="loginForm" (submit)="login()">
-      <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Enter email"
-       formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
-      />
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input
-        type="password"
-        class="form-control"
-        id="exampleInputPassword1"
-        placeholder="Password"
-         formControlName="password" 
-         [class.invalid]="loginForm.controls.password.invalid"
-        />
-      </div>
+                    <div style="text-align:center; padding:20px"><a routerLink="/forgotPassword" class="btn btn-default">Forgot password?</a></div>
 
-     <div style="text-align:center; padding:20px"><a routerLink="/forgotPassword" class="btn btn-default">Forgot password?</a></div>
-
-      <button type="submit" class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">
-      Login Now
-      </button>
-    </form>
-
-       <div style="text-align:center; padding:50px; font-size:12px;">
-      I don't have an account? <b><a routerLink="/signup">get your Account here</a></b>
-    </div>
-      </div>
+                    <button type="submit" class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">
+                    Login Now
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="lower">
+            <div>
+                I don't have an account? <b><a routerLink="/signup">get your Account here</a></b>
+            </div>
+        </div>
     </div>
 </div>
+
+  

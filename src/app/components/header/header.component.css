@@ -26,3 +26,9 @@
    width:30px;
    margin-right: 20px;
  }
+
+ .mobile_tabs{
+   background: #1798d4 !important;
+   display: flex;
+   flex-direction: row;
+ }

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-verify',
   templateUrl: './verify.component.html',
-  styleUrls: ['./verify.component.css']
+  styleUrls: ['./verify.component.scss']
 })
 export class VerifyComponent  {
 
