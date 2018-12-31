@@ -1,6 +1,6 @@
 
 .main{
-  background:#545657;
+  background:#bcd5e2;
   height:100vh !important;
   width:100%;
   position: relative;
@@ -12,14 +12,13 @@
       z-index: 100;
       top:15%;
       left:15%;
-      border-radius: 10px;
-
-      box-shadow: #545657;
+      border-radius: 10px !important;
 
       .form{
           background: #fff;
+          border-top-right-radius: 10px !important;
+          border-bottom-right-radius: 10px !important;
           padding:20px;
-
           form{
               height: 100%;
               margin-left: auto;
@@ -30,25 +29,26 @@
 
       .info{
           background: #1798d4;
+          border-bottom-left-radius: 10px !important;
+          border-top-left-radius: 10px !important;
           text-align: center;
           justify-content: center;
           align-items: center;
-
+          vertical-align: 20px;
       }
-
 
       .lower{
-          div{
-              text-align:center; padding:50px; font-size:12px;
-              color:#fff;
-              b{
-                  color: skyblue;
-                  a{
-                      text-decoration: none;
-                      color:skyblue;
-                  }
-              }
-          }
-      }
+        div{
+            text-align:center; padding:50px; font-size:12px;
+            color:rgb(124, 120, 120);
+            b{
+                color: rgb(19, 106, 141);
+                a{
+                    text-decoration: none;
+                    color:rgb(20, 104, 138);
+                }
+            }
+        }
+    }
   }
 }
