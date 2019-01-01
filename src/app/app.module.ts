@@ -57,6 +57,7 @@ const app_routes: Routes = [
   { path: "chat", component: ChatComponent },
   { path: "chat/:id", component: ChatComponent },
   { path: "my_businesses", component: MybusinessComponent },
+  { path: "business/:id", component: BusinessComponent },
   { path: "add_business", component: AddBusinessComponent },
   { path: "business", component: BusinessComponent },
   { path: "pitchbook", component: PitchbookComponent }, 

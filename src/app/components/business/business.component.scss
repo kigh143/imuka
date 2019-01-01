@@ -6,7 +6,7 @@
 
 .feeds {
   background: rgb(223, 156, 156);
-  border: 1px solid #eee;
+  border: 5px solid #eee;
   border-radius: 3px;
   background: none;
 }
@@ -43,5 +43,11 @@
   padding: 10px;
   background: #fff;
   border-radius: 10px;
+}
+
+.feeds{
+  .card{
+    background: rgb(223, 218, 218);
+  }
 }
 

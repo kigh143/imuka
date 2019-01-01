@@ -5,8 +5,7 @@
       <div class="col-md-8">
         <div class="jumbotron">
           <h1 class="display-4">My businesses</h1>
-          <p>Find upcoming networking and training events in your sector and region,
-                  including Imuka Series events.</p>
+          <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
           </div>
         <div class="content row">
           <div class="col-md-6 carddata" *ngFor="let business of businesses">
@@ -17,7 +16,7 @@
                 alt="Card image cap"
               />
               <div class="card-body">
-                <h5 class="card-title">Business name</h5>
+                <h5 class="card-title">{{business.business_name}}</h5>
                 <p class="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -25,8 +24,8 @@
               </div>
               <div class="card-body">
                 <a href="#" class="card-link">12 Follows</a>
-                <a href="#" class="card-link"> 23 Views</a>
-                <a href="#" class="card-link"> 2 investiment</a>
+                <a href="#" class="card-link">2 investment</a>
+                <a routerLink="/business/9" class="card-link">business info</a>
               </div>
             </div>
           </div>
@@ -42,12 +41,12 @@
                   <form>
                       <div class="form-group">
                       <label for="exampleInputEmail1">Business name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter business name">
+                      <input type="text" class="form-control" [(ngModel)]="business_name" name="business_name" placeholder="Enter business name">
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Select Country</label>
-                        <select class="form-control" >
+                        <label>Select Country</label>
+                        <select class="form-control" [(ngModel)]="country" name="country">
                           <option value="Algeria">Algeria</option>
                           <option value="Angola">Angola</option>
                           <option value="Benin">Benin</option>
@@ -113,75 +112,8 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Select Region</label>
-                        <select class="form-control" >
-                          <option value="Algeria">Algeria</option>
-                          <option value="Angola">Angola</option>
-                          <option value="Benin">Benin</option>
-                          <option value="Botswana">Botswana</option>
-                          <option value="Burkina Faso">Burkina Faso</option>
-                          <option value="Burundi">Burundi</option>
-                          <option value="Cameroon">Cameroon</option>
-                          <option value="Cape Verde">Cape Verde</option>
-                          <option value="Central African Republic"
-                            >Central African Republic</option
-                          >
-                          <option value="Chad">Chad</option>
-                          <option value="Comoros">Comoros</option>
-                          <option value="Congo - Brazzaville"
-                            >Congo - Brazzaville</option
-                          >
-                          <option value="Congo - Kinshasa">Congo - Kinshasa</option>
-                          <option value="Côte d’Ivoire">Côte d’Ivoire</option>
-                          <option value="Djibouti">Djibouti</option>
-                          <option value="Egypt">Egypt</option>
-                          <option value="Equatorial Guinea"
-                            >Equatorial Guinea</option
-                          >
-                          <option value="Eritrea">Eritrea</option>
-                          <option value="Ethiopia">Ethiopia</option>
-                          <option value="Gabon">Gabon</option>
-                          <option value="Gambia">Gambia</option>
-                          <option value="Ghana">Ghana</option>
-                          <option value="Guinea">Guinea</option>
-                          <option value="Guinea-Bissau">Guinea-Bissau</option>
-                          <option value="Kenya">Kenya</option>
-                          <option value="Lesotho">Lesotho</option>
-                          <option value="Liberia">Liberia</option>
-                          <option value="Libya">Libya</option>
-                          <option value="Madagascar">Madagascar</option>
-                          <option value="Malawi">Malawi</option>
-                          <option value="Mali">Mali</option>
-                          <option value="Mauritania">Mauritania</option>
-                          <option value="Mauritius">Mauritius</option>
-                          <option value="Mayotte">Mayotte</option>
-                          <option value="Morocco">Morocco</option>
-                          <option value="Mozambique">Mozambique</option>
-                          <option value="Namibia">Namibia</option>
-                          <option value="Niger">Niger</option>
-                          <option value="Nigeria">Nigeria</option>
-                          <option value="Rwanda">Rwanda</option>
-                          <option value="Réunion">Réunion</option>
-                          <option value="Saint Helena">Saint Helena</option>
-                          <option value="Senegal">Senegal</option>
-                          <option value="Seychelles">Seychelles</option>
-                          <option value="Sierra Leone">Sierra Leone</option>
-                          <option value="Somalia">Somalia</option>
-                          <option value="South Africa">South Africa</option>
-                          <option value="Sudan">Sudan</option>
-                          <option value="Swaziland">Swaziland</option>
-                          <option value="Tanzania">Tanzania</option>
-                          <option value="Togo">Togo</option>
-                          <option value="Tunisia">Tunisia</option>
-                          <option value="Uganda">Uganda</option>
-                          <option value="Zambia">Zambia</option>
-                          <option value="Zimbabwe">Zimbabwe</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Select region </label>
-                        <select class="form-control" >
+                        <label >Select region</label>
+                        <select class="form-control" [(ngModel)]="region" name="region">
                             <option value="Northern">Northern</option>
                             <option value="Western">Western</option>
                             <option value="Central">Central</option>
@@ -191,8 +123,8 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Legal status of entity </label>
-                        <select  class="form-control">
+                        <label >Legal status of entity </label>
+                        <select  class="form-control" [(ngModel)]="legal_status" name="legal_status">
                           <option value="Not registered">Not registered</option>
                           <option value="Sole proprietor business">Sole proprietor business</option>
                           <option value="Partnership">Partnership</option>
@@ -204,8 +136,8 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Strage of business growth</label>
-                        <select class="form-control" >
+                        <label >Stage of business growth</label>
+                        <select class="form-control" [(ngModel)]="business_stage" name="business_stage" >
                             <option value="Business idea">Business idea</option>
                             <option value="Start up">Start up</option>
                             <option value="Early growth">Early growth</option>
@@ -218,7 +150,7 @@
 
                       <div class="form-group">
                         <label>Select all sectors that apply to your business.</label>
-                        <select  class="form-control" multiple>
+                        <select  class="form-control" multiple  [(ngModel)]="sectors" name="sectors">
                             <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
                             </option>
                             <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
@@ -237,17 +169,17 @@
             
                       <div class="form-group">
                       <label for="exampleInputEmail1">start date of operations </label>
-                      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <input type="date" class="form-control"   [(ngModel)]="start_of_operation" name="start_of_operation">
                       
                       </div>
             
                       <div class="form-group">
                       <label for="exampleInputEmail1">Date of registrations </label>
-                      <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <input type="date" class="form-control"   [(ngModel)]="date_of_reg" name="date_of_reg">
                       
                       </div>
                       
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block" (click)="add_business()">Submit</button>
                       </form>
               </div>
             </div>

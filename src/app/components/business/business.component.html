@@ -1,3 +1,37 @@
-<p>
-  business works!
-</p>
+<div class="body">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron">
+          <h1 class="display-4">My businesses</h1>
+          <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
+          </div>
+        <div class="content row">
+          <div class="col-md-6 carddata" *ngFor="let business of businesses">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="assets/v.jpg"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{business.business_name}}</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+              <div class="card-body">
+                <a href="#" class="card-link">12 Follows</a>
+                <a href="#" class="card-link">2 investment</a>
+                <a routerLink="/business/9" class="card-link">business info</a>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
