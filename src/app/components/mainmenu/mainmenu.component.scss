@@ -3,7 +3,7 @@
 }
 .profile {
   position: relative;
-  height: 250px;
+  height: 220px;
 }
 
 .bottom > img {
@@ -40,7 +40,7 @@
 .bottom {
   text-align: center !important;
   background: transparent;
-  height: 200px;
+  height: 160px;
   position: absolute;
   z-index: 100;
   top: 50px;
@@ -65,4 +65,17 @@ a:hover {
 
 .list-group-item {
   cursor: pointer;
+}
+
+
+.account{
+  color:#333;
+  background:#d1e4f3 !important;
+
+  div{
+    padding-left:20px;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-size:12px;
+  }
 }
