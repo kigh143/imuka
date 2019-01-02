@@ -4,9 +4,11 @@
       <div class="row">
         <div class="col-md-9">
         <div class="jumbotron">
-        <h1 class="display-4">Events</h1>
-        <p>Find upcoming networking and training events in your sector and region,
-                including Imuka Series events.</p>
+            <h1 class="display-4">Events</h1>
+            <p>Find upcoming networking and training events in your sector and region,
+            including Imuka Series events.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" (click)="openModal(template)">Post an Event</a>
         </div>
             <div class="content">
                 <div class="row">
@@ -35,4 +37,61 @@
       </div>
     </div>
     </div>
+
+    <ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Post an event</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                <input type="text"  class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Event title</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control"  placeholder="Event title">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Date of event</label>
+                <div class="col-sm-10">
+                <input type="date" class="form-control" >
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Event Venue</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control"  placeholder="Event Venue">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Link to details</label>
+                <div class="col-sm-10">
+                <input type="link" class="form-control"  placeholder="Link to details">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Short description</label>
+                <div class="col-sm-10">
+                <textarea class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <button class="btn btn-primary btn-sm">Post </button>
+            </div>
+        </form>
+    </div>
+    </ng-template>
     

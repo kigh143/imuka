@@ -40,6 +40,9 @@
       align-items: flex-start;
       flex-wrap: nowrap;
       padding:0px !important;
+      position: sticky;
+      top:56px;
+      z-index: 1000;
    }
 
     .mobile_tabs > .list-group-item{
