@@ -41,6 +41,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AddinvoiceComponent } from './components/addinvoice/addinvoice.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PalnsComponent } from './components/palns/palns.component';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -66,11 +67,12 @@ const app_routes: Routes = [
   { path: "investmentrequest", component: InvestmentRequestComponent},
   { path: "einvoice", component: EInvoiceComponent},
   { path: "Product", component: ProductComponent},
-  {path: "request", component: RequestComponent},
-  {path: "addinvoice", component: AddinvoiceComponent},
+  { path: "request", component: RequestComponent},
+  { path: "addinvoice", component: AddinvoiceComponent},
   { path:"organisations", component : OrganisationsComponent},
   { path:"organisation/:id", component : OrganisationComponent},
-  { path:"user/:user_id", component : UserProfileComponent}
+  { path:"user/:user_id", component : UserProfileComponent},
+  { path:"plans", component : PalnsComponent},
 ];
 
 @NgModule({
@@ -107,7 +109,8 @@ const app_routes: Routes = [
     OrganisationsComponent,
     OrganisationComponent,
     RequestComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PalnsComponent
   ],
  
   imports: [

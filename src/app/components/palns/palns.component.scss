@@ -36,7 +36,6 @@
 section{
     border:1px solid #eee;
     margin-bottom:10px;
-
     .heading{
         padding:10px;
         background: #d1e4f3;
@@ -54,4 +53,12 @@ section{
 
 .p-2{
     font-weight: 400 !important;
+}
+
+.header_entr{
+    background: rgba(231, 174, 174, 0.582) !important;
+}
+
+.header_inv{
+    background: rgba(174, 233, 174, 0.493) !important;
 }

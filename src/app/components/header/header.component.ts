@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isClickedShowMenu : boolean = true;
+
   constructor( public router: Router) { }
 
   ngOnInit() {
@@ -15,6 +16,10 @@ export class HeaderComponent implements OnInit {
 
   go_to_profile(){
     this.router.navigate(['/profile'])
+  }
+  openMenu(){
+    this.isClickedShowMenu = !this.isClickedShowMenu;
+    console.log( this.isClickedShowMenu );
   }
 
 }
