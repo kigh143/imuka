@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  onActivate(e, outlet){
+    outlet.scrollTop = 0;
+  }
 }
