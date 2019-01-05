@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   onActivate(e, outlet){
-    outlet.scrollTop = 0;
+    window.scroll(0,0);
   }
 }
