@@ -24,35 +24,37 @@
     background: none !important;
 }
  
-  img {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%; 
-    margin-bottom: 10px;
-  }
+img {
+height: 80px;
+width: 80px;
+border-radius: 50%; 
+margin-bottom: 10px;
+}
 
-  @media only screen and (max-width: 768px) {
-    .container{
-        margin-top:10px;
-    }
+@media only screen and (max-width: 768px) {
+.container{
+    margin-top:10px;
+}
 
-  }
+}
 
-  .account_info{
-      padding:10px;
-      border:1px solid #eee;
-  }
+.account_info{
+    padding:10px;
+    border:1px solid #eee;
+}
 
-  .jumbotron{
-      margin-bottom: 0px !important;
-      text-align: center;
-      background:#1798d4;
-      border-radius: 0px !important;
-  }
+.jumbotron{
+    margin-bottom: 0px !important;
+    text-align: center;
+    background: radial-gradient(circle at top left, #1798d4, rgb(61, 167, 167));	
+    border-radius: 0px !important;
+    color:#fff;
+}
 
-  .display-4{
-      font-size:30px !important;
-  }
-  .lead{
-      font-size:13px;
-  }
+.display-4{
+    font-size:30px !important;
+}
+
+.lead{
+    font-size:13px;
+}

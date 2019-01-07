@@ -69,10 +69,10 @@ const app_routes: Routes = [
   { path: "Product", component: ProductComponent},
   { path: "request", component: RequestComponent},
   { path: "addinvoice", component: AddinvoiceComponent},
-  { path:"organisations", component : OrganisationsComponent},
-  { path:"organisation/:id", component : OrganisationComponent},
-  { path:"user/:user_id", component : UserProfileComponent},
-  { path:"plans", component : PalnsComponent},
+  { path: "organisations", component : OrganisationsComponent},
+  { path: "organisation/:id", component : OrganisationComponent},
+  { path: "user/:id", component : UserProfileComponent},
+  { path: "plans", component : PalnsComponent},
 ];
 
 @NgModule({
