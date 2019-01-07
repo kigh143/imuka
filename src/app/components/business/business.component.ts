@@ -6,10 +6,69 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./business.component.scss']
 })
 export class BusinessComponent implements OnInit {
+	products=[{
+name:'matooke',
+image:'user.png',
+description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.'
 
+	},
+	{
+name:'Rice',
+image:'user.png',
+description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.'
+
+	},{
+name:'Cassava',
+image:'user.png',
+description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.'
+
+	},
+	]
+ product:boolean=true;
+ documents:boolean=false;
+ team:boolean=false;
+ financial:boolean=false;
+ items=[{
+ 	name:'product',
+ 	isclicked:false
+ },
+ {
+ 	name:'documents',
+ 	isclicked:false
+ },
+ {
+ 	name:'team',
+ 	isclicked:false
+ },
+ {
+ 	name:'Financial records',
+ 	isclicked:false
+ }]
   constructor() { }
 
   ngOnInit() {
   }
+  
+  showdiv(i, item){
+   this.product=false;
+   this.documents=false;
+   this.team=false;
+   this.financial=false;
+  	this.items[i].isclicked = !this.items[i].isclicked;
+  	if( i === 0 ){
+        this.product = true
+  	}else 	if( i === 1 ){
 
+        this. documents = true
+
+  	}else 	if( i === 2 ){
+
+        this.financial = true
+
+  	}else 	if( i === 3 ){
+
+        this.team = true
+  	}
+
+  }
 }

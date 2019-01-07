@@ -1,37 +1,148 @@
 <div class="body">
   <app-header></app-header>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
+ 
         <div class="jumbotron">
-          <h1 class="display-4">My businesses</h1>
+          <h1 class="display-4">My vivan</h1>
           <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
           </div>
-        <div class="content row">
-          <div class="col-md-6 carddata" *ngFor="let business of businesses">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/v.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">{{business.business_name}}</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-              <div class="card-body">
-                <a href="#" class="card-link">12 Follows</a>
-                <a href="#" class="card-link">2 investment</a>
-                <a routerLink="/business/9" class="card-link">business info</a>
-              </div>
+        <div class="row">
+
+            <div class="col-3" *ngFor="let item of items; let i= index" (click)="showdiv(i, item)">
+                <div class="box">
+                  <h2>{{item.name}}</h2>
+                  <p>Check out masakus products </p>
+                  <p style="text-align: center; padding-top: 10px">View</p>
+                 </div> 
             </div>
-          </div>
-         
-        </div>
-      </div>
+      
+
     </div>
+    <hr>
+
+     <div class="products" *ngIf ="product">
+       
+     <div class="content-box row">
+       <div class="col-md-8 col-xs-12">
+        <div class="row" *ngFor="let prdt of products">
+         <div class="col-md-4">
+           <img src={{prdt.image}}/>
+         </div>
+          <div class="col-md-8" style="padding:15px">
+            <h6>{{prdt.name}}</h6>
+            <p>{{prdt.description}}</p>
+          </div>
+        </div>
+</div>
+       <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+         
+         <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+         
+          </div>
+         <div class="form-group">
+            <label for="exampleFormControlTextarea1">Product description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+           <div class="form-group">
+              <label for="exampleFormControlFile1">Add image</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          <button type="submit" class="btn btn-primary">Add ProductS</button>
+          </form>
+       </div>
+     </div>
+     </div>
+      <div class="documents" *ngIf ="documents">
+       
+      <div class="content-box row">
+       <div class="col-md-8 col-xs-12">
+        <div class="row" *ngFor="let prdt of products">
+         
+          
+        </div>
+</div>
+       <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+         
+         <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+         
+          </div>
+         <div class="form-group">
+            <label for="exampleFormControlTextarea1">Product description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+           <div class="form-group">
+              <label for="exampleFormControlFile1">Add image</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          <button type="submit" class="btn btn-primary">Add ProductS</button>
+          </form>
+       </div>
+     </div>
+     </div>
+      
+     <div class="financial" *ngIf ="financial">
+       <div class="content-box row">
+       <div class="col-md-8 col-xs-12">
+        <div class="row" *ngFor="let prdt of products">
+         
+          
+        </div>
+</div>
+       <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+         
+         <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+         
+          </div>
+         <div class="form-group">
+            <label for="exampleFormControlTextarea1">Product description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+           <div class="form-group">
+              <label for="exampleFormControlFile1">Add image</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          <button type="submit" class="btn btn-primary">Add ProductS</button>
+          </form>
+       </div>
+     </div>
+     </div>
+      <div class="team" *ngIf ="team">
+       <div class="content-box row">
+       <div class="col-md-8 col-xs-12">
+        <div class="row" *ngFor="let prdt of products">
+         
+          
+        </div>
+</div>
+       <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+         
+         <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+         
+          </div>
+         <div class="form-group">
+            <label for="exampleFormControlTextarea1">Product description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+           <div class="form-group">
+              <label for="exampleFormControlFile1">Add image</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          <button type="submit" class="btn btn-primary">Add ProductS</button>
+          </form>
+       </div>
+     </div>
+     </div>
   </div>
 </div>

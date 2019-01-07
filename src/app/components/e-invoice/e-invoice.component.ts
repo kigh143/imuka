@@ -21,4 +21,9 @@ export class EInvoiceComponent implements OnInit {
   ngOnInit() {
   }
 
+
+addinvoice(){
+ 
+  }
+
 }

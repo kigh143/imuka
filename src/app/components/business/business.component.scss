@@ -3,14 +3,6 @@
   border: 1px solid #eee;
   border-radius: 3px;
 }
-
-.feeds {
-  background: rgb(223, 156, 156);
-  border: 5px solid #eee;
-  border-radius: 3px;
-  background: none;
-}
-
 .content {
   background: transparent;
   border: 1px solid #eee;
@@ -20,34 +12,33 @@
 .container {
   margin-top: 10px;
 }
-
-.body {
-  background: #f2f2f2;
-}
-
-.col-md-3 {
-  background: none !important;
-}
-
-.add_btn {
-  font-size: 60px;
-  color: #555;
-}
-
-.add {
-  text-align: center;
-  padding: 60px;
-}
-
 .form {
   padding: 10px;
   background: #fff;
   border-radius: 10px;
 }
+ .box{
+    width:95%;
+    margin:auto;
+    padding-top:15px;
+    background:transparent;
+    height:130px;
+    border:1px solid #eeeeee;
+    padding:15px;
+    transition:1s;
+    cursor:pointer;
 
-.feeds{
-  .card{
-    background: rgb(223, 218, 218);
-  }
+    h2{
+    font-size:18px;
+    text-transform: uppercase;
+    color:blue;
+    text-align:center;
+    }
+  
 }
+.box:hover{
+-webkit-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
+-moz-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
+box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
 
+}
