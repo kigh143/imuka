@@ -8,41 +8,64 @@ import { Component, OnInit } from '@angular/core';
 export class BusinessComponent implements OnInit {
 	products=[{
 name:'matooke',
-image:'user.png',
-description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.'
+image:'assets/v.jpg',
+description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.',
+
 
 	},
 	{
 name:'Rice',
-image:'user.png',
-description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.'
+image:'assets/v.jpg',
+description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.',
+
 
 	},{
 name:'Cassava',
-image:'user.png',
+image:'assets/v.jpg',
 description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.'
 
-	},
-	]
+	}
+  
+	];
+  documentsi=[{
+    name:'mdd',
+    image:'assets/PDF_logo.png'
+  },
+  {
+    name:'yean',
+    image:'assets/wordicon.png'
+  },
+  {
+    name:'led',
+    image:'assets/excel.png'
+  }
+  ];
  product:boolean=true;
  documents:boolean=false;
  team:boolean=false;
  financial:boolean=false;
  items=[{
  	name:'product',
- 	isclicked:false
+ 	isclicked:false,
+  type:'products',
+  icon:'fa fa-cubes'
  },
  {
  	name:'documents',
  	isclicked:false
+  type:'documents',
+  icon:'fa fa-file'
  },
  {
  	name:'team',
- 	isclicked:false
- },
+ 	isclicked:false,
+  type:'team',
+  icon:'fa fa-users'
  {
  	name:'Financial records',
- 	isclicked:false
+ 	isclicked:false,
+icon:'fa fa-credit-card',
+  type:'Financial records'
  }]
   constructor() { }
 

@@ -27,11 +27,12 @@
     padding:15px;
     transition:1s;
     cursor:pointer;
+    text-align: center;
 
     h2{
     font-size:18px;
     text-transform: uppercase;
-    color:blue;
+   
     text-align:center;
     }
   
@@ -41,4 +42,38 @@
 -moz-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
 box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
 
+}
+.active{
+-webkit-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
+-moz-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
+box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
+.h2{
+   color:#1798d4;
+}
+i{
+   color:#1798d4;
+}
+
+}
+@media only screen and (max-width:760px){
+  .box{
+  height: 50px;
+
+  border: 0;
+  i{
+    color:#1798d4 !important;
+  }
+    h2{
+    display:none;
+  }
+  p{
+    display: none;
+  }
+
+}}
+.document{
+  margin:5px;
+}
+.team{
+  
 }
