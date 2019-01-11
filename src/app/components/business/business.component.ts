@@ -52,7 +52,7 @@ description:'The best product descriptions address your ideal buyer directly and
  },
  {
  	name:'documents',
- 	isclicked:false
+ 	isclicked:false,
   type:'documents',
   icon:'fa fa-file'
  },
@@ -61,6 +61,7 @@ description:'The best product descriptions address your ideal buyer directly and
  	isclicked:false,
   type:'team',
   icon:'fa fa-users'
+},
  {
  	name:'Financial records',
  	isclicked:false,

@@ -42,6 +42,7 @@ import { AddinvoiceComponent } from './components/addinvoice/addinvoice.componen
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PalnsComponent } from './components/palns/palns.component';
+import { OrgProfileComponent } from './components/org-profile/org-profile.component';
 
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
@@ -110,7 +111,8 @@ const app_routes: Routes = [
     OrganisationComponent,
     RequestComponent,
     UserProfileComponent,
-    PalnsComponent
+    PalnsComponent,
+    OrgProfileComponent
   ],
  
   imports: [
