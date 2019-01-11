@@ -74,6 +74,7 @@ const app_routes: Routes = [
   { path: "organisation/:id", component : OrganisationComponent},
   { path: "user/:id", component : UserProfileComponent},
   { path: "plans", component : PalnsComponent},
+  { path: "org_profile", component : OrgProfileComponent},
 ];
 
 @NgModule({
