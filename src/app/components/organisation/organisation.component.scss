@@ -50,7 +50,7 @@ ul{
     }
 }
 @media only screen and (max-width: 768px) {
-    ul{
+    .ul{
         list-style: none;
         width:100%;
         display: flex;
@@ -60,6 +60,7 @@ ul{
         padding:0px !important;
         li{
             cursor: pointer;
+            text-align: center;
             padding:0px;
             width:20%;
             padding-bottom:5px !important;
