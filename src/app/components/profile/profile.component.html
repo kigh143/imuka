@@ -14,34 +14,40 @@
                         </div>
                     </div>
                 </div>
-                <accordion [closeOthers]="oneAtATime">
-                    <accordion-group heading="Account information and status">
-                        <div class="card" >
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
+                
+                <div class="container">
+                    <div class="row">
+                      <div class="col-md">
+                        <div class ="container" style="margin: auto 50%">
+                            <i class="fa fa-briefcase" aria-hidden="true" ></i>
+                            <br>
+                            <label name="numbusiness"> <span class = "firstLabel">0 </span></label> 
+                            <label> <span class = "secondlabel">Businesses</span>  </label>
+                        </div> 
+                      </div>
+                      <div class="col-md">
+                        <div class ="container" style="margin: auto 50%">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <br>
+                            <p>72% Complete</p>
                         </div>
-                        
-                    </accordion-group>
-                    <accordion-group heading="Change Password">
+
+
+                      </div>
+
+                    </div>
+                </div>
+                  
+
+                <accordion [closeOthers]="oneAtATime">
+
+                    <accordion-group heading="Please complete your profile">
                         <form>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Old Password</label>
-                                <input type="email" class="form-control" id="exampleFormControlInp ut1" placeholder="oldpassword">
+                                <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Enter full names </label>
+                                <input type="email" class="form-control" id="exampleFormControlInp ut1" placeholder="@example Anam David">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   New Password</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="newpassword">
-                            </div>
-                        
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>    Repeat password</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword">
-                            </div>
+                
                        
                              <div class="form-group">
                                 <button  type="button" class="btn btn-primary btn-sm">Save settings</button>
@@ -49,20 +55,21 @@
                             </div>
                       </form>
                     </accordion-group>
-                    <accordion-group heading="Deactive Account">
+                    <accordion-group heading="Contact information">
                         <form>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>   Email address</label>
                                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Password</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                            </div>  
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Explain Further</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>   Phone number</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0705468976@example.com">
                             </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Physical address</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Mulalgo@example.com">
+                            </div>  
+
                             <div class="form-group">
                                 <button  type="button" class="btn btn-primary btn-sm">Save settings</button>
                                 <button type="button" class="btn btn-secondary pull-right btn-sm">Retore settings</button>
@@ -73,6 +80,66 @@
                         <h4>Call Imuka team </h4>
                         <span>0774562622</span>
                     </accordion-group>
+
+                    <accordion-group heading="Personnal information">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>  Date of Birth</label>
+                                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="26th@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i> Marital Status</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0705468976@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Gender</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Mulalgo@example.com">
+                            </div>  
+
+                            <div class="form-group">
+                                <button  type="button" class="btn btn-primary btn-sm">Save settings</button>
+                                <button type="button" class="btn btn-secondary pull-right btn-sm">Retore settings</button>
+                            </div>
+                        </form>
+                    </accordion-group>
+
+                    <accordion-group heading="Education Level">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>   Education Level</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            </div>
+
+                        </form>
+                    </accordion-group>
+
+                    <accordion-group heading="Experience">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>   Relevant Experience</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>   Relevant Skills</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>   Expertise</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1"><i class="fa fa-envelope"></i>   Contact of referee</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            </div>
+
+                        </form>
+                    </accordion-group>
+                    
+
+
                 </accordion>
 
 

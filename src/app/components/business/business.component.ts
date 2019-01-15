@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators
+} from "@angular/forms";
 @Component({
   selector: 'app-business',
   templateUrl: './business.component.html',
@@ -56,19 +62,47 @@ description:'The best product descriptions address your ideal buyer directly and
   type:'documents',
   icon:'fa fa-file'
  },
+  {
+  name:'Financial records',
+  isclicked:false,
+icon:'fa fa-credit-card',
+  type:'Financial records'
+ },
  {
  	name:'team',
  	isclicked:false,
   type:'team',
-  icon:'fa fa-users'
-},
- {
- 	name:'Financial records',
- 	isclicked:false,
-icon:'fa fa-credit-card',
-  type:'Financial records'
- }]
-  constructor() { }
+  icon:'fa fa-users'}
+];
+ 
+bizteam:any;
+bizproduct:any;
+bizdoc:any;
+  constructor(public formBuilder: FormBuilder, public router : Router) {
+   this.bizteam=this.formBuilder.group({
+   teamname:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+   position:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+   phonenumber: [ "", Validators.compose([ Validators.minLength(10),  Validators.required ])],
+   email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
+   address:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+   image:[]
+   });
+
+    this.bizdoc=this.formBuilder.group({
+   doctype:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+   docupload:[ "",Validators.required ],
+  
+   });
+   
+    this.bizproduct=this.formBuilder.group({
+   pdtname:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+   descript:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+   pdtimage:[]
+   });
+   }
+
+
+
 
   ngOnInit() {
   }
@@ -95,4 +129,28 @@ icon:'fa fa-credit-card',
   	}
 
   }
+addpdt(){
+  if (this.bizproduct.valid) {
+    this.router.navigate(['/dashboard'])
+    console.log("Form Submitted!");
+    this.bizproduct.reset();
+  }
+}
+adddoc(){
+  if (this.bizdoc.valid) {
+      this.router.navigate(['/dashboard'])
+      console.log("Form Submitted!");
+      this.bizdoc.reset();
+  }
+}
+addfinancial(){
+
+}
+addteam(){
+  if (this.bizteam.valid) {
+    this.router.navigate(['/dashboard'])
+    console.log("Form Submitted!");
+    this.bizteam.reset();
+  }
+}
 }

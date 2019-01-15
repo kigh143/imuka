@@ -27,7 +27,12 @@ export class SignupComponent {
 
 
   signup(){
-      this.router.navigate(["/verify"]);
+  if (this.myForm.valid) {
+  this.router.navigate(["/verify"]);
+      console.log("Form Submitted!");
+      this.myForm.reset();
+    }
+      
   }
 
 }
