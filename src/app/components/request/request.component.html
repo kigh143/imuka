@@ -1,64 +1,66 @@
 <div class="body"> 
-    <app-header></app-header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9">
-            <div class="banner">Your requests</div>
-            <div class="content">
- 
- 
-<accordion [closeOthers]="oneAtATime">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+          <div class="mainmenu">
+              <app-mainmenu></app-mainmenu>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="content">
+        
+            <div class="data" *ngFor="let req of requests">
+              <div class="head">
+                <div class="type">
+                  <h1>R</h1>
+                </div>
+                <div class="message">
+                  <h6>Request made</h6>
+                  <p>Message sent in the request that was made.</p>
+                </div>
+              </div>
+              <div class="reply">
+                <div class="reply_msg">
+                  <h6>Request made</h6>
+                  <p>Message sent in the request that was made.</p>
+                </div>
+              </div>
+            </div>
 
-  <accordion-group heading="Status" *ngFor="let request of requests">
-  <div class="card" >
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-  </accordion-group>
-  
-</accordion>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="">
+          </div>
+      </div>
+      <div class="col-md-3 add">
+        <div class="ask_for_help">
+            <div class="header">
+                <p>Make a request or Ask for help.</p>
+              </div>
+              <div class="body">
                 <form>
- 
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Select request type</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-   <div class="form-group">
-    <label for="exampleFormControlInput1">Title for request</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Detail your request</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
-            </div>
+                    <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Type</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                    <option name="Help">select option</option>
+                    <option name="Help">Help</option>
+                    <option name="Inquiry">Inquiry</option>
+                    <option name="Request">Request</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="exampleFormControlInput1">Title.</label>
+                    <input type="email" class="form-control" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Details</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary btn-block "> submit Request </button>
+                </form>
+              </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
+</div>
     
