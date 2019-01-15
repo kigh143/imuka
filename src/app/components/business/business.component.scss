@@ -54,6 +54,7 @@ i{
    color:#1798d4;
 }
 
+
 }
 @media only screen and (max-width:760px){
   .box{
@@ -69,6 +70,9 @@ i{
   p{
     display: none;
   }
+  span{
+    display:none;
+  }
 
 }}
 .document{
@@ -76,4 +80,10 @@ i{
 }
 .team{
   
+}
+.card{
+  margin-top: 15px;
+}
+.spaced{
+  margin-left: 10px;
 }

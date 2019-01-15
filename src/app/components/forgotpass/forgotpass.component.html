@@ -6,10 +6,10 @@
             <div class="col-md-6 form">
                 <h3>Forgot Your Password ?</h3>
                 <p>Enter the E-mail address or phone number attached to your account and we send the instructions to change you password.</p>
-                <form>
+                <form  [formGroup]="myForm">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address / Phone number</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email or phone number">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email or phone number" formControlName="email" [class.invalid]="myForm.controls.email.invalid">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Reset My Password</button>
           </form>
