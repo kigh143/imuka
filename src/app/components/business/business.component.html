@@ -1,37 +1,412 @@
 <div class="body">
   <app-header></app-header>
   <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">My vivan</h1>
+      <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
+      <div style="text-align: center">
+        <button type="button" class="btn btn-outline-primary spaced">View pitch deck</button>
+        <button type="button" class="btn btn-outline-secondary spaced">Daily updates</button>
+        <button type="button" class="btn btn-outline-success spaced"><i class="fa fa-eye"></i> Followers</button>
+         <button type="button" class="btn btn-outline-success spaced">Investment requests</button>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-md-12">
-        <div class="jumbotron">
-          <h1 class="display-4">My businesses</h1>
-          <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
-          </div>
-        <div class="content row">
-          <div class="col-md-6 carddata" *ngFor="let business of businesses">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="assets/v.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">{{business.business_name}}</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-              <div class="card-body">
-                <a href="#" class="card-link">12 Follows</a>
-                <a href="#" class="card-link">2 investment</a>
-                <a routerLink="/business/9" class="card-link">business info</a>
-              </div>
+
+      <div class="col-3" *ngFor="let item of items; let i= index" (click)="showdiv(i, item)">
+        <div class="box" [ngClass]="isclicked?'active':''">
+          <i class="{{item.icon}}"></i>
+          <h2>{{item.name}}</h2>
+          <span style="font-size:12px">Check out masakus {{item.type}} </span><br>
+          <span style="text-align: center; text-decoration:underline;padding-bottom: 5px; color:#555">View</span>
+        </div> 
+      </div>
+
+
+    </div>
+    <hr>
+    <div class="products" *ngIf ="product">
+
+      <div class="content-box row">
+        <div class="col-md-8 col-xs-12">
+          <div class="row" *ngFor="let prdt of products">
+            <div class="col-md-4">
+              <img src={{prdt.image}} height="150px" />
+            </div>
+            <div class="col-md-8" style="">
+              <h6>{{prdt.name}}</h6>
+              <p>{{prdt.description}}</p>
             </div>
           </div>
-         
+        </div>
+        <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+
+          <form  [formGroup]="bizproduct">
+            <div class="form-group">
+              <label for="pdtname">Product Name</label>
+              <input type="text" class="form-control" id="pdtname" placeholder="Enter product name" formControlName="pdtname" [class.invalid]="bizproduct.controls.pdtname.invalid">
+
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Product description</label>
+               <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required formControlName="descript"   [class.invalid]="bizproduct.controls.descript.invalid"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Add image</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1"
+               formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.invalid"
+              >
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addpdt()">Add ProductS</button>
+          </form>
         </div>
       </div>
+    </div>
+    <div class="documents" *ngIf ="documents">
+
+      <div class="content-box row">
+        <div class="col-md-8 col-xs-12">
+          <div class="row">
+            <div class="col-3" *ngFor="let doc of documentsi">
+              <div class="box document" [ngClass]="isclicked?'active':''" >
+                <img src="{{doc.image}}" height="80px"/>
+                <h6>{{doc.name}}</h6>
+                
+               </div> 
+            </div>
+          </div>
+        </div>
+        <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+
+        <form  [formGroup]="bizdoc">
+          <div class="form-group">
+          <label for="type">Document type</label>
+        
+                        <select class="form-control" name="type"  formControlName="type" [class.invalid]="bizdoc.controls.type.invalid">
+                          <option value="Algeria">Algeria</option>
+                          <option value="Angola">Angola</option>
+                          <option value="Benin">Benin</option>
+                          <option value="Botswana">Botswana</option>
+                          <option value="Burkina Faso">Burkina Faso</option>
+                          <option value="Burundi">Burundi</option>
+                          <option value="Cameroon">Cameroon</option>
+                          <option value="Cape Verde">Cape Verde</option>
+                          <option value="Central African Republic"
+                            >Central African Republic</option></select>
+
+          </div>
+          
+          <div class="form-group">
+          <label for="exampleFormControlFile1">Upload Document</label>
+          <input type="file" class="form-control-file" id="docupload" formControlName="docupload" [class.invalid]="bizdoc.controls.docupload.invalid">
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="adddoc()">Submit</button>
+        </form>
+      </div>
+      </div>
+    </div>
+
+    <div class="financial" *ngIf ="financial">
+      <div class="content-box row">
+        <div class="col-md-9 col-xs-12">
+          <div class="row" >
+            <div class="col-md-5">
+              <div class="card" >
+                 <div class="card-header">
+                    Manager Accounts
+                 </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-2">
+                      <img src="assets/user.png"/>
+                    </div>
+                    <div class="col-8">
+                      Peterson
+                    </div>
+                    
+                  </div>
+                   <div class="row">
+                    <div class="col-4"  style="text-align: center">
+                      <span  style="font-size:18px; text-align: center">32</span><br>
+                      <span  style="font-size:8px; text-align: center">Reports approved</span>
+                    </div>
+                    <div class="col-4"  style="text-align: center">
+                      <span style="font-size:18px; text-align: center">32</span><br>
+                      <span  style="font-size:8px; text-align: center">Reports approved</span> 
+                    </div>
+                    <div class="col-4" style="text-align: center">
+                      <span  style="font-size:18px; text-align: center">32</span><br>
+                      <span  style="font-size:8px; text-align: center">Reports approved</span>
+                    </div>
+                  </div>
+                 
+                </div>
+                 <div class="card-footer text-muted" style="padding:0; margin:0">
+                      <div class="row">
+                        <div class="col-5"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-7"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                       
+                        </div>
+                        
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-md-7">
+              
+              <div class="card" >
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-2">
+                      <img src="assets/user.png"/>
+                    </div>
+                    <div class="col-6">
+                      Peterson
+                    </div>
+                     <div class="col-4">
+                      manager
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+       <div class="row" >
+              <div class="col-md-3">
+              <div class="card" >
+                 <div class="card-header">
+                    Manager Accounts
+                 </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      Peterson
+                    </div>
+                    
+                  </div>
+                   
+                 
+                </div>
+                 <div class="card-footer text-muted" style="padding:0; margin:0">
+                      <div class="row">
+                      <div class="col-5"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-7"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                       
+                        </div>
+                        
+                      </div>
+                  </div>
+              </div>
+            </div>
+             <div class="col-md-3">
+              <div class="card" >
+                 <div class="card-header">
+                    Manager Accounts
+                 </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      Peterson
+                    </div>
+                    
+                  </div>
+                   
+                 
+                </div>
+                 <div class="card-footer text-muted" style="padding:0; margin:0">
+                      <div class="row">
+                      <div class="col-5"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-7"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                       
+                        </div>
+                        
+                      </div>
+                  </div>
+              </div>
+            </div>
+             <div class="col-md-3">
+              <div class="card" >
+                 <div class="card-header">
+                    Manager Accounts
+                 </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      Peterson
+                    </div>
+                    
+                  </div>
+                   
+                 
+                </div>
+                 <div class="card-footer text-muted" style="padding:0; margin:0">
+                      <div class="row">
+                      <div class="col-5"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-7"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                       
+                        </div>
+                        
+                      </div>
+                  </div>
+              </div>
+            </div>
+          <div class="col-md-3">
+              <div class="card" >
+                 <div class="card-header">
+                    Manager Accounts
+                 </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      Peterson
+                    </div>
+                    
+                  </div>
+                   
+                 
+                </div>
+                 <div class="card-footer text-muted" style="padding:0; margin:0">
+                      <div class="row">
+                      <div class="col-5"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-7"  style="text-align: center">
+                         <i class="fa fa-user"></i>
+                       
+                        </div>
+                        
+                      </div>
+                  </div>
+              </div>
+            </div>
+          
+
+          </div>
+          <div class="chart"style="width:100%">
+            <img src="assets/barchart.png" />
+          </div>
+        </div>
+      
+      
+       <div  class="col-md-3 col-xs-12" style="border-left:1px solid #eee">
+
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Product Name</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Add image</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addfinancial()">Add ProductS</button>
+          </form>
+        </div>
+    </div> </div>
+    <div class="team" *ngIf ="team">
+      <div class="content-box row">
+          <div class="col-md-8 col-xs-12">
+           
+
+
+            <div class="card" >
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-2">
+                      <img src="assets/user.png"/>
+                    </div>
+                    <div class="col-6">
+                      Peterson
+                    </div>
+                     <div class="col-4">
+                      manager
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" >
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-3">
+                      <img src="assets/user.png"/>
+                    </div>
+                    <div class="col-6">
+                      Peterson
+                    </div>
+                     <div class="col-3">
+                      manager
+                    </div>
+                  </div>
+                </div>
+              </div><div class="card" >
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-3">
+                      <img src="assets/user.png"/>
+                    </div>
+                    <div class="col-6">
+                      Peterson
+                    </div>
+                     <div class="col-3">
+                      manager
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+
+            <form [formGroup]="bizteam">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter member name" formControlName="teamname" [class.invalid]="bizteam.controls.teamname.invalid">
+
+              </div>
+               <div class="form-group">
+                <label for="exampleInputEmail1">Position</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="position" formControlName="position" [class.invalid]="bizteam.controls.position.invalid">
+
+              </div>
+               <div class="form-group">
+                <label for="exampleInputEmail1">Mobile number</label>
+                <input type="phonenumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number" formControlName="phonenumber" [class.invalid]="bizteam.controls.phonenumber.invalid">
+
+              </div>
+               <div class="form-group">
+                <label for="exampleInputEmail1">Email </label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" [class.invalid]="bizteam.controls.email.invalid">
+
+              </div>
+               <div class="form-group">
+                <label for="exampleInputEmail1">physical addresses</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" formControlName="address" [class.invalid]="bizteam.controls.address.invalid">
+
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Add image</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="image" [class.invalid]="bizteam.controls.image.invalid">
+              </div>
+              <button type="submit" class="btn btn-primary"  (click)="addteam()">Add Team</button>
+            </form>
+          </div>
+        </div>
     </div>
   </div>
 </div>

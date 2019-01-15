@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   investors: boolean =true;
-  constructor() { }
+  constructor( public router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigate_to(page){
+    this.router.navigate([page]);
   }
 
 }

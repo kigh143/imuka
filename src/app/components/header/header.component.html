@@ -8,19 +8,33 @@
           <div class="collapse navbar-collapse" [ngClass]="isClickedShowMenu?'no':'show'">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" routerLink="/people">People</a>
+              <a class="nav-link" routerLink="/people">
+                <i class="fa fa-address-book"></i>  People
+              </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" routerLink="/organisations">Support  Organizations</a>
+                <a class="nav-link" routerLink="/organisations">
+                  <i class="fa fa-sitemap"></i> Support organizations
+                </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" routerLink="/notifications"> Notifications</a>
+              <a class="nav-link" routerLink="/settings">
+                <i class="fa fa-cog"></i> Settings
+              </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" routerLink="/profile"> Virungi Bivian</a>
+              <a class="nav-link" routerLink="/help"> 
+                <i class="fa fa-question-circle" ></i> Ask for Help
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/profile"> 
+                <i class="fa fa-fa fa-user-circle-o"></i> Katende Ivan
+              </a>
             </li>
           </ul>
           </div>
@@ -29,9 +43,10 @@
 </header>
 
 <ul class="mobile_tabs">
-  <li class="list-group-item active"><a routerLink="/my_businesses"><i class="fa fa-home"></i></a></li>
+  <li class="list-group-item active"><a routerLink="/dashboard"><i class="fa fa-home"></i></a></li>
   <li class="list-group-item"><a routerLink="/events"><i class="fa fa-calendar"></i></a></li>
   <li class="list-group-item"><a routerLink="/opportunities"><i class="fa fa-globe"></i></a></li>
   <li class="list-group-item"><a routerLink="/organisations"><i class="fa fa-sitemap"></i></a></li>
   <li class="list-group-item"><a routerLink="/notifications"><i class="fa fa-bell"></i></a></li>
 </ul>
+

@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="jumbotron">
           <h1 class="display-4">OutBox Hub</h1>
           <p>
@@ -10,34 +10,116 @@
             access-point for the opportunities, support and financing to scale
             your business to the next level.
           </p>
-          <hr class="">
-          <button class="btn btn-primary">Join outbox group</button> 
         </div>
-      </div>
-      <div class="col-md-4 feeds">
+        
+        <hr>
+          <ul class="ul">
+            <li *ngFor="let item of org_menu; let i=index" (click)="show_page(item, i)" [ngClass]="item.isactive ? 'active':'not_active'"> 
+                <i [ngClass]="item.icon"></i> 
+                <span>{{item.name}}</span> 
+            </li>
+          </ul>
 
-          <div class="card">
-              <div class="card-header">
-                Send Feedback or Inquiry
-                <option value="3">Three</option>
-              </div>
-              <div class="card-body">
-                <form action="">
-                  <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01">
-                          <option selected>Choose...</option>
-                          <option value="Feedback">Feedback</option>
-                          <option value="Inquiry">Inquiry</option>
-                        </select>
+
+          <div class="main_tab_content">
+            <div *ngIf="active_index == 0">
+              <p>About Organication (profile)</p>
+              <hr>
+              <h4>Outbox</h4>
+              <b>Technology hub</b><br/>
+              <b>Located at soliz house </b>
+
+              <p>
+                  Some quick example text to build on the card title and make up the bulk Some quick example text to build on the card title and make up the bulkSome quick example text to build on the card title and make up the bulk
+                  Some quick example text to build on the card title and make up the bulk 
+                  Some quick example text to build on the card title and make up the bulk 
+                  Some quick example text to build on the card title and make up the bulk 
+                  Some quick example text to build on the card title and make up the bulk 
+                  Some quick example text to build on the card title and make up the bulk 
+                  Some quick example text to build on the card title and make up the bulk 
+              </p>
+            </div>
+            <div *ngIf="active_index == 1">
+              <p>Organication Events</p>
+              <hr>
+
+              <div class="row">
+                  <div class="col-md-4 carddata" *ngFor="let event of events">
+                      <div class="card">
+                      <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
+                      <div class="card-body">
+                          <h5 class="card-title">Opportunity title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">website</li>
+                          <li class="list-group-item">Facebook</li>
+                          <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
+                      </div>
                   </div>
-                  <textarea name="message" class="form-control" placeholder="Type the message ..."></textarea><br/>
-                  <button type="" class="btn btn-primary btn-block">Send Message</button>
-                </form>
+              </div>
+
+            </div>
+            <div *ngIf="active_index == 2">
+              <p>Opportunities</p>
+              <hr>
+              <div class="row">
+                  <div class="col-md-6 carddata" *ngFor="let opportunity of opportunities">
+                      <div class="card">
+                      <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
+                      <div class="card-body">
+                          <h5 class="card-title">Opportunity title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">website</li>
+                          <li class="list-group-item">Facebook</li>
+                          <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
+                      </div>
+                  </div>
               </div>
             </div>
+            <div *ngIf="active_index == 3">
+              <p>Group</p>
+              <hr>
+            </div>
+            <div *ngIf="active_index == 4">
+              <p>Feedback and inquiry</p>
+              <hr>
+              <div class="row">
+                  <div class="col-md-6">
+
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form">
+                        <form>
+                            <div class="form-group">
+                            <label for="exampleInputEmail1">Select feedback type</label>
+                            
+                            <select name="email" class="form-control">
+                              <option value=""></option>
+                              <option value=""></option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleInputPassword1">Type message</label>
+                            <textarea
+                            name="message"
+                            class="form-control"
+                            ></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" >
+                            send inquiry
+                            </button>
+                        </form>
+                    </div>
+                      
+                  </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

@@ -24,6 +24,14 @@ export class LoginComponent {
   }
 
   login() {
-    // this._router.navigate(["/dashboard"]);
+ if (this.loginForm.valid) {
+  this._router.navigate(["/dashboard"]);
+     
+      this.loginForm.reset();
+    }
+      
+  
+
+ 
   }
 }

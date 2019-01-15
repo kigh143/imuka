@@ -2,12 +2,17 @@
 <app-header></app-header>
 <div class="container">
     <div class="row">
+    <div class="col-md-3">
+    <div class="mainmenu">
+        <app-mainmenu></app-mainmenu>
+    </div>
+    </div>
     <div class="col-md-9">
         <div class="jumbotron">
         <h1 class="display-4">Opportunities</h1>
         <p>Explore funding, skilling and resource opportunities in your business sector and region.</p>
         <hr class="my-4">
-        <a class="btn btn-primary btn-lg" (click)="openTheModal(template)">Post an opportunity</a>
+        <a class="btn btn-primary btn-sm" (click)="openTheModal(template)">Post an opportunity</a>
         </div>
         <div class="content">
             <div class="row">
@@ -19,18 +24,13 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Time odio</li>
-                        <li class="list-group-item">Vennue ac facilisis in</li>
+                        <li class="list-group-item">website</li>
+                        <li class="list-group-item">Facebook</li>
                         <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3 feeds">
-        <div class="feeds">
-            <app-feeds></app-feeds>
         </div>
     </div>
     </div>
@@ -90,7 +90,7 @@
 
 
                 <div>
-                    <button class="btn btn-primary btn-sm">Post </button>
+                    <button class="btn btn-primary btn-sm">Submit Opportunity </button>
                 </div>
             </form>
         </div>

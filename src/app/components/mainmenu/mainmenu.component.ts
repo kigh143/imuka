@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mainmenu',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router : Router) { }
 
   ngOnInit() {
   }
 
   logout(){
     alert(89)
+  }
+
+  go_to_profile(){
+    this.router.navigate(['profile']);
   }
 
 }
