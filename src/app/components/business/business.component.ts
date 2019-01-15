@@ -74,6 +74,7 @@ icon:'fa fa-credit-card',
   type:'team',
   icon:'fa fa-users'}
 ],
+ 
 bizteam:any;
 bizproduct:any;
 bizdoc:any;
@@ -99,6 +100,9 @@ bizdoc:any;
    pdtimage:[]
    });
    }
+
+
+
 
   ngOnInit() {
   }
