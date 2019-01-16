@@ -1,0 +1,51 @@
+.mainmenu{
+    background: rgb(233, 232, 232);
+    border:1px solid #eee;
+    border-radius: 3px;
+}
+
+.feeds{
+    background: #fff;
+    border:1px solid #eee; 
+    border-radius: 3px;
+    background: none;
+}
+
+.content{
+    background: transparent;
+    border:1px solid #eee; 
+    border-radius: 3px;
+    padding:10px;
+}
+
+.container{
+    margin-top:10px;
+}
+
+.body{
+    background:#f2f2f2;
+}
+
+.col-md-3{
+    background: none !important;
+    margin-bottom: 10px;
+}
+
+.top_header{
+    background: radial-gradient(circle at top left, #1798d4, rgb(61, 167, 167)) !important;
+    display: flex;
+    div{
+        margin:auto;
+        color:#fff;
+    }
+}
+
+.col-md-9{
+    border-left:1px solid #aaa;
+}
+
+
+section{
+    padding:10px;
+    background: #fff;
+}

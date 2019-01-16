@@ -62,7 +62,7 @@ const app_routes: Routes = [
   { path: "business/:id", component: BusinessComponent },
   { path: "add_business", component: AddBusinessComponent },
   { path: "business", component: BusinessComponent },
-  { path: "pitchbook", component: PitchbookComponent }, 
+  { path: "pitchbook/:id", component: PitchbookComponent }, 
   { path: "search", component: SearchComponent },
   { path: "investiment_opportunities", component: InvestmentoppComponent},
   { path: "investmentrequest", component: InvestmentRequestComponent},
