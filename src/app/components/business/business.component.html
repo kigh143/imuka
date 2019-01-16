@@ -6,7 +6,7 @@
       <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
       <div style="text-align: center">
         <button type="button" class="btn btn-outline-primary spaced">View pitch deck</button>
-        <button type="button" class="btn btn-outline-secondary spaced">Daily updates</button>
+        <button type="button" class="btn btn-outline-secondary spaced" (click)="openModal(template)">Daily updates</button>
         <button type="button" class="btn btn-outline-success spaced"><i class="fa fa-eye"></i> Followers</button>
          <button type="button" class="btn btn-outline-success spaced">Investment requests</button>
       </div>
@@ -302,18 +302,58 @@
         </div>
       
       
-       <div  class="col-md-3 col-xs-12" style="border-left:1px solid #eee">
+       <div  class="col-md-3 col-xs-12" style="border-left:1px solid #eee; padding:0">
 
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Product Name</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-
-            </div>
+          <form [formGroup]="bizfinancial">
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="start_period" [class.invalid]="bizfinancial.controls.start_period.invalid" class="form-control" placeholder="start period" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px; margin-right: 15px">
+                <input type="text" aria-label="First name" class="form-control"  formControlName="end_period" [class.invalid]="bizfinancial.controls.end_period.invalid"  placeholder="End period" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name"  formControlName="revenue" [class.invalid]="bizfinancial.controls.revenue.invalid" placeholder="Revenue" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="cost" [class.invalid]="bizfinancial.controls.cost.invalid" placeholder="cost of goods sold" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="grossprofit" [class.invalid]="bizfinancial.controls.grossprofit.invalid"  placeholder="Grossprofit" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="expenditure" [class.invalid]="bizfinancial.controls.expenditure.invalid" placeholder="Total expenditure" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="tax" [class.invalid]="bizfinancial.controls.tax.invalid"  placeholder="Tax" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="net_profit" [class.invalid]="bizfinancial.controls.net_profit.invalid"  placeholder="Net Profit" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="ebitda" [class.invalid]="bizfinancial.controls.ebitda.invalid" placeholder="EBITDA" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="ebit" [class.invalid]="bizfinancial.controls.ebit.invalid"  placeholder="EBIT" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="depriciation" [class.invalid]="bizfinancial.controls.depriciation.invalid" class="form-control"  placeholder="Depriciation" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="land" [class.invalid]="bizfinancial.controls.land.invalid" placeholder="Land & building" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="machinery" [class.invalid]="bizfinancial.controls.machinery.invalid" placeholder="machinery & equip" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="furniture" [class.invalid]="bizfinancial.controls.furniture.invalid"  placeholder="furniture & fittings" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="stock" [class.invalid]="bizfinancial.controls.stock.invalid"  placeholder="stock" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="debtors" [class.invalid]="bizfinancial.controls.debtors.invalid"  placeholder="Debtors" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
+              <div class="input-group">
+               
+                <input type="text" aria-label="First name" formControlName="shareholders_equity" [class.invalid]="bizfinancial.controls.shareholders_equity.invalid"  placeholder="shareholder's equity" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
+                <input type="text" aria-label="First name" formControlName="cash_bank" [class.invalid]="bizfinancial.controls.cash_bank.invalid"   placeholder="cash/Bank" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
+              </div>
             
             <div class="form-group">
               <label for="exampleFormControlFile1">Add image</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              <input type="file" class="form-control-file" formControlName="finfile" [class.invalid]="bizfinancial.controls.finfile.invalid" id="exampleFormControlFile1">
             </div>
             <button type="submit" class="btn btn-primary" (click)="addfinancial()">Add ProductS</button>
           </form>
@@ -410,3 +450,25 @@
     </div>
   </div>
 </div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p *ngFor="let item of items">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      delectus enim esse excepturi, impedit,
+      iste magnam officia optio, quam quis quisquam saepe sint unde velit vitae! Animi in iusto ut?</p>
+  </div>
+</ng-template>
