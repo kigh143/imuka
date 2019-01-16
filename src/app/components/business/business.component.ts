@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, TemplateRef  } from '@angular/core';
 import { Router } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import {
   FormGroup,
   FormBuilder,
@@ -12,6 +14,7 @@ import {
   styleUrls: ['./business.component.scss']
 })
 export class BusinessComponent implements OnInit {
+   modalRef: BsModalRef;
 	products=[{
 name:'matooke',
 image:'assets/v.jpg',
@@ -78,28 +81,53 @@ icon:'fa fa-credit-card',
 bizteam:any;
 bizproduct:any;
 bizdoc:any;
-  constructor(public formBuilder: FormBuilder, public router : Router) {
-   this.bizteam=this.formBuilder.group({
-   teamname:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-   position:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
-   phonenumber: [ "", Validators.compose([ Validators.minLength(10),  Validators.required ])],
-   email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
-   address:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-   image:[]
-   });
+bizfinancial:any;
+constructor(public formBuilder: FormBuilder, public router : Router, public modalService: BsModalService ) {
+    this.bizteam=this.formBuilder.group({
+        teamname:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        position:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        phonenumber: [ "", Validators.compose([ Validators.minLength(10),  Validators.required ])],
+        email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
+        address:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        image:[]
+    });
 
     this.bizdoc=this.formBuilder.group({
-   doctype:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-   docupload:[ "",Validators.required ],
-  
-   });
-   
+        doctype:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        docupload:[ "",Validators.required ],
+
+    });
+       
     this.bizproduct=this.formBuilder.group({
-   pdtname:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-   descript:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
-   pdtimage:[]
-   });
-   }
+        pdtname:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        descript:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        pdtimage:[]
+    });
+
+    this.bizfinancial=this.formBuilder.group({
+        start_period:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        descript:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        end_period:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        revenue:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        cost:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        grossprofit:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        expenditure:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        tax:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        net_profit:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        ebitda:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        ebit:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        depriciation:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        land:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        machinery:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        furniture:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        stock:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        debtors:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+        shareholder_equity:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+        cash_bank:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+
+        finfile:[]
+        });
+    }
 
 
 
@@ -107,28 +135,28 @@ bizdoc:any;
   ngOnInit() {
   }
   
-  showdiv(i, item){
-   this.product=false;
-   this.documents=false;
-   this.team=false;
-   this.financial=false;
-  	this.items[i].isclicked = !this.items[i].isclicked;
-  	if( i === 0 ){
+showdiv(i, item){
+    this.product=false;
+    this.documents=false;
+    this.team=false;
+    this.financial=false;
+    this.items[i].isclicked = !this.items[i].isclicked;
+    if( i === 0 ){
         this.product = true
-  	}else 	if( i === 1 ){
+    }else 	if( i === 1 ){
 
         this. documents = true
 
-  	}else 	if( i === 2 ){
+    }else 	if( i === 2 ){
 
         this.financial = true
 
-  	}else 	if( i === 3 ){
+    }else 	if( i === 3 ){
 
         this.team = true
-  	}
+    }
 
-  }
+}
 addpdt(){
   if (this.bizproduct.valid) {
     this.router.navigate(['/dashboard'])
@@ -144,7 +172,11 @@ adddoc(){
   }
 }
 addfinancial(){
-
+if (this.bizfinancial.valid) {
+    this.router.navigate(['/dashboard'])
+    console.log("Form Submitted!");
+    this.bizfinancial.reset();
+  }
 }
 addteam(){
   if (this.bizteam.valid) {
@@ -153,4 +185,7 @@ addteam(){
     this.bizteam.reset();
   }
 }
+openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 }

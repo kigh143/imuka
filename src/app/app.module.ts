@@ -44,6 +44,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { PalnsComponent } from './components/palns/palns.component';
 import { OrgProfileComponent } from './components/org-profile/org-profile.component';
 
+
 const app_routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "signup", component: SignupComponent },
