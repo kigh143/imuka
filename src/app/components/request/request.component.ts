@@ -9,9 +9,10 @@ import {
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
-  styleUrls: ['./request.component.css']
+  styleUrls: ['./request.component.scss']
 })
 export class RequestComponent implements OnInit {
+
 	requests=[1, 2, 3, 4, 5];
 	oneAtATime: boolean = true;
 	makerequest:any;
@@ -23,6 +24,7 @@ export class RequestComponent implements OnInit {
 			requestdetail:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])]
 		});
 	 }
+
 
 	ngOnInit() {
   }
