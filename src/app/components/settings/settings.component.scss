@@ -28,3 +28,22 @@
 .col-md-3{
     background: none !important;
 }
+li{
+    border-left:0px;
+   border-right:0px;  
+   cursor:pointer;
+
+}
+ul{
+    padding-left:5px;
+    padding-right:5px;
+    li:first-letter{
+   text-transform:capitalize !important;
+}
+
+}
+.pwd{
+    padding:50px;
+}
+
+
