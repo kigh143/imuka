@@ -15,7 +15,9 @@ import {
 })
 export class BusinessComponent implements OnInit {
    modalRef: BsModalRef;
-	products=[{
+   headElements = ['Id', 'Item', 'unit price', 'Unit', 'Price', 'Action'];
+
+ products=[{
 name:'matooke',
 image:'assets/v.jpg',
 description:'The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.',
@@ -49,16 +51,25 @@ description:'The best product descriptions address your ideal buyer directly and
     image:'assets/excel.png'
   }
   ];
- product:boolean=true;
+business:boolean=true;
+ product:boolean=false;
  documents:boolean=false;
  team:boolean=false;
  financial:boolean=false;
  items=[{
+  name:'business',
+  isclicked:false,
+  type:'business',
+  icon:'fa fa-file'
+ },
+ {
  	name:'product',
  	isclicked:false,
   type:'products',
   icon:'fa fa-cubes'
  },
+ 
+
  {
  	name:'documents',
  	isclicked:false,
@@ -136,24 +147,29 @@ constructor(public formBuilder: FormBuilder, public router : Router, public moda
   }
   
 showdiv(i, item){
+   this.business=false;
     this.product=false;
     this.documents=false;
     this.team=false;
     this.financial=false;
     this.items[i].isclicked = !this.items[i].isclicked;
     if( i === 0 ){
-        this.product = true
+        this.business = true
     }else 	if( i === 1 ){
 
-        this. documents = true
+        this.product = true
 
     }else 	if( i === 2 ){
 
-        this.financial = true
+        this.documents = true
 
     }else 	if( i === 3 ){
 
-        this.team = true
+        this.financial = true
+    }
+    else if(i === 4){
+     this.team = true
+
     }
 
 }
