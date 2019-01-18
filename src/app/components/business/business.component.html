@@ -4,19 +4,23 @@
     <div class="jumbotron">
       <h1 class="display-4">My vivan</h1>
       <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
-      <div style="text-align: center">
+      <div >
         <button type="button" class="btn btn-outline-primary spaced">View pitch deck</button>
-        <button type="button" class="btn btn-outline-secondary spaced" (click)="openModal(template)">Daily updates</button>
-        <button type="button" class="btn btn-outline-success spaced"><i class="fa fa-eye"></i> Followers</button>
-         <button type="button" class="btn btn-outline-success spaced">Investment requests</button>
+        <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/9">View pitch deck</button>
+        <button type="button" class="btn btn-outline-success spaced" (click)="openModal(followers)"><i class="fa fa-eye"></i> Followers</button>
+       
       </div>
     </div>
     <hr>
+    <div>
+
+       <div class="buttn" style=""><button type="button" class="btn btn-secondary spaced" (click)="openModal(template)">Daily updates</button></div>
     <div class="row">
       <div class="col-md-4"><img src="assets/area_graph.png"/></div>
       <div class="col-md-4"><img src="assets/graph_images.png"/></div>
       <div class="col-md-4"><img  src="assets/mre_grp.png"/></div>
     </div>
+   </div>
      <hr>
           <ul class="ul">
             <li *ngFor="let item of items; let i=index" (click)="showdiv(i, item)" [ngClass]="item.isactive ? 'active':'not_active'"> 
@@ -32,15 +36,26 @@
 
       <div class="content-box row">
         <div class="col-md-8 col-xs-12">
-          <div class="row" *ngFor="let prdt of products">
-            <div class="col-md-4">
-              <img src={{prdt.image}} height="150px" />
+          <form>
+          <span style="font-size:14px">General</span>
+          <hr>
+          
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
             </div>
-            <div class="col-md-8" style="">
-              hello world
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Line of business</label>
+                <div class="col-sm-10">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
             </div>
-          </div>
-        </div>
+             <span style="font-size:14px">General</span>
+             <hr>
+          </form>
+        </div> 
         <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
 
           <form  [formGroup]="bizproduct">
@@ -328,6 +343,7 @@
     </div>
   </div>
 </div>
+ <app-footer></app-footer>
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Modal</h4>
@@ -348,5 +364,16 @@
       delectus enim esse excepturi, impedit,
       delectus enim esse excepturi, impedit,
       iste magnam officia optio, quam quis quisquam saepe sint unde velit vitae! Animi in iusto ut?</p>
+  </div>
+</ng-template>
+<ng-template #followers>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   
   </div>
 </ng-template>
