@@ -4,19 +4,23 @@
     <div class="jumbotron">
       <h1 class="display-4">My vivan</h1>
       <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
-      <div style="text-align: center">
+      <div >
         <button type="button" class="btn btn-outline-primary spaced">View pitch deck</button>
-        <button type="button" class="btn btn-outline-secondary spaced" (click)="openModal(template)">Daily updates</button>
-        <button type="button" class="btn btn-outline-success spaced"><i class="fa fa-eye"></i> Followers</button>
-         <button type="button" class="btn btn-outline-success spaced">Investment requests</button>
+        <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/9">View pitch deck</button>
+        <button type="button" class="btn btn-outline-success spaced" (click)="openModal(followers)"><i class="fa fa-eye"></i> Followers</button>
+       
       </div>
     </div>
     <hr>
+    <div>
+
+       <div class="buttn" style=""><button type="button" class="btn btn-secondary spaced" (click)="openModal(template)">update Progress</button></div>
     <div class="row">
       <div class="col-md-4"><img src="assets/area_graph.png"/></div>
       <div class="col-md-4"><img src="assets/graph_images.png"/></div>
       <div class="col-md-4"><img  src="assets/mre_grp.png"/></div>
     </div>
+   </div>
      <hr>
           <ul class="ul">
             <li *ngFor="let item of items; let i=index" (click)="showdiv(i, item)" [ngClass]="item.isactive ? 'active':'not_active'"> 
@@ -32,35 +36,226 @@
 
       <div class="content-box row">
         <div class="col-md-8 col-xs-12">
-          <div class="row" *ngFor="let prdt of products">
-            <div class="col-md-4">
-              <img src={{prdt.image}} height="150px" />
+          <form>
+          <span style="font-size:14px">General</span>
+          <hr>
+          
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
             </div>
-            <div class="col-md-8" style="">
-              hello world
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Line of business</label>
+                <div class="col-sm-9">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
             </div>
-          </div>
-        </div>
+             <span style="font-size:14px">Contact</span>
+             <hr>
+             <div class="form-group row">
+
+                <label for="inputPassword" class="col-sm-3 col-form-label">Phone number</label>
+                <div class="col-sm-9">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                <label class="form-check-label" for="defaultCheck2">
+                Has Phone number 
+                </label>
+               <input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+            </div>
+               <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Website</label>
+                <div class="col-sm-9">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                  <label class="form-check-label" for="defaultCheck2">
+                  Has Website 
+                  </label>
+                 <input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+            </div>
+            <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                  <label class="form-check-label" for="defaultCheck2">
+                  Has Email 
+                  </label>
+                 <input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+            </div>
+             <span style="font-size:14px">Location</span>
+             <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Address</label>
+                <div class="col-sm-9">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                  <label class="form-check-label" for="defaultCheck2">
+                  Has a street address 
+                  </label>
+                <div class="input-group input-group-sm mb-3">
+                  <input type="text" aria-label="First name" class="form-control" style="margin-right: 5px">
+                  <input type="text" aria-label="Last name" class="form-control" style="margin-right: 5px">
+                  <input type="text" aria-label="First name" class="form-control">
+                  </div>
+                </div>
+            </div>
+            <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Located in</label>
+                <div class="col-sm-9">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                  <label class="form-check-label" for="defaultCheck2">
+                  Located inside 
+                  </label>
+                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+             <span style="font-size:14px">Hours</span>
+             <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Located in</label>
+                <div class="col-sm-9">
+                  <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1">
+                  Default checkbox
+                  </label>
+                  </div>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                  Default radio
+                  </label>
+                  </div>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                  <label class="form-check-label" for="exampleRadios2">
+                  Second default radio
+                  </label>
+                  </div>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                  <label class="form-check-label" for="exampleRadios3">
+                  Disabled radio
+                  </label>
+                  </div>
+                 
+                </div>
+            </div>
+             <span style="font-size:14px">More</span>
+             <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Impressum</label>
+                <div class="col-sm-9">
+                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                 
+                </div>
+            
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Additional Details</label>
+                <div class="col-sm-9">
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                  Default radio
+                  </label>
+                  </div>
+                   <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                  Default radio
+                  </label>
+                  </div>
+                   <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                  Default radio
+                  </label>
+                  </div>
+                   <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                  Default radio
+                  </label>
+                  </div>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                  <label class="form-check-label" for="exampleRadios2">
+                  Second default radio
+                  </label>
+                  </div>
+                  <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                  <label class="form-check-label" for="exampleRadios3">
+                  Disabled radio
+                  </label>
+                  </div>
+                 
+                  </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Products</label>
+                <div class="col-sm-9">
+                 
+                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
+                <div class="col-sm-9">
+                 
+                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+            <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
+                <div class="col-sm-9">
+                 
+                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+            <hr>
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Founded</label>
+                <div class="col-sm-9">
+                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+              <hr>
+
+             <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Awards</label>
+                <div class="col-sm-9">
+                 
+                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Reease Date</label>
+                <div class="col-sm-9">
+                 
+                  <div class="form-group col-md-4">
+                  <select id="inputState" class="form-control">
+                  <option selected>Year</option>
+                  <option>...</option>
+                  </select>
+                  </div>
+                </div>
+            </div>
+          </form>
+        </div> 
         <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
 
-          <form  [formGroup]="bizproduct">
-            <div class="form-group">
-              <label for="pdtname">Product Name</label>
-              <input type="text" class="form-control" id="pdtname" placeholder="Enter product name" formControlName="pdtname" [class.invalid]="bizproduct.controls.pdtname.invalid">
-
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Product description</label>
-               <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required formControlName="descript"   [class.invalid]="bizproduct.controls.descript.invalid"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlFile1">Add image</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1"
-               formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.invalid"
-              >
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="addpdt()">Add ProductS</button>
-          </form>
+       
         </div>
       </div>
     </div>
@@ -328,6 +523,7 @@
     </div>
   </div>
 </div>
+ <app-footer></app-footer>
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Modal</h4>
@@ -336,17 +532,141 @@
     </button>
   </div>
   <div class="modal-body">
-    <p *ngFor="let item of items">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      delectus enim esse excepturi, impedit,
-      iste magnam officia optio, quam quis quisquam saepe sint unde velit vitae! Animi in iusto ut?</p>
+   <div>
+    <form class="updates">
+    <div class="row">
+      <div class="col-4" style="text-align: center">
+    <label for="exampleInputEmail1">Select Month</label></div>
+    <div class="col-8">
+    <input type="text"
+           class="form-control"
+           [bsConfig]="bsConfig"
+           #dp="bsDatepicker"
+           bsDatepicker [(bsValue)]="bsValue">
+
+  </div>
+  
+    </div>
+
+   
+     <span class="headers">Let us know how your business is doing </span>
+     <hr>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Number of people Employed </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+       
+  </div>
+  <div class="form-group">
+        <label for="exampleInputEmail1">Number of female people Employed </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+       
+  </div>
+  <div class="form-group">
+        <label for="exampleInputEmail1">Mnth's sales revenue $ USD</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        
+  </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Number of served or paying customer</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        
+  </div>
+  <div class="form-group">
+        <label for="exampleInputEmail1">what is your market expenses $ </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        
+  </div>
+  <div class="form-group">
+        <label for="exampleInputEmail1">Number of meetings held with potential customers </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        
+  </div>
+  <div class="form-group">
+        <label for="exampleInputEmail1">what is your market expenses $ </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        
+  </div>
+
+     <span  class="headers">Please Rate Imuka venture's support [1 to 5]</span>
+  
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Commitment of experts</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Networking opportunities</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Benefit of expert to your business</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Personal and proffessional development</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+ 
+     <span class="headers">Business Performance tracker. We care about your challenges and expectations</span>
+     <hr>
+      <div class="form-group">
+                <label for="inputPassword" class="col-form-label"><span>which of these challenges have your solved:  detail below</span><br>
+                   <span>> Limited starting capital</span><br>
+                  <span>> Limited access to skilled labor </span><br>
+                  <span>> Limited access to skilled labor </span>
+                </label>
+                <div class="col-sm-9">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+             
+      <div class="form-group">
+                <label for="inputPassword" class="col-form-label"><span>which of these expectatins have been attained; detail below</span><br>
+                  <span>> Access information on market or opportunities</span><br>
+                  <span>> Benefit from business and proffessional networking opportunities </span><br>
+                  <span>> Increase on product or service sales</span>
+                </label>
+                <div class="col-sm-9">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+             
+     
+</form>
+   </div>
+  </div>
+</ng-template>
+<ng-template #followers>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   
   </div>
 </ng-template>
