@@ -43,6 +43,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PalnsComponent } from './components/palns/palns.component';
 import { OrgProfileComponent } from './components/org-profile/org-profile.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 const app_routes: Routes = [
@@ -127,7 +128,8 @@ const app_routes: Routes = [
     TabsModule.forRoot(), 
     AccordionModule.forRoot(), 
     ModalModule.forRoot(), 
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+     BsDatepickerModule.forRoot()
   ],
 
   providers: [],

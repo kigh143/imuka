@@ -2,6 +2,7 @@ import { Component, OnInit , Output, TemplateRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
 import {
   FormGroup,
   FormBuilder,
@@ -16,7 +17,10 @@ import {
 export class BusinessComponent implements OnInit {
    modalRef: BsModalRef;
    headElements = ['Id', 'Item', 'unit price', 'Unit', 'Price', 'Action'];
-
+    bsValue: Date = new Date(2017, 7);
+    minMode: BsDatepickerViewMode = 'month';
+ 
+  bsConfig: Partial<BsDatepickerConfig>;
  products=[{
 name:'matooke',
 image:'assets/v.jpg',
@@ -51,7 +55,7 @@ description:'The best product descriptions address your ideal buyer directly and
     image:'assets/excel.png'
   }
   ];
-business:boolean=true;
+ business:boolean=true;
  product:boolean=false;
  documents:boolean=false;
  team:boolean=false;
@@ -144,6 +148,9 @@ constructor(public formBuilder: FormBuilder, public router : Router, public moda
 
 
   ngOnInit() {
+  this.bsConfig = Object.assign({}, {
+      minMode : this.minMode
+    });
   }
   
 showdiv(i, item){
