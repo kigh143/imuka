@@ -1,77 +1,79 @@
-<div class="body"> 
-    <app-header></app-header>
-    <div class="container">
-      <div class="row">
-          <div class="col-md-3">
-              <div class="mainmenu">
-                  <app-mainmenu></app-mainmenu>
-              </div>
-          </div>
-        <div class="col-md-9">
-            <div class="banner">App settings </div>
-            <div class="content">
-
-
-              <div>
-              <tabset>
-              <tab heading="Notification" id="tab1">
-                
-              <div>
-                <h6 style="padding:20px">Edit your notification settings for:</h6>
-              
-               
-                <ul class="list-group">
-                    <li  class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let notification of nots; let i = index"  (click)="turnn(i)">
-                  {{notification.name}}
-                    <span class="badge badge-primary badge-pill">
-
-                      <span *ngIf="notification.isclicked">Turn off</span>
-                      <span *ngIf="!notification.isclicked">Turn on</span>   
-
-                    </span>
-                    </li>
-                  
-                </ul>
-
-
-              </div>
-
-              </tab>
-              <tab heading="Change Password" class="pwd"> <form>
-                          <div class="form-group">
-                          <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Old Password</label>
-                          <input type="email" class="form-control" id="exampleFormControlInp ut1" placeholder="oldpassword">
-                          </div>
-                          <div class="form-group">
-                          <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   New Password</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="newpassword">
-                          </div>
-
-                          <div class="form-group">
-                          <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>    Repeat password</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword">
-                          </div>
-
-                          <div class="form-group">
-                          <button  type="button" class="btn btn-primary btn-sm">Save settings</button>
-                          <button type="button" class="btn btn-secondary pull-right btn-sm">Retore settings</button></div>
-                      </form></tab>
-             
-              </tabset>
-              </div>
-
-
-               
-  
-                  
-              
-
-             
-              
+  <div class="body"> 
+  <app-header></app-header>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="mainmenu">
+                <app-mainmenu></app-mainmenu>
             </div>
         </div>
+      <div class="col-md-9">
+          <div class="banner">App settings </div>
+          <div class="content">
+            <div>
+            <tabset>
+                <tab heading="Account settings" class="pwd"> 
+                    <form>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Old Password</label>
+                      <input type="email" class="form-control" id="exampleFormControlInp ut1" placeholder="oldpassword">
+                      </div>
+                      <div class="form-group">
+                      <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   New Password</label>
+                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="newpassword">
+                      </div>
+
+                      <div class="form-group">
+                      <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>    Repeat password</label>
+                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword">
+                      </div>
+
+                      <div class="form-group">
+                      <button  type="button" class="btn btn-primary btn-sm">Save settings</button>
+                      <button type="button" class="btn btn-secondary pull-right btn-sm">Retore settings</button></div>
+                    </form>
+                </tab>
+                <tab heading="Notification" id="tab1">
+                    <div>
+                      <h6 style="padding:20px">Edit your notification settings for:</h6>
+                      <ul class="list-group">
+                          <li  class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let notification of nots; let i = index"  (click)="turnn(i)">
+                        {{notification.name}}
+                          <span class="badge badge-primary badge-pill">
+                            <span *ngIf="notification.isclicked">Turn off</span>
+                            <span *ngIf="!notification.isclicked">Turn on</span> 
+                          </span>
+                          </li>
+                      </ul>
+                    </div>
+                </tab>
+                <tab heading="Change Password" class="pwd"> 
+                  <form>
+                            <div class="form-group">
+                            <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Old Password</label>
+                            <input type="email" class="form-control" id="exampleFormControlInp ut1" placeholder="oldpassword">
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   New Password</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="newpassword">
+                            </div>
+
+                            <div class="form-group">
+                            <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>    Repeat password</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword">
+                            </div>
+
+                            <div class="form-group">
+                            <button  type="button" class="btn btn-primary btn-sm">Save settings</button>
+                            <button type="button" class="btn btn-secondary pull-right btn-sm">Retore settings</button></div>
+                  </form>      
+                </tab>
+            </tabset>
+          </div>
+          </div>
       </div>
     </div>
+  </div>
 
-    </div>
-    <app-footer></app-footer>
+  </div>
+  <app-footer></app-footer>

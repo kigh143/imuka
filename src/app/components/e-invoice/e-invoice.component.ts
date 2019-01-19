@@ -4,7 +4,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 @Component({
   selector: 'app-e-invoice',
   templateUrl: './e-invoice.component.html',
-  styleUrls: ['./e-invoice.component.css']
+  styleUrls: ['./e-invoice.component.scss']
 })
 export class EInvoiceComponent implements OnInit {
   events = [1,2,3];

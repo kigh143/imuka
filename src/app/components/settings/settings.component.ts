@@ -39,15 +39,10 @@ export class SettingsComponent implements OnInit {
   }
 
   turnn(i){
-  for(let j=0; j<this.notifications.length; j++){
-   if(i==j){
-    this.notifications[j].isclicked= true; 
- 
-
-   }
-   else{
-         this.notifications[j].isclicked= false; 
-   }
+  for(let j=0; j<this.nots.length; j++){
+      if(i === j){
+        this.nots[j].isclicked != this.nots[j].isclicked;
+      }
   }
   	
   }

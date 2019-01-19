@@ -23,10 +23,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MybusinessComponent } from './components/mybusiness/mybusiness.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { AddBusinessComponent } from './components/add-business/add-business.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { EinoviceComponent } from './components/einovice/einovice.component';
 import { PitchbookComponent } from './components/pitchbook/pitchbook.component';
 import { InvestmentRequestComponent } from './components/investment-request/investment-request.component';
 import { ProductComponent } from './components/product/product.component';
@@ -61,16 +59,16 @@ const app_routes: Routes = [
   { path: "chat/:id", component: ChatComponent },
   { path: "my_businesses", component: MybusinessComponent },
   { path: "business/:id", component: BusinessComponent },
-  { path: "add_business", component: AddBusinessComponent },
   { path: "business", component: BusinessComponent },
   { path: "pitchbook/:id", component: PitchbookComponent }, 
   { path: "search", component: SearchComponent },
   { path: "investiment_opportunities", component: InvestmentoppComponent},
   { path: "investmentrequest", component: InvestmentRequestComponent},
-  { path: "einvoice", component: EInvoiceComponent},
+  { path: "einvoice/:id", component: EInvoiceComponent},
+  { path: "add_invoice/:id", component: AddinvoiceComponent},
   { path: "Product", component: ProductComponent},
   { path: "request", component: RequestComponent},
-  { path: "addinvoice", component: AddinvoiceComponent},
+  { path: "addinvoice/:id", component: AddinvoiceComponent},
   { path: "organisations", component : OrganisationsComponent},
   { path: "organisation/:id", component : OrganisationComponent},
   { path: "user/:id", component : UserProfileComponent},
@@ -98,8 +96,6 @@ const app_routes: Routes = [
     SettingsComponent,
     ProfileComponent,
     MybusinessComponent,
-    AddBusinessComponent,
-    EinoviceComponent,
     PitchbookComponent,
     InvestmentRequestComponent,
     ProductComponent,
