@@ -9,31 +9,31 @@
           </div>
           <div class="col-md-9">
               <div>
-
-                  
-              </div>
-              <div style="display:flex; flex-direction:row; justify-content:flex-end; margin-bottom:10px;">
-                  <a class="btn btn-primary btn-sm" routerLink="add_invoice/9">Create New Invoice</a>
-              </div>
-            <table class="table table-strpped">
-            <tr>
+                <div style="display:flex; flex-direction:row; justify-content:flex-end; margin-bottom:10px;">
+                <a class="btn btn-primary btn-sm" routerLink="add_invoice/9">Create New Invoice</a>
+                </div>
+                <table class="table table-strpped">
+                <tr>
                 <th>Customer name</th>
                 <th>status</th>
                 <th>Actions</th>
                 <th>Date</th>
                 <th>View</th>
-            </tr>
+                </tr>
 
-            <tbody>
-                <tr>
+                <tbody>
+                <tr *ngFor="let invoice of invoices">
                     <td>Katende </td>
                     <td>Due</td>
                     <td>Delete/Edit</td>
                     <td>12/ Dec/2018</td>
-                    <td><a routerLink="">View Details</a></td>
+                    <td><a >View Details</a></td>
                 </tr>
-            </tbody>
-            </table>
+                </tbody>
+                </table>
+                  
+              </div>
+           
         </div>
       </div>
     </div>

@@ -7,14 +7,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
   styleUrls: ['./e-invoice.component.scss']
 })
 export class EInvoiceComponent implements OnInit {
-  events = [1,2,3];
-  elements: any = [
+  invoices: any = [
     {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo', price:"3000"},
     {id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat', price:"1000"},
     {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter', price:"4000"},
   ];
 
-  headElements = ['Id', 'Item', 'unit price', 'Unit', 'Price'];
 
   constructor() { }
 
