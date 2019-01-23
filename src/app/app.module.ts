@@ -42,6 +42,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { PalnsComponent } from './components/palns/palns.component';
 import { OrgProfileComponent } from './components/org-profile/org-profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { AuthPipe } from './auth.pipe';
 
 
 const app_routes: Routes = [
@@ -111,7 +112,8 @@ const app_routes: Routes = [
     RequestComponent,
     UserProfileComponent,
     PalnsComponent,
-    OrgProfileComponent
+    OrgProfileComponent,
+    AuthPipe
   ],
  
   imports: [
