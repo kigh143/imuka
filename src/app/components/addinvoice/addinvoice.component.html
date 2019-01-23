@@ -3,73 +3,46 @@
     <app-header></app-header>
   <div class="container">
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="content">
-                <p>Checkout your invoices and their status</p>
-            <form [formGroup]="invoiceForm">
-              <table class="table table-bordered">
-            
-              <thead>
-              <tr>
-                  <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                <form [formGroup]="invoiceForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <input class="col-md-4 form-control" placeholder="Dear sir/ Madam " id="exampleFormControlTextarea1"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-form-label">Type a short message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    </div>
+
+                    <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
                     </tr>
-                  </thead>
-                <ng-container formArrayName="itemRows">
-              <tbody>
-            
-              
-                
-                  <tr *ngFor="let ctrl of invoiceForm.get('itemRows')['controls']; let i = index" [formGroupName]="i">
-                  <td>{{i+1}}</td>
+                    </thead>
+                    <ng-container formArrayName="itemRows">
+                    <tbody>
+                    <tr *ngFor="let ctrl of invoiceForm.get('itemRows')['controls']; let i = index" [formGroupName]="i">
+                    <td>{{i+1}}</td>
                     <td><input type="text"class="form-control form-control-sm" formControlName="item"></td>
                     <td><input type="text" class="form-control form-control-sm" formControlName="unit"></td>
                     <td><input type="text" class="form-control form-control-sm" formControlName="unitprice"></td>
                     <td><input type="text"  class="form-control form-control-sm" formControlName="price"></td>
                     <td> <button class="btn btn-danger btn-sm" *ngIf="invoiceForm.get('itemRows')['controls'].length >= 1" (click)="removeInputField(i)"><span class="fa fa-trash"></span></button></td>
-                  </tr>
-                </tbody>
-                </ng-container>
-              </table>
-            </form>
+                    </tr>
+                    </tbody>
+                    </ng-container>
+                    </table>
+                </form>
             <button (click)="addNewRow()">Add Partculars</button> <button (click)="addNewRow()">Submit</button>
-          </div>
-        </div>
-        <div class="col-md-3 feeds">
-          <div class="feeds">
-              <div class="card" style="width: 23rem;">
-                <img class="card-img-top" src="assets/a.jpg" alt="Card image cap">
-              <div class="card-body">
-                  <h5 class="card-title">Click on each to view Monthly Invoices</h5>  
-              </div>  
-              <div class="card-body">
-                <accordion [closeOthers]="oneAtATime">
-
-                    <accordion-group heading={{invoice}} *ngFor="let invoice of months">
-                      <div class="card" >
-                        <div class="card-body"  style="padding:0">
-                          <div class="d-flex  mb-2" style="padding:0">
-                              <div class="p-2 " style="padding:0"><span style="font-size:14px; ">hello world</span><br>
-                              <span style="font-size:12px; font-weight:bold">Invoice to namud limited</span><br>
-                              <span style="font-size:12px; font-weight:bold">5 hours ago</span><br>
-                              </div>
-                              <div class="ml-auto p-2 "><span style="font-size:12px; font-weight:bold"><button class="btn btn-success btn-sm" style="font-size:10px; text-align: center ;width:50px; height:20px">pending</button></span></div>
-                          </div>
-                          
-                           <div class="second justify-content">
-                              
-                              <div  class="two1">
-                              </div>
-                              <div  class="three1 d-flex justify-content-end">
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                     
-                    </accordion-group>
-  
-                </accordion>
-              </div>
-          </div>
           </div>
         </div>
       </div>
