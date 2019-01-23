@@ -42,7 +42,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { PalnsComponent } from './components/palns/palns.component';
 import { OrgProfileComponent } from './components/org-profile/org-profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { AuthPipe } from './auth.pipe';
+import { AuthPipe } from './providers/auth.pipe';
 
 
 const app_routes: Routes = [
@@ -130,7 +130,7 @@ const app_routes: Routes = [
      BsDatepickerModule.forRoot()
   ],
 
-  providers: [],
+  providers: [AuthPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
