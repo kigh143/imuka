@@ -63,10 +63,11 @@ i{
     }
 }
 @media only screen and (max-width:760px){
-  .box{
-  height: 50px;
 
-  border: 0;
+  ul{
+  
+
+ li{
   i{
     color:#1798d4 !important;
   }
@@ -79,7 +80,7 @@ i{
   span{
     display:none;
   }
-
+}
 }}
 .document{
   margin:5px;
@@ -130,7 +131,7 @@ ul{
   color:blue;
   font-weight:80px;
   padding-bottom:15px;
-  padding-top:5px
+  padding-top:5px;
 }
 .updates{
   input{
