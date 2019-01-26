@@ -419,17 +419,17 @@ formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.inval
 <div class="col-md-8 col-xs-12">
 <div class="card" >
 <div class="card-body">
-<div class="row">
-<div class="col-2">
-<img src="assets/user.png"/>
-</div>
-<div class="col-6">
-Peterson
-</div>
-<div class="col-4">
-manager
-</div>
-</div>
+  <div class="row">
+    <div class="col-2">
+    <img src="assets/user.png"/>
+    </div>
+    <div class="col-6">
+    Peterson
+    </div>
+    <div class="col-4">
+    manager
+    </div>
+  </div>
 </div>
 </div>
 <div class="card" >
@@ -463,33 +463,35 @@ manager
 </div>
 </div>
 <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
-<form [formGroup]="bizteam">
-<div class="form-group">
-<label for="exampleInputEmail1">Name</label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter member name" formControlName="teamname" [class.invalid]="bizteam.controls.teamname.invalid">
-</div>
-<div class="form-group">
-<label for="exampleInputEmail1">Position</label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="position" formControlName="position" [class.invalid]="bizteam.controls.position.invalid">
-</div>
-<div class="form-group">
-<label for="exampleInputEmail1">Mobile number</label>
-<input type="phonenumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number" formControlName="phonenumber" [class.invalid]="bizteam.controls.phonenumber.invalid">
-</div>
-<div class="form-group">
-<label for="exampleInputEmail1">Email </label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" [class.invalid]="bizteam.controls.email.invalid">
-</div>
-<div class="form-group">
-<label for="exampleInputEmail1">physical addresses</label>
-<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" formControlName="address" [class.invalid]="bizteam.controls.address.invalid">
-</div>
-<div class="form-group">
-<label for="exampleFormControlFile1">Add image</label>
-<input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="image" [class.invalid]="bizteam.controls.image.invalid">
-</div>
-<button type="submit" class="btn btn-primary"  (click)="addteam()">Add Team</button>
-</form>
+  <div class="form_fina">
+      <form [formGroup]="bizteam">
+          <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter member name" formControlName="teamname" [class.invalid]="bizteam.controls.teamname.invalid">
+          </div>
+          <div class="form-group">
+          <label for="exampleInputEmail1">Position</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="position" formControlName="position" [class.invalid]="bizteam.controls.position.invalid">
+          </div>
+          <div class="form-group">
+          <label for="exampleInputEmail1">Mobile number</label>
+          <input type="phonenumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number" formControlName="phonenumber" [class.invalid]="bizteam.controls.phonenumber.invalid">
+          </div>
+          <div class="form-group">
+          <label for="exampleInputEmail1">Email </label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" [class.invalid]="bizteam.controls.email.invalid">
+          </div>
+          <div class="form-group">
+          <label for="exampleInputEmail1">physical addresses</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" formControlName="address" [class.invalid]="bizteam.controls.address.invalid">
+          </div>
+          <div class="form-group">
+          <label for="exampleFormControlFile1">Add image</label>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="image" [class.invalid]="bizteam.controls.image.invalid">
+          </div>
+          <button type="submit" class="btn btn-primary"  (click)="addteam()">Add Team</button>
+        </form>
+  </div>
 </div>
 </div>
 </div>

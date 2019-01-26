@@ -11,7 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class PitchbookComponent implements OnInit {
 
   modalRef: BsModalRef;
-  businesses = [1,2,3,4,5,6,7,8]
+  businesses = [1,2,3]
   constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
