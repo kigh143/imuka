@@ -34,3 +34,26 @@ flex:3
 form-control{
    border-radius: 0px !important;
 }
+
+.paper{
+  background: #eee;
+  padding:20px;
+  border:1px solid #aaa;
+  width:80%;
+  margin:20px auto;
+  form{
+    .row{
+      .col-md-6{
+       
+      }
+    }
+  }
+}
+
+input{
+  border-bottom:1px solid #aaa;
+}
+
+textarea{
+  border-bottom:1px solid #aaa;
+}

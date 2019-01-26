@@ -2,24 +2,19 @@
   <app-header></app-header>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-      <div class="top_header">
-          <div>
-             <p>All Business</p>
-          </div>
-      </div>
+      <div class="col-md-3" style="padding-right:0px; margin-right:0px;">
       <div class="mainmenu">
-        <div class="business">
+        <a class="business" *ngFor="let business of businesses; let i=index;" routerLink="/pitchbook/{{i}}">
             <b>Business Name</b><br/>
-            <span>Technology and agribusiness</span>
-        </div>
+            <span>Technology and agri-business</span>
+        </a><br/>
       </div>
       </div>
       <div class="col-md-9">
         <div class="jumbotron">
             <h1 class="display-4">Pitch Book</h1>
             <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
-            <a class="btn btn-primary btn-sm">Generate Pitch book</a>
+            <a class="btn btn-primary btn-sm"  (click)="openModal(template)">Generate Pitch book</a>
         </div>
         <div class="content">
             <section>
@@ -238,6 +233,230 @@
   </div>
   </div>
 
+
+  <ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Post an event</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+            <section>
+                    <b>Business Name</b><br/>
+                    <span>Technology</span>                 
+                </section>
+    
+                <section>
+                    <b>Company purpose</b><br/>  
+                    <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
+                </section>
+    
+                <section>
+                    <b>Problem or opportunity</b><br/>  
+                    <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
+    
+                </section>
+    
+                <section>
+                    <b>Solution</b><br/>      
+                    <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
+    
+                </section>
+    
+                <section>
+                    <b>Why now</b><br/>   
+                    <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
+    
+                </section>
+    
+                <section>
+                    <b>Product or service</b><br/>    
+                    <div>
+                        <div>
+                            <img src="assets/user.png" alt="">
+                        </div>
+                        <div>
+                            <b>Prodcur name</b>
+                            <p>is simply dummy text of the printing and typesetting industry.</p>
+                            <p>Price : 3000o ugx.</p>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <b>Service name</b>
+                        <p>is simply dummy text of the printing and typesetting industry.</p>
+                        <p>Price : 3000o ugx.</p>
+                    </div>
+                </section>
+    
+                <section>
+                    <b>Market size</b><br/> 
+                    <div>
+                        <div>
+                            diagrams for 
+                        </div>
+                        <div>
+                            <p>Available Markert : <b>80000</b></p>
+                            <p>Potetinal Markert : <b>80000</b></p>
+                            <p>Served Markert : <b>80000</b></p>
+                        </div>
+                    </div>           
+                </section>
+    
+                <section>
+                    <b>Competitive Advantage</b><br/>            
+                </section>
+    
+                <section>
+                    <b>Business Model</b><br/>            
+                </section>
+    
+                <section>
+                    <b>Financials</b><br/>  
+    
+                </section>
+    
+                <section>
+                    <b>Investiment</b><br/> 
+    
+                </section>
+    
+                <section>
+                    <b>The sustainable Development Goals</b><br/> 
+                    <ol>
+      
+                        <li>
+                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
+                        </li>
+                        
+                        <li>
+                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
+                        </li>
+                        
+                        <li>
+                           Use the same method on the inside surfaces of all your teeth. 
+                        </li>
+                        
+                        <li>
+                           Brush the biting surfaces of the teeth. 
+                        </li>
+                        
+                        <li>
+                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
+                        </li>
+                        
+                        <li>
+                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
+                        </li>
+                      </ol>     
+                </section>
+    
+                <section>
+                    <b>Social Impact</b><br/>  
+                    <ol>
+      
+                        <li>
+                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
+                        </li>
+                        
+                        <li>
+                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
+                        </li>
+                        
+                        <li>
+                           Use the same method on the inside surfaces of all your teeth. 
+                        </li>
+                        
+                        <li>
+                           Brush the biting surfaces of the teeth. 
+                        </li>
+                        
+                        <li>
+                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
+                        </li>
+                        
+                        <li>
+                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
+                        </li>
+                      </ol> 
+                </section>
+    
+                <section>
+                    <b>Economic impact</b><br/>    
+                    <ol>
+      
+                        <li>
+                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
+                        </li>
+                        
+                        <li>
+                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
+                        </li>
+                        
+                        <li>
+                           Use the same method on the inside surfaces of all your teeth. 
+                        </li>
+                        
+                        <li>
+                           Brush the biting surfaces of the teeth. 
+                        </li>
+                        
+                        <li>
+                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
+                        </li>
+                        
+                        <li>
+                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
+                        </li>
+                      </ol>         
+                </section>
+    
+                <section>
+                    <b>Environmental impacts</b><br/>        
+                    <ol>
+      
+                        <li>
+                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
+                        </li>
+                        
+                        <li>
+                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
+                        </li>
+                        
+                        <li>
+                           Use the same method on the inside surfaces of all your teeth. 
+                        </li>
+                        
+                        <li>
+                           Brush the biting surfaces of the teeth. 
+                        </li>
+                        
+                        <li>
+                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
+                        </li>
+                        
+                        <li>
+                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
+                        </li>
+                      </ol>     
+                </section>
+    
+                <section>
+                    <b>Our Team</b><br/>  
+                    <div class="row">
+                        <div class="col-md-4 team">
+                            <img src="asstes/user.png" alt=""><br/>
+                            <b>Katende Iva</b><br/>
+                            <b>CEO and founder</b>
+                        </div>
+                    </div>          
+                </section>
+        <div>
+            <button class="btn btn-primary btn-sm">Print pitchbook</button>
+        </div>
+    </div>
+  </ng-template>
   <app-footer></app-footer>
 
   

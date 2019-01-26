@@ -1,748 +1,685 @@
 <div class="body">
-  <app-header></app-header>
-  <div class="container">
-    <div class="jumbotron">
-      <h1 class="display-4">My vivan</h1>
-      <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
-      <div >
-        <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/9">View pitch deck</button>
-        <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/9">View Inovices</button>
-        <button type="button" class="btn btn-outline-success spaced" (click)="openModal(followers)"><i class="fa fa-eye"></i> Followers</button>
-       
-      </div>
-    </div>
-    <hr>
-    <div>
-
-       <div class="buttn" style=""><button type="button" class="btn btn-secondary spaced" (click)="openModal(template)">update Progress</button></div>
-    <div class="row">
-      <div class="col-md-4"><img src="assets/area_graph.png"/></div>
-      <div class="col-md-4"><img src="assets/graph_images.png"/></div>
-      <div class="col-md-4"><img  src="assets/mre_grp.png"/></div>
-    </div>
-   </div>
-     <hr>
-          <ul class="ul">
-            <li *ngFor="let item of items; let i=index" (click)="showdiv(i, item)" [ngClass]="item.isactive ? 'active':'not_active'"> 
-                <i [ngClass]="item.icon"></i> 
-                <span>{{item.name}}</span> 
-            </li>
-          </ul>
-
-  
-    
-    <hr>
-     <div class="business" *ngIf ="business">
-
-      <div class="content-box row">
-        <div class="col-md-8 col-xs-12">
-          <form>
-          <span style="font-size:14px">General</span>
-          <hr>
-          
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Description</label>
-                <div class="col-sm-9">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Line of business</label>
-                <div class="col-sm-9">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-             <span style="font-size:14px">Contact</span>
-             <hr>
-             <div class="form-group row">
-
-                <label for="inputPassword" class="col-sm-3 col-form-label">Phone number</label>
-                <div class="col-sm-9">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                <label class="form-check-label" for="defaultCheck2">
-                Has Phone number 
-                </label>
-               <input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-            </div>
-               <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Website</label>
-                <div class="col-sm-9">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                  <label class="form-check-label" for="defaultCheck2">
-                  Has Website 
-                  </label>
-                 <input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-            </div>
-            <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
-                <div class="col-sm-9">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                  <label class="form-check-label" for="defaultCheck2">
-                  Has Email 
-                  </label>
-                 <input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-            </div>
-             <span style="font-size:14px">Location</span>
-             <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Address</label>
-                <div class="col-sm-9">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                  <label class="form-check-label" for="defaultCheck2">
-                  Has a street address 
-                  </label>
-                <div class="input-group input-group-sm mb-3">
-                  <input type="text" aria-label="First name" class="form-control" style="margin-right: 5px">
-                  <input type="text" aria-label="Last name" class="form-control" style="margin-right: 5px">
-                  <input type="text" aria-label="First name" class="form-control">
-                  </div>
-                </div>
-            </div>
-            <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Located in</label>
-                <div class="col-sm-9">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                  <label class="form-check-label" for="defaultCheck2">
-                  Located inside 
-                  </label>
-                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-            </div>
-             <span style="font-size:14px">Hours</span>
-             <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Located in</label>
-                <div class="col-sm-9">
-                  <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                  Default checkbox
-                  </label>
-                  </div>
-                  <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                  Default radio
-                  </label>
-                  </div>
-                  <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
-                  Second default radio
-                  </label>
-                  </div>
-                  <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-                  <label class="form-check-label" for="exampleRadios3">
-                  Disabled radio
-                  </label>
-                  </div>
-                 
-                </div>
-            </div>
-             <span style="font-size:14px">More</span>
-             <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Impressum</label>
-                <div class="col-sm-9">
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                 
-                </div>
-            
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Additional Details</label>
-                <div class="col-sm-9">
-                  <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                  Default radio
-                  </label>
-                  </div>
-                   <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                  Default radio
-                  </label>
-                  </div>
-                   <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                  Default radio
-                  </label>
-                  </div>
-                   <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                  Default radio
-                  </label>
-                  </div>
-                  <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
-                  Second default radio
-                  </label>
-                  </div>
-                  <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-                  <label class="form-check-label" for="exampleRadios3">
-                  Disabled radio
-                  </label>
-                  </div>
-                 
-                  </div>
-            </div>
-            <hr>
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Products</label>
-                <div class="col-sm-9">
-                 
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-            <hr>
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
-                <div class="col-sm-9">
-                 
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-            <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
-                <div class="col-sm-9">
-                 
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-            <hr>
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Founded</label>
-                <div class="col-sm-9">
-                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-            </div>
-              <hr>
-
-             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Awards</label>
-                <div class="col-sm-9">
-                 
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-            <hr>
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Release Date</label>
-                <div class="col-sm-9">
-                 
-                  <div class="form-group col-md-4">
-                  <select id="inputState" class="form-control">
-                  <option selected>Year</option>
-                  <option>...</option>
-                  </select>
-                  </div>
-                </div>
-            </div>
-          <button type="button" class="btn btn-block btn-primary">Submit</button>
-          </form>
-        </div> 
-        <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
-
-       
-        </div>
-      </div>
-    </div>
-    <div class="products" *ngIf ="product">
-
-      <div class="content-box row">
-        <div class="col-md-8 col-xs-12">
-          <div class="row" *ngFor="let prdt of products">
-            <div class="col-md-4">
-              <img src={{prdt.image}} height="150px" />
-            </div>
-            <div class="col-md-8" style="">
-              <h6>{{prdt.name}}</h6>
-              <p>{{prdt.description}}</p>
-            </div>
-          </div>
-        </div>
-        <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
-
-          <form  [formGroup]="bizproduct">
-            <div class="form-group">
-              <label for="pdtname">Product Name</label>
-              <input type="text" class="form-control" id="pdtname" placeholder="Enter product name" formControlName="pdtname" [class.invalid]="bizproduct.controls.pdtname.invalid">
-
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Product description</label>
-               <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required formControlName="descript"   [class.invalid]="bizproduct.controls.descript.invalid"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlFile1">Add image</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1"
-               formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.invalid"
-              >
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="addpdt()">Add ProductS</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="documents" *ngIf ="documents">
-
-      <div class="content-box row">
-        <div class="col-md-8 col-xs-12">
-          <div class="row">
-            <div class="col-3" *ngFor="let doc of documentsi">
-              <div class="box document" [ngClass]="isclicked?'active':''" >
-                <img src="{{doc.image}}" height="80px"/>
-                <h6>{{doc.name}}</h6>
-                
-               </div> 
-            </div>
-          </div>
-        </div>
-        <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
-
-        <form  [formGroup]="bizdoc">
-          <div class="form-group">
-          <label for="doctype">Document type</label>
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="jumbotron">
+          <h1 class="display-4">My vivan</h1>
+          <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
+          <p>Program type : personalised support.</p>
+          <p>Balance: NILL</p>
         
-                        <select class="form-control" name="doctype"  formControlName="doctype" [class.invalid]="bizdoc.controls.doctype.invalid">
-                          <option value="Algeria">Algeria</option>
-                          <option value="Angola">Angola</option>
-                          <option value="Benin">Benin</option>
-                          <option value="Botswana">Botswana</option>
-                          <option value="Burkina Faso">Burkina Faso</option>
-                          <option value="Burundi">Burundi</option>
-                          <option value="Cameroon">Cameroon</option>
-                          <option value="Cape Verde">Cape Verde</option>
-                          <option value="Central African Republic"
-                            >Central African Republic</option></select>
-
+          <div>
+          <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/9">View pitch deck</button>
+          <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/9">View Inovices</button>
+          <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
+          <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(template)">update Progress</button>       
           </div>
-          
-          <div class="form-group">
-          <label for="exampleFormControlFile1">Upload Document</label>
-          <input type="file" class="form-control-file" id="docupload" formControlName="docupload" [class.invalid]="bizdoc.controls.docupload.invalid">
-          </div>
-          <button type="submit" class="btn btn-primary" (click)="adddoc()">Submit</button>
-        </form>
-      </div>
       </div>
     </div>
-
-    <div class="financial" *ngIf ="financial">
-      <div class="content-box row">
-        <div class="col-md-8 col-xs-12">
-                      
-             
-          <table class="table table-striped table-responsive-sm">
-          <thead>
-          <tr>
-          <th scope="col">Year</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          </tr>
-          <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          </tr>
-          <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          </tr>
-          </tbody>
-          </table>
-               
-
-          </div>
-         
-       
-      
-      
-       <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0">
-
-          <form [formGroup]="bizfinancial">
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="start_period" [class.invalid]="bizfinancial.controls.start_period.invalid" class="form-control" placeholder="start period" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px; margin-right: 15px">
-                <input type="text" aria-label="First name" class="form-control"  formControlName="end_period" [class.invalid]="bizfinancial.controls.end_period.invalid"  placeholder="End period" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name"  formControlName="revenue" [class.invalid]="bizfinancial.controls.revenue.invalid" placeholder="Revenue" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="cost" [class.invalid]="bizfinancial.controls.cost.invalid" placeholder="cost of goods sold" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="grossprofit" [class.invalid]="bizfinancial.controls.grossprofit.invalid"  placeholder="Grossprofit" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="expenditure" [class.invalid]="bizfinancial.controls.expenditure.invalid" placeholder="Total expenditure" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="tax" [class.invalid]="bizfinancial.controls.tax.invalid"  placeholder="Tax" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="net_profit" [class.invalid]="bizfinancial.controls.net_profit.invalid"  placeholder="Net Profit" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="ebitda" [class.invalid]="bizfinancial.controls.ebitda.invalid" placeholder="EBITDA" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="ebit" [class.invalid]="bizfinancial.controls.ebit.invalid"  placeholder="EBIT" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="depriciation" [class.invalid]="bizfinancial.controls.depriciation.invalid" class="form-control"  placeholder="Depriciation" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="land" [class.invalid]="bizfinancial.controls.land.invalid" placeholder="Land & building" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="machinery" [class.invalid]="bizfinancial.controls.machinery.invalid" placeholder="machinery & equip" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="furniture" [class.invalid]="bizfinancial.controls.furniture.invalid"  placeholder="furniture & fittings" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="stock" [class.invalid]="bizfinancial.controls.stock.invalid"  placeholder="stock" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="debtors" [class.invalid]="bizfinancial.controls.debtors.invalid"  placeholder="Debtors" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-              <div class="input-group">
-               
-                <input type="text" aria-label="First name" formControlName="shareholders_equity" [class.invalid]="bizfinancial.controls.shareholders_equity.invalid"  placeholder="shareholder's equity" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px;  margin-right: 15px">
-                <input type="text" aria-label="First name" formControlName="cash_bank" [class.invalid]="bizfinancial.controls.cash_bank.invalid"   placeholder="cash/Bank" class="form-control" style="border-bottom: :5px; border-left:0px ; border-top:0px; border-right:0px ">
-              </div>
-            
-            <div class="form-group" style="margin-top:10px">
-              <label for="exampleFormControlFile1">Upload record</label>
-              <input type="file" class="form-control-file" formControlName="finfile" [class.invalid]="bizfinancial.controls.finfile.invalid" id="exampleFormControlFile1">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block" (click)="addfinancial()">Add Financials</button>
-          </form>
-        </div>
-    </div> </div>
-    <div class="team" *ngIf ="team">
-      <div class="content-box row">
-          <div class="col-md-8 col-xs-12">
-           
-
-
-            <div class="card" >
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-2">
-                      <img src="assets/user.png"/>
-                    </div>
-                    <div class="col-6">
-                      Peterson
-                    </div>
-                     <div class="col-4">
-                      manager
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card" >
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                      <img src="assets/user.png"/>
-                    </div>
-                    <div class="col-6">
-                      Peterson
-                    </div>
-                     <div class="col-3">
-                      manager
-                    </div>
-                  </div>
-                </div>
-              </div><div class="card" >
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                      <img src="assets/user.png"/>
-                    </div>
-                    <div class="col-6">
-                      Peterson
-                    </div>
-                     <div class="col-3">
-                      manager
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-          <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
-
-            <form [formGroup]="bizteam">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Name</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter member name" formControlName="teamname" [class.invalid]="bizteam.controls.teamname.invalid">
-
-              </div>
-               <div class="form-group">
-                <label for="exampleInputEmail1">Position</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="position" formControlName="position" [class.invalid]="bizteam.controls.position.invalid">
-
-              </div>
-               <div class="form-group">
-                <label for="exampleInputEmail1">Mobile number</label>
-                <input type="phonenumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number" formControlName="phonenumber" [class.invalid]="bizteam.controls.phonenumber.invalid">
-
-              </div>
-               <div class="form-group">
-                <label for="exampleInputEmail1">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" [class.invalid]="bizteam.controls.email.invalid">
-
-              </div>
-               <div class="form-group">
-                <label for="exampleInputEmail1">physical addresses</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" formControlName="address" [class.invalid]="bizteam.controls.address.invalid">
-
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Add image</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="image" [class.invalid]="bizteam.controls.image.invalid">
-              </div>
-              <button type="submit" class="btn btn-primary"  (click)="addteam()">Add Team</button>
-            </form>
-          </div>
-        </div>
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-dark">Breakdown of the imuka activities and milestones.</li>
+            <li class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center">
+              Needs assessment  
+              <i class="fa fa-check"></i>
+            </li>
+            <li class="list-group-item list-group-item-light">Site visit and validation</li>
+            <li class="list-group-item list-group-item-light">Financial palnning and management</li>
+            <li class="list-group-item list-group-item-light">Business model innovation</li>
+            <li class="list-group-item list-group-item-light">Unlimitted personalsized support</li>
+            <li class="list-group-item list-group-item-light">Success fee</li>
+          </ul>
     </div>
+  </div>
+
+<hr>
+<div>
+<div class="row">
+<div class="col-md-4"><img src="assets/area_graph.png"/></div>
+<div class="col-md-4"><img src="assets/graph_images.png"/></div>
+<div class="col-md-4"><img  src="assets/mre_grp.png"/></div>
+</div>
+</div>
+<hr>
+
+
+
+<ul class="ul">
+<li *ngFor="let item of items; let i=index" (click)="showdiv(i, item)" [ngClass]="item.isactive ? 'active':'not_active'"> 
+<i [ngClass]="item.icon"></i> 
+<span>{{item.name}}</span> 
+</li>
+</ul>
+<hr>
+
+
+<div class="business" *ngIf ="business">
+<div class="content-box row">
+<div class="col-md-8 col-xs-12">
+<form>
+<span style="font-size:14px">General</span>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Description</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Line of business</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<span style="font-size:14px">Contact</span>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Phone number</label>
+<div class="col-sm-9">
+<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+<label class="form-check-label" for="defaultCheck2">
+Has Phone number 
+</label>
+<input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Website</label>
+<div class="col-sm-9">
+<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+<label class="form-check-label" for="defaultCheck2">
+Has Website 
+</label>
+<input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
+<div class="col-sm-9">
+<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+<label class="form-check-label" for="defaultCheck2">
+Has Email 
+</label>
+<input type="" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+</div>
+<span style="font-size:14px">Location</span>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Address</label>
+<div class="col-sm-9">
+<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+<label class="form-check-label" for="defaultCheck2">
+Has a street address 
+</label>
+<div class="input-group input-group-sm mb-3">
+<input type="text" class="form-control" style="margin-right: 5px">
+<input type="text" aria-label="Last name" class="form-control" style="margin-right: 5px">
+<input type="text" class="form-control">
+</div>
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Located in</label>
+<div class="col-sm-9">
+<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+<label class="form-check-label" for="defaultCheck2">
+Located inside 
+</label>
+<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+</div>
+<span style="font-size:14px">Hours</span>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Located in</label>
+<div class="col-sm-9">
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+<label class="form-check-label" for="defaultCheck1">
+Default checkbox
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+<label class="form-check-label" for="exampleRadios1">
+Default radio
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+<label class="form-check-label" for="exampleRadios2">
+Second default radio
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+<label class="form-check-label" for="exampleRadios3">
+Disabled radio
+</label>
+</div>
+</div>
+</div>
+<span style="font-size:14px">More</span>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Impressum</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Additional Details</label>
+<div class="col-sm-9">
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+<label class="form-check-label" for="exampleRadios1">
+Default radio
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+<label class="form-check-label" for="exampleRadios1">
+Default radio
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+<label class="form-check-label" for="exampleRadios1">
+Default radio
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+<label class="form-check-label" for="exampleRadios1">
+Default radio
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+<label class="form-check-label" for="exampleRadios2">
+Second default radio
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+<label class="form-check-label" for="exampleRadios3">
+Disabled radio
+</label>
+</div>
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Products</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Founded</label>
+<div class="col-sm-9">
+<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Awards</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<hr>
+<div class="form-group row">
+<label for="inputPassword" class="col-sm-3 col-form-label">Release Date</label>
+<div class="col-sm-9">
+<div class="form-group col-md-4">
+<select id="inputState" class="form-control">
+<option selected>Year</option>
+<option>...</option>
+</select>
+</div>
+</div>
+</div>
+<button type="button" class="btn btn-block btn-primary">Submit</button>
+</form>
+</div> 
+<div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+</div>
+</div>
+</div>
+<div class="products" *ngIf ="product">
+<div class="content-box row">
+<div class="col-md-8 col-xs-12">
+<div class="row" *ngFor="let prdt of products">
+<div class="col-md-4">
+<img src={{prdt.image}} height="150px" />
+</div>
+<div class="col-md-8" style="">
+<h6>{{prdt.name}}</h6>
+<p>{{prdt.description}}</p>
+</div>  
+</div>
+</div>
+<div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+<form  [formGroup]="bizproduct">
+<div class="form-group">
+<label for="pdtname">Product Name</label>
+<input type="text" class="form-control" id="pdtname" placeholder="Enter product name" formControlName="pdtname" [class.invalid]="bizproduct.controls.pdtname.invalid">
+</div>
+<div class="form-group">
+<label for="exampleFormControlTextarea1">Product description</label>
+<textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required formControlName="descript"   [class.invalid]="bizproduct.controls.descript.invalid"></textarea>
+</div>
+<div class="form-group">
+<label for="exampleFormControlFile1">Add image</label>
+<input type="file" class="form-control-file" id="exampleFormControlFile1"
+formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.invalid"
+>
+</div>
+<button type="submit" class="btn btn-primary" (click)="addpdt()">Add ProductS</button>
+</form>
+</div>
+</div>
+</div>
+<div class="documents" *ngIf ="documents">
+<div class="content-box row">
+<div class="col-md-8 col-xs-12">
+<div class="row">
+<div class="col-3" *ngFor="let doc of documentsi">
+<div class="box document" [ngClass]="isclicked?'active':''" >
+<img src="{{doc.image}}" height="80px"/>
+<h6>{{doc.name}}</h6>
+</div> 
+</div>
+</div>
+</div>
+<div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+<form  [formGroup]="bizdoc">
+<div class="form-group">
+<label for="doctype">Document type</label>
+<select class="form-control" name="doctype"  formControlName="doctype" [class.invalid]="bizdoc.controls.doctype.invalid">
+<option value="Algeria">Algeria</option>
+<option value="Angola">Angola</option>
+<option value="Benin">Benin</option>
+<option value="Botswana">Botswana</option>
+<option value="Burkina Faso">Burkina Faso</option>
+<option value="Burundi">Burundi</option>
+<option value="Cameroon">Cameroon</option>
+<option value="Cape Verde">Cape Verde</option>
+<option value="Central African Republic"
+>Central African Republic</option></select>
+</div>
+<div class="form-group">
+<label for="exampleFormControlFile1">Upload Document</label>
+<input type="file" class="form-control-file" id="docupload" formControlName="docupload" [class.invalid]="bizdoc.controls.docupload.invalid">
+</div>
+<button type="submit" class="btn btn-primary" (click)="adddoc()">Submit</button>
+</form>
+</div>
+</div>
+</div>
+<div class="financial" *ngIf ="financial">
+<div class="content-box row">
+<div class="col-md-8 col-xs-12">
+<table class="table table-striped table-responsive-sm">
+<thead>
+<tr>
+<th scope="col">Year</th>
+<th scope="col">ROS</th>
+<th scope="col">ROI</th>
+<th scope="col">ROE</th>
+<th scope="col">DER</th>
+<th scope="col">IRR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2016</th>
+<td>50</td>
+<td>29</td>
+<td>49</td>
+<td>56</td>
+<td>59</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0">
+  <div class="form_fina">
+      <h4>Add financials</h4>
+      <form [formGroup]="bizfinancial">
+          <div class="input-group">
+          <input type="date" formControlName="start_period" [class.invalid]="bizfinancial.controls.start_period.invalid" class="form-control" placeholder="start period">
+          <input type="date" class="form-control"  formControlName="end_period" [class.invalid]="bizfinancial.controls.end_period.invalid"  placeholder="End period" >
+          </div>
+          <div class="input-group">
+          <input type="text"  formControlName="revenue" [class.invalid]="bizfinancial.controls.revenue.invalid" placeholder="Revenue" class="form-control" >
+          <input type="text" formControlName="cost" [class.invalid]="bizfinancial.controls.cost.invalid" placeholder="cost of goods sold" class="form-control" >
+          </div>
+          <div class="input-group">
+          <input type="text" formControlName="grossprofit" [class.invalid]="bizfinancial.controls.grossprofit.invalid"  placeholder="Grossprofit" class="form-control" >
+          <input type="text" formControlName="expenditure" [class.invalid]="bizfinancial.controls.expenditure.invalid" placeholder="Total expenditure" class="form-control" >
+          </div>
+          <div class="input-group">
+          <input type="text" formControlName="tax" [class.invalid]="bizfinancial.controls.tax.invalid"  placeholder="Tax" class="form-control" >
+          <input type="text" formControlName="net_profit" [class.invalid]="bizfinancial.controls.net_profit.invalid"  placeholder="Net Profit" class="form-control" >
+          </div>
+          <div class="input-group">
+          <input type="text" formControlName="ebitda" [class.invalid]="bizfinancial.controls.ebitda.invalid" placeholder="EBITDA" class="form-control" >
+          <input type="text" formControlName="ebit" [class.invalid]="bizfinancial.controls.ebit.invalid"  placeholder="EBIT" class="form-control" >
+          </div>
+          <div class="input-group">
+          <input type="text" formControlName="depriciation" [class.invalid]="bizfinancial.controls.depriciation.invalid" class="form-control"  placeholder="Depriciation" >
+          <input type="text" formControlName="land" [class.invalid]="bizfinancial.controls.land.invalid" placeholder="Land & building" class="form-control" >
+          </div>
+          <div class="input-group">
+          <input type="text" formControlName="machinery" [class.invalid]="bizfinancial.controls.machinery.invalid" placeholder="machinery & equip" class="form-control" >
+          <input type="text" formControlName="furniture" [class.invalid]="bizfinancial.controls.furniture.invalid"  placeholder="furniture & fittings" class="form-control">
+          </div>
+          <div class="input-group">
+          <input type="text" formControlName="stock" [class.invalid]="bizfinancial.controls.stock.invalid"  placeholder="stock" class="form-control" >
+          <input type="text" formControlName="debtors" [class.invalid]="bizfinancial.controls.debtors.invalid"  placeholder="Debtors" class="form-control">
+          </div>
+          <div class="input-group">
+          <input type="text" formControlName="shareholders_equity" [class.invalid]="bizfinancial.controls.shareholders_equity.invalid"  placeholder="shareholder's equity" class="form-control" >
+          <input type="text" formControlName="cash_bank" [class.invalid]="bizfinancial.controls.cash_bank.invalid"   placeholder="cash/Bank" class="form-control">
+          </div>
+          <div class="form-group" style="margin-top:10px">
+          <label for="exampleFormControlFile1">Upload record</label>
+          <input type="file" class="form-control-file" formControlName="finfile" [class.invalid]="bizfinancial.controls.finfile.invalid" id="exampleFormControlFile1">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" (click)="addfinancial()">Add Financials</button>
+      </form>
   </div>
 </div>
- <app-footer></app-footer>
-<ng-template #template>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-   <div>
-    <form class="updates">
-    <div class="row">
-      <div class="col-4" style="text-align: center">
-    <label for="exampleInputEmail1">Select Month</label></div>
-    <div class="col-8">
-    <input type="text"
-           class="form-control"
-           [bsConfig]="bsConfig"
-           #dp="bsDatepicker"
-           bsDatepicker [(bsValue)]="bsValue">
-
-  </div>
-  
-    </div>
-
-   
-     <span class="headers">Let us know how your business is doing </span>
-     <hr>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Number of people Employed </label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-       
-  </div>
-  <div class="form-group">
-        <label for="exampleInputEmail1">Number of female people Employed </label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-       
-  </div>
-  <div class="form-group">
-        <label for="exampleInputEmail1">Mnth's sales revenue $ USD</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        
-  </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Number of served or paying customer</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        
-  </div>
-  <div class="form-group">
-        <label for="exampleInputEmail1">what is your market expenses $ </label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        
-  </div>
-  <div class="form-group">
-        <label for="exampleInputEmail1">Number of meetings held with potential customers </label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        
-  </div>
-  <div class="form-group">
-        <label for="exampleInputEmail1">what is your market expenses $ </label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        
-  </div>
-
-     <span  class="headers">Please Rate Imuka venture's support [1 to 5]</span>
-  
+</div> 
+</div>
+<div class="team" *ngIf ="team">
+<div class="content-box row">
+<div class="col-md-8 col-xs-12">
+<div class="card" >
+<div class="card-body">
+<div class="row">
+<div class="col-2">
+<img src="assets/user.png"/>
+</div>
+<div class="col-6">
+Peterson
+</div>
+<div class="col-4">
+manager
+</div>
+</div>
+</div>
+</div>
+<div class="card" >
+<div class="card-body">
+<div class="row">
+<div class="col-3">
+<img src="assets/user.png"/>
+</div>
+<div class="col-6">
+Peterson
+</div>
+<div class="col-3">
+manager
+</div>
+</div>
+</div>
+</div><div class="card" >
+<div class="card-body">
+<div class="row">
+<div class="col-3">
+<img src="assets/user.png"/>
+</div>
+<div class="col-6">
+Peterson
+</div>
+<div class="col-3">
+manager
+</div>
+</div>
+</div>
+</div>
+</div>
+<div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+<form [formGroup]="bizteam">
 <div class="form-group">
-    <label for="exampleFormControlSelect1">Commitment of experts</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Networking opportunities</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Benefit of expert to your business</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Personal and proffessional development</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
- 
-     <span class="headers">Business Performance tracker. We care about your challenges and expectations</span>
-     <hr>
-      <div class="form-group">
-                <label for="inputPassword" class="col-form-label"><span>which of these challenges have your solved:  detail below</span><br>
-                   <span>> Limited starting capital</span><br>
-                  <span>> Limited access to skilled labor </span><br>
-                  <span>> Limited access to skilled labor </span>
-                </label>
-                <div class="col-sm-9">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-             
-      <div class="form-group">
-                <label for="inputPassword" class="col-form-label"><span>which of these expectatins have been attained; detail below</span><br>
-                  <span>> Access information on market or opportunities</span><br>
-                  <span>> Benefit from business and proffessional networking opportunities </span><br>
-                  <span>> Increase on product or service sales</span>
-                </label>
-                <div class="col-sm-9">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-             
-     
+<label for="exampleInputEmail1">Name</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter member name" formControlName="teamname" [class.invalid]="bizteam.controls.teamname.invalid">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Position</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="position" formControlName="position" [class.invalid]="bizteam.controls.position.invalid">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Mobile number</label>
+<input type="phonenumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number" formControlName="phonenumber" [class.invalid]="bizteam.controls.phonenumber.invalid">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Email </label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" [class.invalid]="bizteam.controls.email.invalid">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">physical addresses</label>
+<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" formControlName="address" [class.invalid]="bizteam.controls.address.invalid">
+</div>
+<div class="form-group">
+<label for="exampleFormControlFile1">Add image</label>
+<input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="image" [class.invalid]="bizteam.controls.image.invalid">
+</div>
+<button type="submit" class="btn btn-primary"  (click)="addteam()">Add Team</button>
 </form>
-   </div>
-  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<app-footer></app-footer>
+<ng-template #template>
+<div class="modal-header">
+<h4 class="modal-title pull-left">Modal</h4>
+<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div>
+<form class="updates">
+<div class="row">
+<div class="col-4" style="text-align: center">
+<label for="exampleInputEmail1">Select Month</label></div>
+<div class="col-8">
+<input type="text"
+class="form-control"
+[bsConfig]="bsConfig"
+#dp="bsDatepicker"
+bsDatepicker [(bsValue)]="bsValue">
+
+</div>
+
+</div>
+<span class="headers">Let us know how your business is doing </span>
+<hr>
+<div class="form-group">
+<label for="exampleInputEmail1">Number of people Employed </label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Number of female people Employed </label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Mnth's sales revenue $ USD</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Number of served or paying customer</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">what is your market expenses $ </label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Number of meetings held with potential customers </label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">what is your market expenses $ </label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<span  class="headers">Please Rate Imuka venture's support [1 to 5]</span>
+<div class="form-group">
+<label for="exampleFormControlSelect1">Commitment of experts</label>
+<select class="form-control" id="exampleFormControlSelect1">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+<div class="form-group">
+<label for="exampleFormControlSelect1">Networking opportunities</label>
+<select class="form-control" id="exampleFormControlSelect1">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+<div class="form-group">
+<label for="exampleFormControlSelect1">Benefit of expert to your business</label>
+<select class="form-control" id="exampleFormControlSelect1">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+<div class="form-group">
+<label for="exampleFormControlSelect1">Personal and proffessional development</label>
+<select class="form-control" id="exampleFormControlSelect1">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+<span class="headers">Business Performance tracker. We care about your challenges and expectations</span>
+<hr>
+<div class="form-group">
+<label for="inputPassword" class="col-form-label"><span>which of these challenges have your solved:  detail below</span><br>
+<span>> Limited starting capital</span><br>
+<span>> Limited access to skilled labor </span><br>
+<span>> Limited access to skilled labor </span>
+</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+<div class="form-group">
+<label for="inputPassword" class="col-form-label"><span>which of these expectatins have been attained; detail below</span><br>
+<span>> Access information on market or opportunities</span><br>
+<span>> Benefit from business and proffessional networking opportunities </span><br>
+<span>> Increase on product or service sales</span>
+</label>
+<div class="col-sm-9">
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+</form>
+</div>
+</div>
 </ng-template>
 <ng-template #followers style="padding:0px">
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body" style="padding:5px">
-   <div>
-  <tabset>
-    <tab heading="Followers" id="tab1">
-    <span>All Followers</span>
-    <hr>
-   <div class="list-group folls">
-  <div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-
-  
-  <div class="follitem">
-    <div>
-      <img src="assets/user.png"/>
-    </div>
-    <div style="padding-left: 20px">
-      <span>Musoke Delta Mesly company</span>
-      <br>
-      <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-    </div>
-
-  </div>
-   <div class="follitem">
-    <div>
-      <img src="assets/user.png"/>
-    </div>
-    <div style="padding-left: 20px">
-      <span>Musoke Delta Mesly company</span>
-      <br>
-      <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-    </div>
-
-  </div>
-  
+<div class="modal-header">
+<h4 class="modal-title pull-left">Modal</h4>
+<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+<span aria-hidden="true">&times;</span>
+</button>
 </div>
-    </tab>
-    <tab heading="Investments">
-        <span>Investment</span>
-
-   <div class="list-group folls">
-  <div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-
-  
-  <div class="follitem">
-    <div>
-      <img src="assets/user.png"/>
-    </div>
-    <div style="padding-left: 20px">
-      <span>Musoke Delta Mesly company</span>
-      <br>
-      <span  style="font-weight:5px; "><i class="fa fa-calendar"></i> 12/jan/2018</span>
-    </div>
-
-  </div>
-   <div class="follitem">
-    <div>
-      <img src="assets/user.png"/>
-    </div>
-    <div style="padding-left: 20px">
-      <span>Musoke Delta Mesly company</span>
-      <br>
-      <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-    </div>
-
-  </div>
-  
+<div class="modal-body" style="padding:5px">
+<div>
+<tabset>
+<tab heading="Followers" id="tab1">
+<span>All Followers</span>
+<hr>
+<div class="list-group folls">
+<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
 </div>
-    </tab>
-  
-  </tabset>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
 </div>
-  </div>
+</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
+</div>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
+</div>
+</div>
+</div>
+</tab>
+<tab heading="Investments">
+<span>Investment</span>
+<div class="list-group folls">
+<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
+</div>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span  style="font-weight:5px; "><i class="fa fa-calendar"></i> 12/jan/2018</span>
+</div>
+</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
+</div>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
+</div>
+</div>
+</div>
+</tab>
+</tabset>
+</div>
+</div>
 </ng-template>

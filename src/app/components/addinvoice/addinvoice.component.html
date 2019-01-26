@@ -1,52 +1,64 @@
-
 <div class="body"> 
     <app-header></app-header>
-  <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="content">
-                <form [formGroup]="invoiceForm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <input class="col-md-4 form-control" placeholder="Dear sir/ Madam " id="exampleFormControlTextarea1"/>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <div class="paper">
+                        <form [formGroup]="invoiceForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Company name</p>
+                                    <p>+256788127712</p>
+                                    <p>P.obox 291092</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Type user company detals" rows="3"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <input class="col-md-4 form-control" placeholder=".........." id="exampleFormControlTextarea1"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-form-label">Type a short message</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                                    </tr>
+                                </thead>
+                                <ng-container formArrayName="itemRows">
+                                    <tbody>
+                                        <tr *ngFor="let ctrl of invoiceForm.get('itemRows')['controls']; let i = index" [formGroupName]="i">
+                                            <td>{{i+1}}</td>
+                                            <td><input type="text"class="form-control form-control-sm" formControlName="item"></td>
+                                            <td><input type="text" class="form-control form-control-sm" formControlName="unit"></td>
+                                            <td><input type="text" class="form-control form-control-sm" formControlName="unitprice"></td>
+                                            <td><input type="text"  class="form-control form-control-sm" formControlName="price"></td>
+                                            <td><button class="btn btn-danger btn-sm" *ngIf="invoiceForm.get('itemRows')['controls'].length >= 1" (click)="removeInputField(i)"><span class="fa fa-trash"></span></button></td>
+                                        </tr>
+                                    </tbody>
+                                </ng-container>
+                                <tr>
+                                    <td>
+                                        <button (click)="addNewRow()" class="btn btn-default">Add Partculars</button> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                        <button class="btn btn-primary" (click)="addNewRow()">Create An Invoice</button>
                     </div>
-
-                    <div class="form-group">
-                        <label for="inputPassword" class="col-form-label">Type a short message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-                    </div>
-
-                    <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-                    </tr>
-                    </thead>
-                    <ng-container formArrayName="itemRows">
-                    <tbody>
-                    <tr *ngFor="let ctrl of invoiceForm.get('itemRows')['controls']; let i = index" [formGroupName]="i">
-                    <td>{{i+1}}</td>
-                    <td><input type="text"class="form-control form-control-sm" formControlName="item"></td>
-                    <td><input type="text" class="form-control form-control-sm" formControlName="unit"></td>
-                    <td><input type="text" class="form-control form-control-sm" formControlName="unitprice"></td>
-                    <td><input type="text"  class="form-control form-control-sm" formControlName="price"></td>
-                    <td> <button class="btn btn-danger btn-sm" *ngIf="invoiceForm.get('itemRows')['controls'].length >= 1" (click)="removeInputField(i)"><span class="fa fa-trash"></span></button></td>
-                    </tr>
-                    </tbody>
-                    </ng-container>
-                    </table>
-                </form>
-            <button (click)="addNewRow()">Add Partculars</button> <button (click)="addNewRow()">Submit</button>
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
+    </div>
 </div>
 
-    
