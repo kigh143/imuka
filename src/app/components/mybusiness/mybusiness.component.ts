@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output, TemplateRef  } from '@angular/core';
+import { Router } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
   selector: 'app-mybusiness',
   templateUrl: './mybusiness.component.html',
   styleUrls: ['./mybusiness.component.scss']
 })
 export class MybusinessComponent implements OnInit {
+ modalRef: BsModalRef;
   businesses = [];
 
   //business parameters
@@ -18,7 +21,7 @@ export class MybusinessComponent implements OnInit {
   business_stage: string;
   start_of_operation: string;
 
-  constructor() {
+  constructor( public modalService: BsModalService) {
 
   }
 
@@ -41,4 +44,10 @@ export class MybusinessComponent implements OnInit {
     this.businesses.push(biz);
     console.log(this.businesses);
   }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template,
+      Object.assign({}, { class: 'modal-lg' })
+    );
+  }
 }
+

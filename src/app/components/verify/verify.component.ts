@@ -6,7 +6,8 @@ import {
   FormControl,
   Validators
 } from "@angular/forms";
-
+import {AuthService} from "../../provider/auth.service"
+import {SessionService} from "../../provider/session.service"
 @Component({
   selector: 'app-verify',
   templateUrl: './verify.component.html',
@@ -14,20 +15,37 @@ import {
 })
 export class VerifyComponent  {
  verform: any;
-  constructor( public formBuilder: FormBuilder, public router : Router) {
+ currentuser:any;
+  constructor( public formBuilder: FormBuilder, public router : Router, public auth: AuthService, public session: SessionService) {
 
  this.verform = this.formBuilder.group({
       
       code: [ "", Validators.compose([Validators.minLength(5), Validators.required]) ]
     });
+   this.session.getuser().subscribe(data=>{
+  console.log(data);
+      this.currentuser=data;
+     
+   });
    }
 
   verify(){
-  if (this.verform.valid) {
-  this.router.navigate(['/dashboard'])
-      console.log("Form Submitted!");
-      this.verform.reset();
-    }
+
+  let user = this.verform.value;
+  user['user_id']=this.currentuser.user_id;
+   console.log(user);
+    this.auth.verify(user,).subscribe( data=>{
+      console.log(data)
+       if (!data.flag){
+
+       } else{
+       this.session.login(data.user);
+       this.router.navigate(['/dashboard']);
+       }
+    });
+
+
+  
     
      
   }
