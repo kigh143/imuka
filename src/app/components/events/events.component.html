@@ -49,42 +49,54 @@
         <form>
       
             <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Event title</label>
+                <label for="inputPassword"  class="col-sm-2 col-form-label">Event title</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control"  placeholder="Event title">
+                <input type="text" class="form-control" [(ngModel)]="title" name="title" placeholder="Event title">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Event type</label>
+                <div class="col-sm-10">
+                <select class="form-control" [(ngModel)]="event_type " name="event_type">
+                    <option value="Business networking event">Business networking event</option>
+                    <option value="Workshop/Conference">Workshop/Conference</option>
+                    <option value="Training">Training</option>
+                    <option value="Pitching">Pitching</option>
+                </select>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Date of event</label>
                 <div class="col-sm-10">
-                <input type="date" class="form-control" >
+                <input type="date"  [(ngModel)]="time_of_event" name="time_of_event" class="form-control" >
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Event Venue</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control"  placeholder="Event Venue">
+                <input type="text" class="form-control"  name="venue" [(ngModel)]="venue"  placeholder="Event Venue">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Link to details</label>
                 <div class="col-sm-10">
-                <input type="link" class="form-control"  placeholder="Link to details">
+                <input type="link" class="form-control"  [(ngModel)]="link" name="link"  placeholder="Link to details">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Short description</label>
                 <div class="col-sm-10">
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control" name="description" [(ngModel)]="description"></textarea>
                 </div>
             </div>
 
             <div>
-                <button class="btn btn-primary btn-sm">Submit Event</button>
+                <button class="btn btn-primary btn-sm" (click)="add_event()">Submit Event</button>
             </div>
         </form>
     </div>
