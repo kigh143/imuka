@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
-
+import {AuthService} from "../../provider/auth.service";
+import {SessionService} from "../../provider/session.service";
 import {
   FormGroup,
   FormBuilder,
@@ -17,7 +18,7 @@ export class SignupComponent {
 
   myForm: any;
 
-  constructor(public formBuilder: FormBuilder, public router : Router) {
+  constructor(public formBuilder: FormBuilder, public router : Router, public auth: AuthService,  public session: SessionService) {
     this.myForm = this.formBuilder.group({
       email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
       password: [ "", Validators.compose([Validators.minLength(5), Validators.required]) ],
@@ -26,13 +27,22 @@ export class SignupComponent {
    }
 
 
-  signup(){
-  if (this.myForm.valid) {
-  this.router.navigate(["/verify"]);
-      console.log("Form Submitted!");
-      this.myForm.reset();
-    }
+  
+
+    signup() {
+    let user = this.myForm.value;
+   console.log(user);
+    this.auth.signup(user).subscribe( data=>{
+      if (!data.flag) {
+          
+        } else {
+          this.session.login(data.user);
+          this.router.navigate(['/verify']);
+        }
       
+    });
+
+  
   }
 
 }

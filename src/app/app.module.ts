@@ -42,7 +42,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { PalnsComponent } from './components/palns/palns.component';
 import { OrgProfileComponent } from './components/org-profile/org-profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { AuthPipe } from './providers/auth.pipe';
+import { AuthService } from './provider/auth.service';
+import { HttpModule }from "@angular/http";
 
 
 const app_routes: Routes = [
@@ -112,14 +113,14 @@ const app_routes: Routes = [
     RequestComponent,
     UserProfileComponent,
     PalnsComponent,
-    OrgProfileComponent,
-    AuthPipe
+    OrgProfileComponent
   ],
  
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule,  
+    FormsModule, 
+    HttpModule, 
     RouterModule.forRoot(app_routes), 
     AngularFontAwesomeModule, 
     CarouselModule.forRoot(), 
@@ -130,7 +131,7 @@ const app_routes: Routes = [
      BsDatepickerModule.forRoot()
   ],
 
-  providers: [AuthPipe],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -21,11 +21,14 @@
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
+
+               
               </div>
               <div class="card-body">
-                <a href="#" class="card-link">Join Program</a>
-                <a href="#" class="card-link">Enlist</a>
-                <a routerLink="/business/9" class="card-link">business info</a>
+                 <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join)">Join Program/Enlist </button>
+                  <button type="button" routerLink="/business/{{business.business_id}}" class="btn btn-primary">Business Info</button>
+                 
+ 
               </div>
             </div>
           </div>
@@ -189,3 +192,71 @@
   </div>
 </div>
 <app-footer></app-footer>
+<ng-template #Join style="padding:0px">
+<div class="modal-header">
+<h4 class="modal-title pull-left">Modal</h4>
+<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+<div class="modal-body" style="padding:5px">
+<div>
+<tabset>
+<tab heading="Followers" id="tab1">
+<span>All Followers</span>
+<hr>
+<div class="list-group folls">
+<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
+</div>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
+</div>
+</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
+</div>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
+</div>
+</div>
+</div>
+</tab>
+<tab heading="Investments">
+<span>Investment</span>
+<div class="list-group folls">
+<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
+</div>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span  style="font-weight:5px; "><i class="fa fa-calendar"></i> 12/jan/2018</span>
+</div>
+</div>
+<div class="follitem">
+<div>
+<img src="assets/user.png"/>
+</div>
+<div style="padding-left: 20px">
+<span>Musoke Delta Mesly company</span>
+<br>
+<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
+</div>
+</div>
+</div>
+</tab>
+</tabset>
+</div>
+</div>
+</ng-template>
