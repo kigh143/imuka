@@ -22,13 +22,11 @@
                   the bulk of the card's content.
                 </p>
 
-                <a href="#" class="card-link">Join Program</a>
-                <a href="#" class="card-link">Enlist</a>
-                <a routerLink="/business/9" class="card-link">business info</a>
+               
               </div>
               <div class="card-body">
                  <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join)">Join Program/Enlist </button>
-                  <button type="button" routerLink="/business/9" class="btn btn-primary">Business Info</button>
+                  <button type="button" routerLink="/business/{{business.business_id}}" class="btn btn-primary">Business Info</button>
                  
  
               </div>

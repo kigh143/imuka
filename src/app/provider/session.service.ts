@@ -7,7 +7,8 @@ import { LocalStorage } from '@ngx-pwa/local-storage';
 })
 export class SessionService {
 authenticationState = new BehaviorSubject(false);
-const KEY = "user_object";
+KEY = "user_object";
+bizkey="biz_object"
  constructor(public localStorage: LocalStorage) {
    
   }
@@ -49,4 +50,10 @@ const KEY = "user_object";
   return  this.localStorage.getItem(this.KEY);
 
   }
+ 
+ 
+   
+ 
+   
+
 }

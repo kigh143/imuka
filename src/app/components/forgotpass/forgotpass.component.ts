@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {AuthService} from "../../provider/auth.service";
+import {SessionService} from "../../provider/session.service";
 import {
   FormGroup,
   FormBuilder,
@@ -14,7 +15,7 @@ import {
 })
 export class ForgotpassComponent implements OnInit {
 myForm: any;
-  constructor(public formBuilder: FormBuilder, public router : Router) { 
+  constructor(public formBuilder: FormBuilder, public router : Router, public auth: AuthService, public session: SessionService) { 
 this.myForm = this.formBuilder.group({
       email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
      
@@ -25,11 +26,18 @@ this.myForm = this.formBuilder.group({
   }
 
 forgotpass(){
-	if (this.myForm.valid) {
-  this.router.navigate(["/login"]);
-    
-      this.myForm.reset();
-    }
+let user = this.myForm.value;
+this.auth.forgotpass(user).subscribe(data=>{
+  if(!data.flag){
+
+  }else{
+  this.router.navigate(['/login']);
+  }
+});
+	
+}
+login(){
+  this.router.navigate(['/login']);
 }
 
 }

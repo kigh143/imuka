@@ -11,7 +11,7 @@ api_url: string;
   headers: Headers;
   options: RequestOptions;
   constructor(public http: Http) {
-    this.api_url = "http://10.111.7.115/imuka_rest_api/welcome/";
+    this.api_url = "http://10.111.9.58/imuka_rest_api/welcome/";
      this.headers = new Headers();
     this.headers.append(
       "Content-Type",
@@ -41,6 +41,11 @@ api_url: string;
       .post(this.api_url + "verifycode/json", user, this.options)
       .pipe(map(res => res.json()));
 
+  }
+  forgotpass(user){
+   return this.http
+     .post(this.api_url + "forgotpass/json", user, this.options)
+      .pipe(map(res => res.json()));
   }
  
 

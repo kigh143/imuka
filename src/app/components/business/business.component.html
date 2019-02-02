@@ -41,9 +41,26 @@
 <div class="col-md-4"><img  src="assets/mre_grp.png"/></div>
 </div>
 </div>
-<hr>
+<hr>7
 
+<div class="tabst">
+  <p>You can select tabs directly from component</p>
+  <p>
+    <a class="tabslink" (click)="selectTab(1)"><i class="fa fa-eye"></i>  <span>Select second tab</span></a>
+    <a class="tabslink" (click)="selectTab(2)"><i class="fa fa-eye"></i> <span>Select third tab</span></a>
+    <a class="tabslink" (click)="selectTab(3)"><i class="fa fa-eye"></i> <span>Select second tab</span></a>
+    <a class="tabslink" (click)="selectTab(4)"><i class="fa fa-eye"></i> <span>Select third tab</span></a>
+    <a class="tabslink" (click)="selectTab(5)"><i class="fa fa-eye"></i> <span>Select second tab</span></a>
 
+  </p>
+  <hr/>
+  <tabset #staticTabs>
+    <tab>Static content</tab>
+    <tab >Static content 1</tab>
+    <tab >Static content 2</tab>
+    <tab >Static content 3</tab>
+  </tabset>
+</div>
 
 <ul class="ul">
 <li *ngFor="let item of items; let i=index" (click)="showdiv(i, item)" [ngClass]="item.isactive ? 'active':'not_active'"> 
@@ -270,7 +287,7 @@ Disabled radio
 <div class="products" *ngIf ="product">
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
-<div class="row" *ngFor="let prdt of products">
+<div class="row" *ngFor="let prdt of business_data.products">
 <div class="col-md-4">
 <img src={{prdt.image}} height="150px" />
 </div>
@@ -305,7 +322,7 @@ formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.inval
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
 <div class="row">
-<div class="col-3" *ngFor="let doc of documentsi">
+<div class="col-3" *ngFor="let doc of business_data.documents">
 <div class="box document" [ngClass]="isclicked?'active':''" >
 <img src="{{doc.image}}" height="80px"/>
 <h6>{{doc.name}}</h6>
@@ -353,7 +370,7 @@ formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.inval
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr *ngFor="let financial of business_data.financials">
 <th scope="row">2016</th>
 <td>50</td>
 <td>29</td>
@@ -417,36 +434,8 @@ formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.inval
 <div class="team" *ngIf ="team">
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
-<div class="card" >
-<div class="card-body">
-<div class="row">
-<div class="col-2">
-<img src="assets/user.png"/>
-</div>
-<div class="col-6">
-Peterson
-</div>
-<div class="col-4">
-manager
-</div>
-</div>
-</div>
-</div>
-<div class="card" >
-<div class="card-body">
-<div class="row">
-<div class="col-3">
-<img src="assets/user.png"/>
-</div>
-<div class="col-6">
-Peterson
-</div>
-<div class="col-3">
-manager
-</div>
-</div>
-</div>
-</div><div class="card" >
+
+<div class="card" *ngFor="let team of business_data.team">
 <div class="card-body">
 <div class="row">
 <div class="col-3">
@@ -461,6 +450,7 @@ manager
 </div>
 </div>
 </div>
+
 </div>
 <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
 <form [formGroup]="bizteam">

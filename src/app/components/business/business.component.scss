@@ -62,7 +62,21 @@ i{
        color: #14978a !important;
     }
 }
+.tabslink{
+  padding:5x;
+  margin-right:30px;
+
+  i{
+margin-right:10px !important;
+
+  }
+}
 @media only screen and (max-width:760px){
+.tabst{
+  span{
+   display:none;
+  }
+}
 
   ul{
   
