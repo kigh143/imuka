@@ -153,12 +153,12 @@ let document=this.bizfinancial.value;
 
 
 addteam(){
-  let team=this.bizteam.value;
+    let team=this.bizteam.value;
     this.bizy.addteam(team).subscribe(data=>{
-      if(data.flag){
-        this.bizteam.reset();
-  }
-})
-
+    if(data.flag){
+    this.bizteam.reset();
+    }
+    })
+}
 
 }

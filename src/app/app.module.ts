@@ -43,6 +43,7 @@ import { PalnsComponent } from './components/palns/palns.component';
 import { OrgProfileComponent } from './components/org-profile/org-profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AuthService } from './provider/auth.service';
+import { EventsService } from "./services/events.service";
 import { HttpModule }from "@angular/http";
 
 
@@ -128,10 +129,10 @@ const app_routes: Routes = [
     AccordionModule.forRoot(), 
     ModalModule.forRoot(), 
     BsDropdownModule.forRoot(),
-     BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot()
   ],
 
-  providers: [AuthService],
+  providers: [AuthService, EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

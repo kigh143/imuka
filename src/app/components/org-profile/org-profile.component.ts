@@ -11,7 +11,7 @@ export class OrgProfileComponent implements OnInit {
     {name:"Profile details", icon:"fa fa-sitemap", isactive:true},
     {name:"Events", icon:"fa fa-calendar", isactive:false},
     {name:"Opportunities", icon:"fa fa-globe", isactive:false},
-    {name:"Groups", icon:"fa fa-users", isactive:false},
+    {name:"Our enterprenuers", icon:"fa fa-users", isactive:false},
     {name:"Inquiries", icon:"fa fa-envelope", isactive:false},
   ];
 
