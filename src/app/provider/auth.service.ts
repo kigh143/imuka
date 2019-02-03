@@ -11,7 +11,7 @@ api_url: string;
   headers: Headers;
   options: RequestOptions;
   constructor(public http: Http) {
-    this.api_url = "http://10.111.9.58/imuka_rest_api/welcome/";
+    this.api_url = "http://127.0.0.1/imuka_rest_api/welcome/";
      this.headers = new Headers();
     this.headers.append(
       "Content-Type",
