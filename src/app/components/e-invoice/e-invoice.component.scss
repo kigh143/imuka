@@ -76,3 +76,30 @@
         padding:10px;
     }
 }
+
+.grid{
+    background: none !important;
+    .col-md-4{
+        background: none !important;
+        padding: 10px;
+        div{
+            border-radius: 3px;
+        }
+
+        .requests{
+            background-image: linear-gradient(to right top,  #00badd, #0098e8);
+            color:#fff;
+        }
+
+        .payables{
+            background-image: linear-gradient(to right top,  #d433a5, #905fc4);
+            color:#fff;
+
+        }
+
+        .receivables{
+            background-image: linear-gradient(to right top,  orange, #a366c2);
+            color:#fff;
+        }
+    }
+}
