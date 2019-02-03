@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormBuilder, FormControl, FormArray, FormGroup } from '@angular/forms';
+import {BizService} from "../../provider/biz.service";
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-addinvoice',
@@ -9,69 +10,84 @@ import { FormBuilder, FormControl, FormArray, FormGroup } from '@angular/forms';
 })
 export class AddinvoiceComponent implements OnInit {
 
-  oneAtATime: boolean = true;
-  invoiceForm: FormGroup;
-  headElements = ['Id', 'Item', 'unit price', 'Unit', 'Price', 'Action'];
-  months=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    oneAtATime: boolean = true;
+    invoiceForm: FormGroup;
+    headElements = ['Id', 'Item', 'unit price', 'Unit', 'Price', 'Action'];
+    business : any;
+    message : string;
+    receipient: string;
+    expiry_date: string;
 
-  constructor(
-    private _fb: FormBuilder
-  ) {
-    this.createForm();
-    
-    
-  }
+    constructor(private _fb: FormBuilder, public route: ActivatedRoute, public router : Router, public businessService: BizService) {this.createForm();}
 
-  createForm(){
-    this.invoiceForm = this._fb.group({
-      itemRows: this._fb.array([])
-    });
-    this.invoiceForm.setControl('itemRows', this._fb.array([]));
-   
-  }
+    createForm(){
+      this.invoiceForm = this._fb.group({
+        itemRows: this._fb.array([])
+      });
+      this.invoiceForm.setControl('itemRows', this._fb.array([]));
+    }
 
-  get itemRows(): FormArray {
-    return this.invoiceForm.get('itemRows') as FormArray;
-  }
+    get_itemRows(): FormArray {
+      return this.invoiceForm.get('itemRows') as FormArray;
+    }
 
- 
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+        this.getbusiness(params['id']);  
+        });
+    }
 
- ngOnInit() {
-    // this.invoiceForm = this._fb.group({
-    //   itemRows: this._fb.array([this.initItemRows()]) // here
-    // });
- }
-  //initItemRows() {
-    // return this._fb.group({
-        // list all your form controls here, which belongs to your form array
-        // itemname: ['']
-    // // });
-// }
-addNewRow() {
-  // control refers to your formarray
-  // const control = <FormArray>this.invoiceForm.controls['itemRows'];
-  // add new formgroup
-  // // control.push(this.initItemRows());
-  const control = new FormGroup({
-    'item':  new FormControl(null),
-    'unit': new FormControl(null),
-    'unitprice':new FormControl(null),
-    'price': new FormControl(null)
-   
-});
-  (<FormArray>this.invoiceForm.get('itemRows')).push(control);
+    addNewRow() {
+        const control = new FormGroup({
+        'item':  new FormControl(null),
+        'unit': new FormControl(null),
+        'unitprice':new FormControl(null),
+        'price': new FormControl(null)
+        });
+        (<FormArray>this.invoiceForm.get('itemRows')).push(control);
+    }
+
+    removeInputField(i : number) {
+        const control = <FormArray>this.invoiceForm.controls.itemRows;
+        control.removeAt(i);
+    }
+
+    getbusiness( id ){
+      this.businessService.fetch_abusiness(id).subscribe( data => {
+        this.business = data["business_info"];
+      }, error =>{
+        console.log(error);
+      });
+    }
+
+    submit_invoice (){
+      let items  = this.get_itemRows()["value"];
+      let invoice_data = {
+        invoice_item_list: JSON.stringify(items),
+        prepared_by:this.business.business_id,
+        receipient: this.receipient,
+        message: this.message,
+        amount: this.calculate_total(),
+        expiry_date:this.expiry_date
+      };
+
+      this.businessService.add_invoice(invoice_data).subscribe( data =>{
+        console.log(data);
+      }, error => {
+        console.log(error);
+      })
+
+    }
+
+    calculate_total(){
+      let items  = this.get_itemRows()["value"];
+      // return items.reduce(( current, value ) => current += parseInt(value['price']));
+      return 90;
+    }
+
 }
-removeInputField(i : number) : void
-{
-   const control = <FormArray>this.invoiceForm.controls.itemRows;
-   control.removeAt(i);
-}
-// deleteRow(index: number) {
-  // control refers to your formarray
-  // const control = <FormArray>this.invoiceForm.controls['itemRows'];
-  // remove the chosen row
-  // control.removeAt(index);
-// }
-}
+
+
+
 
 

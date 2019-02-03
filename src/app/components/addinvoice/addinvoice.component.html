@@ -5,34 +5,44 @@
             <div class="col-md-12">
                 <div class="content">
                     <div class="paper">
-                        <form [formGroup]="invoiceForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p>Company name</p>
-                                    <p>+256788127712</p>
-                                    <p>P.obox 291092</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Type user company detals" rows="3"></textarea>
-                                </div>
+                        <div class="invoice_header">
+                            <p>Invoice by ImukaAccess</p>
+                        </div>
+                        <hr>
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-form-label">Select due date.</label>
+                                <input type="date" class="form-control" name="expiry_date" [(ngModel)]="expiry_date"/>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <input class="col-md-4 form-control" placeholder=".........." id="exampleFormControlTextarea1"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                </div>
-                            </div>
+                            <hr/>
+
+                            <p>Company name</p>
+                            <p>+256788127712</p>
+                            <p>P.obox 291092</p>
+
+                            <hr>
+
+                            <p>Select receipient business,  if business not available please them to join imukaaccess.</p>
+                            <select [(ngModel)]="receipient" name="receipient " class="form-control">
+                                <option> Select receipient business</option>
+                                <option value="1"> Business one </option>
+                                <option value="2"> Business two</option>
+                                <option value="3"> Business three </option>
+                            </select>
+
+                            <hr/>
                             <div class="form-group">
                                 <label for="inputPassword" class="col-form-label">Type a short message</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                <textarea class="form-control" name="message" [(ngModel)]="message" id="exampleFormControlTextarea1" rows="2"></textarea>
                             </div>
-                            <table class="table table-bordered">
+                            
+                            <hr>
+                                     <form [formGroup]="invoiceForm">
+                        
+                            <p>Add items and details conceringin this inovice. the total will be calculated automatically.</p>
+                            <table class="table table-stripped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                                        <td *ngFor="let head of headElements" scope="col">{{head}} </td>
                                     </tr>
                                 </thead>
                                 <ng-container formArrayName="itemRows">
@@ -54,7 +64,7 @@
                                 </tr>
                             </table>
                         </form>
-                        <button class="btn btn-primary" (click)="addNewRow()">Create An Invoice</button>
+                        <button class="btn btn-primary" (click)="submit_invoice()">Create An Invoice</button>
                     </div>
                 </div>
             </div>

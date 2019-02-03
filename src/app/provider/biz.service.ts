@@ -65,4 +65,10 @@ api_url: string;
   
   }
 
+  add_invoice(data){
+    return this.http
+      .post(this.api_url + "addinvoice/json", data, this.options)
+      .pipe(map(res => res.json()));
+  }
+
 }
