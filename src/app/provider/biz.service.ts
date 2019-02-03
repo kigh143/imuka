@@ -71,4 +71,10 @@ api_url: string;
       .pipe(map(res => res.json()));
   }
 
+  get_invoices(id){
+    return this.http
+    .get(this.api_url + "getinvoices/business_id/"+id+"/json")
+    .pipe(map(res => res.json()));
+  }
+
 }

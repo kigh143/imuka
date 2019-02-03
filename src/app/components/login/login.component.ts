@@ -1,11 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
-  Validators
-} from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import {AuthService} from "../../provider/auth.service"
 import {SessionService} from "../../provider/session.service"
 @Component({
@@ -24,22 +19,17 @@ export class LoginComponent {
     });
   }
 
-  
-
-   login() {
+  login() {
     let user = this.loginForm.value;
-   
-   console.log(user);
-    this.auth.login(user).subscribe( data=>{
-      console.log(data)
-       if (!data.flag){
-
-       } else{
-       this.session.login(data.user);
-       this.router.navigate(['/dashboard']);
+    this.auth.login(user).subscribe( data=>{ 
+       if (data.flag){
+          this.session.login(data.user);
+          this.router.navigate(['/dashboard']);
+       }else{
+         console.log(data.message)
        }
     });
+  }
 
   
-  }
 }

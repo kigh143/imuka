@@ -45,39 +45,40 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AuthService } from './provider/auth.service';
 import { EventsService } from "./services/events.service";
 import { HttpModule }from "@angular/http";
+import { AuthGuard } from "./auth.guard";
 
 
 const app_routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
+  { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "verify", component: VerifyComponent },
   { path: "forgotPassword", component: ForgotpassComponent },
-  { path: "dashboard", component: HomeComponent },
-  { path: "profile", component: ProfileComponent },
-  { path: "people", component: PeopleComponent },
-  { path: "opportunities", component: OpportunitiesComponent },
-  { path: "events", component: EventsComponent },
-  { path: "settings", component: SettingsComponent },
-  { path: "notifications", component: NotificationsComponent },
-  { path: "chat", component: ChatComponent },
-  { path: "chat/:id", component: ChatComponent },
-  { path: "my_businesses", component: MybusinessComponent },
-  { path: "business/:id", component: BusinessComponent },
-  { path: "business", component: BusinessComponent },
-  { path: "pitchbook/:id", component: PitchbookComponent }, 
-  { path: "search", component: SearchComponent },
-  { path: "investiment_opportunities", component: InvestmentoppComponent},
-  { path: "investmentrequest", component: InvestmentRequestComponent},
-  { path: "einvoice/:id", component: EInvoiceComponent},
-  { path: "add_invoice/:id", component: AddinvoiceComponent},
-  { path: "Product", component: ProductComponent},
-  { path: "request", component: RequestComponent},
-  { path: "addinvoice/:id", component: AddinvoiceComponent},
-  { path: "organisations", component : OrganisationsComponent},
-  { path: "organisation/:id", component : OrganisationComponent},
-  { path: "user/:id", component : UserProfileComponent},
-  { path: "plans", component : PalnsComponent},
-  { path: "org_profile", component : OrgProfileComponent},
+  { path: "profile", component: ProfileComponent, canActivate:[AuthGuard]},
+  { path: "people", component: PeopleComponent, canActivate:[AuthGuard] },
+  { path: "opportunities", component: OpportunitiesComponent , canActivate:[AuthGuard]},
+  { path: "events", component: EventsComponent, canActivate:[AuthGuard] },
+  { path: "settings", component: SettingsComponent , canActivate:[AuthGuard]},
+  { path: "notifications", component: NotificationsComponent , canActivate:[AuthGuard]},
+  { path: "chat", component: ChatComponent, canActivate:[AuthGuard] },
+  { path: "chat/:id", component: ChatComponent, canActivate:[AuthGuard] },
+  { path: "my_businesses", component: MybusinessComponent, canActivate:[AuthGuard] },
+  { path: "business/:id", component: BusinessComponent, canActivate:[AuthGuard] },
+  { path: "business", component: BusinessComponent , canActivate:[AuthGuard]},
+  { path: "pitchbook/:id", component: PitchbookComponent, canActivate:[AuthGuard] }, 
+  { path: "search", component: SearchComponent, canActivate:[AuthGuard] },
+  { path: "investiment_opportunities", component: InvestmentoppComponent , canActivate:[AuthGuard]},
+  { path: "investmentrequest", component: InvestmentRequestComponent , canActivate:[AuthGuard]},
+  { path: "einvoice/:id", component: EInvoiceComponent, canActivate:[AuthGuard]},
+  { path: "add_invoice/:id", component: AddinvoiceComponent, canActivate:[AuthGuard]},
+  { path: "Product", component: ProductComponent, canActivate:[AuthGuard]},
+  { path: "request", component: RequestComponent, canActivate:[AuthGuard]},
+  { path: "addinvoice/:id", component: AddinvoiceComponent, canActivate:[AuthGuard]},
+  { path: "organisations", component : OrganisationsComponent, canActivate:[AuthGuard]},
+  { path: "organisation/:id", component : OrganisationComponent, canActivate:[AuthGuard]},
+  { path: "user/:id", component : UserProfileComponent, canActivate:[AuthGuard]},
+  { path: "plans", component : PalnsComponent, canActivate:[AuthGuard]},
+  { path: "org_profile", component : OrgProfileComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({
@@ -132,7 +133,7 @@ const app_routes: Routes = [
     BsDatepickerModule.forRoot()
   ],
 
-  providers: [AuthService, EventsService],
+  providers: [AuthService, EventsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

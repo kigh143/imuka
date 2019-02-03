@@ -4,17 +4,18 @@
   <div class="row">
     <div class="col-md-8">
       <div class="jumbotron">
-          <h1 class="display-4">My vivan</h1>
+          <h1 class="display-4">{{biznes?.business_name}}</h1>
           <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
           <p>Program type : personalised support.</p>
           <p>Balance: NILL</p>
         
           <div>
-          <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
-          <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
-          <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
-          <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(template)">update Progress</button>       
+              <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
+              <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
+              <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
+              <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(template)">update Progress</button>       
           </div>
+          
       </div>
     </div>
     <div class="col-md-4">

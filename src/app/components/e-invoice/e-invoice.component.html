@@ -8,6 +8,20 @@
                 </div>
           </div>
           <div class="col-md-9">
+              <div class="ou_header">
+                  <div>
+                        <h2>{{ business.business_name }} Invoices</h2>
+                        <span>{{ business.legal_entity }}</span><br/>
+                        <span>{{ business.country }} ( {{business.region }} )</span>
+                  </div>
+                  <a class="btn btn-primary btn-sm" routerLink="/add_invoice/{{business.business_id}}">
+                    <span>
+                            <i class="fa fa-plus"></i><br/>
+                            <span>Create New Invoice</span>
+                    </span>
+              
+                </a>
+              </div>
               <div class="row grid">
                     <div class="col-md-4">
                         <div class="receivables">
@@ -30,13 +44,11 @@
                     </div>
               </div>
               <div>
-                <div style="display:flex; flex-direction:row; justify-content:flex-end; margin-bottom:10px;">
-                <a class="btn btn-primary btn-sm" routerLink="/add_invoice/{{business.business_id}}">Create New Invoice</a>
-                </div>
                 <table class="table table-strpped">
                 <tr>
                 <th>Customer name</th>
                 <th>status</th>
+                <th>Amount</th>
                 <th>Actions</th>
                 <th>Date</th>
                 <th>View</th>
@@ -44,11 +56,12 @@
 
                 <tbody>
                 <tr *ngFor="let invoice of invoices">
-                    <td>Katende </td>
+                    <td>kates</td>
                     <td>Due</td>
+                    <td>{{invoice.amount}}</td>
                     <td>Delete/Edit</td>
-                    <td>12/ Dec/2018</td>
-                    <td><a >View Details</a></td>
+                    <td>{{invoice.created_on}}</td>
+                    <td><button (click)="show_modal(invoice)">View Details</button></td>
                 </tr>
                 </tbody>
                 </table>

@@ -11,12 +11,7 @@ styleUrls: ['./e-invoice.component.scss']
 })
 export class EInvoiceComponent implements OnInit {
 
-invoices: any = [
-{id: 1, first: 'Mark', last: 'Otto', handle: '@mdo', price:"3000"},
-{id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat', price:"1000"},
-{id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter', price:"4000"},
-];
-
+invoices: any;
 business: any;
 
   constructor( public route: ActivatedRoute, public router : Router, public businessService: BizService) { }
@@ -28,21 +23,20 @@ business: any;
     });
   }
 
-
-  addinvoice(){
-
-  }
-
   get_invoices( business_id ){
-
+      this.businessService.get_invoices(business_id).subscribe( data => {
+          this.invoices = data;
+      }, error =>{
+        console.log(error);
+      })
   }
 
   getbusiness( id ){
-    this.businessService.fetch_abusiness(id).subscribe( data => {
-      this.business = data["business_info"];
-    }, error =>{
-      console.log(error);
-    });
+      this.businessService.fetch_abusiness(id).subscribe( data => {
+        this.business = data["business_info"];
+      }, error =>{
+        console.log(error);
+      });
   }
 
 }

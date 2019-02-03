@@ -15,7 +15,7 @@
                             </div>
                             <hr/>
 
-                            <p>Company name</p>
+                            <h3>Company name</h3>
                             <p>+256788127712</p>
                             <p>P.obox 291092</p>
 
@@ -42,29 +42,31 @@
                             <table class="table table-stripped table-bordered">
                                 <thead>
                                     <tr>
-                                        <td *ngFor="let head of headElements" scope="col">{{head}} </td>
+                                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
                                     </tr>
                                 </thead>
                                 <ng-container formArrayName="itemRows">
                                     <tbody>
                                         <tr *ngFor="let ctrl of invoiceForm.get('itemRows')['controls']; let i = index" [formGroupName]="i">
                                             <td>{{i+1}}</td>
-                                            <td><input type="text"class="form-control form-control-sm" formControlName="item"></td>
+                                            <td><input type="text" class="form-control form-control-sm" formControlName="item"></td>
                                             <td><input type="text" class="form-control form-control-sm" formControlName="unit"></td>
                                             <td><input type="text" class="form-control form-control-sm" formControlName="unitprice"></td>
-                                            <td><input type="text"  class="form-control form-control-sm" formControlName="price"></td>
+                                            <td><input type="text" class="form-control form-control-sm" formControlName="price"></td>
                                             <td><button class="btn btn-danger btn-sm" *ngIf="invoiceForm.get('itemRows')['controls'].length >= 1" (click)="removeInputField(i)"><span class="fa fa-trash"></span></button></td>
                                         </tr>
                                     </tbody>
                                 </ng-container>
                                 <tr>
                                     <td>
-                                        <button (click)="addNewRow()" class="btn btn-default">Add Partculars</button> 
+                                        <button (click)="addNewRow()" class="btn btn-default">Add partculars</button> 
                                     </td>
                                 </tr>
                             </table>
                         </form>
-                        <button class="btn btn-primary" (click)="submit_invoice()">Create An Invoice</button>
+                        <div class="submit_btn">
+                            <button class="btn btn-primary" (click)="submit_invoice()">Create Invoice</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -63,19 +63,21 @@ export class AddinvoiceComponent implements OnInit {
     submit_invoice (){
       let items  = this.get_itemRows()["value"];
       let invoice_data = {
-        invoice_item_list: JSON.stringify(items),
-        prepared_by:this.business.business_id,
-        receipient: this.receipient,
-        message: this.message,
-        amount: this.calculate_total(),
-        expiry_date:this.expiry_date
+          invoice_item_list: JSON.stringify(items),
+          prepared_by:this.business.business_id,
+          receipient: this.receipient,
+          message: this.message,
+          amount: this.calculate_total(),
+          expiry_date:this.expiry_date
       };
 
       this.businessService.add_invoice(invoice_data).subscribe( data =>{
-        console.log(data);
+        if(data.flag){
+          this.router.navigate(["/einvoice", {id:this.business.business_id}]);
+        }
       }, error => {
         console.log(error);
-      })
+      });
 
     }
 
