@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-e-invoice',
@@ -14,14 +15,21 @@ export class EInvoiceComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor( public route: ActivatedRoute, public router : Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.getbusiness(params['id']);  
+    });
   }
 
 
-addinvoice(){
- 
+  addinvoice(){
+
+  }
+
+  getbusiness( id){
+
   }
 
 }

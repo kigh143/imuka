@@ -10,8 +10,8 @@
           <p>Balance: NILL</p>
         
           <div>
-          <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/9">View pitch deck</button>
-          <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/9">View Inovices</button>
+          <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
+          <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
           <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
           <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(template)">update Progress</button>       
           </div>
