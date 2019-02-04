@@ -47,6 +47,18 @@ api_url: string;
      .post(this.api_url + "forgotpass/json", user, this.options)
       .pipe(map(res => res.json()));
   }
+
+  edit_user(user, user_id){
+    return this.http
+     .post(this.api_url + "editprofile/user_id/"+user_id+"/json", user, this.options)
+      .pipe(map(res => res.json()));
+  }
+
+  get_all_users(value){
+    return this.http
+    .get(this.api_url + "getallusers/user_id/"+value+"/json")
+    .pipe(map(res => res.json()));
+  }
  
 
 }

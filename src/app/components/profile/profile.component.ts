@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../../provider/session.service";
-
+import { AuthService } from "../../provider/auth.service";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -8,7 +8,7 @@ import { SessionService } from "../../provider/session.service";
 })
 export class ProfileComponent implements OnInit {
   user : any;
-  constructor(public sessionService : SessionService ) { }
+  constructor(public sessionService : SessionService, public authService:AuthService ) { }
 
   name: string;
   email: string;
@@ -30,16 +30,24 @@ export class ProfileComponent implements OnInit {
 
   save(value){
     if( value==="name"){
-
+      this.send_request({name:this.name});
     }else if( value==="contact"){
-      
+      this.send_request({email:this.email, phone:this.phone, address:this.address });
     }else if( value==="personnal"){
-      
+      this.send_request({dob:this.dob, mstatus:this.mstatus, gender:this.gender});
     }else if( value==="education"){
-      
+      this.send_request({education:this.education});
     }else if( value==="experience"){
-      
+      this.send_request({relevant_exp:this.relevant_exp, relevant_skills:this.relevant_skills, expertise:this.expertise });      
     }
+  }
+
+  send_request(object){
+      this.authService.edit_user(object, this.user.user_id).subscribe( data => {
+          console.log(data);
+      }, error=>{
+        console.log( error);
+      });
   }
 
 }
