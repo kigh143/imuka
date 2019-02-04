@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionService } from "../../provider/session.service";
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,13 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   investors: boolean =true;
-  constructor( public router: Router) { }
+  user : any;
+  constructor( public router: Router,  public sessionService: SessionService) { }
 
   ngOnInit() {
+    this.sessionService.getuser().subscribe( data =>{
+      this.user = data;
+    });
   }
 
   navigate_to(page){

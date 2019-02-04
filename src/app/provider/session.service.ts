@@ -11,11 +11,10 @@ export class SessionService {
   constructor(public localStorage: LocalStorage) {}
 
   login(user_object) {
-    this.authenticationState.next(true);
     this.localStorage.setItem(this.KEY, user_object).subscribe((data) => {
+    this.authenticationState.next(true);
     this.checkUser();
     }, error => {
-        console.log(error);
         this.authenticationState.next(false);
     });
   }

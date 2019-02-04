@@ -24,7 +24,7 @@ export class LoginComponent {
     this.auth.login(user).subscribe( data=>{ 
        if (data.flag){
           this.session.login(data.user);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/']);
        }else{
          console.log(data.message)
        }

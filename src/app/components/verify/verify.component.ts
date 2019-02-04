@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {
 FormGroup,
-FormBuilder
+FormBuilder,
 FormControl,
 Validators
 } from "@angular/forms";
@@ -29,7 +29,9 @@ export class VerifyComponent  {
       this.auth.verify(user,).subscribe( data => {
           if (data.flag){
               this.session.login(data.user);
-              this.router.navigate(['/dashboard']);
+              this.router.navigate(['/']);
+          }else{
+
           }
       });
     }
