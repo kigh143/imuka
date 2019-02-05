@@ -46,8 +46,8 @@ import { AuthService } from './provider/auth.service';
 import { EventsService } from "./services/events.service";
 import { HttpModule }from "@angular/http";
 import { AuthGuard } from "./auth.guard";
-import { OrgLoginComponent } from './conponents/org-login/org-login.component';
 import { InitialpageComponent } from './components/initialpage/initialpage.component';
+import { OrgloginComponent } from './components/orglogin/orglogin.component';
 
 
 const app_routes: Routes = [
@@ -81,6 +81,8 @@ const app_routes: Routes = [
   { path: "user/:id", component : UserProfileComponent, canActivate:[AuthGuard]},
   { path: "plans", component : PalnsComponent, canActivate:[AuthGuard]},
   { path: "org_profile", component : OrgProfileComponent, canActivate:[AuthGuard]},
+  { path: "welcome", component : InitialpageComponent},
+  { path: "create_organisation", component : OrgloginComponent},
 ];
 
 @NgModule({
@@ -118,8 +120,8 @@ const app_routes: Routes = [
     UserProfileComponent,
     PalnsComponent,
     OrgProfileComponent,
-    OrgLoginComponent,
-    InitialpageComponent
+    InitialpageComponent,
+    OrgloginComponent
   ],
  
   imports: [
