@@ -7,15 +7,20 @@ import { LocalStorage } from '@ngx-pwa/local-storage';
 })
 export class SessionService {
   authenticationState = new BehaviorSubject(false);
+  isLoggedin: boolean = false;
   KEY = "user_object";
-  constructor(public localStorage: LocalStorage) {}
+  user : any;
+  constructor(public localStorage: LocalStorage) {
+    this.checkUser();
+  }
 
   login(user_object) {
     this.localStorage.setItem(this.KEY, user_object).subscribe((data) => {
     this.authenticationState.next(true);
-    this.checkUser();
+    this.isLoggedin = true;
     }, error => {
         this.authenticationState.next(false);
+        this.isLoggedin = false;
     });
   }
 
@@ -32,14 +37,21 @@ export class SessionService {
   checkUser() {
       this.localStorage.getItem(this.KEY).subscribe((data) => {
         if (data !== null) {
-            this.authenticationState.next(true);
-          } else {
-            this.authenticationState.next(false);
-          }
+          this.user = data;
+          this.authenticationState.next(true);
+          this.isLoggedin = true;
+        } else {
+          this.authenticationState.next(false);
+          this.isLoggedin = false;
+        }
       });
   }
 
   getuser(){
       return  this.localStorage.getItem(this.KEY);
+  }
+
+  get_user_session(){
+    return  this.isLoggedin;
   }
 }

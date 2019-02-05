@@ -6,14 +6,16 @@ import { SessionService} from "./provider/session.service";
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor( public sessionService : SessionService, public router: Router){}
+  constructor( public sessionService : SessionService, public router: Router){
+    console.log(this.sessionService.get_user_session());
+  }
 
   canActivate(): boolean {
-    if(this.sessionService.isAuthenticated()){
-      return true;
-    }else{
-      this.router.navigate(['/welcome']);
-      return false;
-    }
+      if(this.sessionService.isAuthenticated()){
+        return true;
+      }else{
+        this.router.navigate(['/welcome']);
+        return false;
+      } 
   }
 }

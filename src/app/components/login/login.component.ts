@@ -9,13 +9,11 @@ import {SessionService} from "../../provider/session.service"
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent {
-
   loginForm: any; 
-
   constructor(private router: Router, public formBuilder: FormBuilder, public auth: AuthService, public session: SessionService) {
     this.loginForm = this.formBuilder.group({
-      email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
-      password: [ "", Validators.compose([Validators.minLength(5), Validators.required]) ]
+      email: ["", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),Validators.required])],
+      password: ["", Validators.compose([Validators.minLength(5), Validators.required])]
     });
   }
 

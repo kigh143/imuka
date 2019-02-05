@@ -53,6 +53,8 @@ import { OrganisationService } from "./services/organisation.service";
 
 const app_routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
+  { path: "welcome", component : InitialpageComponent},
+  { path: "create_organisation", component : OrgloginComponent},
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "verify", component: VerifyComponent },
@@ -82,8 +84,6 @@ const app_routes: Routes = [
   { path: "user/:id", component : UserProfileComponent, canActivate:[AuthGuard]},
   { path: "plans", component : PalnsComponent, canActivate:[AuthGuard]},
   { path: "org_profile", component : OrgProfileComponent, canActivate:[AuthGuard]},
-  { path: "welcome", component : InitialpageComponent},
-  { path: "create_organisation", component : OrgloginComponent},
 ];
 
 @NgModule({
