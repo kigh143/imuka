@@ -1,3 +1,77 @@
-<p>
-  orglogin works!
-</p>
+<div class="main">
+  <div class="row">
+      <div class="col-md-6 left"></div>
+      <div class="col-md-6 right">
+        <div class="forms">
+          <tabset>
+            <tab heading="Login to dashboard">
+                <div class="form-create">
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" name="log_email" [(ngModel)]="log_email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" namre="log_password"[(ngModel)]="log_password" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                      
+                        <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+                    </form> 
+                </div>
+            </tab>
+            <tab heading="Add your organisation"> 
+              <div class="form-create">
+                  <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Organisation name</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
+                      </div>
+         
+                      <div class="form-group">
+                        <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
+                        <select class="form-control" multiple  id="exampleInputPassword1" >
+                            <option value="">Mentorship/Feedback</option>
+                            <option value="">Expertise/Know-How/Coaching(Online | hands-on  | both)</option>
+                            <option value="">Business Networking</option>
+                            <option value="">Financing for my Business</option>
+                            <option value="">Office/Space/Prestige</option>
+                            <option value="">Training Programs/Workshops</option>
+                            <option value="">Product development and refinement</option>
+                            <option value="">Business management and strategy skills</option>
+                            <option value="">Sales and Marketing skills</option>
+                            <option value="">Financial Management skills</option>
+                            <option value="">Customized training services</option>
+                            <option value="">Online Presence & Visibility(Online Brand)</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Press Ctrl and then select all that apply.</small>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Organisation website</label>
+                          <input type="link" class="form-control" id="exampleInputPassword1">
+                      </div>
+
+                      <div class="row">
+                          <div class="form-group col-md-6">
+                              <label for="exampleInputPassword1">Organisation Email</label>
+                              <input type="email" class="form-control" id="exampleInputPassword1">
+                          </div>
+    
+                          <div class="form-group col-md-6">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1">
+                          </div>
+                      </div>
+                      
+                     
+                      <button type="submit" class="btn btn-primary">Create you Account</button>
+                  </form>   
+              </div>
+            </tab>
+        </tabset>
+        </div>
+      </div>
+  </div>
+</div>
