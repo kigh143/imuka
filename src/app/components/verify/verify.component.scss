@@ -1,54 +1,16 @@
 
 .main{
-  background:#545657;
+  background:#17597a;
   height:100vh !important;
-  width:100%;
-  position: relative;
-
+  width:100vw;
+  display: flex;
   .center{
-      position: absolute;
-      height:70%;
-      width:70%;
-      z-index: 100;
-      top:15%;
-      left:15%;
-      border-radius: 10px;
-
-      box-shadow: #545657;
-
-      .form{
-          background: #fff;
-          padding:20px;
-
-          form{
-              height: 100%;
-              margin-left: auto;
-              margin-right: auto;
-              padding:10px;
-          }
-      }
-
-      .info{
-          background: #1798d4;
-          text-align: center;
-          justify-content: center;
-          align-items: center;
-
-      }
-
-
-      .lower{
-          div{
-              text-align:center; padding:50px; font-size:12px;
-              color:#fff;
-              b{
-                  color: skyblue;
-                  a{
-                      text-decoration: none;
-                      color:skyblue;
-                  }
-              }
-          }
-      }
+      margin:auto;
+      color:#fff;
+      padding: 50px;
+      text-align: center;
+      background: rgba(221, 153, 153, 0.479);
+      border-radius: 3px;
   }
+
 }

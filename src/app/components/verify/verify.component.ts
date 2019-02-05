@@ -17,8 +17,10 @@ export class VerifyComponent  {
     verform: any;
     currentuser:any;
     constructor( public formBuilder: FormBuilder, public router : Router, public auth: AuthService, public session: SessionService) {
-        this.verform = this.formBuilder.group({ code: [ "", Validators.compose([Validators.minLength(5), Validators.required]) ] });
-        this.session.getuser().subscribe(data=>{
+        this.verform = this.formBuilder.group({
+             code: [ "", Validators.compose([Validators.maxLength(4), Validators.maxLength(4), Validators.required]) ] 
+        });
+        this.session.getuser().subscribe( data => {
             this.currentuser=data;
         });
     }

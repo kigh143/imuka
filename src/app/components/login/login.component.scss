@@ -1,101 +1,22 @@
-
 .main{
   background:#bcd5e2;
   height:100vh !important;
   width:100%;
-  position: relative;
-
-  .center{
-      position: absolute;
-      height:70%;
-      width:70%;
-      z-index: 100;
-      top:15%;
-      left:15%;
-      border-radius: 10px !important;
+  .row{
+      height:100vh;
+      .info {
+        display: flex;
+        background: #eee;
+        div{
+            margin: auto;
+        }
+      }
 
       .form{
-          background: #fff;
-          padding:20px;
-          form{
-              height: 100%;
-              margin-left: auto;
-              margin-right: auto;
-              padding:10px;
-          }
-      }
-
-      .info{
-          background: #1798d4;
-          text-align: center;
-          justify-content: center;
-          align-items: center;
-          vertical-align: 20px;
-      }
-
-      .lower{
-        div{
-            text-align:center; padding:50px; font-size:12px;
-            color:rgb(124, 120, 120);
-            b{
-                color: rgb(19, 106, 141);
-                a{
-                    text-decoration: none;
-                    color:rgb(20, 104, 138);
-                }
-            }
-        }
-    }
-  }
-}
-
-
-@media only screen and (max-width: 768px) {
-    
-.main{
-    background:#bcd5e2;
-    height:100vh !important;
-    width:100%;
-    .center{
-        position: absolute;
-        z-index: 100;
-        top:15%;
-        left:15%;
-        border-radius: 10px !important;
-
-        .form{
-            background: #fff;
-            padding:20px;
-            form{
-                height: 100%;
-                margin-left: auto;
-                margin-right: auto;
-                padding:10px;
-            }
-        }
-  
-        .info{
-            background: #1798d4;
-            display: flex;
-            div{
-                margin:auto;
-            }
-        }
-  
-        .lower{
+          display: flex;
           div{
-              text-align:center; padding:50px; font-size:12px;
-              color:rgb(124, 120, 120);
-              b{
-                  color: rgb(19, 106, 141);
-                  a{
-                      text-decoration: none;
-                      color:rgb(20, 104, 138);
-                  }
-              }
+            margin: auto;
           }
       }
-    }
   }
-  
 }

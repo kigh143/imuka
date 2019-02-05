@@ -1,48 +1,46 @@
 <div class="main">
-    <div class="center">
-        <div class="row">
-            <div class="col-md-6 info">
-                <div>
-                        <h2>ImukaAccess Tool</h2>
-                        <p>Made changes to the application page.</p>
-                </div>
+    <div class="row">
+        <div class="col-md-6 info">
+            <div>
+                <h2>ImukaAccess Tool</h2>
+                <p>Made changes to the application page.</p>
             </div>
-            <div class="col-md-6 form">
+        </div>
+        <div class="col-md-6 form">
+            <div>
                 <form  [formGroup]="loginForm" (submit)="login()">
-                    <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email"
-                    formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
-                    />
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input
-                    type="password"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Password"
-                    formControlName="password" 
-                    [class.invalid]="loginForm.controls.password.invalid"
-                    />
-                    </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
+                />
+                </div>
+                <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+                formControlName="password" 
+                [class.invalid]="loginForm.controls.password.invalid"
+                />
+                </div>
 
-                    <div style="text-align:center; padding:20px"><a routerLink="/forgotPassword" class="btn btn-default">Forgot password?</a></div>
+                <div style="text-align:center; padding:20px"><a routerLink="/forgotPassword" class="btn btn-default">Forgot password?</a></div>
 
-                    <button type="submit" class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">
-                    Login Now
-                    </button>
+                <button type="submit" class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">
+                Login Now
+                </button>
                 </form>
-                <p>I don't have an account? <b><a routerLink="/signup">Create Account</a></b></p>
-            </div>
+            </div> 
         </div>
     </div>
 </div>
-<app-footer></app-footer>
 
   

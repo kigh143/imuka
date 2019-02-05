@@ -1,21 +1,15 @@
 <div class="main">
     <div class="center">
-        <div class="row">
-            <div class="col-md-6 info">
-              </div>
-            <div class="col-md-6 form">
-                <h3>Thank you for joining ImukaAccess!</h3>
-        <p>To verify your account, Check your Email address <span style="color:rgb(235, 20, 120); margin:4px;">kigh143@gmail.com</span> for the Verification code we sent you and enter it below.</p>
-           
-                <form [formGroup]="verform">
-                    <div class="form-group">
-                    <label for="code">Verification code</label>
-                    <input type="text" class="form-control" id="code"  formControlName="code" [class.invalid]="verform.controls.code.invalid">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" (click)="verify()">Verify Account</button>
-                </form> 
-            </div>
+        <h3>Thank you for joining ImukaAccess!</h3>
+        <p>To verify your account, Check your Email address <span style="color:rgb(248, 200, 222); margin:4px;">{{currentuser.email}}</span> for the Verification code we sent you and enter it below.</p>
+
+        <form [formGroup]="verform">
+        <div class="form-group">
+        <label for="code">Verification code</label>
+        <input type="text" class="form-control" id="code"  formControlName="code" [class.invalid]="verform.controls.code.invalid">
         </div>
+        <button type="submit" class="btn btn-primary btn-block" (click)="verify()">Verify Account</button>
+        </form> 
     </div>
 </div>
 
