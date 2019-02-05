@@ -22,16 +22,13 @@ export class SignupComponent {
     this.myForm = this.formBuilder.group({
       email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
       password: [ "", Validators.compose([Validators.minLength(5), Validators.required]) ],
-      phone: [ "", Validators.compose([Validators.minLength(10), Validators.required]) ]
+      phone: [ "", Validators.compose([Validators.minLength(10), Validators.required]) ],
+      user_type:["", Validators.compose([Validators.required])]
     });
    }
 
-
-  
-
-    signup() {
+  signup() {
     let user = this.myForm.value;
-   console.log(user);
     this.auth.signup(user).subscribe( data=>{
       if (!data.flag) {
           
@@ -39,10 +36,7 @@ export class SignupComponent {
           this.session.login(data.user);
           this.router.navigate(['/verify']);
         }
-      
     });
-
-  
   }
 
 }

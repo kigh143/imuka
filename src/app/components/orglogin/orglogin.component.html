@@ -1,10 +1,16 @@
 <div class="main">
   <div class="row">
-      <div class="col-md-6 left"></div>
+      <div class="col-md-6 left">
+          <div>
+              <h1><i class="fa fa-users"></i></h1>
+              <h1>Support organisations</h1>
+              <p>Lets strengthen employers’ and entrepreneurs’ organisations in emerging markets to enhance the enabling environment for entrepreneurs and to promote the membership of entrepreneurs to those organisations. </p>
+          </div>
+      </div>
       <div class="col-md-6 right">
         <div class="forms">
           <tabset>
-            <tab heading="Login to dashboard">
+            <tab heading="Login">
                 <div class="form-create">
                     <form>
                         <div class="form-group">
@@ -21,17 +27,17 @@
                     </form> 
                 </div>
             </tab>
-            <tab heading="Add your organisation"> 
+            <tab heading="Add Organisation"> 
               <div class="form-create">
                   <form>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Organisation name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
+                        <input type="email" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter email">
                       </div>
          
                       <div class="form-group">
                         <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
-                        <select class="form-control" multiple  id="exampleInputPassword1" >
+                        <select class="form-control" multiple  name="services" [(ngModel)]="services" id="exampleInputPassword1" >
                             <option value="">Mentorship/Feedback</option>
                             <option value="">Expertise/Know-How/Coaching(Online | hands-on  | both)</option>
                             <option value="">Business Networking</option>
@@ -45,28 +51,27 @@
                             <option value="">Customized training services</option>
                             <option value="">Online Presence & Visibility(Online Brand)</option>
                         </select>
-                        <small id="emailHelp" class="form-text text-muted">Press Ctrl and then select all that apply.</small>
+                        <small id="emailHelp" class="form-text text-muted">Press Ctrl/ Command and then select all that apply.</small>
                       </div>
 
                       <div class="form-group">
                           <label for="exampleInputPassword1">Organisation website</label>
-                          <input type="link" class="form-control" id="exampleInputPassword1">
+                          <input type="link" class="form-control" name="website" [(ngModel)]="website" id="exampleInputPassword1">
                       </div>
 
                       <div class="row">
                           <div class="form-group col-md-6">
                               <label for="exampleInputPassword1">Organisation Email</label>
-                              <input type="email" class="form-control" id="exampleInputPassword1">
+                              <input type="email" name="s_email" [(ngModel)]="s_email" class="form-control" id="exampleInputPassword1">
                           </div>
     
                           <div class="form-group col-md-6">
                               <label for="exampleInputPassword1">Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1">
+                              <input type="password" name="s_password" [(ngModel)]="s_password" class="form-control" id="exampleInputPassword1">
                           </div>
                       </div>
                       
-                     
-                      <button type="submit" class="btn btn-primary">Create you Account</button>
+                      <button type="submit" class="btn btn-primary" (click)="create_organisation()">Create you Account</button>
                   </form>   
               </div>
             </tab>

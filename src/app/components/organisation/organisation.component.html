@@ -13,6 +13,8 @@
         </div>
         
         <hr>
+
+        
           <ul class="ul">
             <li *ngFor="let item of org_menu; let i=index" (click)="show_page(item, i)" [ngClass]="item.isactive ? 'active':'not_active'"> 
                 <i [ngClass]="item.icon"></i> 

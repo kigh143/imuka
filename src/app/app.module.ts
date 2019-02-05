@@ -48,6 +48,7 @@ import { HttpModule }from "@angular/http";
 import { AuthGuard } from "./auth.guard";
 import { InitialpageComponent } from './components/initialpage/initialpage.component';
 import { OrgloginComponent } from './components/orglogin/orglogin.component';
+import { OrganisationService } from "./services/organisation.service";
 
 
 const app_routes: Routes = [
@@ -139,7 +140,7 @@ const app_routes: Routes = [
     BsDatepickerModule.forRoot()
   ],
 
-  providers: [AuthService, EventsService, AuthGuard],
+  providers: [AuthService, EventsService, AuthGuard, OrganisationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

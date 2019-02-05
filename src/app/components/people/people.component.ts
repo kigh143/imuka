@@ -18,12 +18,16 @@ export class PeopleComponent implements OnInit {
   ngOnInit() {
     this.sessionService.getuser().subscribe( user_info => {
       this.fetch_users(user_info.user_id);
+    }, error => {
+      console.log(error)
     })
   }
 
   fetch_users(user_id){
       this.authService.get_all_users(user_id).subscribe ( data  => {
           this.people = data;
+      }, error => {
+        console.log(error)
       })
   }
 

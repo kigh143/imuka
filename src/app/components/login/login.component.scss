@@ -76,10 +76,10 @@
   
         .info{
             background: #1798d4;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            vertical-align: 20px;
+            display: flex;
+            div{
+                margin:auto;
+            }
         }
   
         .lower{

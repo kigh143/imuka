@@ -7,8 +7,15 @@ app-orglogin{
     .row{
         .left{
             background: rgb(12, 83, 131);
+            display: flex;
             padding-top:20px;
             height:100vh !important;
+
+            div{
+                margin:auto;
+                color:#fff;
+                text-align: center;
+            }
         }
         .right{
             padding-top:20px;
