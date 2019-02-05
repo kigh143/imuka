@@ -46,6 +46,8 @@ import { AuthService } from './provider/auth.service';
 import { EventsService } from "./services/events.service";
 import { HttpModule }from "@angular/http";
 import { AuthGuard } from "./auth.guard";
+import { OrgLoginComponent } from './conponents/org-login/org-login.component';
+import { InitialpageComponent } from './components/initialpage/initialpage.component';
 
 
 const app_routes: Routes = [
@@ -115,7 +117,9 @@ const app_routes: Routes = [
     RequestComponent,
     UserProfileComponent,
     PalnsComponent,
-    OrgProfileComponent
+    OrgProfileComponent,
+    OrgLoginComponent,
+    InitialpageComponent
   ],
  
   imports: [
