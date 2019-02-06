@@ -8,6 +8,7 @@ import { OrganisationService } from "../../services/organisation.service";
 })
 export class OrgProfileComponent implements OnInit {
   active_index = 0;
+
   org_menu = [
     {name:"Profile details", icon:"fa fa-sitemap", isactive:true},
     {name:"Events", icon:"fa fa-calendar", isactive:false},
@@ -17,7 +18,7 @@ export class OrgProfileComponent implements OnInit {
   ];
 
   organisation : any;
-
+  services: any;
   events = [1,2,3,4,5,6]
   opportunities = [1,2,3,4,5,6]
 
@@ -43,8 +44,19 @@ export class OrgProfileComponent implements OnInit {
     let user  = JSON.parse(localStorage.getItem("user_object"));
     this.organisationService.get_orgsanisation(user['org_id']).subscribe( data =>{
         this.organisation = data;
+        this.services = data.services;
         console.log(data);
     })
   }
 
+  save_organisation(){
+    this.organisationService.edit_orgsanisation(this.organisation).subscribe( data =>{
+      console.log(data);
+
+    }) 
+  }
+
 }
+
+
+// `name`, `logo`, `tag_line`, `website`, `services_offered`, `email`, `contact`, `cover_image`, `facebook`, `location`, 
