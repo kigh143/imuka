@@ -38,10 +38,9 @@ export class OrgloginComponent implements OnInit {
       email:this.s_email,
       password:this.s_passowrd,
       name:this.name,
-      services: this.services,
+      services: JSON.stringify(this.services),
       website: this.website
     }
-    console.log(org);
     this.organisationService.create_organisation(org).subscribe( data => {
        console.log(data);
     }, error =>{

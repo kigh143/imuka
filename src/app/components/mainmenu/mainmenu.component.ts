@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionService } from "../../provider/session.service";
 
 @Component({
   selector: 'app-mainmenu',
@@ -7,14 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./mainmenu.component.scss']
 })
 export class MainmenuComponent implements OnInit {
+  user : any;
 
-  constructor(public router : Router) { }
+  constructor(public router : Router, public sessionService :SessionService ) { }
 
   ngOnInit() {
+    this.user = this.sessionService.getuser();
   }
 
   logout(){
-    alert(89)
+    this.sessionService.logout();
+    this.router.navigate(['/login']);
   }
 
   go_to_profile(){

@@ -16,7 +16,7 @@ export class SessionService {
   }
 
   login(user_object) {
-    localStorage.setItem(this.KEY, user_object);
+    localStorage.setItem(this.KEY, JSON.stringify(user_object));
     this.authenticationState.next(true);
     this.isLoggedin = true;
   }
@@ -43,7 +43,7 @@ export class SessionService {
   }
 
   getuser(){
-      return  localStorage.getItem(this.KEY);
+      return  JSON.parse( localStorage.getItem(this.KEY) );
   }
 
   get_user_session(){
