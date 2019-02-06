@@ -49,12 +49,13 @@ import { AuthGuard } from "./auth.guard";
 import { InitialpageComponent } from './components/initialpage/initialpage.component';
 import { OrgloginComponent } from './components/orglogin/orglogin.component';
 import { OrganisationService } from "./services/organisation.service";
-
+import { ManageorganisationComponent } from './components/manageorganisation/manageorganisation.component';
 
 const app_routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: "welcome", component : InitialpageComponent},
   { path: "create_organisation", component : OrgloginComponent},
+  { path: "manage_organisation", component : ManageorganisationComponent},
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "verify", component: VerifyComponent },
@@ -122,7 +123,8 @@ const app_routes: Routes = [
     PalnsComponent,
     OrgProfileComponent,
     InitialpageComponent,
-    OrgloginComponent
+    OrgloginComponent,
+    ManageorganisationComponent
   ],
  
   imports: [

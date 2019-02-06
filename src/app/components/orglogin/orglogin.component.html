@@ -32,26 +32,26 @@
                   <form>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Organisation name</label>
-                        <input type="email" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter email">
+                        <input type="text" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter email">
                       </div>
          
                       <div class="form-group">
                         <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
                         <select class="form-control" multiple  name="services" [(ngModel)]="services" id="exampleInputPassword1" >
-                            <option value="">Mentorship/Feedback</option>
-                            <option value="">Expertise/Know-How/Coaching(Online | hands-on  | both)</option>
-                            <option value="">Business Networking</option>
-                            <option value="">Financing for my Business</option>
-                            <option value="">Office/Space/Prestige</option>
-                            <option value="">Training Programs/Workshops</option>
-                            <option value="">Product development and refinement</option>
-                            <option value="">Business management and strategy skills</option>
-                            <option value="">Sales and Marketing skills</option>
-                            <option value="">Financial Management skills</option>
-                            <option value="">Customized training services</option>
-                            <option value="">Online Presence & Visibility(Online Brand)</option>
+                            <option value="Mentorship/Feedback">Mentorship/Feedback</option>
+                            <option value="Expertise/Know-How/Coaching(Online | hands-on  | both)">Expertise/Know-How/Coaching(Online | hands-on  | both)</option>
+                            <option value="Business Networking">Business Networking</option>
+                            <option value="Financing for my Business">Financing for my Business</option>
+                            <option value="Office/Space/Prestige">Office/Space/Prestige</option>
+                            <option value="Training Programs/Workshops">Training Programs/Workshops</option>
+                            <option value="Product development and refinement">Product development and refinement</option>
+                            <option value="Business management and strategy skills">Business management and strategy skills</option>
+                            <option value="Sales and Marketing skills">Sales and Marketing skills</option>
+                            <option value="Financial Management skills">Financial Management skills</option>
+                            <option value="Customized training services">Customized training services</option>
+                            <option value="Online Presence & Visibility(Online Brand)">Online Presence & Visibility(Online Brand)</option>
                         </select>
-                        <small id="emailHelp" class="form-text text-muted">Press Ctrl/ Command and then select all that apply.</small>
+                        <small id="emailHelp" class="form-text text-muted">Press Ctrl / Command and then select all that apply.</small>
                       </div>
 
                       <div class="form-group">
@@ -62,12 +62,12 @@
                       <div class="row">
                           <div class="form-group col-md-6">
                               <label for="exampleInputPassword1">Organisation Email</label>
-                              <input type="email" name="s_email" [(ngModel)]="s_email" class="form-control" id="exampleInputPassword1">
+                              <input type="email" name="s_email" [(ngModel)]="s_email" class="form-control">
                           </div>
     
                           <div class="form-group col-md-6">
-                              <label for="exampleInputPassword1">Password</label>
-                              <input type="password" name="s_password" [(ngModel)]="s_password" class="form-control" id="exampleInputPassword1">
+                              <label for="exampleInputPassword1">contact phone number</label>
+                              <input type="password" name="contact" [(ngModel)]="contact" class="form-control">
                           </div>
                       </div>
                       
