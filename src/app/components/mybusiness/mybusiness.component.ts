@@ -27,11 +27,9 @@ export class MybusinessComponent implements OnInit {
   business_id:any;
   bizinfo:any;
   constructor( public modalService: BsModalService, public router: Router,  public bizy :BizService, public session : SessionService) {
-      this.session.getuser().subscribe(data=>{
-      console.log(data);
+      let data = this.session.getuser();
       this.currentuser=data;
-     this.getbusinesses();
-  });
+      this.getbusinesses();
    
 }
   ngOnInit() {

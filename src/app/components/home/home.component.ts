@@ -13,9 +13,8 @@ export class HomeComponent implements OnInit {
   constructor( public router: Router,  public sessionService: SessionService) { }
 
   ngOnInit() {
-    this.sessionService.getuser().subscribe( data =>{
-      this.user = data;
-    });
+    let data = this.sessionService.getuser()
+    this.user = data;
   }
 
   navigate_to(page){

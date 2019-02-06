@@ -20,9 +20,8 @@ export class VerifyComponent  {
         this.verform = this.formBuilder.group({
              code: [ "", Validators.compose([Validators.maxLength(4), Validators.maxLength(4), Validators.required]) ] 
         });
-        this.session.getuser().subscribe( data => {
-            this.currentuser=data;
-        });
+        let data = this.session.getuser();
+        this.currentuser=data;
     }
 
     verify(){

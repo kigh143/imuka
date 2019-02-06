@@ -23,9 +23,8 @@ export class ProfileComponent implements OnInit {
   expertise: string;
 
   ngOnInit() {
-    this.sessionService.getuser().subscribe( data  => {
-      this.user = data;
-    })
+    let data = this.sessionService.getuser();
+    this.user = data;
   }
 
   save(value){

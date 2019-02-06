@@ -16,11 +16,8 @@ export class PeopleComponent implements OnInit {
     public sessionService: SessionService) { }
 
   ngOnInit() {
-    this.sessionService.getuser().subscribe( user_info => {
-      this.fetch_users(user_info.user_id);
-    }, error => {
-      console.log(error)
-    })
+    let user_info = this.sessionService.getuser()
+    this.fetch_users(user_info["user_id"]);
   }
 
   fetch_users(user_id){

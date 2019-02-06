@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
-import { LocalStorage } from '@ngx-pwa/local-storage';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +10,20 @@ export class SessionService {
   isLoggedin: boolean = false;
   KEY = "user_object";
   user : any;
-  constructor(public localStorage: LocalStorage) {
+
+  constructor() {
     this.checkUser();
   }
 
   login(user_object) {
-    this.localStorage.setItem(this.KEY, user_object).subscribe((data) => {
+    localStorage.setItem(this.KEY, user_object);
     this.authenticationState.next(true);
     this.isLoggedin = true;
-    }, error => {
-        this.authenticationState.next(false);
-        this.isLoggedin = false;
-    });
   }
 
   logout() {
-    this.localStorage.removeItem(this.KEY).subscribe((data) => {
+    localStorage.removeItem(this.KEY)
     this.authenticationState.next(false);
-    });
   }
 
   isAuthenticated() {
@@ -35,20 +31,19 @@ export class SessionService {
   }
 
   checkUser() {
-      this.localStorage.getItem(this.KEY).subscribe((data) => {
-        if (data !== null) {
-          this.user = data;
-          this.authenticationState.next(true);
-          this.isLoggedin = true;
-        } else {
-          this.authenticationState.next(false);
-          this.isLoggedin = false;
-        }
-      });
+      let data = localStorage.getItem(this.KEY);
+      if (data !== null) {
+        this.user = data;
+        this.authenticationState.next(true);
+        this.isLoggedin = true;
+      } else {
+        this.authenticationState.next(false);
+        this.isLoggedin = false;
+      }
   }
 
   getuser(){
-      return  this.localStorage.getItem(this.KEY);
+      return  localStorage.getItem(this.KEY);
   }
 
   get_user_session(){
