@@ -82,5 +82,16 @@ api_url: string;
         .pipe(map(res => res.json()));
   
     }
-
+    sendrequest(request){
+      return this.http
+        .post(this.api_url + "addrequest/json", request, this.options)
+        .pipe(map(res => res.json()));
+  
+    }
+    fetchrequest(user_id){
+      return this.http
+    .get(this.api_url + "getrequests/user_id/"+user_id+"/json")
+    .pipe(map(res => res.json()));
+  }
+    
 }

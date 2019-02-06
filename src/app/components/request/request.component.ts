@@ -6,35 +6,53 @@ import {
   FormControl,
   Validators
 } from "@angular/forms";
+import {SessionService} from "../../provider/session.service";
+import {BizService} from "../../provider/biz.service";	
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
   styleUrls: ['./request.component.scss']
 })
 export class RequestComponent implements OnInit {
-
-	requests=[1, 2, 3, 4, 5];
 	oneAtATime: boolean = true;
 	makerequest:any;
+	user:any;
+	requests:any;
 
-	constructor(public formBuilder: FormBuilder, public router : Router) {
+	constructor(public formBuilder: FormBuilder, public router : Router, public session:SessionService, public businessServices :BizService) {
 		this.makerequest=this.formBuilder.group({
-			requesttype:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-			requesttitle:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-			requestdetail:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])]
+			request_type:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+			title:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+			details:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])]
 		});
 	 }
 
 
 	ngOnInit() {
+		this.user = this.session.getuser();
+		console.log(this.user);
+		this.receiverequest(this.user.user_id);
+	
   }
 
 	sendrequest(){
-	if(this.makerequest.valid){
-		this.router.navigate(['/dashboard'])
-	    console.log("Form Submitted!");
-	    this.makerequest.reset();
+		let request=this.makerequest.value;
+		request['user_id']=this.user.user_id;
+		console.log(request);
+		this.businessServices.sendrequest(request).subscribe(data=>{
+       if(data.flag){
+				 this.makerequest.reset();
+				 this.receiverequest(this.user.user_id);
+
+			 }                                                       
+		});
 	}
+	receiverequest(user_id){
+	 this.businessServices.fetchrequest(user_id).subscribe(data=>{
+			this.requests=data;
+			console.log(this.requests)
+	});
 	}
+	
 
 }
