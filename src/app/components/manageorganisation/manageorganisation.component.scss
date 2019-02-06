@@ -1,0 +1,28 @@
+app-orglogin{
+    height:100%;
+}
+.main{
+    height:100vh;
+    width:100vw;
+    .row{
+        .left{
+            background: rgb(12, 83, 131);
+            display: flex;
+            padding-top:20px;
+            height:100vh !important;
+
+            div{
+                margin:auto;
+                color:#fff;
+                text-align: center;
+            }
+        }
+        .right{
+            padding-top:20px;
+            background: #fff;
+            .form-create{
+                padding:20px !important;
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganisationService } from "../../services/organisation.service"
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-orglogin',
   templateUrl: './orglogin.component.html',
@@ -8,24 +9,22 @@ import { OrganisationService } from "../../services/organisation.service"
 export class OrgloginComponent implements OnInit {
   log_password: string;
   log_email: string;
-
   s_email: string;
-  s_passowrd: string;
+  contact: string;
   name:string;
-  services: string;
+  services: any;
   website: string;
 
-  constructor( public organisationService: OrganisationService ) { }
+  constructor( public organisationService: OrganisationService, public router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login(){
     let org = {
       email:this.log_email,
       password:this.log_password
     }
-    console.log(org);
+
     this.organisationService.login(org).subscribe( data =>{
       console.log(data);
     }, error =>{
@@ -36,13 +35,16 @@ export class OrgloginComponent implements OnInit {
   create_organisation(){
     let org = {
       email:this.s_email,
-      password:this.s_passowrd,
+      contact:this.contact,
       name:this.name,
       services: JSON.stringify(this.services),
       website: this.website
-    }
+    };
     this.organisationService.create_organisation(org).subscribe( data => {
-       console.log(data);
+       if(data.flag){
+          localStorage.setItem("support_org", JSON.stringify(data.org));
+          this.router.navigate(['/manage_organisation']);          
+       }
     }, error =>{
       console.log(error);
     });

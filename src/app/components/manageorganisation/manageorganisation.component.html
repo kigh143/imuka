@@ -1,0 +1,42 @@
+<div class="main">
+  <div class="row">
+      <div class="col-md-6 left">
+          <div>
+              <h1><i class="fa fa-users"></i></h1>
+              <h1>Hi, Thank for adding {{org?.name}}</h1>
+              <p>Lets know alittle about you fill out the form to get started. </p>
+          </div>
+      </div>
+      <div class="col-md-6 right">
+        <div class="forms">
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Full name</label>
+                  <input type="text" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">phone number</label>
+                    <input type="tell" class="form-control" name="phone" [(ngModel)]="phone" id="exampleInputPassword1">
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1">Email Address</label>
+                        <input type="email" name="email" [(ngModel)]="email" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" [(ngModel)]="password" class="form-control">
+                    </div>
+
+                </div>
+                
+                <button type="submit" class="btn btn-primary" (click)="create_admin()">Finish</button>
+            </form>   
+        </div>
+      </div>
+  </div>
+</div>

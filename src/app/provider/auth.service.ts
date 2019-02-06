@@ -36,7 +36,6 @@ api_url: string;
 
   } 
   verify(user){
-  
     return this.http
       .post(this.api_url + "verifycode/json", user, this.options)
       .pipe(map(res => res.json()));
@@ -57,6 +56,12 @@ api_url: string;
   get_all_users(value){
     return this.http
     .get(this.api_url + "getallusers/user_id/"+value+"/json")
+    .pipe(map(res => res.json()));
+  }
+
+  add_user_to_org(user){
+    return this.http
+    .post(this.api_url + "addusertorg/json", user, this.options)
     .pipe(map(res => res.json()));
   }
  
