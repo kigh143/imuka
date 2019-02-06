@@ -29,7 +29,7 @@
           </div>
           <div class="col-md-3">
             <div class="">
-              <form [formGroup]="makerequest">
+              <form [formGroup]="makerequest" (click)="sendrequest()">
 
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Select request type</label>

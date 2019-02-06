@@ -34,7 +34,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   bizdoc:any;
   bizproduct:any;
   bizfinancial:any;
-  biznes
+  biznes:any;
+  dailyupdates:any;
 
   constructor(
     public formBuilder: FormBuilder, 
@@ -53,24 +54,24 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       });
 
       this.bizdoc=this.formBuilder.group({
-          doctype:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          docupload:[ "",Validators.required ],
+          doc_type:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          name:[ "",Validators.required ],
       });
 
       this.bizproduct=this.formBuilder.group({
-          pdtname:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          descript:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
-          pdtimage:[]
+          name:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          price:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
+          description:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])]
+        
       });
 
       this.bizfinancial=this.formBuilder.group({
-          start_period:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          descript:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
-          end_period:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          from_date:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          end_date:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
           revenue:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
-          cost:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          cogs:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
           grossprofit:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
-          expenditure:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          total_expenditure:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
           tax:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
           net_profit:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
           ebitda:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
@@ -83,8 +84,24 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           debtors:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
           shareholder_equity:[ "", Validators.compose([ Validators.minLength(2),  Validators.required ])],
           cash_bank:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          finfile:[]
+          
       });
+      this.dailyupdates=this.formBuilder.group({
+        update_month:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    number_people:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    female_people:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    sales_revenue:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    paying_customer:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    meetings:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    market_expenses:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    Commitment_experts:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    Networking_opps:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    expert_grade:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    development_grade:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    challenges:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    expectations:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
+    });
+     
   }
 
   ngOnInit() {
@@ -106,11 +123,12 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
   getbusiness(biz_id){
       this.businessServices.fetch_abusiness(biz_id).subscribe(data=>{
-          if(data.flag){
+         
           this.business_data=data;
           this.biznes  = data["business_info"];
           console.log(this.biznes);
-          }
+          console.log(this.business_data);
+          
       });
   }
 
@@ -119,28 +137,33 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   addpdt(){
-      let products=this.bizproduct.value;
-      this.businessServices.addproduct(products).subscribe(data=>{
-          if(data.flag){
-              this.bizproduct.reset();
-          }
-      });
-  }
+    let products=this.bizproduct.value;
+    products['business_id']=this.business_id;
+    this.businessServices.addproduct(products).subscribe(data=>{
+      if(data.flag){
+       this.bizproduct.reset();
+       this.getbusiness(this.business_id);
+  }});
+}
 
   adddoc(){
-      let document=this.bizdoc.value;
-      this.businessServices.adddocument(document).subscribe(data=>{
-          if(data.flag){
-              this.bizdoc.reset();
+    let document=this.bizdoc.value;
+    document['business_id']=this.business_id;
+    this.businessServices.adddocument(document).subscribe(data=>{
+      if(data.flag){
+        this.bizdoc.reset();
+        this.getbusiness(this.business_id);
           }
       });
   }
 
   addfinancial(){
-      let document=this.bizfinancial.value;
-      this.businessServices.addfinancial(document).subscribe(data=>{
+    let financial=this.bizfinancial.value;
+    financial['business_id']=this.business_id;
+        this.businessServices.addfinancial(financial).subscribe(data=>{
           if(data.flag){
-              this.bizfinancial.reset();
+            this.bizfinancial.reset();
+             this.getbusiness(this.business_id);
           }
       })
   }
@@ -151,7 +174,18 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           if(data.flag){
               this.bizteam.reset();
           }
-      })
+      });
+  }
+  add_dailyupdate(){
+    let dailyupdates = this.dailyupdates.value;
+    dailyupdates['business_id']=this.business_id;
+    this.businessServices.adddailyupdates(dailyupdates).subscribe(data=>{
+     if(data.flag){
+     this.getbusiness(this.business_id);
+  
+     }                                                                                                                                                                                                                            
+  
+    });
   }
 
 }
