@@ -65,12 +65,29 @@ i{
 .tabslink{
   padding:5x;
   margin-right:30px;
+  cursor: pointer;
 
   i{
 margin-right:10px !important;
 
   }
+ 
+  
 }
+
+.tabmenu{
+  display:flex;
+  justify-content:space-between;
+ border:1px dotted #14978a;
+
+ .active{
+  background: #14978a;
+ 
+}
+  }
+  .tabslink:hover{
+    background: #eee;
+  }
 @media only screen and (max-width:760px){
 .tabst{
   span{
