@@ -33,4 +33,16 @@ export class OrganisationService {
     .pipe(map(res => res.json()));
   }
 
+  get_orgsanisation(org_id){
+    return this.http
+    .get(this.api_url + "getorganisation/org_id/"+org_id+"/json")
+    .pipe(map(res => res.json()));
+  }
+
+  get_all_orginsations(){
+    return this.http
+    .get(this.api_url + "getorganisations/json")
+    .pipe(map(res => res.json()));
+  }
+
 }
