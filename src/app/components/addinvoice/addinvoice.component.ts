@@ -17,6 +17,7 @@ export class AddinvoiceComponent implements OnInit {
     message : string;
     receipient: string;
     expiry_date: string;
+    allbusiness:any;
 
     constructor(private _fb: FormBuilder, public route: ActivatedRoute, public router : Router, public businessService: BizService) {this.createForm();}
 
@@ -35,6 +36,7 @@ export class AddinvoiceComponent implements OnInit {
         this.route.params.subscribe(params => {
         this.getbusiness(params['id']);  
         });
+        this.getbusinesses();
     }
 
     addNewRow() {
@@ -73,7 +75,7 @@ export class AddinvoiceComponent implements OnInit {
 
       this.businessService.add_invoice(invoice_data).subscribe( data =>{
         if(data.flag){
-          this.router.navigate(["/einvoice", {id:this.business.business_id}]);
+          this.router.navigate(["/einvoice/{id:this.business.business_id}"]);
         }
       }, error => {
         console.log(error);
@@ -85,6 +87,11 @@ export class AddinvoiceComponent implements OnInit {
       let items  = this.get_itemRows()["value"];
       // return items.reduce(( current, value ) => current += parseInt(value['price']));
       return 90;
+    }
+    getbusinesses(){
+      this.businessService.getallbusinesses().subscribe( data => {
+         this.allbusiness=data;
+      });
     }
 
 }

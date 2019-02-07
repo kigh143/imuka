@@ -93,5 +93,9 @@ api_url: string;
     .get(this.api_url + "getrequests/user_id/"+user_id+"/json")
     .pipe(map(res => res.json()));
   }
-    
+    getallbusinesses(){
+      return this.http
+       .get(this.api_url +"getallbusinesses/json")
+       .pipe(map(res => res.json()));
+    }
 }
