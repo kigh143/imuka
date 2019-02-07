@@ -75,7 +75,7 @@ export class AddinvoiceComponent implements OnInit {
 
       this.businessService.add_invoice(invoice_data).subscribe( data =>{
         if(data.flag){
-          this.router.navigate(["/einvoice/{id:this.business.business_id}"]);
+          this.router.navigate(["/einvoice",this.business.business_id]);
         }
       }, error => {
         console.log(error);
