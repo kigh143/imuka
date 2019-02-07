@@ -25,28 +25,149 @@
               <div *ngIf="active_index == 0">
                 <div class="row profile" >
                   <div class="col-md-7">
-                      <p>About Organication (profile)</p>
-                      <hr>
-                      <h4>Outbox</h4>
-                      <b>Technology hub</b><br/>
-                      <b>Located at soliz house </b>
-                      <p>
-                          Some quick example text to build on the card title and make up the bulk Some quick example text to build on the card title and make up the bulkSome quick example text to build on the card title and make up the bulk
-                      </p>
+
+                      <div class="card">
+                        <div class="card-header">
+                            Organisational Info
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">{{organisation.name}}</h5>
+                          <p class="card-text">{{organisation?.name}}</p>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                          <div class="card-header">
+                              Organisational contact 
+                          </div>
+                          <div class="card-body">
+                              <h5 class="card-title">{{organisation.email}}</h5>
+                              <p class="card-text">{{organisation?.phone}}</p>
+                              <p class="card-text">{{organisation?.website}}</p>
+                          </div>
+                      </div>
+
+                      <div class="card">
+                          <div class="card-header">
+                              Organisational Offered services
+                          </div>
+                          <div class="card-body">
+                          <ol>
+                            <li *ngFor="let service of services">{{service}}</li>
+                          </ol>
+                          </div>
+                      </div>
+
+                      <div class="card">
+                            <div class="card-header">
+                                Organisational Location
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{organisation.city}}</h5>
+                              <p class="card-text">{{organisation?.address}}</p>
+                            </div>
+                      </div>
+
+                      <div class="card">
+                          <div class="card-header">
+                              Organisational Location
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">{{organisation.city}}</h5>
+                            <p class="card-text">{{organisation?.address}}</p>
+                          </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+
                   </div>
                   <div class="col-md-5">
-                      <form>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div class="edit_form">
+                        <form>
+                          <div class="section">
+                              <div class="header">
+                                <span>Organisational Info</span>
+                              </div>
+                              <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="organisation.name" [(ngModel)]="organisation.name" placeholder="Name">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
+
+                              <div class="form-group">
+                                  <input type="email" class="form-control" id="exampleInputEmail1"  name="organisation.slogan" [(ngModel)]="organisation.slogan"  placeholder="Tag line /slogan">
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+                          <div class="section">
+                              <div class="header">
+                                <span>Organisational contact </span>
+                              </div>
+
+                              <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1"  name="organisation.email" [(ngModel)]="organisation.email"  placeholder="email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
+
+                              <div class="form-group">
+                                  <input type="tell" class="form-control" id="exampleInputEmail1"  name="organisation.contact" [(ngModel)]="organisation.contact"  placeholder="phone number">
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
+
+                              <div class="form-group">
+                                  <input type="email" class="form-control"  name="organisation.website" [(ngModel)]="organisation.website" placeholder="website">
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
                           </div>
-                          <button type="submit" class="btn btn-primary">Submit</button>
+
+                          <div class="section">
+                              <div class="header">
+                                <span>Services offered</span>
+                              </div>
+                              <div class="form-group">
+                                  <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
+                                  <select class="form-control" multiple  name="organisation.services" [(ngModel)]="organisation.services" id="exampleInputPassword1" >
+                                      <option value="Mentorship/Feedback">Mentorship/Feedback</option>
+                                      <option value="Expertise/Know-How/Coaching(Online | hands-on  | both)">Expertise/Know-How/Coaching(Online | hands-on  | both)</option>
+                                      <option value="Business Networking">Business Networking</option>
+                                      <option value="Financing for my Business">Financing for my Business</option>
+                                      <option value="Office/Space/Prestige">Office/Space/Prestige</option>
+                                      <option value="Training Programs/Workshops">Training Programs/Workshops</option>
+                                      <option value="Product development and refinement">Product development and refinement</option>
+                                      <option value="Business management and strategy skills">Business management and strategy skills</option>
+                                      <option value="Sales and Marketing skills">Sales and Marketing skills</option>
+                                      <option value="Financial Management skills">Financial Management skills</option>
+                                      <option value="Customized training services">Customized training services</option>
+                                      <option value="Online Presence & Visibility(Online Brand)">Online Presence & Visibility(Online Brand)</option>
+                                  </select>
+                                  <small id="emailHelp" class="form-text text-muted">Press Ctrl / Command and then select all that apply.</small>
+                                </div>
+                          </div>
+
+                          <div class="section">
+                              <div class="header">
+                                <span>Location</span>
+                              </div>
+                              <div class="form-group">
+                                  <input type="email" class="form-control"  name="organisation.city" [(ngModel)]="organisation.city"  placeholder="City">
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
+                              <div class="form-group">
+                                  <input type="email" class="form-control"  name="organisation.addressline" [(ngModel)]="organisation.addressline" placeholder="Addess line">
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
+                          </div>
+
+                          <button type="submit" class="btn btn-primary btn-block"(click)="save_organisation()">Edit organisation</button>
                         </form>
+                    </div>
                   </div>
                 </div>
                 

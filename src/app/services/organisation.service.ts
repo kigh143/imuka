@@ -45,4 +45,9 @@ export class OrganisationService {
     .pipe(map(res => res.json()));
   }
 
+  edit_orgsanisation(organisation){
+    return this.http
+    .post(this.api_url + "editorganisation/json", organisation, this.options)
+    .pipe(map(res => res.json()));
+  }
 }

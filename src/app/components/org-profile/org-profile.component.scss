@@ -119,3 +119,33 @@
         background:#eef;
     }
 }
+
+.edit_form{
+    background: #fff !important;
+    border-radius: 3px !important;
+    padding:8px !important;
+}
+
+.section{
+    background: #eee;
+    padding:4px;
+    margin:10px auto;
+    .header{
+       color:rgb(25, 75, 150);
+    }
+}
+
+.col-md-7 {
+    .card{
+        padding:0px !important;
+        margin:10px auto;
+        font-weight: 300;
+        .card-header{
+
+            background: rgb(225, 232, 240) !important;
+        }
+        .card-body{
+            background: #fff !important;
+        }
+    }
+}
