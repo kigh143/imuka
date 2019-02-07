@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrganisationService } from "../../services/organisation.service";
 
 @Component({
   selector: 'app-org-profile',
@@ -15,12 +16,15 @@ export class OrgProfileComponent implements OnInit {
     {name:"Inquiries", icon:"fa fa-envelope", isactive:false},
   ];
 
+  organisation : any;
+
   events = [1,2,3,4,5,6]
   opportunities = [1,2,3,4,5,6]
 
-  constructor() { }
+  constructor( public organisationService: OrganisationService) { }
 
   ngOnInit() {
+    this.get_organisation();
   }
 
   show_page( item, i ){
@@ -33,6 +37,14 @@ export class OrgProfileComponent implements OnInit {
           this.org_menu[counter].isactive = false;
         }
     }
+  }
+
+  get_organisation( ) {
+    let user  = JSON.parse(localStorage.getItem("user_object"));
+    this.organisationService.get_orgsanisation(user['org_id']).subscribe( data =>{
+        this.organisation = data;
+        console.log(data);
+    })
   }
 
 }
