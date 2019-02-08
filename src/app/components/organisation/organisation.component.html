@@ -112,16 +112,18 @@
                   </div>
               </div>
             </div>
+  
             <div *ngIf="active_index == 3">
-              <p>Group</p>
-              <hr>
-            </div>
-            <div *ngIf="active_index == 4">
               <p>Feedback and inquiry</p>
               <hr>
               <div class="row">
                   <div class="col-md-6">
-
+                      <div>
+                        <div *ngFor="let request of requests" style="border:1px solid #fff;">
+                          <b>{{request.title}}</b><br/>
+                          <span>{{request.details}}</span>
+                        </div>
+                      </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form">

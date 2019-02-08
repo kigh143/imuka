@@ -20,7 +20,6 @@ export class OrganisationComponent implements OnInit {
     {name: 'About', icon: 'fa fa-sitemap', isactive: true},
     {name: 'Events', icon: 'fa fa-calendar', isactive: false},
     {name: 'Opportunities', icon: 'fa fa-globe', isactive: false},
-    {name: 'Group', icon: 'fa fa-users', isactive: false},
     {name: 'Make Inquiry', icon: 'fa fa-envelope', isactive: false},
   ];
 
@@ -45,7 +44,6 @@ export class OrganisationComponent implements OnInit {
       this.org_id = +params['id'];
       this.get_organisation(params['id']);
       this.receiverequest(this.user.user_id, this.org_id);
-
     });
     this.makerequest = this.formBuilder.group({
       request_type: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
@@ -86,7 +84,7 @@ export class OrganisationComponent implements OnInit {
     const request = this.makerequest.value;
     request['user_id'] = this.user.user_id;
     request['org_id'] = this.org_id;
-    this.businessServices.sendrequest(request).subscribe(data=>{
+    this.businessServices.send_org_iquiry(request).subscribe(data => {
        if (data.flag) {
          this.makerequest.reset();
          this.receiverequest(this.user.user_id, this.org_id);
@@ -95,7 +93,7 @@ export class OrganisationComponent implements OnInit {
   }
 
   receiverequest(user_id, org_id) {
-    this.businessServices.fetchrequests(user_id, org_id).subscribe( data => {
+    this.businessServices.fetchrequests_for_organisatio_and_user(user_id, org_id).subscribe( data => {
       this.requests = data;
     });
   }

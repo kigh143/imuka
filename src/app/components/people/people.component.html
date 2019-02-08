@@ -8,27 +8,66 @@
             <app-mainmenu></app-mainmenu>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6">
         <div class="content">
-        <div class="row">
-            <div class="col-md-3 col-xs-12 user" *ngFor="let user of people">
-                <div class="mob-pic">
+            <hr>
+            <b>{{friends.length}} Connections</b>
+            <hr>
+            <div class="row">
+                <div class="col-md-3 col-xs-12 user" *ngFor="let user of friends">
+                    <div class="mob-pic">
                         <img src="assets/user.png" alt="">
+                    </div>
+                    <div class="mob-name">
+                        <span class="name">{{user.name}}</span>
+                        <span class="position">Enterprenuer</span>
+                    </div>
+
+                    <div class="mob-btn">
+                        <a class="btn btn-default btn-sm" routerLink="/user/{{user.user_id}}"> Profile </a>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr>
+            <b>Other user on imuka ({{people.length}})</b>
+            <hr>
+            <div class="row">
+                <div class="col-md-3 col-xs-12 user" *ngFor="let user of people">
+                    <div class="mob-pic">
+                        <img src="assets/user.png" alt="">
+                    </div>
+                    <div class="mob-name">
+                        <span class="name">{{user.name}}</span>
+                        <span class="position">Enterprenuer</span>
+                    </div>
+
+                    <div class="mob-btn">
+                        <a class="btn btn-default btn-sm" (click)="connect(user)"> Connect </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <b>New Connecyion request.</b>
+        <hr>
+        <div class="row asidething">
+            <div class="col-md-12 user" *ngFor="let user of people">
+                <div class="mob-pic">
+                    <img src="assets/user.png" alt="">
                 </div>
                 <div class="mob-name">
-                        <span class="name">Bivian Virungi</span>
-                        <span class="position">Investor</span>
+                    <span class="name">{{user.name}}</span>
+                    <span class="position">Enterprenuer</span>
                 </div>
 
                 <div class="mob-btn">
-                    <a class="btn btn-default btn-sm" routerLink="/user/9"> Connect </a>
+                    <a class="btn btn-default btn-sm" (click)="accept(user)"> Accept </a>
                 </div>
-                
             </div>
         </div>
-        </div>
     </div>
-
 </div>
 </div>
 </div>

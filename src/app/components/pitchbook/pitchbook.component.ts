@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { SessionService } from 'src/app/provider/session.service';
+import { BizService } from 'src/app/provider/biz.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pitchbook',
@@ -11,14 +14,47 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export class PitchbookComponent implements OnInit {
 
   modalRef: BsModalRef;
-  businesses = [1,2,3]
-  constructor(private modalService: BsModalService) { }
+  businesses: any;
+  user: any;
+  active_business: any;
+  pitchbook: any;
+  initial_business_id: any;
+  constructor(
+    private modalService: BsModalService,
+    public route: ActivatedRoute,
+    public businessService: BizService,
+    public sessionService: SessionService) {
+      this.user = this.sessionService.getuser();
+      this.route.params.subscribe(params => {
+        this.initial_business_id = +params['id'];
+      });
+  }
 
   ngOnInit() {
+    this.fetch_business_for_user();
   }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  fetch_business_for_user() {
+    this.businessService.getbusinesses_for_user(this.user.user_id).subscribe( result => {
+      this.businesses = result;
+      this.active_business = result[this.initial_business_id];
+      this.fetch_pitcbook_data(result.business_id);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  load_active_business(business) {
+    this.active_business = business;
+    this.fetch_pitcbook_data(business.business_id);
+  }
+
+  fetch_pitcbook_data(business_id) {
+    this.pitchbook = business_id;
   }
 
 }
