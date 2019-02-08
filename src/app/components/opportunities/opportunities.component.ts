@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { EventsService } from "../../services/events.service";
+import { EventsService } from '../../services/events.service';
+import { SessionService } from '../../provider/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-opportunities',
@@ -10,38 +12,54 @@ import { EventsService } from "../../services/events.service";
   styleUrls: ['./opportunities.component.scss']
 })
 export class OpportunitiesComponent implements OnInit {
-  opportunities = []
+  opportunities = [];
   modalRef: BsModalRef;
-  link:string;
-  due_date:any;
-  opp_type:any;
-  title:any;
-  short_description:any;
-  
-  constructor(private modalService: BsModalService,   public eventServices: EventsService) { }
+  link: string;
+  due_date: any;
+  opp_type: any;
+  title: any;
+  short_description: any;
+  user: any;
+  filter_data = [];
+  constructor(
+    private modalService: BsModalService,
+    public sessionService: SessionService,
+    public router: Router,
+    public eventServices: EventsService) { }
 
   ngOnInit() {
-    this.eventServices.fetch_opportunities().subscribe( data  => { 
-        this.opportunities = data;
-    })
+    this.user = this.sessionService.getuser();
+    this.get_opportunities();
   }
 
   openTheModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
-  add_opportunities(){
-    let data = {
-        added_by:2,
-        link:this.link,
-        due_date:this.due_date,
-        opp_type:this.opp_type,
-        title:this.title,
-        short_description:this.short_description
+  get_opportunities() {
+    this.eventServices.fetch_opportunities().subscribe( data  => { this.opportunities = data; });
+  }
+
+  add_opportunities() {
+    const data = {
+        link: this.link,
+        due_date: this.due_date,
+        opp_type: this.opp_type,
+        title: this.title,
+        short_description: this.short_description
     };
-    this.eventServices.add_opportunities(data).subscribe( data  => { 
-      this.opportunities = data;
-  })
+    if ( this.user.user_type === 'org' ) {
+      data['added_by'] = this.user.org_id;
+      data['user_type'] = 'org';
+    } else {
+      data['added_by'] = this.user.user_id;
+      data['user_type'] = 'user';
+    }
+    this.eventServices.add_opportunities(data).subscribe(result => {  this.router.navigate(['/opportunities']);  });
+  }
+
+  filter_opportunities() {
+
   }
 
 }

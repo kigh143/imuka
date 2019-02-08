@@ -10,10 +10,7 @@
       </div>
       <div class="col-md-6">
           <div class="content">
-
-
                   <accordion [closeOthers]="oneAtATime">
-
                     <accordion-group  *ngFor="let request of requests" heading="{{request.title}}" style="margin-top:10px">
                       <div class="detail">
                         <p>{{request.details}}</p>
@@ -25,16 +22,13 @@
                           <li class="list-group-item">Dapibus ac facilisis in</li>
                         </ul>
                       </div>
-                      
                     </accordion-group>
-
                   </accordion>
               </div>
           </div>
           <div class="col-md-3">
             <div class="">
               <form [formGroup]="makerequest" (click)="sendrequest()">
-
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Select request type</label>
                   <select class="form-control" id="exampleFormControlSelect1" formControlName="request_type"   [class.invalid]="makerequest.controls.request_type.invalid">

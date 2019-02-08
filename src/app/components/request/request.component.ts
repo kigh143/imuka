@@ -5,9 +5,9 @@ import {
   FormBuilder,
   FormControl,
   Validators
-} from "@angular/forms";
-import {SessionService} from "../../provider/session.service";
-import {BizService} from "../../provider/biz.service";	
+} from '@angular/forms';
+import {SessionService} from '../../provider/session.service';
+import {BizService} from '../../provider/biz.service';	
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
@@ -15,15 +15,19 @@ import {BizService} from "../../provider/biz.service";
 })
 export class RequestComponent implements OnInit {
 	oneAtATime: boolean = true;
-	makerequest:any;
-	user:any;
-	requests:any;
+	makerequest: any;
+	user: any;
+	requests: any;
 
-	constructor(public formBuilder: FormBuilder, public router : Router, public session:SessionService, public businessServices :BizService) {
+	constructor(
+		public formBuilder: FormBuilder,
+		public router: Router,
+		public session: SessionService, 
+		public businessServices: BizService) {
 		this.makerequest=this.formBuilder.group({
-			request_type:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-			title:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])],
-			details:[ "", Validators.compose([ Validators.minLength(4),  Validators.required ])]
+			request_type:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+			title:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+			details:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])]
 		});
 	 }
 
