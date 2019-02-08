@@ -31,7 +31,7 @@
                             Organisational Info
                         </div>
                         <div class="card-body">
-                          <h5 class="card-title">{{organisation.name}}</h5>
+                          <p class="card-title">{{organisation?.name}}</p>
                           <p class="card-text">{{organisation?.name}}</p>
                         </div>
                       </div>
@@ -41,9 +41,9 @@
                               Organisational contact 
                           </div>
                           <div class="card-body">
-                              <h5 class="card-title">{{organisation.email}}</h5>
-                              <p class="card-text">{{organisation?.phone}}</p>
-                              <p class="card-text">{{organisation?.website}}</p>
+                              <p class="card-title">Email: {{organisation?.email}}</p>
+                              <p class="card-text">Phone number : {{organisation?.contact}}</p>
+                              <p class="card-text">Website : {{organisation?.website}}</p>
                           </div>
                       </div>
 
@@ -63,29 +63,10 @@
                                 Organisational Location
                             </div>
                             <div class="card-body">
-                              <h5 class="card-title">{{organisation.city}}</h5>
-                              <p class="card-text">{{organisation?.address}}</p>
+                              <p class="card-title">City : {{organisation?.city}}</p>
+                              <p class="card-text">Address Line: {{organisation?.address}}</p>
                             </div>
                       </div>
-
-                      <div class="card">
-                          <div class="card-header">
-                              Organisational Location
-                          </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{organisation.city}}</h5>
-                            <p class="card-text">{{organisation?.address}}</p>
-                          </div>
-                      </div>
-
-
-
-
-
-
-
-
-
 
                   </div>
                   <div class="col-md-5">
@@ -181,7 +162,7 @@
                         <div class="card">
                         <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Opportunity title</h5>
+                            <p class="card-title">Opportunity title</p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                         <ul class="list-group list-group-flush">
@@ -202,7 +183,7 @@
                         <div class="card">
                         <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Opportunity title</h5>
+                            <p class="card-title">Opportunity title</p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                         <ul class="list-group list-group-flush">
