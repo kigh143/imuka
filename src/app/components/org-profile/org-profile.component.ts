@@ -9,7 +9,6 @@ import { OrganisationService } from '../../services/organisation.service';
 export class OrgProfileComponent implements OnInit {
 
   active_index = 0;
-
   org_menu = [
     {name:"Profile details", icon:"fa fa-sitemap", isactive:true},
     {name:"Events", icon:"fa fa-calendar", isactive:false},
@@ -46,7 +45,7 @@ export class OrgProfileComponent implements OnInit {
   get_organisation( ) {
     this.organisationService.get_orgsanisation(this.user['org_id']).subscribe( data => {
         this.organisation = data;
-        this.services = data.services;
+        this.services = JSON.parse(data['services_offered']);
     });
   }
 
@@ -58,8 +57,11 @@ export class OrgProfileComponent implements OnInit {
     this.organisationService.organisation_data(this.user['org_id']).subscribe( result => {
         this.events = result.events;
         this.opportunities = result.opportunities;
-
     });
+  }
+
+  push_inquiry() {
+
   }
 
 }

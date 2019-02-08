@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganisationService } from 'src/app/services/organisation.service';
 import { ActivatedRoute } from '@angular/router';
-
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators
+} from '@angular/forms';
+import { BizService } from 'src/app/provider/biz.service';
+import { SessionService } from 'src/app/provider/session.service';
 @Component({
   selector: 'app-organisation',
   templateUrl: './organisation.component.html',
@@ -21,17 +28,36 @@ export class OrganisationComponent implements OnInit {
   organisation: any;
   events: any;
   opportunities: any;
+  services: any;
+  makerequest: any;
+  user: any;
+  requests: any;
 
-  constructor( public organisationServices: OrganisationService,   public route: ActivatedRoute ) {
-      this.route.params.subscribe(params => {
+  constructor(
+    public organisationServices: OrganisationService,
+    public formBuilder: FormBuilder,
+    public businessServices: BizService,
+    public session: SessionService,
+    public route: ActivatedRoute ) {
+
+    this.route.params.subscribe(params => {
+      this.user = this.session.getuser();
       this.org_id = +params['id'];
       this.get_organisation(params['id']);
+      this.receiverequest(this.user.user_id, this.org_id);
+
+    });
+    this.makerequest = this.formBuilder.group({
+      request_type: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+      title: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+      details: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])]
     });
   }
 
   get_organisation( org_id ) {
     this.organisationServices.get_orgsanisation(org_id).subscribe( data => {
         this.organisation = data;
+        this.services  = JSON.parse(data['services_offered']);
     }, error => {
       console.log(error);
     });
@@ -54,6 +80,24 @@ export class OrganisationComponent implements OnInit {
           this.org_menu[counter].isactive = false;
         }
     }
+  }
+
+  sendrequest() {
+    const request = this.makerequest.value;
+    request['user_id'] = this.user.user_id;
+    request['org_id'] = this.org_id;
+    this.businessServices.sendrequest(request).subscribe(data=>{
+       if (data.flag) {
+         this.makerequest.reset();
+         this.receiverequest(this.user.user_id, this.org_id);
+       }
+    });
+  }
+
+  receiverequest(user_id, org_id) {
+    this.businessServices.fetchrequests(user_id, org_id).subscribe( data => {
+      this.requests = data;
+    });
   }
 
 }
