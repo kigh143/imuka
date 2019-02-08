@@ -15,7 +15,7 @@
                             </div>
                             <hr/>
 
-                            <h3>Company name</h3>
+                            <h3>{{business?.business_name}}</h3>
                             <p>+256788127712</p>
                             <p>P.obox 291092</p>
 
@@ -24,9 +24,8 @@
                             <p>Select receipient business,  if business not available please them to join imukaaccess.</p>
                             <select [(ngModel)]="receipient" name="receipient " class="form-control">
                                 <option> Select receipient business</option>
-                                <option value="1"> Business one </option>
-                                <option value="2"> Business two</option>
-                                <option value="3"> Business three </option>
+                                <option  *ngFor="let business of allbusiness" value="{{business?.business_id}}" > {{business?.business_name}}</option>
+                                
                             </select>
 
                             <hr/>

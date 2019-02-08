@@ -10,11 +10,11 @@
           <div class="col-md-9">
               <div class="ou_header">
                   <div>
-                        <h2>{{ business.business_name }} Invoices</h2>
-                        <span>{{ business.legal_entity }}</span><br/>
-                        <span>{{ business.country }} ( {{business.region }} )</span>
+                        <h2>{{ business?.business_name }} Invoices</h2>
+                        <span>{{ business?.legal_entity }}</span><br/>
+                        <span>{{ business?.country }} ( {{business?.region }} )</span>
                   </div>
-                  <a class="btn btn-primary btn-sm" routerLink="/add_invoice/{{business.business_id}}">
+                  <a class="btn btn-primary btn-sm" routerLink="/add_invoice/{{business?.business_id}}">
                     <span>
                             <i class="fa fa-plus"></i><br/>
                             <span>Create New Invoice</span>
@@ -24,44 +24,48 @@
               </div>
               <div class="row grid">
                     <div class="col-md-4">
-                        <div class="receivables">
-                            <h1>5</h1>
+                        <div class="receivables" (click)="fetchreceivables()">
+                            <h1>{{receiveables?.length}}</h1>
                             <h5>My receivables</h5>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="payables">
-                            <h1>5</h1>
+                        <div class="payables" (click)="fetchpayables()">
+                            <h1>{{payables?.length}}</h1>
                             <h5>My payables</h5>
                         </div>
                     </div>
 
                     <div class="col-md-4">
-                        <div class="requests">
-                            <h1>5</h1>
+                        <div class="requests" (click)="fetchpayment_request()">
+                        <h1>{{paymentrequests?.length}}</h1>
                             <h5>Payment requests</h5>
                         </div>
                     </div>
               </div>
               <div>
+                 
                 <table class="table table-strpped">
+                    <tr><th colspan="6">My receivables</th></tr>
                 <tr>
                 <th>Customer name</th>
                 <th>status</th>
                 <th>Amount</th>
-                <th>Actions</th>
                 <th>Date</th>
                 <th>View</th>
+                <th>Action</th>
                 </tr>
 
                 <tbody>
-                <tr *ngFor="let invoice of invoices">
+                <tr *ngFor="let invoice of invoices" let i=index>
                     <td>kates</td>
                     <td>Due</td>
                     <td>{{invoice.amount}}</td>
-                    <td>Delete/Edit</td>
                     <td>{{invoice.created_on}}</td>
                     <td><button (click)="show_modal(invoice)">View Details</button></td>
+                    <td><button (click)="requestpayment(i, invoice)" *ngIf="invoice?.requestedfund=='N'">Request</button>
+                        <button (click)="cancelpayment()" *ngIf="invoice?.requestedfund=='Y'">Cancel</button>
+                    </td>
                 </tr>
                 </tbody>
                 </table>
