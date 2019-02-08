@@ -13,7 +13,9 @@ export class EInvoiceComponent implements OnInit {
 
 invoices: any;
 business: any;
-
+payables:any;
+receiveables:any;
+paymentrequests:any;
   constructor( public route: ActivatedRoute, public router : Router, public businessService: BizService) { }
 
   ngOnInit() {
@@ -26,6 +28,10 @@ business: any;
   get_invoices( business_id ){
       this.businessService.get_invoices(business_id).subscribe( data => {
           this.invoices = data;
+          this.payables=data.payables;
+          this.receiveables=data.receivables;
+          this.paymentrequests=data.payment_requests
+          console.log(this.paymentrequests);
       }, error =>{
         console.log(error);
       })
@@ -38,5 +44,22 @@ business: any;
         console.log(error);
       });
   }
+
+ requestpayment(i, invoice){
+   this.businessService.requestpayment(invoice.invoice_id).subscribe(data=>{
+    this.get_invoices(invoice.prepared_by);
+
+   });
+
+ }
+ fetchreceivables(){
+ this.invoices=this.receiveables;
+ }
+ fetchpayables(){
+ this.invoices= this.payables;
+ }
+ fetchpayment_request(){
+   this.invoices= this.paymentrequests;
+ }
 
 }

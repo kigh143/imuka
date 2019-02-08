@@ -10,7 +10,7 @@ api_url: string;
   headers: Headers;
   options: RequestOptions;
   constructor(public http: Http) {
-		this.api_url = "http://10.111.7.115/imuka_rest_api/welcome/";
+		this.api_url = "http://10.111.9.58/imuka_rest_api/welcome/";
 		this.headers = new Headers();
 		this.headers.append(
 		"Content-Type",
@@ -96,6 +96,11 @@ api_url: string;
     getallbusinesses(){
       return this.http
        .get(this.api_url +"getallbusinesses/json")
+       .pipe(map(res => res.json()));
+    }
+    requestpayment(invoice_id){
+      return this.http
+       .get(this.api_url + "requestfund/invoice_id/"+invoice_id+"/json")
        .pipe(map(res => res.json()));
     }
 }
