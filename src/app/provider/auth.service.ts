@@ -64,6 +64,10 @@ api_url: string;
     .post(this.api_url + "addusertorg/json", user, this.options)
     .pipe(map(res => res.json()));
   }
- 
+  changepassword(passwordchange){
+   return this.http
+    .post(this.api_url+ "changepassword/json", passwordchange,  this.options)
+    .pipe(map(res => res.json()));
+  }
 
 }

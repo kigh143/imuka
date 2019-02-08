@@ -50,6 +50,8 @@ import { InitialpageComponent } from './components/initialpage/initialpage.compo
 import { OrgloginComponent } from './components/orglogin/orglogin.component';
 import { OrganisationService } from "./services/organisation.service";
 import { ManageorganisationComponent } from './components/manageorganisation/manageorganisation.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 
 const app_routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
@@ -124,7 +126,7 @@ const app_routes: Routes = [
     OrgProfileComponent,
     InitialpageComponent,
     OrgloginComponent,
-    ManageorganisationComponent
+    ManageorganisationComponent,
   ],
  
   imports: [
@@ -139,7 +141,8 @@ const app_routes: Routes = [
     AccordionModule.forRoot(), 
     ModalModule.forRoot(), 
     BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    AlertModule.forRoot()
   ],
 
   providers: [AuthService, EventsService, AuthGuard, OrganisationService],
