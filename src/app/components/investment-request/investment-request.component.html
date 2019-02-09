@@ -1,35 +1,151 @@
 <div class="body"> 
 <app-header></app-header>
-<div class="container">
+<div class="">
+
   <div class="row">
-    <div class="col-md-12">
-      <div>My investment requests</div>
-      <div class="content">
-        <accordion [closeOthers]="oneAtATime">
-          <accordion-group heading="Status" *ngFor="let request of requests">
-          <div class="card" >
-          <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-          </div>
-          </div>
-          <div class="card">
-          <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-          </div>
-          </div>
-          </accordion-group>
-        </accordion>
+    <div class="col-md-4" style="padding-left:30px">
+      <div class="req" style="border: 2px dotted #222; margin-top:30px">
+      <div class="row" style="padding:10px"><div class="bottom" style="padding-left:20px"><span>Investment Requests</span></div>
+      <div class="left" style="padding-right:5px"><button style="border-radius:100%" (click)="addrequest()">+</button></div>
       </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+            <div class="bottom">
+            <img src="assets/user.png" alt="" height="25" />
+            </div>
+            <div class="center">
+            <span style="">hello word</span><br>
+            <span style="font-size:10px; color:gray">12:00 Am</span>
+            </div>
+            <div class="left">
+            <span><i class="fa fa-calendar-check-o"></i></span>
+            </div>
+            </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item">
+                <div class="bottom">
+                <img src="assets/user.png" alt="" height="25" />
+                </div>
+                <div class="center">
+                <span style="">hello word</span><br>
+                <span style="font-size:10px; color:gray">12:00 Am</span>
+                </div>
+                <div class="left">
+                <span><i class="fa fa-calendar-check-o"></i></span>
+                </div>
+                </li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                    <div class="bottom">
+                    <img src="assets/user.png" alt="" height="25" />
+                    </div>
+                    <div class="center">
+                    <span style="">hello word</span><br>
+                    <span style="font-size:10px; color:gray">12:00 Am</span>
+                    </div>
+                    <div class="left">
+                    <span><i class="fa fa-calendar-check-o"></i></span>
+                    </div>
+                    </li>
+                    </ul>
+                    </div>
+    </div>
+    <div class="col-md-8" style="padding-left:30px; margin-top:30px">
+        <div class="row" style="background: rgb(231, 230, 230); padding-bottom:10px; margin-bottom:30px"><div class="bottom" style="padding-left:20px"><span>My Investments</span></div></div>
+      <div class="row">
+        <div class="card col-md-3" style="margin-right:30px">
+            <img
+            class="card-img-top"
+            src="assets/v.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Business name</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up
+              the bulk of the card's content.
+            </p>
+          </div>
+         
+          </div>
+          <div class="card col-md-3"  style="margin-right:30px">
+              <img
+            class="card-img-top"
+            src="assets/v.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Business name</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up
+              the bulk of the card's content.
+            </p>
+          </div>
+         
+            </div>
+            <div class="card col-md-3" >
+                <img
+            class="card-img-top"
+            src="assets/v.jpg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Business name</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up
+              the bulk of the card's content.
+            </p>
+          </div>
+          
+              </div>
+    </div>
     </div>
   </div>
 </div>
 </div>
 <app-footer></app-footer>
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Make an Investment Request</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table style="border:0">
+    <tr><td>Total needed</td><td></td></tr> 
+    <tr><td>Marketing</td><td></td></tr> 
+    <tr><td>Stock</td><td></td></tr> 
+    <tr><td>Machinery</td><td></td></tr> 
+    <tr><td>Operations</td><td></td></tr> 
+    </table>
+    <p>
+      You can tweak the values of the investment request and make a more convinient investment offer
+    </p>
+      <form>
+          <div class="form-group">
+              <label for="exampleFormControlSelect1">What type of financing do you prefer?</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Equity Financing</option>
+                <option>Debt Financing</option>
+                <option>Mezzainne Financing</option>
+                <option>Islamic Financing</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Amount to offer ($) USD</label>
+            <input type="number" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          <button type="submit" class="btn btn-primary">Make An Offer</button>
+        </form>
+  </div>
+</ng-template>

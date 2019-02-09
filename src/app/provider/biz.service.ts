@@ -110,4 +110,9 @@ api_url: string;
     .get(this.api_url + 'organisationrequests/org_id/' + org_id + '/user_id/' + user_id + '/json')
     .pipe(map(res => res.json()));
   }
+  get_investmentable_business(user_id){
+    return this.http
+      .get(this.api_url + 'get_investmentable_business/user_id'+ user_id + '/json')
+      .pipe(map(res => res.json()));
+  }
 }
