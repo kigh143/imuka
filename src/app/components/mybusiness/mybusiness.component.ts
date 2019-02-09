@@ -12,31 +12,31 @@ import {SessionService} from "../../provider/session.service";
 export class MybusinessComponent implements OnInit {
  modalRef: BsModalRef;
   businesses = [];
-  avbiz:any;
+  avbiz:  any;
 
-  //business parameters
+  // business parameters
   business_name: string;
   region: string;
   country: string;
   date_of_reg: string;
   legal_status : string;
-  sectors: any;
+  sectors:  any;
   business_stage: string;
   start_of_operation: string;
-  currentuser:any;
-  business_id:any;
-  bizinfo:any;
+  currentuser: any;
+  business_id: any;
+  bizinfo: any;
   constructor( public modalService: BsModalService, public router: Router,  public bizy :BizService, public session : SessionService) {
-      let data = this.session.getuser();
-      this.currentuser=data;
+      const data = this.session.getuser();
+      this.currentuser = data;
       this.getbusinesses();
-   
-}
+  }
+
   ngOnInit() {
   }
-  
-  add_business(){
-      let biz = {
+
+  add_business() {
+      const biz = {
       business_name: this.business_name,
       region: this.region,
       country: this.country,
@@ -45,39 +45,27 @@ export class MybusinessComponent implements OnInit {
       sectors: JSON.stringify(this.sectors),
       business_stage: this.business_stage,
       start_of_operation: this.start_of_operation
-    }
-
-    biz['owner_id']=this.currentuser.user_id;
-   
-    this.bizy.addbiz(biz).subscribe(data=>{
-        if(data.flag){
+    };
+    biz['owner_id'] = this.currentuser.user_id;
+    this.bizy.addbiz(biz).subscribe(data => {
+        if(data.flag) {
         this.getbusinesses();
- 
-        } else{
-      
-       
         }
-    });   
-   
+    });
   }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template,
       Object.assign({}, { class: 'modal-lg' })
     );
   }
 
+  getbusinesses() {
+    this.bizy.getbusinesses_for_user(this.currentuser.user_id).subscribe(data=>{
+        console.log(data);
+        this.businesses = data;
+    });
+  }
 
-getbusinesses(){
-   this.bizy.getbusinesses(this.currentuser.user_id).subscribe(data=>{
-      console.log(data);
-      this.businesses=data;
-     
-   });
-}
-
-
-
-  
-  
 }
 

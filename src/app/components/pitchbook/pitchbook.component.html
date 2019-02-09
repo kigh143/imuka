@@ -4,22 +4,22 @@
     <div class="row">
       <div class="col-md-3" style="padding-right:0px; margin-right:0px;">
       <div class="mainmenu">
-        <a class="business" *ngFor="let business of businesses; let i=index;" routerLink="/pitchbook/{{i}}">
-            <b>Business Name</b><br/>
-            <span>Technology and agri-business</span>
+        <a class="business" *ngFor="let business of businesses; let i=index;" (click)="load_active_business(business)">
+            <b>{{business.business_name}}</b><br/>
+            <span>{{business.legal_entity}}</span>
         </a><br/>
       </div>
       </div>
       <div class="col-md-9">
         <div class="jumbotron">
-            <h1 class="display-4">Pitch Book</h1>
+            <h1 class="display-4"> {{active_business.business_name}} Pitch Book</h1>
             <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
             <a class="btn btn-primary btn-sm"  (click)="openModal(template)">Generate Pitch book</a>
         </div>
         <div class="content">
             <section>
-                <b>Business Name</b><br/>
-                <span>Technology</span>                 
+                <b>{{active_business.business_name}}</b><br/>
+                <span>{{active_business.legal_entity}}</span>                 
             </section>
 
             <section>
