@@ -10,7 +10,7 @@ api_url: string;
   headers: Headers;
   options: RequestOptions;
   constructor(public http: Http) {
-    this.api_url = 'http://10.111.9.58/imuka_rest_api/welcome/';
+    this.api_url = 'http://52.14.29.113/index.php/welcome/';
     this.headers = new Headers();
     this.headers.append(
       'Content-Type',
@@ -122,5 +122,11 @@ api_url: string;
     .post(this.api_url + 'sendorgiquiry/json', data, this.options)
     .pipe(map(res => res.json()));
 
+  }
+  
+  sendinvestrequest(invest_request){
+    return this.http
+      .post(this.api_url + "sendinvestrequest/json", invest_request, this.options)
+      .pipe(map(res => res.json()));
   }
 }

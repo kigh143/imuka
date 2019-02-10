@@ -47,11 +47,11 @@
 
 <div class="tabst">
 
-  <div class="tabmenu" [ngClass]="isclicked?'active':''">
-    <a class="tabslink" [ngClass]="isclicked?'active':''" (click)="selectTab(0)"><i class="fa fa-briefcase"></i>  <span>Business</span></a>
-    <a class="tabslink" [ngClass]="isclicked?'active':''" (click)="selectTab(1)"><i class="fa fa-cubes"></i> <span>Product</span></a>
-    <a class="tabslink" [ngClass]="isclicked?'active':''" (click)="selectTab(2)"><i class="fa fa-file-pdf-o"></i> <span>Document</span></a>
-    <a class="tabslink" [ngClass]="isclicked?'active':''" (click)="selectTab(3)"><i class="fa fa-money"></i> <span>Financial</span></a>
+  <div class="tabmenu" >
+    <a class="tabslink" (click)="selectTab(0)"><i class="fa fa-briefcase"></i>  <span>Business</span></a>
+    <a class="tabslink" (click)="selectTab(1)"><i class="fa fa-cubes"></i> <span>Product</span></a>
+    <a class="tabslink"  (click)="selectTab(2)"><i class="fa fa-file-pdf-o"></i> <span>Document</span></a>
+    <a class="tabslink" (click)="selectTab(3)"><i class="fa fa-money"></i> <span>Financial</span></a>
   
   </div>
   
@@ -431,16 +431,10 @@
   </tabset>
 </div>
 
-<ul class="ul">
-<li *ngFor="let item of items; let i=index" (click)="showdiv(i, item)" [ngClass]="item.isactive ? 'active':'not_active'"> 
-<i [ngClass]="item.icon"></i> 
-<span>{{item.name}}</span> 
-</li>
-</ul>
-<hr>
 
 
-<div class="business" *ngIf ="business">
+
+<div class="business">
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
 <form>
@@ -653,7 +647,7 @@ Disabled radio
 </div>
 </div>
 </div>
-<div class="products" *ngIf ="product">
+<div class="products" >
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
 <div class="row" *ngFor="let prdt of business_data.products">
@@ -687,7 +681,7 @@ formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.inval
 </div>
 </div>
 </div>
-<div class="documents" *ngIf ="documents">
+<div class="documents" >
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
 <div class="row">
@@ -724,7 +718,7 @@ formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.inval
 </div>
 </div>
 </div>
-<div class="financial" *ngIf ="financial">
+<div class="financial">
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
 <table class="table table-striped table-responsive-sm">
@@ -800,7 +794,7 @@ formControlName="pdtimage"   [class.invalid]="bizproduct.controls.pdtimage.inval
 </div>
 </div> 
 </div>
-<div class="team" *ngIf ="team">
+<div class="team" >
 <div class="content-box row">
 <div class="col-md-8 col-xs-12">
 

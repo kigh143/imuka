@@ -2,7 +2,12 @@ import { Component, OnInit, TemplateRef  } from '@angular/core';
 import {BizService} from "../../provider/biz.service";
 import {SessionService} from "../../provider/session.service";
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators
+  } from '@angular/forms';
 @Component({
   selector: 'app-investmentopp',
   templateUrl: './investmentopp.component.html',
@@ -13,11 +18,14 @@ export class InvestmentoppComponent implements OnInit {
   businesses = [1, 2];
   investmentopp:any;
   currentuser:any;
+  request:any;
 
-  constructor(public session : SessionService, public bizy : BizService, private modalService: BsModalService ) {
+  constructor(public session : SessionService, public bizy : BizService, private modalService: BsModalService, public formBuilder: FormBuilder ) {
     let data = this.session.getuser();
       this.currentuser=data;
       this.get_investmentable_business();
+
+     
    }
 
   ngOnInit() {
@@ -29,11 +37,6 @@ export class InvestmentoppComponent implements OnInit {
   }
     );
 }
-openModal(template: TemplateRef<any>) {
-  this.modalRef = this.modalService.show(template);
-}
-makearequest(){
 
-}
 
 }

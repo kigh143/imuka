@@ -24,27 +24,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-6">
-            <div style="background:#fff; padding:5px;">
-                <li class="chat_item" >
-                    <div class="img">
-                        <img src="assets/user.png" alt="">
-                    </div>
-                    <div class="name">
-                        <a routerLink="/chat/{{user?.user_id}}" class="link_chat">
-                            <span class="span1">{{active_chat?.name}}</span>
-                            <span class="span2">{{active_chat?.type}}</span>
-                            <div class="online" *ngIf="active_chat.online"></div>
-                        </a>
-                    </div>
-
-                </li>
-            </div>
-            <div class="content">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+       
         <div class="col-md-3 feeds">
             <div class="feeds">
                 <app-feeds></app-feeds>

@@ -1,61 +1,17 @@
 <div class="body"> 
 <app-header></app-header>
-<div class="">
+<div class="container">
 
-  <div class="row">
-    <div class="col-md-4" style="padding-left:30px">
-      <div class="req" style="border: 2px dotted #222; margin-top:30px">
-      <div class="row" style="padding:10px"><div class="bottom" style="padding-left:20px"><span>Investment Requests</span></div>
-      <div class="left" style="padding-right:5px"><button style="border-radius:100%" (click)="addrequest()">+</button></div>
-      </div>
-        <ul class="list-group">
-            <li class="list-group-item">
-            <div class="bottom">
-            <img src="assets/user.png" alt="" height="25" />
-            </div>
-            <div class="center">
-            <span style="">hello word</span><br>
-            <span style="font-size:10px; color:gray">12:00 Am</span>
-            </div>
-            <div class="left">
-            <span><i class="fa fa-calendar-check-o"></i></span>
-            </div>
-            </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item">
-                <div class="bottom">
-                <img src="assets/user.png" alt="" height="25" />
-                </div>
-                <div class="center">
-                <span style="">hello word</span><br>
-                <span style="font-size:10px; color:gray">12:00 Am</span>
-                </div>
-                <div class="left">
-                <span><i class="fa fa-calendar-check-o"></i></span>
-                </div>
-                </li>
-                </ul>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                    <div class="bottom">
-                    <img src="assets/user.png" alt="" height="25" />
-                    </div>
-                    <div class="center">
-                    <span style="">hello word</span><br>
-                    <span style="font-size:10px; color:gray">12:00 Am</span>
-                    </div>
-                    <div class="left">
-                    <span><i class="fa fa-calendar-check-o"></i></span>
-                    </div>
-                    </li>
-                    </ul>
-                    </div>
-    </div>
-    <div class="col-md-8" style="padding-left:30px; margin-top:30px">
+  
+    <div class="row">
+        <div class="col-md-3">
+            <app-mainmenu></app-mainmenu>
+          </div>
+      <div class="col-md-9">
+    <div class="col-md-12" style="padding-left:30px; margin-top:30px">
         <div class="row" style="background: rgb(231, 230, 230); padding-bottom:10px; margin-bottom:30px"><div class="bottom" style="padding-left:20px"><span>My Investments</span></div></div>
       <div class="row">
-        <div class="card col-md-3" style="margin-right:30px">
+        <div class="card col-md-4">
             <img
             class="card-img-top"
             src="assets/v.jpg"
@@ -70,7 +26,7 @@
           </div>
          
           </div>
-          <div class="card col-md-3"  style="margin-right:30px">
+          <div class="card col-md-4" >
               <img
             class="card-img-top"
             src="assets/v.jpg"
@@ -85,7 +41,7 @@
           </div>
          
             </div>
-            <div class="card col-md-3" >
+            <div class="card col-md-4" >
                 <img
             class="card-img-top"
             src="assets/v.jpg"
@@ -102,11 +58,63 @@
               </div>
     </div>
     </div>
-  </div>
+  
+  <div class="row">
+      <div class="col-md-12" style="padding-left:30px">
+        <div class="req" style="border: 1px dotted #222; margin-top:30px">
+        <div class="row" style="padding:10px"><div class="bottom" style="padding-left:20px"><span>Investment Requests</span></div>
+        <div class="left" style="padding-right:5px"><button style="border-radius:100%" (click)="openModal(template)">+</button></div>
+        </div>
+          <ul class="list-group">
+              <li class="list-group-item">
+              <div class="bottom">
+              <img src="assets/user.png" alt="" height="25" />
+              </div>
+              <div class="center">
+              <span style="">hello word</span><br>
+              <span style="font-size:10px; color:gray">12:00 Am</span>
+              </div>
+              <div class="left">
+              <span><i class="fa fa-calendar-check-o"></i></span>
+              </div>
+              </li>
+              </ul>
+              <ul class="list-group">
+                  <li class="list-group-item">
+                  <div class="bottom">
+                  <img src="assets/user.png" alt="" height="25" />
+                  </div>
+                  <div class="center">
+                  <span style="">hello word</span><br>
+                  <span style="font-size:10px; color:gray">12:00 Am</span>
+                  </div>
+                  <div class="left">
+                  <span><i class="fa fa-calendar-check-o"></i></span>
+                  </div>
+                  </li>
+                  </ul>
+                  <ul class="list-group">
+                      <li class="list-group-item">
+                      <div class="bottom">
+                      <img src="assets/user.png" alt="" height="25" />
+                      </div>
+                      <div class="center">
+                      <span style="">hello word</span><br>
+                      <span style="font-size:10px; color:gray">12:00 Am</span>
+                      </div>
+                      <div class="left">
+                      <span><i class="fa fa-calendar-check-o"></i></span>
+                      </div>
+                      </li>
+                      </ul>
+                      </div>
+      </div>
+    </div></div>
+    </div>
 </div>
 </div>
 <app-footer></app-footer>
-<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+
  
 <ng-template #template>
   <div class="modal-header">
@@ -126,10 +134,10 @@
     <p>
       You can tweak the values of the investment request and make a more convinient investment offer
     </p>
-      <form>
+      <form [formGroup]="request">
           <div class="form-group">
               <label for="exampleFormControlSelect1">What type of financing do you prefer?</label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <select class="form-control" id="exampleFormControlSelect1" formControlName="financing_type" [class.invalid]="request.controls.financing_type.invalid">
                 <option>Equity Financing</option>
                 <option>Debt Financing</option>
                 <option>Mezzainne Financing</option>
@@ -139,11 +147,11 @@
             </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Amount to offer ($) USD</label>
-            <input type="number" class="form-control" id="exampleInputPassword1">
+            <input type="number" class="form-control" id="exampleInputPassword1"  formControlName="offer" [class.invalid]="request.controls.offer.invalid">
           </div>
           <div class="form-group">
               <label for="exampleFormControlTextarea1">Example textarea</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comments" [class.invalid]="request.controls.comments.invalid"></textarea>
             </div>
           <button type="submit" class="btn btn-primary">Make An Offer</button>
         </form>

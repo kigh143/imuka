@@ -7,6 +7,7 @@ import { AuthService } from "../../provider/auth.service";
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  oneAtATime: boolean = true;
   user : any;
   constructor(public sessionService : SessionService, public authService:AuthService ) { }
 
