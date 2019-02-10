@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OrganisationService } from "../../services/organisation.service"
+import { OrganisationService } from "../../services/organisation.service";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-orglogin',
@@ -15,7 +16,7 @@ export class OrgloginComponent implements OnInit {
   services: any;
   website: string;
 
-  constructor( public organisationService: OrganisationService, public router: Router) { }
+  constructor( public organisationService: OrganisationService, public router: Router, public spinnerService: Ng4LoadingSpinnerService,) { }
 
   ngOnInit() {}
 
@@ -33,6 +34,7 @@ export class OrgloginComponent implements OnInit {
   }
 
   create_organisation(){
+    this.spinnerService.show();
     let org = {
       email:this.s_email,
       contact:this.contact,
@@ -41,6 +43,7 @@ export class OrgloginComponent implements OnInit {
       website: this.website
     };
     this.organisationService.create_organisation(org).subscribe( data => {
+      this.spinnerService.hide();
        if(data.flag){
           localStorage.setItem("support_org", JSON.stringify(data.org));
           this.router.navigate(['/manage_organisation']);          

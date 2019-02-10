@@ -11,7 +11,7 @@ export class EventsService {
   options: any;
 
   constructor( public http: Http ) {
-    this.api_url = "http://127.0.0.1/imuka_rest_api/welcome/";
+    this.api_url = "http://52.14.29.113/index.php/welcome/";
 		this.headers = new Headers();
 		this.headers.append(
       "Content-Type",

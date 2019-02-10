@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import {AuthService} from "../../provider/auth.service";
 import {SessionService} from "../../provider/session.service";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import {
   FormGroup,
   FormBuilder,
@@ -18,7 +19,9 @@ export class SignupComponent {
 
   myForm: any;
 
-  constructor(public formBuilder: FormBuilder, public router : Router, public auth: AuthService,  public session: SessionService) {
+  constructor(public formBuilder: FormBuilder, public router : Router, public auth: AuthService, 
+    public spinnerService: Ng4LoadingSpinnerService,
+    public session: SessionService) {
     this.myForm = this.formBuilder.group({
       email: [ "", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),  Validators.required ])],
       password: [ "", Validators.compose([Validators.minLength(5), Validators.required]) ],
@@ -28,13 +31,15 @@ export class SignupComponent {
    }
 
   signup() {
+    this.spinnerService.show();
     let user = this.myForm.value;
     this.auth.signup(user).subscribe( data=>{
-      if (!data.flag) {
-          
+      this.spinnerService.hide();
+      if (data.flag) {
+        this.session.login(data.user);
+        this.router.navigate(['/verify']);
         } else {
-          this.session.login(data.user);
-          this.router.navigate(['/verify']);
+          
         }
     });
   }

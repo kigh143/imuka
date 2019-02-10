@@ -4,6 +4,7 @@
             <div>
                 <h2>ImukaAccess Tool</h2>
                 <p>Made changes to the application page.</p>
+                <div style="text-align:center; padding:20px"><a routerLink="/create_organisation" class="btn btn-default">Join As Support Organisation</a></div>
             </div>
         </div>
         <div class="col-md-6 form">
@@ -33,11 +34,13 @@
                 </div>
 
                 <div style="text-align:center; padding:20px"><a routerLink="/forgotPassword" class="btn btn-default">Forgot password?</a></div>
-
                 <button type="submit" class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">
                 Login Now
                 </button>
+               
                 </form>
+                <div style="text-align:center; padding:20px"><a routerLink="/signup" class="btn btn-default">Create Account</a></div>
+                <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
             </div> 
         </div>
     </div>

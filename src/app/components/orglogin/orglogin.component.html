@@ -5,29 +5,13 @@
               <h1><i class="fa fa-users"></i></h1>
               <h1>Support organisations</h1>
               <p>Lets strengthen employers’ and entrepreneurs’ organisations in emerging markets to enhance the enabling environment for entrepreneurs and to promote the membership of entrepreneurs to those organisations. </p>
-          </div>
+              <button type="submit" class="btn btn-primary" routerLink="/login">Login to organisation</button>
+            </div>
+
       </div>
       <div class="col-md-6 right">
         <div class="forms">
-          <tabset>
-            <tab heading="Login">
-                <div class="form-create">
-                    <form>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" name="log_email" [(ngModel)]="log_email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" namre="log_password"[(ngModel)]="log_password" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                      
-                        <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-                    </form> 
-                </div>
-            </tab>
-            <tab heading="Add Organisation"> 
+         
               <div class="form-create">
                   <form>
                       <div class="form-group">
@@ -74,8 +58,7 @@
                       <button type="submit" class="btn btn-primary" (click)="create_organisation()">Create you Account</button>
                   </form>   
               </div>
-            </tab>
-        </tabset>
+            
         </div>
       </div>
   </div>

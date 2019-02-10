@@ -51,6 +51,8 @@ import { OrgloginComponent } from './components/orglogin/orglogin.component';
 import { OrganisationService } from "./services/organisation.service";
 import { ManageorganisationComponent } from './components/manageorganisation/manageorganisation.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { NotifierModule } from 'angular-notifier';
 
 
 const app_routes: Routes = [
@@ -142,7 +144,9 @@ const app_routes: Routes = [
     ModalModule.forRoot(), 
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    Ng4LoadingSpinnerModule.forRoot(),
+    NotifierModule
   ],
 
   providers: [AuthService, EventsService, AuthGuard, OrganisationService],
