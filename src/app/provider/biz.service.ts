@@ -132,7 +132,7 @@ api_url: string;
 
   updatebusiness(business_data){
     return this.http
-      .post(this.api_url + "updatebusiness/json",business_data, this.options)
+      .post(this.api_url + "editbusiness/json",business_data, this.options)
       .pipe(map(res => res.json()));
   }
 
