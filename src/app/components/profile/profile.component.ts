@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   relevant_skills: string;
   expertise: string;
 
+  selectedFile: any;
+
   ngOnInit() {
     let data = this.sessionService.getuser();
     this.user = data;
@@ -49,5 +51,36 @@ export class ProfileComponent implements OnInit {
         console.log( error);
       });
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.imageService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+        
+        },
+        (err) => {
+        
+        })
+    });
+
+    reader.readAsDataURL(file);
+}
 
 }

@@ -18,9 +18,9 @@
                         <div class="card-body">
                             <h5 class="card-title">{{organisation.name}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted"></h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" target="_blank" class="card-link">Website</a>
-                            <a href="#" class="card-link">Facebook</a>
+                            <p class="card-text">{{organisation?.email}}</p>
+                            <a href="{{organisation?.website}}" target="_blank" class="card-link">Website</a>
+                            <a href="{{organisation?.facebook}}" class="card-link">Facebook</a>
                             <a routerLink="/organisation/{{organisation.org_id}}" class="card-link">organisation details</a>
                         </div>
                     </div>
