@@ -1,0 +1,59 @@
+.mainmenu{
+    background: #fff;
+    border:1px solid #eee;
+    border-radius: 3px;
+}
+
+.feeds{
+    background: #fff;
+    border:1px solid #eee; 
+    border-radius: 3px;
+    background: none;
+}
+
+.content{
+    background: #fff;
+    border:1px solid #eee; 
+    border-radius: 3px;
+}
+
+.container{
+    margin-top:10px;
+}
+
+.body{
+    background:#f2f2f2;
+}
+
+.col-md-3{
+    background: none !important;
+}
+
+.message{
+    padding:10px;
+}
+
+section{
+    border:1px solid #eee;
+    margin-bottom:10px;
+    border:1px solid #d1e4f3;
+    
+    .heading{
+        padding:10px;
+        background: #d1e4f3;
+        width:100%;
+        font-weight:bold;
+        color:#444;
+        cursor: pointer !important;
+    }
+
+    .body-content{
+        padding:10px;
+        background: #fff;
+        width:100%;
+    }
+}
+
+.p-2{
+    font-weight: 400 !important;
+}

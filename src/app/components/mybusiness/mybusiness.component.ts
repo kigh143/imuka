@@ -14,18 +14,21 @@ export class MybusinessComponent implements OnInit {
   businesses = [];
   avbiz:  any;
 
+  active_business: any;
+
   // business parameters
   business_name: string;
   region: string;
   country: string;
   date_of_reg: string;
-  legal_status : string;
+  legal_status: string;
   sectors:  any;
   business_stage: string;
   start_of_operation: string;
   currentuser: any;
-  business_id: any;
   bizinfo: any;
+
+  packages: any;
   constructor( public modalService: BsModalService, public router: Router,  public bizy :BizService, public session : SessionService) {
       const data = this.session.getuser();
       this.currentuser = data;
@@ -33,6 +36,7 @@ export class MybusinessComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.packages = this.bizy.imuka_programs();
   }
 
   add_business() {
@@ -54,10 +58,12 @@ export class MybusinessComponent implements OnInit {
     });
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>, business) {
     this.modalRef = this.modalService.show(template,
       Object.assign({}, { class: 'modal-lg' })
     );
+
+    this.active_business = business;
   }
 
   getbusinesses() {
@@ -67,5 +73,9 @@ export class MybusinessComponent implements OnInit {
     });
   }
 
+  joinProgram(prog_type) {
+    this.modalRef.hide();
+    this.router.navigate(['join_imuka_program', this.active_business.business_id, prog_type])
+  }
 }
 

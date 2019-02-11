@@ -126,7 +126,51 @@ api_url: string;
   
   sendinvestrequest(invest_request){
     return this.http
-      .post(this.api_url + "sendinvestrequest/json", invest_request, this.options)
+      .post(this.api_url + 'sendinvestrequest/json', invest_request, this.options)
       .pipe(map(res => res.json()));
+  }
+
+  imuka_programs() {
+      return [
+        {
+          id: 1,
+          name: 'personalised Support',
+          price: '$250',
+          period: '8months',
+          description: 'plus Success feesn Based on finance received:2% if debt, 3% if equity, 5% if grant',
+          img: 'assets/person.png'
+        },
+        {
+          id: 2,
+          name: 'personalised Support',
+          price: '$500',
+          period: '2 yrs',
+          img: 'assets/person.png',
+          description: 'plus Success feesn Based on finance received:2% if debt, 3% if equity, 5% if grant'
+        },
+        {
+          id: 3,
+          name: 'Enlisting',
+          price: '$50',
+          period: '1 yr',
+          img: 'assets/list.png',
+          description: 'plus Success feesn Based on finance received:2% if debt, 3% if equity, 5% if grant'
+        },
+        {
+          id: 4,
+          name: 'Industry cost',
+          price: '$1500',
+          period: '1 yr',
+          img: 'assets/industry.png',
+          description: 'plus Success feesn Based on finance received:2% if debt, 3% if equity, 5% if grant'        
+        },
+      ];
+
+  }
+
+  apply_for_program( application ) {
+    return this.http
+    .post(this.api_url + 'applyforprogram/json', application, this.options)
+    .pipe(map(res => res.json()));
   }
 }

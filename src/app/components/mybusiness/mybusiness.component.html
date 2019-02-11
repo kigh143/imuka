@@ -18,17 +18,12 @@
               <div class="card-body">
                 <h5 class="card-title">{{business.business_name}}</h5>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  {{business.legal_status}}
                 </p>
-
-               
               </div>
               <div class="card-body">
-                 <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join)">Join Program/Enlist </button>
+                 <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join, business)">Join Program/Enlist </button>
                   <button type="button" routerLink="/business/{{business.business_id}}" class="btn btn-primary">Business Info</button>
-                 
- 
               </div>
             </div>
           </div>
@@ -206,56 +201,17 @@
     <div>
         <div style="padding:10px;">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card" style="width: 100%;">
-                        <img src="assets/pes.png" class="card-img-top">
+                <div class="col-md-6" *ngFor="let package of packages; let i=index">
+                    <div class="card" style="width: 100%; text-align: center;">
+                        <img src="{{package.img}}" class="card-img-top" style="width:60%; margin:auto;">
                         <div class="card-body">
-                          <h5 class="card-title">Personalised support</h5>
-                          <p class="card-text">For a period of 8month.</p>
+                          <h5 class="card-title">{{package.name}}</h5>
+                          <p class="card-text">For a period of {{package.period}}</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
+                        <p>{{package.description}}</p>
+                        <h3>{{package.price}}</h3>
                         <div class="card-body">
-                          <a href="#" class="btn-b-block btn btn-primary card-link">Choose program </a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card" style="width: 100%;">
-                        <img src="assets/pes.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">Personalised support</h5>
-                          <p class="card-text">For a period of 2years.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="#" class=" btn btn-primary  card-link">Card link</a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card" style="width: 100%;">
-                        <img src="assets/list.png" class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title">Enlisted</h5>
-                          <p class="card-text">For a period of 1year.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="#" class=" btn btn-primary card-link">Card link</a>
+                          <button class="btn-b-block btn btn-primary card-link"  (click)="joinProgram(i)">Choose program </button>
                         </div>
                       </div>
                 </div>
