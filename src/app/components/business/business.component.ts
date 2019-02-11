@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import {
 FormGroup,
 FormBuilder,
@@ -27,6 +28,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   minMode: BsDatepickerViewMode = 'month';
 
   bsConfig: Partial<BsDatepickerConfig>;
+  complete:any;
   sub:any;
   business_id:any;
   business_data:any;
@@ -37,13 +39,37 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   biznes:any;
   dailyupdates:any;
 
+  milestones=[
+    {
+      name:'Needs assessment',
+      complete:'true'
+    },
+    {
+      name:'Financial palnning and management',
+      complete:true
+    },
+    {
+      name:'Business model innovation',
+      complete:false
+    },
+    {
+      name:'unlimitted personalsized support',
+      complete:true
+    },
+    {
+      name:'Success fee',
+      complete:true
+    }
+  ]
+
   constructor(
     public formBuilder: FormBuilder, 
     public route: ActivatedRoute, 
     public router : Router, 
     public modalService: BsModalService,  
     public businessServices :BizService, 
-    public session : SessionService) {
+    public session : SessionService,
+    public spinnerService: Ng4LoadingSpinnerService) {
       this.bizteam=this.formBuilder.group({
           teamname:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           position:[ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
@@ -137,9 +163,13 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   addpdt(){
+    
+    this.spinnerService.show();
     let products=this.bizproduct.value;
     products['business_id']=this.business_id;
     this.businessServices.addproduct(products).subscribe(data=>{
+      
+    this.spinnerService.hide();
       if(data.flag){
        this.bizproduct.reset();
        this.getbusiness(this.business_id);
@@ -147,9 +177,11 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 }
 
   adddoc(){
+    this.spinnerService.show();
     let document=this.bizdoc.value;
     document['business_id']=this.business_id;
-    this.businessServices.adddocument(document).subscribe(data=>{
+    this.businessServices.adddocument(document).subscribe(data=>{ 
+    this.spinnerService.hide();
       if(data.flag){
         this.bizdoc.reset();
         this.getbusiness(this.business_id);
@@ -158,9 +190,11 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   addfinancial(){
+    this.spinnerService.show();
     let financial=this.bizfinancial.value;
     financial['business_id']=this.business_id;
         this.businessServices.addfinancial(financial).subscribe(data=>{
+          this.spinnerService.hide();
           if(data.flag){
             this.bizfinancial.reset();
              this.getbusiness(this.business_id);
@@ -169,17 +203,21 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   addteam(){
+    this.spinnerService.show();
       let team=this.bizteam.value;
       this.businessServices.addteam(team).subscribe(data=>{
+        this.spinnerService.hide();
           if(data.flag){
               this.bizteam.reset();
           }
       });
   }
   add_dailyupdate(){
+    this.spinnerService.show();
     let dailyupdates = this.dailyupdates.value;
     dailyupdates['business_id']=this.business_id;
     this.businessServices.adddailyupdates(dailyupdates).subscribe(data=>{
+      this.spinnerService.hide();
      if(data.flag){
      this.getbusiness(this.business_id);
   
@@ -187,5 +225,16 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   
     });
   }
+ updatebusiness(){
+  this.spinnerService.show();
+   let business_data = this.business_data;
+   this.businessServices.updatebusiness(business_data).subscribe(data=>{
+    this.spinnerService.hide();
+     if(data.flag){
+      this.getbusiness(this.business_id);
+     }
+   })
+ }
+
 
 }

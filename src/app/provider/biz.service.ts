@@ -129,4 +129,9 @@ api_url: string;
       .post(this.api_url + "sendinvestrequest/json", invest_request, this.options)
       .pipe(map(res => res.json()));
   }
+  updatebusiness(business_data){
+    return this.http
+      .post(this.api_url + "updatebusiness/json",business_data, this.options)
+      .pipe(map(res => res.json()));
+  }
 }
