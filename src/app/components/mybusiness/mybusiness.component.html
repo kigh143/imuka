@@ -192,71 +192,40 @@
   </div>
 </div>
 <app-footer></app-footer>
-<ng-template #Join style="padding:0px">
-<div class="modal-header">
-<h4 class="modal-title pull-left">Modal</h4>
-<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
 
-<div class="modal-body" style="padding:5px">
-<div>
-<tabset>
-<tab heading="Followers" id="tab1">
-<span>All Followers</span>
-<hr>
-<div class="list-group folls">
-<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-</div>
-</tab>
-<tab heading="Investments">
-<span>Investment</span>
-<div class="list-group folls">
-<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span  style="font-weight:5px; "><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-</div>
-</tab>
-</tabset>
-</div>
-</div>
+
+<ng-template #Join style="padding:0px">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Choose the best package that suites your business</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+    <div class="modal-body" style="padding:5px">
+    <div>
+        <div style="padding:10px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 100%;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Personalised support</h5>
+                          <p class="card-text">For a period of 8month.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Cras justo odio</li>
+                          <li class="list-group-item">Dapibus ac facilisis in</li>
+                          <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                        <div class="card-body">
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
 </ng-template>
