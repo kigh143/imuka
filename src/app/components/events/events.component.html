@@ -14,10 +14,23 @@
             including Imuka Series events.</p>
             <hr class="my-4">
             <a class="btn btn-primary btn-sm" (click)="openModal(template)">Post an Event</a>
+            <hr>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-md-4 col-form-label">  Filter events by : </label>
+                <div class="col-md-8">
+                    <select class="form-control" (change)="onChange($event.target.value)">
+                        <option value="">--- select event type ---</option>
+                        <option value="Business networking event">Business networking event</option>
+                        <option value="Workshop/Conference">Workshop/Conference</option>
+                        <option value="Training">Training</option>
+                        <option value="Pitching">Pitching</option>
+                    </select>
+                </div>
+            </div>
         </div>
             <div class="content">
                 <div class="row">
-                    <div class="col-md-6 carddata" *ngFor="let event of events">
+                    <div class="col-md-6 carddata" *ngFor="let event of events_clone">
                         <div class="card">
                         <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
                         <div class="card-body">
