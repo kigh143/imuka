@@ -14,6 +14,18 @@
             <hr class="my-4">
             <a class="btn btn-primary btn-sm" (click)="openTheModal(template)">Post an opportunity</a>
             <hr>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-md-4 col-form-label">  Filter opportunities by : </label>
+                <div class="col-md-8">
+                    <select class="form-control" (change)="onChange($event.target.value)">
+                        <option value="">--- select type of opportunity --- </option>
+                        <option value="Market/Supply Opportunities">Market/Supply Opportunities</option>
+                        <option value="Partnership Opportunitie">Partnership Opportunitie</option>
+                        <option value="Franchising/Distributorships Opportunities">Franchising/Distributorships Opportunities</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+            </div>
             
         </div>
         <div class="content">

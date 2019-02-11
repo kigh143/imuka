@@ -19,6 +19,9 @@ export class EventsComponent implements OnInit {
   link: string;
   venue: string;
   user: any;
+  filter: string;
+
+  events_clone: any;
 
   modalRef: BsModalRef;
   constructor(
@@ -41,6 +44,7 @@ export class EventsComponent implements OnInit {
   get_all_events() {
       this.eventServices.fetch_events().subscribe( data  =>  {
           this.events = data;
+          this.events_clone  = this.events;
       }, err => {
         console.log(err);
       });
@@ -63,5 +67,18 @@ export class EventsComponent implements OnInit {
         event['user_type'] = 'user';
       }
       this.eventServices.add_event(event).subscribe( data => { this.router.navigate(['/events']); });
+  }
+
+  onChange( value ) {
+    if (value.length > 0 ) {
+      this.events_clone  = this.events;
+      this.events_clone = this.events_clone.filter((event_value) => {
+        if (event_value.event_type === value) {
+          return event_value;
+        }
+      });
+    } else {
+      console.log(' value is emtyp');
+    }
   }
 }

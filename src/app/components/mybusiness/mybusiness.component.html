@@ -18,17 +18,12 @@
               <div class="card-body">
                 <h5 class="card-title">{{business.business_name}}</h5>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  {{business.legal_status}}
                 </p>
-
-               
               </div>
               <div class="card-body">
-                 <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join)">Join Program/Enlist </button>
+                 <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join, business)">Join Program/Enlist </button>
                   <button type="button" routerLink="/business/{{business.business_id}}" class="btn btn-primary">Business Info</button>
-                 
- 
               </div>
             </div>
           </div>
@@ -192,71 +187,36 @@
   </div>
 </div>
 <app-footer></app-footer>
-<ng-template #Join style="padding:0px">
-<div class="modal-header">
-<h4 class="modal-title pull-left">Modal</h4>
-<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
 
-<div class="modal-body" style="padding:5px">
-<div>
-<tabset>
-<tab heading="Followers" id="tab1">
-<span>All Followers</span>
-<hr>
-<div class="list-group folls">
-<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-</div>
-</tab>
-<tab heading="Investments">
-<span>Investment</span>
-<div class="list-group folls">
-<div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span  style="font-weight:5px; "><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-<div class="follitem">
-<div>
-<img src="assets/user.png"/>
-</div>
-<div style="padding-left: 20px">
-<span>Musoke Delta Mesly company</span>
-<br>
-<span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-</div>
-</div>
-</div>
-</tab>
-</tabset>
-</div>
-</div>
+
+<ng-template #Join style="padding:0px">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Choose the best package that suites your business</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body" style="padding:5px">
+    <div>
+        <div style="padding:10px;">
+            <div class="row">
+                <div class="col-md-6" *ngFor="let package of packages; let i=index">
+                    <div class="card" style="width: 100%; text-align: center;">
+                        <img src="{{package.img}}" class="card-img-top" style="width:60%; margin:auto;">
+                        <div class="card-body">
+                          <h5 class="card-title">{{package.name}}</h5>
+                          <p class="card-text">For a period of {{package.period}}</p>
+                        </div>
+                        <p>{{package.description}}</p>
+                        <h3>{{package.price}}</h3>
+                        <div class="card-body">
+                          <button class="btn-b-block btn btn-primary card-link"  (click)="joinProgram(i)">Choose program </button>
+                        </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
 </ng-template>

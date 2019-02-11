@@ -1,19 +1,19 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { AppComponent } from "./app.component";
-import { HeaderComponent } from "./components/header/header.component";
-import { MainmenuComponent } from "./components/mainmenu/mainmenu.component";
-import { FeedsComponent } from "./components/feeds/feeds.component";
-import { HomeComponent } from "./components/home/home.component";
-import { FooterComponent } from "./components/footer/footer.component";
-import { LoginComponent } from "./components/login/login.component";
-import { SignupComponent } from "./components/signup/signup.component";
-import { ForgotpassComponent } from "./components/forgotpass/forgotpass.component";
-import { VerifyComponent } from "./components/verify/verify.component";
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainmenuComponent } from './components/mainmenu/mainmenu.component';
+import { FeedsComponent } from './components/feeds/feeds.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { ForgotpassComponent } from './components/forgotpass/forgotpass.component';
+import { VerifyComponent } from './components/verify/verify.component';
 import { PeopleComponent } from './components/people/people.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
@@ -43,54 +43,56 @@ import { PalnsComponent } from './components/palns/palns.component';
 import { OrgProfileComponent } from './components/org-profile/org-profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AuthService } from './provider/auth.service';
-import { EventsService } from "./services/events.service";
-import { HttpModule }from "@angular/http";
-import { AuthGuard } from "./auth.guard";
+import { EventsService } from './services/events.service';
+import { HttpModule } from '@angular/http';
+import { AuthGuard } from './auth.guard';
 import { InitialpageComponent } from './components/initialpage/initialpage.component';
 import { OrgloginComponent } from './components/orglogin/orglogin.component';
-import { OrganisationService } from "./services/organisation.service";
+import { OrganisationService } from './services/organisation.service';
 import { ManageorganisationComponent } from './components/manageorganisation/manageorganisation.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NotifierModule } from 'angular-notifier';
+import { JoinprogComponent } from './components/joinprog/joinprog.component';
 
 
 
 
 const app_routes: Routes = [
-  { path: "", component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
-  { path: "welcome", component : InitialpageComponent},
-  { path: "create_organisation", component : OrgloginComponent},
-  { path: "manage_organisation", component : ManageorganisationComponent},
-  { path: "login", component: LoginComponent },
-  { path: "signup", component: SignupComponent },
-  { path: "verify", component: VerifyComponent },
-  { path: "forgotPassword", component: ForgotpassComponent },
-  { path: "profile", component: ProfileComponent, canActivate:[AuthGuard]},
-  { path: "people", component: PeopleComponent, canActivate:[AuthGuard] },
-  { path: "opportunities", component: OpportunitiesComponent , canActivate:[AuthGuard]},
-  { path: "events", component: EventsComponent, canActivate:[AuthGuard] },
-  { path: "settings", component: SettingsComponent , canActivate:[AuthGuard]},
-  { path: "notifications", component: NotificationsComponent , canActivate:[AuthGuard]},
-  { path: "chat", component: ChatComponent, canActivate:[AuthGuard] },
-  { path: "chat/:id", component: ChatComponent, canActivate:[AuthGuard] },
-  { path: "my_businesses", component: MybusinessComponent, canActivate:[AuthGuard] },
-  { path: "business/:id", component: BusinessComponent, canActivate:[AuthGuard] },
-  { path: "business", component: BusinessComponent , canActivate:[AuthGuard]},
-  { path: "pitchbook/:id", component: PitchbookComponent, canActivate:[AuthGuard] }, 
-  { path: "search", component: SearchComponent, canActivate:[AuthGuard] },
-  { path: "investiment_opportunities", component: InvestmentoppComponent , canActivate:[AuthGuard]},
-  { path: "investmentrequest", component: InvestmentRequestComponent , canActivate:[AuthGuard]},
-  { path: "einvoice/:id", component: EInvoiceComponent, canActivate:[AuthGuard]},
-  { path: "add_invoice/:id", component: AddinvoiceComponent, canActivate:[AuthGuard]},
-  { path: "Product", component: ProductComponent, canActivate:[AuthGuard]},
-  { path: "request", component: RequestComponent, canActivate:[AuthGuard]},
-  { path: "addinvoice/:id", component: AddinvoiceComponent, canActivate:[AuthGuard]},
-  { path: "organisations", component : OrganisationsComponent, canActivate:[AuthGuard]},
-  { path: "organisation/:id", component : OrganisationComponent, canActivate:[AuthGuard]},
-  { path: "user/:id", component : UserProfileComponent, canActivate:[AuthGuard]},
-  { path: "plans", component : PalnsComponent, canActivate:[AuthGuard]},
-  { path: "org_profile", component : OrgProfileComponent, canActivate:[AuthGuard]},
+  { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
+  { path: 'welcome', component : InitialpageComponent},
+  { path: 'create_organisation', component : OrgloginComponent},
+  { path: 'manage_organisation', component : ManageorganisationComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'verify', component: VerifyComponent },
+  { path: 'forgotPassword', component: ForgotpassComponent },
+  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  { path: 'people', component: PeopleComponent, canActivate:[AuthGuard] },
+  { path: 'opportunities', component: OpportunitiesComponent , canActivate:[AuthGuard]},
+  { path: 'events', component: EventsComponent, canActivate:[AuthGuard] },
+  { path: 'settings', component: SettingsComponent , canActivate:[AuthGuard]},
+  { path: 'notifications', component: NotificationsComponent , canActivate:[AuthGuard]},
+  { path: 'chat', component: ChatComponent, canActivate:[AuthGuard] },
+  { path: 'chat/:id', component: ChatComponent, canActivate:[AuthGuard] },
+  { path: 'my_businesses', component: MybusinessComponent, canActivate:[AuthGuard] },
+  { path: 'business/:id', component: BusinessComponent, canActivate:[AuthGuard] },
+  { path: 'business', component: BusinessComponent , canActivate:[AuthGuard]},
+  { path: 'pitchbook/:id', component: PitchbookComponent, canActivate:[AuthGuard] }, 
+  { path: 'search', component: SearchComponent, canActivate:[AuthGuard] },
+  { path: 'investiment_opportunities', component: InvestmentoppComponent , canActivate:[AuthGuard]},
+  { path: 'investmentrequest', component: InvestmentRequestComponent , canActivate:[AuthGuard]},
+  { path: 'einvoice/:id', component: EInvoiceComponent, canActivate:[AuthGuard]},
+  { path: 'add_invoice/:id', component: AddinvoiceComponent, canActivate:[AuthGuard]},
+  { path: 'Product', component: ProductComponent, canActivate:[AuthGuard]},
+  { path: 'request', component: RequestComponent, canActivate:[AuthGuard]},
+  { path: 'addinvoice/:id', component: AddinvoiceComponent, canActivate:[AuthGuard]},
+  { path: 'organisations', component : OrganisationsComponent, canActivate:[AuthGuard]},
+  { path: 'organisation/:id', component : OrganisationComponent, canActivate:[AuthGuard]},
+  { path: 'user/:id', component : UserProfileComponent, canActivate:[AuthGuard]},
+  { path: 'plans', component : PalnsComponent, canActivate:[AuthGuard]},
+  { path: 'org_profile', component : OrgProfileComponent, canActivate:[AuthGuard]},
+  { path: 'join_imuka_program/:id/:type', component : JoinprogComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({
@@ -131,6 +133,7 @@ const app_routes: Routes = [
     InitialpageComponent,
     OrgloginComponent,
     ManageorganisationComponent,
+    JoinprogComponent,
   ],
  
   imports: [

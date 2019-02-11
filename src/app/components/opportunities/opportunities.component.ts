@@ -20,7 +20,7 @@ export class OpportunitiesComponent implements OnInit {
   title: any;
   short_description: any;
   user: any;
-  filter_data = [];
+  opportunities_clone: any;
   constructor(
     private modalService: BsModalService,
     public sessionService: SessionService,
@@ -37,7 +37,7 @@ export class OpportunitiesComponent implements OnInit {
   }
 
   get_opportunities() {
-    this.eventServices.fetch_opportunities().subscribe( data  => { this.opportunities = data; });
+    this.eventServices.fetch_opportunities().subscribe( data  => { this.opportunities = data;  this.opportunities_clone = data; });
   }
 
   add_opportunities() {
@@ -58,8 +58,17 @@ export class OpportunitiesComponent implements OnInit {
     this.eventServices.add_opportunities(data).subscribe(result => {  this.router.navigate(['/opportunities']);  });
   }
 
-  filter_opportunities() {
-
+  onChange( value ) {
+    if ( value.length > 0 ) {
+      this.opportunities_clone  = this.opportunities;
+      this.opportunities_clone = this.opportunities_clone.filter((opportunity_value) => {
+        if (opportunity_value.opp_type === value) {
+          return opportunity_value;
+        }
+      });
+    } else {
+      console.log('Oppotunity value is empty');
+    }
   }
 
 }
