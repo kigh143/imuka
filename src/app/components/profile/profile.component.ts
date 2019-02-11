@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../../provider/session.service";
 import { AuthService } from "../../provider/auth.service";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,7 +10,7 @@ import { AuthService } from "../../provider/auth.service";
 export class ProfileComponent implements OnInit {
   oneAtATime: boolean = true;
   user : any;
-  constructor(public sessionService : SessionService, public authService:AuthService ) { }
+  constructor(public sessionService : SessionService, public authService:AuthService, public spinnerService: Ng4LoadingSpinnerService ) { }
 
   name: string;
   email: string;
@@ -29,6 +30,7 @@ export class ProfileComponent implements OnInit {
   }
 
   save(value){
+
     if( value==="name"){
       this.send_request({name:this.name});
     }else if( value==="contact"){
@@ -43,8 +45,12 @@ export class ProfileComponent implements OnInit {
   }
 
   send_request(object){
+    this.spinnerService.show();
       this.authService.edit_user(object, this.user.user_id).subscribe( data => {
-          console.log(data);
+        this.spinnerService.hide();
+       
+        if(data.flag){
+          console.log(data);}
       }, error=>{
         console.log( error);
       });

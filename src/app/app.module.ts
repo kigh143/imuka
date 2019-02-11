@@ -55,6 +55,8 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NotifierModule } from 'angular-notifier';
 
 
+
+
 const app_routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: "welcome", component : InitialpageComponent},
@@ -146,7 +148,8 @@ const app_routes: Routes = [
     BsDatepickerModule.forRoot(),
     AlertModule.forRoot(),
     Ng4LoadingSpinnerModule.forRoot(),
-    NotifierModule
+    NotifierModule,
+    
   ],
 
   providers: [AuthService, EventsService, AuthGuard, OrganisationService],

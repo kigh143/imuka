@@ -18,7 +18,7 @@
                         <label for="exampleInputEmail1">Organisation name</label>
                         <input type="text" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter email">
                       </div>
-         
+         \
                       <div class="form-group">
                         <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
                         <select class="form-control" multiple  name="services" [(ngModel)]="services" id="exampleInputPassword1" >
@@ -56,7 +56,8 @@
                       </div>
                       
                       <button type="submit" class="btn btn-primary" (click)="create_organisation()">Create you Account</button>
-                  </form>   
+                  </form>
+                  <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>   
               </div>
             
         </div>

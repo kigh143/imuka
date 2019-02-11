@@ -5,6 +5,10 @@ import {AuthService} from "../../provider/auth.service"
 import {SessionService} from "../../provider/session.service"
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { NotifierService } from 'angular-notifier';
+import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
+import {Subject} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -12,6 +16,16 @@ import { NotifierService } from 'angular-notifier';
 })
 export class LoginComponent {
   loginForm: any; 
+  alerts: any[] = [{
+    type: 'success',
+    msg: `Well done! You successfully read this important alert message. (added: ${new Date().toLocaleTimeString()})`,
+    timeout: 5000
+  }];
+  private _success = new Subject<string>();
+
+  staticAlertClosed = false;
+  successMessage: string;
+  
   private readonly notifier: NotifierService;
   constructor(private router: Router, public formBuilder: FormBuilder, public auth: AuthService,
     public spinnerService: Ng4LoadingSpinnerService,  public notifierService: NotifierService,
@@ -21,22 +35,45 @@ export class LoginComponent {
       password: ["", Validators.compose([Validators.minLength(5), Validators.required])]
     });
     this.notifier = notifierService;
-    this.notifier.notify( 'success', 'You are awesome! I mean it!', 'THAT_NOTIFICATION_ID' );
+    this.notifier.notify( 'success', 'You are awesome! I mean it!' );
+    
   }
+  ngOnInit(): void {
+    setTimeout(() => this.staticAlertClosed = true, 20000);
 
+    this._success.subscribe((message) => this.successMessage = message);
+    this._success.pipe(
+      debounceTime(5000)
+    ).subscribe(() => this.successMessage = null);
+  }
   login() {
+
     this.spinnerService.show();
     let user = this.loginForm.value;
     this.auth.login(user).subscribe( data=>{ 
       this.spinnerService.hide();
+
        if (data.flag){
-          this.session.login(data.user);
-          this.router.navigate(['/']);
+         this.session.login(data.user);
+
+         this.router.navigate(['/']);
+         
        }else{
          console.log(data.message)
        }
     });
   }
+  add(): void {
+    this.alerts.push({
+      type: 'info',
+      msg: `This alert will be closed in 5 seconds (added: ${new Date().toLocaleTimeString()})`,
+      timeout: 5000
+    });
+  }
+  onClosed(dismissedAlert: AlertComponent): void {
+    this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
+  }
+ 
 
   
 }

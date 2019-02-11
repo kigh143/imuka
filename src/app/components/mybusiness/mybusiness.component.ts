@@ -4,6 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import {BizService} from "../../provider/biz.service";
 import {SessionService} from "../../provider/session.service";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Component({
   selector: 'app-mybusiness',
   templateUrl: './mybusiness.component.html',
@@ -26,7 +27,7 @@ export class MybusinessComponent implements OnInit {
   currentuser: any;
   business_id: any;
   bizinfo: any;
-  constructor( public modalService: BsModalService, public router: Router,  public bizy :BizService, public session : SessionService) {
+  constructor( public modalService: BsModalService, public router: Router,public spinnerService: Ng4LoadingSpinnerService,  public bizy :BizService, public session : SessionService) {
       const data = this.session.getuser();
       this.currentuser = data;
       this.getbusinesses();
@@ -36,6 +37,7 @@ export class MybusinessComponent implements OnInit {
   }
 
   add_business() {
+    this.spinnerService.show();
       const biz = {
       business_name: this.business_name,
       region: this.region,
@@ -48,6 +50,7 @@ export class MybusinessComponent implements OnInit {
     };
     biz['owner_id'] = this.currentuser.user_id;
     this.bizy.addbiz(biz).subscribe(data => {
+      this.spinnerService.show();
         if(data.flag) {
         this.getbusinesses();
         }

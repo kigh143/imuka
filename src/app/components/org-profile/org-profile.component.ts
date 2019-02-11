@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganisationService } from '../../services/organisation.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-org-profile',
@@ -22,7 +23,7 @@ export class OrgProfileComponent implements OnInit {
   events: any;
   opportunities: any;
 
-  constructor( public organisationService: OrganisationService) { }
+  constructor( public organisationService: OrganisationService, public spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
     this.user  = JSON.parse(localStorage.getItem('user_object'));
@@ -50,7 +51,10 @@ export class OrgProfileComponent implements OnInit {
   }
 
   save_organisation() {
-    this.organisationService.edit_orgsanisation(this.organisation).subscribe( data => { console.log(data); });
+    this.spinnerService.show();
+    this.organisationService.edit_orgsanisation(this.organisation).subscribe( data => {
+      this.spinnerService.hide();
+      console.log(data); });
   }
 
   get_events_and_opportunities() {

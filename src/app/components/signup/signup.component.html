@@ -39,6 +39,7 @@
                     <button type="submit" class="btn btn-primary btn-block" [disabled]="myForm.invalid">Sign Up</button>
                 </form>
                 <div style="text-align:center; padding:20px"><a routerLink="/login" class="btn btn-default">Already has account? Login</a></div>
+                <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganisationService } from 'src/app/services/organisation.service';
 import { ActivatedRoute } from '@angular/router';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import {
   FormGroup,
   FormBuilder,
@@ -37,7 +38,8 @@ export class OrganisationComponent implements OnInit {
     public formBuilder: FormBuilder,
     public businessServices: BizService,
     public session: SessionService,
-    public route: ActivatedRoute ) {
+    public route: ActivatedRoute,
+    public spinnerService: Ng4LoadingSpinnerService ) {
 
     this.route.params.subscribe(params => {
       this.user = this.session.getuser();
@@ -81,10 +83,12 @@ export class OrganisationComponent implements OnInit {
   }
 
   sendrequest() {
+    this.spinnerService.show();
     const request = this.makerequest.value;
     request['user_id'] = this.user.user_id;
     request['org_id'] = this.org_id;
     this.businessServices.send_org_iquiry(request).subscribe(data => {
+      this.spinnerService.hide();
        if (data.flag) {
          this.makerequest.reset();
          this.receiverequest(this.user.user_id, this.org_id);
