@@ -10,7 +10,7 @@
           <p>Balance: NILL</p>
           <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
         
-          <div  *ngIf="business.on_program==='Y'" >
+          <div *ngIf="biznes.on_program==='Y'" >
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
               <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
@@ -19,7 +19,7 @@
           
       </div>
     </div>
-    <div *ngIf="business.on_program==='Y'" class="col-md-4">
+    <div *ngIf="biznes.on_program==='Y'" class="col-md-4">
         <ul class="list-group">
             <li class="list-group-item list-group-item-dark">Breakdown of the imuka activities and milestones.</li>
             <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
@@ -30,7 +30,7 @@
   </div>
 
 <hr>
-<div *ngIf="business.on_program==='Y'">
+<div *ngIf="biznes.on_program==='Y'">
   <div class="row">
   <div class="col-md-4"><img src="assets/area_graph.png"/></div>
   <div class="col-md-4"><img src="assets/graph_images.png"/></div>
