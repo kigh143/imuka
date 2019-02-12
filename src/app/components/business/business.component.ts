@@ -28,39 +28,39 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   minMode: BsDatepickerViewMode = 'month';
 
   bsConfig: Partial<BsDatepickerConfig>;
-  complete:any;
-  sub:any;
-  business_id:any;
-  business_data:any;
-  bizteam:any;
-  bizdoc:any;
-  bizproduct:any;
-  bizfinancial:any;
-  biznes:any;
-  dailyupdates:any;
+  complete: any;
+  sub: any;
+  business_id: any;
+  business_data: any;
+  bizteam: any;
+  bizdoc: any;
+  bizproduct: any;
+  bizfinancial: any;
+  biznes: any;
+  dailyupdates: any;
 
-  milestones=[
+  milestones = [
     {
-      name:'Needs assessment',
-      complete:'true'
+      name: 'Needs assessment',
+      complete: 'true'
     },
     {
-      name:'Financial palnning and management',
-      complete:true
+      name: 'Financial palnning and management',
+      complete: true
     },
     {
-      name:'Business model innovation',
-      complete:false
+      name: 'Business model innovation',
+      complete: false
     },
     {
-      name:'unlimitted personalsized support',
-      complete:true
+      name: 'unlimitted personalsized support',
+      complete: true
     },
     {
-      name:'Success fee',
-      complete:true
+      name: 'Success fee',
+      complete: true
     }
-  ]
+  ];
 
   constructor(
     public formBuilder: FormBuilder, 

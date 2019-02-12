@@ -54,9 +54,9 @@ export class JoinprogComponent implements OnInit {
       fund_purpose: this.fund_purpose,
       amount_required: this.amount_required,
       prog_type: this.package['name'],
+      prog_price: this.package['price'],
       business_id: this.business_id
     };
-    
     this.businessService.apply_for_program(application).subscribe( data => {
         console.log( data );
         this.router.navigate(['business', this.business_id]);
