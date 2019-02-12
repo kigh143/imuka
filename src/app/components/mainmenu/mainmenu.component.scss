@@ -22,9 +22,9 @@
 }
 
 .bottom > span {
-  font-weight: light;
   display: block;
   color: #666;
+  font-size:15px !important;
 }
 
 .top {
@@ -46,7 +46,7 @@
   position: absolute;
   z-index: 100;
   top: 50px;
-  left: 65px;
+  left: 20px;
 }
 
 .free10 {

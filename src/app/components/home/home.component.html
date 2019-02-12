@@ -9,11 +9,11 @@
     </div>
     <div class="col-md-9">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, Virungi!</h1>
+            <h1 class="display-4">Hello, {{user.name}}{{user?.user_type}}!</h1>
             <p>Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>            
         </div>
 
-        <section>
+        <section *ngIf="user?.user_type==='entrepreneur'">
             <div class="d-flex bd-highlight heading" (click)="navigate_to('my_businesses')">
                 <div class="p-2 flex-grow-1 bd-highlight">My Business summary</div>
                 <div class="p-2">
@@ -29,7 +29,7 @@
             </div>
         </section>
 
-        <section>
+        <section  *ngIf="user?.user_type==='entrepreneur'">
             <div class="d-flex bd-highlight heading" (click)="navigate_to('people')">
                 <div class="p-2 flex-grow-1 bd-highlight">My Connections</div>
                 <div class="p-2">
@@ -46,7 +46,7 @@
         </section>
 
 
-        <section>
+        <section *ngIf="user?.user_type==='investor'">
             <div class="d-flex bd-highlight heading"  (click)="navigate_to('investmentrequest')">
                 <div class="p-2 flex-grow-1 bd-highlight">My Investments</div>
                 <div class="p-2">
@@ -64,7 +64,7 @@
 
         <section>
             <div class="d-flex bd-highlight heading">
-                <div class="p-2 flex-grow-1 bd-highlight" (click)="navigate_to('request')">My Requests</div>
+                <div class="p-2 flex-grow-1 bd-highlight" (click)="navigate_to('request')">My Requests to imuka</div>
                 <div class="p-2">
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
@@ -78,21 +78,6 @@
             </div>
         </section>
         
-        <section>
-            <div class="d-flex bd-highlight heading">
-                <div class="p-2 flex-grow-1 bd-highlight"  (click)="navigate_to('einvoice')">My Invoices</div>
-                <div class="p-2">
-                        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="body-content">
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                </div>
-            </div>
-        </section>
     </div>
   </div>
 </div>
