@@ -9,8 +9,18 @@
     </div>
     <div class="col-md-9">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, {{user.name}}{{user?.user_type}}!</h1>
-            <p>Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>            
+            <h1 class="display-4">Hello, {{user.header}}! </h1>
+            <p><a routerLink="/profile">update your profile.</a></p>
+
+            <p *ngIf="user?.user_type==='entrepreneur'">Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>            
+            <p  *ngIf="user?.user_type==='investor'">
+                Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Here you can find a
+                series of Imuka-validated leads for potential investiment opportunities.
+                You can follow business that interest you over time, allowing you top
+                pursue deals at a specific stage in their growth journey. You also have
+                the option to interact with and provide advice to enterpreneurs to help
+                them grow. Thank you!.
+              </p>            
         </div>
 
         <section *ngIf="user?.user_type==='entrepreneur'">

@@ -22,8 +22,8 @@
                 </p>
               </div>
               <div class="card-body">
-                 <button style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join, business)">Join Program/Enlist </button>
-                  <button type="button" routerLink="/business/{{business.business_id}}" class="btn btn-primary">Business Info</button>
+                <button  *ngIf="business.on_program==='N'" style="margin-right: 5px" type="button" class="btn btn-warning" (click)="openModal(Join, business)">Join Program/Enlist </button>
+                <button type="button" routerLink="/business/{{business.business_id}}" class="btn btn-primary">Business Info</button>
               </div>
             </div>
           </div>

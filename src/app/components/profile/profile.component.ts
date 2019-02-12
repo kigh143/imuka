@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from "../../provider/session.service";
-import { AuthService } from "../../provider/auth.service";
+import { SessionService } from '../../provider/session.service';
+import { AuthService } from '../../provider/auth.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Component({
   selector: 'app-profile',
@@ -9,13 +9,15 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 })
 export class ProfileComponent implements OnInit {
   oneAtATime: boolean = true;
-  user : any;
-  constructor(public sessionService : SessionService, public authService:AuthService, public spinnerService: Ng4LoadingSpinnerService ) { }
+  user: any;
+  constructor(public sessionService: SessionService, 
+    public authService: AuthService, 
+    public spinnerService: Ng4LoadingSpinnerService ) { }
 
   name: string;
   email: string;
   phone: string;
-  address : string;
+  address: string;
   dob: string;
   mstatus: string;
   gender: string;
@@ -27,31 +29,29 @@ export class ProfileComponent implements OnInit {
   selectedFile: any;
 
   ngOnInit() {
-    let data = this.sessionService.getuser();
+    const data = this.sessionService.getuser();
     this.user = data;
   }
 
-  save(value){
-
-    if( value==="name"){
-      this.send_request({name:this.name});
-    }else if( value==="contact"){
-      this.send_request({email:this.email, phone:this.phone, address:this.address });
-    }else if( value==="personnal"){
-      this.send_request({dob:this.dob, mstatus:this.mstatus, gender:this.gender});
-    }else if( value==="education"){
-      this.send_request({education:this.education});
-    }else if( value==="experience"){
-      this.send_request({relevant_exp:this.relevant_exp, relevant_skills:this.relevant_skills, expertise:this.expertise });      
+  save(value) {
+    if( value==='name') {
+      this.send_request({name: this.name});
+    }else if( value==='contact') {
+      this.send_request({email: this.email, phone: this.phone, address: this.address });
+    }else if( value==='personnal') {
+      this.send_request({dob: this.dob, mstatus: this.mstatus, gender: this.gender});
+    }else if( value==='education') {
+      this.send_request({education: this.education});
+    }else if( value==='experience') {
+      this.send_request({relevant_exp: this.relevant_exp, relevant_skills: this.relevant_skills, expertise: this.expertise });      
     }
   }
 
-  send_request(object){
+  send_request(object) {
     this.spinnerService.show();
       this.authService.edit_user(object, this.user.user_id).subscribe( data => {
         this.spinnerService.hide();
-       
-        if(data.flag){
+        if(data.flag) {
           console.log(data);}
       }, error=>{
         console.log( error);
@@ -60,10 +60,11 @@ export class ProfileComponent implements OnInit {
   
   processFile(imageInput: any) {
     const file = imageInput.target.files[0];
-    this.selectedFile = imageInput.target.files[0]
-}
-upload(){
-  
-}
+    this.selectedFile = imageInput.target.files[0];
+  }
+
+  upload() {
+
+  }
 
 }

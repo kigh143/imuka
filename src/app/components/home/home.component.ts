@@ -15,6 +15,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const data = this.sessionService.getuser();
     this.user = data;
+    if ( this.user.name !== '') {
+      this.header = this.user.name;
+    } else {
+      this.header = this.user.user_type;
+    }
   }
 
   navigate_to(page) {
