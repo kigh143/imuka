@@ -80,17 +80,38 @@
 
             <div class="form-group">
                 <label> What are your biggest challenges? <br />(Select all that apply)</label>
-                <select [(ngModel)]="challenges" name="challenges" class="form-control">
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                <select [(ngModel)]="challenges" name="challenges" multiple class="form-control">
+                  <option value="Limited  starting capital">Limited  starting capital</option>,
+                  <option value="Limited working capital">Limited working capital</option>
+                  <option value="Limited capital to buy equipment or machinery">Limited capital to buy equipment or machinery</option>
+                  <option value="Limited access to a skilled workers">Limited access to a skilled workers</option>
+                  <option value="Limited Market Information">Limited Market Information</option>
+                  <option value="Lack of A Support Network">Lack of A Support Network</option>
+                  <option value="Lack of access to affordable finance or credit">Lack of access to affordable finance or credit</option>
+                  <option value="Not satisfied with quality of my product">Not satisfied with quality of my product</option>
+                  <option value="Limited technology and low production capacity">Limited technology and low production capacity</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label>What are your expectations? [select all that apply]</label>
-                <select [(ngModel)]="expectations" name="expectations"  class="form-control">
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
+                <select [(ngModel)]="expectations" name="expectations" multiple class="form-control">
+                  <option value="Improve my leadership and management skills">Improve my leadership and management skills</option>
+                  <option value="Benefit from business and professional networking opportunities">Benefit from business and professional networking opportunities</option>
+                  <option value="To receive business Technical Support and advise">To receive business Technical Support and advise</option>
+                  <option value="Improve Information management and book keeping">Improve Information management and book keeping</option>
+                  <option value="Access Information on market or opportunities">Access Information on market or opportunities</option>
+                  <option value="Support in getting skilled workers or talent and skill access">Support in getting skilled workers or talent and skill access</option>
+                  <option value="Digital Marketing support or Web and social media marketing support">Digital Marketing support or Web and social media marketing support</option>
+                  <option value="To improve quality of my product or service">To improve quality of my product or service</option>
+                  <option value="Improve my entrepreneurship skills">Improve my entrepreneurship skills</option>
+                  <option value="Improve my marketing strategies">Improve my marketing strategies</option>
+                  <option value="Increase on product or service sales">Increase on product or service sales</option>
+                  <option value="Improve my brand & visibility">Improve my brand & visibility</option>
+                  <option value="Making the Business Stand out">Making the Business Stand out</option>
+                  <option value="Help in Building a strong team">Help in Building a strong team</option>
+                  <option value="Business management and strategy">Business management and strategy</option>
+                  <option value="To access Finance Funding for my business or capital">To access Finance Funding for my business or capital</option>
                 </select>
             </div>
 
