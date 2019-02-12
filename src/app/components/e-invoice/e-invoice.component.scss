@@ -120,3 +120,31 @@
         }
     }
 }
+.arrowBox{
+    width: 200px;
+    height: 30px;
+    background-color: black;
+    border-radius: 5px;
+    position: fixed;
+    top: 3em;
+    left: 230px;
+    padding: 10px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #313333;
+    text-align: center;
+    }
+.arrowBox:after{
+    content: ' ';
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid #ffc728;
+    border-left: 10px solid transparent;
+    border-bottom:10px solid transparent;
+    border-right:10px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin-left: -10px;
+    }

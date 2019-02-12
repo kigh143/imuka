@@ -29,6 +29,7 @@ export class MybusinessComponent implements OnInit {
   currentuser: any;
   bizinfo: any;
   packages:any;
+  
   constructor( public modalService: BsModalService, public router: Router,public spinnerService: Ng4LoadingSpinnerService,  public bizy :BizService, public session : SessionService) {
       const data = this.session.getuser();
       this.currentuser = data;

@@ -64,7 +64,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label" >Description</label>
                 <div class="col-sm-9">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="description" rows="3"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="business_data.description" rows="3"></textarea>
                 </div>
               </div>
               
@@ -72,7 +72,7 @@
                   <div class="col-sm-3">  
                 <label for="exampleFormControlSelect1">Line of business/ sector</label></div>
                 <div class="col-sm-9">
-                <select  class="form-control" multiple  [(ngModel)]="sectors" name="sectors">
+                <select  class="form-control" multiple  [(ngModel)]="business_data.sectors" name="sectors">
                   <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
                   </option>
                   <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
@@ -93,7 +93,7 @@
                 <label for="inputPassword" class="col-sm-3 col-form-label">Phone number</label>
                 <div class="col-sm-9">
                   
-                  <input type="" class="form-control" id="exampleFormControlInput1" [(ngModel)]="phonenumber" placeholder="">
+                  <input type="" class="form-control" id="exampleFormControlInput1" [(ngModel)]="business_data.phonenumber" placeholder="">
                 </div>
               </div>
               
@@ -101,14 +101,14 @@
                 <label for="inputPassword" class="col-sm-3 col-form-label">Website</label>
                 <div class="col-sm-9">
                   
-                  <input type="" class="form-control" id="exampleFormControlInput1" [(ngModel)]="website" placeholder="">
+                  <input type="" class="form-control" id="exampleFormControlInput1" [(ngModel)]="business_data.website" placeholder="">
                 </div>
               </div>
               
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                  <input type="" class="form-control" id="exampleFormControlInput1" [(ngModel)]="email" placeholder="">
+                  <input type="" class="form-control" id="exampleFormControlInput1" [(ngModel)]="business_data.email" placeholder="">
                 </div>
               </div>
               <span style="font-size:14px">Location</span>
@@ -118,39 +118,30 @@
                 <div class="col-sm-9">
 
                   <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" [(ngModel)]="address_line">
+                    <input type="text" class="form-control" [(ngModel)]="business_data.location">
                   </div>
                 </div>
               </div>
               <span style="font-size:14px">More</span>
               <hr>
-             
-             
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">Products</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="products" rows="3"></textarea>
-                  </div>
-                </div>
-                <hr>
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="mission" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="business_datamission" rows="3"></textarea>
                   </div>
                 </div>
                 <hr>
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-3 col-form-label">Vision</label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="vision" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="business_datavision" rows="3"></textarea>
                   </div>
                 </div>
                 <hr>
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-3 col-form-label">Founded</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" aria-label="Sizing example input" [(ngModel)]="founded" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Sizing example input" [(ngModel)]="business_data.date_of_reg" aria-describedby="inputGroup-sizing-default">
                   </div>
                 </div>
                 <hr>
@@ -171,7 +162,7 @@
         <div class="products">
           <div class="content-box row">
             <div class="col-md-8 col-xs-12">
-              <div class="row" *ngFor="let prdt of business_data?.products">
+              <div class="row" *ngFor="let prdt of business_data.products">
                 <div class="col-md-4">
                   <img src={{prdt.image}} height="150px" />
                 </div>
@@ -213,7 +204,7 @@
             <div class="content-box row">
               <div class="col-md-8 col-xs-12">
                 <div class="row">
-                  <div class="col-3" *ngFor="let doc of business_data?.documents">
+                  <div class="col-3" *ngFor="let doc of business_data.documents">
                     <div class="box document" [ngClass]="isclicked?'active':''" >
                       <img src="{{doc.image}}" height="80px"/>
                       <h6>{{doc.name}}</h6>
@@ -274,7 +265,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let financial of business_data?.financials">
+                    <tr *ngFor="let financial of business_data.financials">
                       <th scope="row">2016</th>
                       <td>50</td>
                       <td>29</td>
@@ -351,16 +342,17 @@
 </div>
 </div>
 <app-footer></app-footer>
+
 <ng-template #template>
 <div class="modal-header">
-<h4 class="modal-title pull-left">Modal</h4>
+<h4 class="modal-title pull-left">Lets know how you are progressing</h4>
 <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
 <div class="modal-body">
 <div>
-<form class="updates">
+<form class="updates"  [formGroup]="dailyupdates">
 <div class="row">
 <div class="col-4" style="text-align: center">
 <label for="exampleInputEmail1">Select Month</label></div>
@@ -369,80 +361,80 @@
 class="form-control"
 [bsConfig]="bsConfig"
 #dp="bsDatepicker"
-bsDatepicker [(bsValue)]="bsValue">
+bsDatepicker [(bsValue)]="bsValue"  formControlName="update_month" [class.invalid]="dailyupdates.controls.update_month.invalid">
 
 </div>
 
 </div>
-<span class="headers">Let us know how your business is doing </span>
-<hr>
+
+
 <div class="form-group">
 <label for="exampleInputEmail1">Number of people Employed </label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<input type="email" class="form-control" id="exampleInputEmail1"   formControlName="number_people" [class.invalid]="dailyupdates.controls.number_people.invalid">
 </div>
 <div class="form-group">
 <label for="exampleInputEmail1">Number of female people Employed </label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<input type="email" class="form-control" id="exampleInputEmail1" formControlName="female_people" [class.invalid]="dailyupdates.controls.number_people.invalid">
 </div>
 <div class="form-group">
 <label for="exampleInputEmail1">Mnth's sales revenue $ USD</label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<input type="email" class="form-control" id="exampleInputEmail1"   formControlName="number_people" [class.invalid]="dailyupdates.controls.number_people.invalid">
 </div>
 <div class="form-group">
 <label for="exampleInputEmail1">Number of served or paying customer</label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<input type="email" class="form-control" id="exampleInputEmail1"  formControlName="sales_revenue" [class.invalid]="dailyupdates.controls.sales_revenue.invalid">
 </div>
 <div class="form-group">
-<label for="exampleInputEmail1">what is your market expenses $ </label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<label for="exampleInputEmail1">Number of served or paying customer </label>
+<input type="email" class="form-control" id="exampleInputEmail1"  formControlName="paying_customer" [class.invalid]="dailyupdates.controls.paying_customer.invalid">
 </div>
 <div class="form-group">
 <label for="exampleInputEmail1">Number of meetings held with potential customers </label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<input type="email" class="form-control" id="exampleInputEmail1"   formControlName="meetings" [class.invalid]="dailyupdates.controls.meetings.invalid">
 </div>
 <div class="form-group">
 <label for="exampleInputEmail1">what is your market expenses $ </label>
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<input type="email" class="form-control" id="exampleInputEmail1"  placeholder="market expenses" formControlName="market_expenses" [class.invalid]="dailyupdates.controls.market_expenses.invalid">
 </div>
 <span  class="headers">Please Rate Imuka venture's support [1 to 5]</span>
 <div class="form-group">
 <label for="exampleFormControlSelect1">Commitment of experts</label>
-<select class="form-control" id="exampleFormControlSelect1">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<select class="form-control" id="exampleFormControlSelect1" formControlName="Commitment_experts" [class.invalid]="dailyupdates.controls.Commitment_experts.invalid">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
 </select>
 </div>
 <div class="form-group">
 <label for="exampleFormControlSelect1">Networking opportunities</label>
-<select class="form-control" id="exampleFormControlSelect1">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<select class="form-control" id="exampleFormControlSelect1" formControlName="Networking_opps" [class.invalid]="dailyupdates.controls.Networking_opps.invalid">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
 </select>
 </div>
 <div class="form-group">
 <label for="exampleFormControlSelect1">Benefit of expert to your business</label>
-<select class="form-control" id="exampleFormControlSelect1">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<select class="form-control" id="exampleFormControlSelect1" formControlName="expert_grade" [class.invalid]="dailyupdates.controls.expert_grade.invalid">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
 </select>
 </div>
 <div class="form-group">
 <label for="exampleFormControlSelect1">Personal and proffessional development</label>
-<select class="form-control" id="exampleFormControlSelect1">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<select class="form-control" id="exampleFormControlSelect1" formControlName="development_grade" [class.invalid]="dailyupdates.controls.development_grade.invalid">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
 </select>
 </div>
 <span class="headers">Business Performance tracker. We care about your challenges and expectations</span>
@@ -454,23 +446,28 @@ bsDatepicker [(bsValue)]="bsValue">
 <span>> Limited access to skilled labor </span>
 </label>
 <div class="col-sm-9">
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="challenges" [class.invalid]="dailyupdates.controls.challenges.invalid"></textarea>
 </div>
 </div>
 <div class="form-group">
-<label for="inputPassword" class="col-form-label"><span>which of these expectatins have been attained; detail below</span><br>
+<label for="inputPassword" class="col-form-label"><span>which of these expectations have been attained; detail below</span><br>
 <span>> Access information on market or opportunities</span><br>
 <span>> Benefit from business and proffessional networking opportunities </span><br>
 <span>> Increase on product or service sales</span>
 </label>
 <div class="col-sm-9">
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="expectations" [class.invalid]="dailyupdates.controls.expectations.invalid"></textarea>
 </div>
+<button type="submit" class="btn btn-primary btn-block" (click)="add_dailyupdate()">Add Financials</button>
 </div>
+
 </form>
 </div>
 </div>
 </ng-template>
+
+
+
 <ng-template #followers style="padding:0px">
 <div class="modal-header">
 <h4 class="modal-title pull-left">Modal</h4>

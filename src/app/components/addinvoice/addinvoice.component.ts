@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormArray, FormGroup } from '@angular/forms';
 import {BizService} from "../../provider/biz.service";
 import { ActivatedRoute, Router } from '@angular/router';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-addinvoice',
@@ -19,7 +20,7 @@ export class AddinvoiceComponent implements OnInit {
     expiry_date: string;
     allbusiness:any;
 
-    constructor(private _fb: FormBuilder, public route: ActivatedRoute, public router : Router, public businessService: BizService) {this.createForm();}
+    constructor(private _fb: FormBuilder, public route: ActivatedRoute, public router : Router, public spinnerService: Ng4LoadingSpinnerService, public businessService: BizService) {this.createForm();}
 
     createForm(){
       this.invoiceForm = this._fb.group({
@@ -63,6 +64,7 @@ export class AddinvoiceComponent implements OnInit {
     }
 
     submit_invoice (){
+      this.spinnerService.show();
       let items  = this.get_itemRows()["value"];
       let invoice_data = {
           invoice_item_list: JSON.stringify(items),
@@ -74,6 +76,7 @@ export class AddinvoiceComponent implements OnInit {
       };
 
       this.businessService.add_invoice(invoice_data).subscribe( data =>{
+        this.spinnerService.hide();
         if(data.flag){
           this.router.navigate(["/einvoice",this.business.business_id]);
         }
