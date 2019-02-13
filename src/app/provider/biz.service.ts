@@ -78,7 +78,7 @@ api_url: string;
 
   adddailyupdates(dailyupdates) {
       return this.http
-      .post(this.api_url + 'adddailyupdates/json', dailyupdates, this.options)
+      .post(this.api_url + 'adddailyupdate/json', dailyupdates, this.options)
       .pipe(map(res => res.json()));
   }
 

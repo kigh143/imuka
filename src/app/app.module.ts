@@ -54,7 +54,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NotifierModule } from 'angular-notifier';
 import { JoinprogComponent } from './components/joinprog/joinprog.component';
-import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+
 
 
 
@@ -135,7 +135,7 @@ const app_routes: Routes = [
     OrgloginComponent,
     ManageorganisationComponent,
     JoinprogComponent,
-    ImageUploadComponent,
+   
   ],
  
   imports: [

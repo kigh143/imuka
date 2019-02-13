@@ -100,6 +100,11 @@ api_url: string;
     .post(this.api_url + 'changepassword/json', passwordchange,  this.options)
     .pipe(map(res => res.json()));
   }
+  uploadpp(upload){
+  return this.http
+    .post(this.api_url + '',upload, this.options)
+    .pipe(map(res=> res.json()));
+  }
 
 
 }

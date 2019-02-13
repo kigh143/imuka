@@ -7,7 +7,7 @@
                 <div class="jumbotron">
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="assets/user.png">
+                            <img [src]="url ? url :'assets/user.png'">
                             <h1 class="display-4">Virungi Bivian!</h1>
                             <p class="lead">{{user.email}}</p>
                             <p class="lead">{{user.phone}}</p>
@@ -15,10 +15,7 @@
                         <div class="pp">
                         <label class="image-upload-container btn btn-bwm">
                                 <span>Select Image</span>
-                                <input #imageInput
-                                       type="file"
-                                       accept="image/*"
-                                       (change)="processFile(imageInput)">
+                                <input #imageInput  type="file" accept="image/*" name="file" id="file" (change)="onFileChanged($event)">
                               </label>
                             </div>
                     </div>

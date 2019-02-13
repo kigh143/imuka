@@ -10,9 +10,13 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 export class ProfileComponent implements OnInit {
   oneAtATime: boolean = true;
   user: any;
+  files: any[];
+  url:any;
   constructor(public sessionService: SessionService, 
     public authService: AuthService, 
-    public spinnerService: Ng4LoadingSpinnerService ) { }
+    public spinnerService: Ng4LoadingSpinnerService ) { 
+      this.files = [];
+    }
 
   name: string;
   email: string;
@@ -60,11 +64,30 @@ export class ProfileComponent implements OnInit {
   
   processFile(imageInput: any) {
     const file = imageInput.target.files[0];
-    this.selectedFile = imageInput.target.files[0];
+    
   }
 
-  upload() {
-
+ 
+  onFileChanged(event: any) {
+    this.files = event.target.files;
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+    this.spinnerService.show();
+    const uploadData = new FormData();
+  uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
+  
+  this.authService.uploadpp(uploadData).subscribe(data=>{
+    if(data.flag){
+      this.url = this.selectedFile.target.result;
+      this.spinnerService.hide();
+    }
+  });
+  
+  }
+  
+  onUpload() {
+    
+   
   }
 
 }
