@@ -54,6 +54,9 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NotifierModule } from 'angular-notifier';
 import { JoinprogComponent } from './components/joinprog/joinprog.component';
+import {ToastrModule } from 'ngx-toastr';
+import { ToastsComponent } from './components/toasts/toasts.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -93,6 +96,7 @@ const app_routes: Routes = [
   { path: 'user/:id', component : UserProfileComponent, canActivate:[AuthGuard]},
   { path: 'plans', component : PalnsComponent, canActivate:[AuthGuard]},
   { path: 'org_profile', component : OrgProfileComponent, canActivate:[AuthGuard]},
+  { path: 'toast', component : ToastsComponent, canActivate:[AuthGuard]},
   { path: 'join_imuka_program/:id/:type', component : JoinprogComponent, canActivate:[AuthGuard]},
 ];
 
@@ -135,6 +139,7 @@ const app_routes: Routes = [
     OrgloginComponent,
     ManageorganisationComponent,
     JoinprogComponent,
+    ToastsComponent,
    
   ],
  
@@ -154,6 +159,8 @@ const app_routes: Routes = [
     AlertModule.forRoot(),
     Ng4LoadingSpinnerModule.forRoot(),
     NotifierModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     
   ],
 
