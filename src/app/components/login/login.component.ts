@@ -8,6 +8,7 @@ import { NotifierService } from 'angular-notifier';
 import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
 import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
+import { ToastsComponent} from '../toasts/toasts.component'
 
 @Component({
   selector: "app-login",
@@ -29,7 +30,7 @@ export class LoginComponent {
   private readonly notifier: NotifierService;
   constructor(private router: Router, public formBuilder: FormBuilder, public auth: AuthService,
     public spinnerService: Ng4LoadingSpinnerService,  public notifierService: NotifierService,
-    public session: SessionService) {
+    public session: SessionService, public alert: ToastsComponent) {
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),Validators.required])],
       password: ["", Validators.compose([Validators.minLength(5), Validators.required])]
@@ -52,14 +53,12 @@ export class LoginComponent {
     let user = this.loginForm.value;
     this.auth.login(user).subscribe( data=>{ 
       this.spinnerService.hide();
-
        if (data.flag){
          this.session.login(data.user);
-
          this.router.navigate(['/']);
          
        }else{
-         console.log(data.message)
+        this.alert.showError();
        }
     });
   }

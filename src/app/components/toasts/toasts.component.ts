@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fromEvent } from 'rxjs';
 @Component({
@@ -8,7 +8,7 @@ import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fr
 })
 export class ToastsComponent implements OnInit {
 
-  constructor(private toastr: ToastrService, vcr: ViewContainerRef) {
+  constructor(private toastr: ToastrService) {
    
    }
 
@@ -16,20 +16,28 @@ export class ToastsComponent implements OnInit {
 
   }
   showSuccess() {
-    this.toastr.success('You are awesome!', 'Success!');
+    this.toastr.success('You are awesome!', 'Success!', {
+      closeButton:true
+    });
   }
   showError() {
-    this.toastr.error('This is not good!', 'Oops!');
+    this.toastr.error('error', 'Oops!', {
+      closeButton:true
+    });
   }
   showWarning() {
-    this.toastr.warning('You are being warned.', 'Alert!');
+    this.toastr.warning('You are being warned.', 'Alert!',  {
+      closeButton:true
+    });
   }
   showInfo() {
-    this.toastr.info('Just some information for you.');
+    this.toastr.info('Just some information for you.',  'Alert!',  {
+      closeButton:true
+    });
   }
   
   showToaster(){
-    this.toastr.success("Hello, I'm the toastr message.")
+    this.toastr.error('everything is broken', 'Major Error');
 }
 
 }

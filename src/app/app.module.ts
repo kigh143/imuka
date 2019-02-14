@@ -140,6 +140,8 @@ const app_routes: Routes = [
     ManageorganisationComponent,
     JoinprogComponent,
     ToastsComponent,
+    
+    
    
   ],
  
@@ -164,7 +166,7 @@ const app_routes: Routes = [
     
   ],
 
-  providers: [AuthService, EventsService, AuthGuard, OrganisationService],
+  providers: [AuthService, EventsService, AuthGuard, OrganisationService, ToastrModule, ToastsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
