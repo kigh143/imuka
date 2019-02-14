@@ -55,10 +55,9 @@ export class LoginComponent {
       this.spinnerService.hide();
        if (data.flag){
          this.session.login(data.user);
-         this.router.navigate(['/']);
-         
+         this.router.navigate(['/']); 
        }else{
-        this.alert.showError();
+        this.alert.showError(data.message);
        }
     });
   }

@@ -7,7 +7,7 @@ import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fr
   styleUrls: ['./toasts.component.css']
 })
 export class ToastsComponent implements OnInit {
-
+error:string;
   constructor(private toastr: ToastrService) {
    
    }
@@ -20,8 +20,8 @@ export class ToastsComponent implements OnInit {
       closeButton:true
     });
   }
-  showError() {
-    this.toastr.error('error', 'Oops!', {
+  showError(error) {
+    this.toastr.error(error, 'Oops!', {
       closeButton:true
     });
   }
@@ -32,7 +32,8 @@ export class ToastsComponent implements OnInit {
   }
   showInfo() {
     this.toastr.info('Just some information for you.',  'Alert!',  {
-      closeButton:true
+      closeButton:true,
+      positionClass:'toast-center'
     });
   }
   
