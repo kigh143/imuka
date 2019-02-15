@@ -436,29 +436,10 @@ bsDatepicker [(bsValue)]="bsValue"  formControlName="update_month" [class.invali
 <option value="5">5</option>
 </select>
 </div>
-<span class="headers">Business Performance tracker. We care about your challenges and expectations</span>
-<hr>
-<div class="form-group">
-<label for="inputPassword" class="col-form-label"><span>which of these challenges have your solved:  detail below</span><br>
-<span>> Limited starting capital</span><br>
-<span>> Limited access to skilled labor </span><br>
-<span>> Limited access to skilled labor </span>
-</label>
-<div class="col-sm-9">
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="challenges" [class.invalid]="dailyupdates.controls.challenges.invalid"></textarea>
-</div>
-</div>
-<div class="form-group">
-<label for="inputPassword" class="col-form-label"><span>which of these expectations have been attained; detail below</span><br>
-<span>> Access information on market or opportunities</span><br>
-<span>> Benefit from business and proffessional networking opportunities </span><br>
-<span>> Increase on product or service sales</span>
-</label>
-<div class="col-sm-9">
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="expectations" [class.invalid]="dailyupdates.controls.expectations.invalid"></textarea>
-</div>
-<button type="submit" class="btn btn-primary btn-block" (click)="add_dailyupdate()">Add Financials</button>
-</div>
+
+
+<button type="submit" class="btn btn-primary btn-block" (click)="add_dailyupdate()">Send updates</button>
+
 
 </form>
 </div>

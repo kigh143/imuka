@@ -124,8 +124,6 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     Networking_opps:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
     expert_grade:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
     development_grade:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    challenges:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    expectations:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
     });
      
   }
