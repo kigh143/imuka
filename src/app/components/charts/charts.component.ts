@@ -42,6 +42,7 @@ export class ChartsComponent implements OnInit {
         name: 'Joe',
         data: [3, 4, 4, -2, 5]
     }]});
+    
     let linechart = new Chart({
       chart: {
         type: 'line'
@@ -59,6 +60,7 @@ export class ChartsComponent implements OnInit {
       
     ]
     });
+
     let mline= new Chart({
     title: {
       text: 'Solar Employment Growth by Sector, 2010-2016'

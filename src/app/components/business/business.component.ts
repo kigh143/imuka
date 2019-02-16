@@ -10,6 +10,7 @@ FormBuilder,
 FormControl,
 Validators
 } from '@angular/forms';
+import { Chart } from 'angular-highcharts';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {BizService} from '../../provider/biz.service';
 import {SessionService} from '../../provider/session.service';
@@ -37,7 +38,12 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   bizfinancial: any;
   biznes: any;
   dailyupdates: any;
+  chart: Chart;
+  linechart: Chart;
+  mline: Chart;
+  piechart:Chart;
 
+months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec']
   milestones = [
     {
       name: 'Needs assessment',
@@ -135,6 +141,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.business_id = +params['id'];
           this.getbusiness(params['id']);
       });
+      this.init();
   }
 
   selectTab(tabId: number) {
@@ -149,6 +156,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.businessServices.fetch_abusiness(biz_id).subscribe(data=>{
           this.business_data=data;
           this.biznes  = data['business_info'];
+          this.dailyupdates = data['daily_updates']
           console.log(this.biznes);
           console.log(this.business_data);
       });
@@ -231,7 +239,116 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       if(data.flag){
         this.getbusiness(this.business_id);
       }
-    })
+    });
   }
+  init() {
+    let chart = new Chart({
+      chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Revenue vs Meeting expenses'
+    },
+    xAxis: {
+        categories:this.months
+    },
+    credits: {
+        enabled: false
+    },
+    series: this.dailyupdates.revenue
+  });
+    
+    let linechart = new Chart({
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Linechart'
+      },
+      credits: {
+        enabled: false
+      },
+      series: [{
+        name: 'Line 1',
+        data: [1, 2, 4, 6]
+      }
+      
+    ]
+    });
+
+
+
+  let mline= new Chart({
+    title: {
+      text: 'Employees vs Female employees'
+  },
+
+  yAxis: {
+      title: {
+          text: 'Number of Employees'
+      }
+  },
+  series: this.dailyupdates.employees,
+});
+let piechart = new Chart({
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
+},
+title: {
+    text: 'Browser market shares in January, 2018'
+},
+tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+},
+plotOptions: {
+    pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+            enabled: false
+        },
+        showInLegend: true
+    }
+},
+series: [{
+    name: 'Brands',
+    
+    data: [{
+        name: 'Chrome',
+        y: 61.41,
+        sliced: true,
+        selected: true
+    }, {
+        name: 'Internet Explorer',
+        y: 11.84
+    }, {
+        name: 'Firefox',
+        y: 10.85
+    }, {
+        name: 'Edge',
+        y: 4.67
+    }, {
+        name: 'Safari',
+        y: 4.18
+    }, {
+        name: 'Other',
+        y: 7.05
+    }]
+}]
+});
+    
+    this.chart = chart;
+    this.mline= mline;
+    this.piechart=piechart;
+    this.linechart= linechart;
+   
+    
+
+    chart.ref$.subscribe(console.log);
+  }
+ 
 
 }
