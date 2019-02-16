@@ -8,6 +8,7 @@ import { Chart } from 'angular-highcharts';
 })
 export class ChartsComponent implements OnInit {
   chart: Chart;
+  linechart: Chart;
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +18,22 @@ export class ChartsComponent implements OnInit {
 
   init() {
     let chart = new Chart({
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'Linechart'
+      },
+      credits: {
+        enabled: false
+      },
+      series: [{
+        name: 'Line 1',
+        data: [1, 2, 3, 4]
+      } 
+     ]
+    });
+    let linechart = new Chart({
       chart: {
         type: 'line'
       },
@@ -28,11 +45,13 @@ export class ChartsComponent implements OnInit {
       },
       series: [{
         name: 'Line 1',
-        data: [1, 2, 3]
-      }]
+        data: [1, 2]
+      }
+    ]
     });
-    chart.addPoint(4);
+     chart.addPoint(4);
     this.chart = chart;
+    this.linechart= linechart;
     chart.addPoint(5);
     setTimeout(() => {
       chart.addPoint(6);

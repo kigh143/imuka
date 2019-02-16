@@ -35,6 +35,11 @@ margin-bottom: 10px;
 .container{
     margin-top:10px;
 }
+.pp{
+  position: absolute;
+  top:10px;
+  left:5px;
+}
 
 }
 
@@ -65,7 +70,13 @@ margin-bottom: 10px;
 .pull-right{
     margin-top:20px;
 }
+.profilepic{
+  position:relative;
+}
 .pp{
+  position: absolute;
+  top:100px;
+  left:53.5%;
 input {
     display: none;
   }
@@ -77,6 +88,7 @@ input {
   .img-preview-container {
     background-color: #f7f7f7;
     position: relative;
+
   
     .img-preview {
       background: center center no-repeat;

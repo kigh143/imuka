@@ -6,15 +6,15 @@
             <div class="content">
                 <div class="jumbotron">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 profilepic" >
                             <img [src]="url ? url :'assets/user.png'">
                             <h1 class="display-4">Virungi Bivian!</h1>
                             <p class="lead">{{user.email}}</p>
                             <p class="lead">{{user.phone}}</p>
                         </div>
                         <div class="pp">
-                        <label class="image-upload-container btn btn-bwm">
-                                <span>Select Image</span>
+                        <label class="image-upload-container ">
+                               <div style="border-radius:100%; background: cornsilk; padding:1px; height:30px; width:30px"> <i class="fa fa-camera" style="color:rgb(6, 44, 88)"></i></div>
                                 <input #imageInput  type="file" accept="image/*" name="file" id="file" (change)="onFileChanged($event)">
                               </label>
                             </div>

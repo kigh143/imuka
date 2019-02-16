@@ -2,5 +2,13 @@
   charts works!
 </p>
 <button (click)="add()">Add Point!</button>
-
-<div [chart]="chart"></div>
+<div class="row"><div class="col-lg-4 col-md-12">
+    <div [chart]="chart"></div>
+  </div>
+  <div class="col-lg-4 col-md-12">
+      <div [chart]="chart"></div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+        <div [chart]="linechart"></div>
+      </div>
+</div>
