@@ -38,15 +38,15 @@ export class ProfileComponent implements OnInit {
   }
 
   save(value) {
-    if( value==='name') {
+    if ( value === 'name') {
       this.send_request({name: this.name});
-    }else if( value==='contact') {
+   } else  if ( value === 'contact') {
       this.send_request({email: this.email, phone: this.phone, address: this.address });
-    }else if( value==='personnal') {
+   } else  if ( value === 'personnal') {
       this.send_request({dob: this.dob, mstatus: this.mstatus, gender: this.gender});
-    }else if( value==='education') {
+   } else  if ( value === 'education') {
       this.send_request({education: this.education});
-    }else if( value==='experience') {
+   } else  if ( value === 'experience') {
       this.send_request({relevant_exp: this.relevant_exp, relevant_skills: this.relevant_skills, expertise: this.expertise });      
     }
   }
@@ -55,19 +55,19 @@ export class ProfileComponent implements OnInit {
     this.spinnerService.show();
       this.authService.edit_user(object, this.user.user_id).subscribe( data => {
         this.spinnerService.hide();
-        if(data.flag) {
-          console.log(data);}
-      }, error=>{
+        if (data.flag) {
+          console.log(data);
+          this.sessionService.login(data.user);
+        }
+      }, error => {
         console.log( error);
       });
   }
-  
   processFile(imageInput: any) {
     const file = imageInput.target.files[0];
-    
   }
 
- 
+
   onFileChanged(event: any) {
     this.files = event.target.files;
     this.selectedFile = event.target.files[0];
@@ -77,7 +77,7 @@ export class ProfileComponent implements OnInit {
   uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
   
   this.authService.uploadpp(uploadData).subscribe(data=>{
-    if(data.flag){
+    if (data.flag){
       this.url = this.selectedFile.target.result;
       this.spinnerService.hide();
     }

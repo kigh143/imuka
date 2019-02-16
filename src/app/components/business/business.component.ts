@@ -21,12 +21,11 @@ templateUrl: './business.component.html',
 styleUrls: ['./business.component.scss']
 })
 export class BusinessComponent implements OnInit,  OnDestroy {
-@ViewChild('staticTabs') staticTabs: TabsetComponent;
+  @ViewChild('staticTabs') staticTabs: TabsetComponent;
   modalRef: BsModalRef;
   headElements = ['Id', 'Item', 'unit price', 'Unit', 'Price', 'Action'];
   bsValue: Date = new Date(2017, 7);
   minMode: BsDatepickerViewMode = 'month';
-
   bsConfig: Partial<BsDatepickerConfig>;
   complete: any;
   sub: any;
@@ -110,22 +109,24 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           debtors:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           shareholder_equity:[ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
           cash_bank:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          
       });
-      this.dailyupdates=this.formBuilder.group({
-        update_month:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    number_people:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    female_people:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    sales_revenue:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    paying_customer:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    meetings:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    market_expenses:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    Commitment_experts:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    Networking_opps:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    expert_grade:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    development_grade:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-    });
-     
+      
+      this.dailyupdates = this.formBuilder.group({
+          myDate:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          employees:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          female_employees:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          sales:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          customers:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          meetings:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          mkt_expenses:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          commitment:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          networking_opps:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          expert_grade:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          development_grade:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          support:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          business_support:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          conversions:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+      });
   }
 
   ngOnInit() {
@@ -144,15 +145,12 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.modalRef = this.modalService.show(template);
   } 
 
-
   getbusiness(biz_id){
       this.businessServices.fetch_abusiness(biz_id).subscribe(data=>{
-         
           this.business_data=data;
           this.biznes  = data['business_info'];
           console.log(this.biznes);
           console.log(this.business_data);
-          
       });
   }
 
@@ -161,18 +159,17 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   addpdt(){
-    
     this.spinnerService.show();
-    let products=this.bizproduct.value;
+    let products=this.bizproduct.value  ;
     products['business_id']=this.business_id;
     this.businessServices.addproduct(products).subscribe(data=>{
       
     this.spinnerService.hide();
       if(data.flag){
-       this.bizproduct.reset();
-       this.getbusiness(this.business_id);
-  }});
-}
+        this.bizproduct.reset();
+        this.getbusiness(this.business_id);
+    }});
+  }
 
   adddoc(){
     this.spinnerService.show();
@@ -210,29 +207,31 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           }
       });
   }
-  add_dailyupdate(){
-    this.spinnerService.show();
-    let dailyupdates = this.dailyupdates.value;
-    dailyupdates['business_id']=this.business_id;
-    this.businessServices.adddailyupdates(dailyupdates).subscribe(data=>{
-      this.spinnerService.hide();
-     if(data.flag){
-     this.getbusiness(this.business_id);
-  
-     }                                                                                                                                                                                                                            
-  
-    });
-  }
- updatebusiness(){
-  this.spinnerService.show();
-   let business_data = this.business_data;
-   this.businessServices.updatebusiness(business_data).subscribe(data=>{
-    this.spinnerService.hide();
-     if(data.flag){
-      this.getbusiness(this.business_id);
-     }
-   })
- }
 
+  add_dailyupdate(){
+      this.spinnerService.show();
+      let dailyupdates = this.dailyupdates.value;
+      dailyupdates['business_id']=this.business_id;
+      dailyupdates['month']=this.business_id;
+      this.businessServices.adddailyupdates(dailyupdates).subscribe(data=>{
+        this.spinnerService.hide();
+        if(data.flag){
+          this.getbusiness(this.business_id);
+          this.modalRef.hide
+          ();
+        }                                                                                                                                                                                                                            
+      });
+  }
+
+  updatebusiness(){
+    this.spinnerService.show();
+    let business_data = this.business_data;
+    this.businessServices.updatebusiness(business_data).subscribe(data=>{
+      this.spinnerService.hide();
+      if(data.flag){
+        this.getbusiness(this.business_id);
+      }
+    })
+  }
 
 }

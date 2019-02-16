@@ -38,7 +38,6 @@
   </div>
 </div>
 
-
 <div class="tabst">
 
   <div class="tabmenu" >
@@ -48,9 +47,6 @@
     <a class="tabslink" (click)="selectTab(3)"><i class="fa fa-money"></i> <span>Financial</span></a>
   
   </div>
-  
-
-
   
   <tabset #staticTabs>
     <tab>
@@ -360,45 +356,48 @@
 class="form-control"
 [bsConfig]="bsConfig"
 #dp="bsDatepicker"
-bsDatepicker [(bsValue)]="bsValue"  formControlName="update_month" [class.invalid]="dailyupdates.controls.update_month.invalid">
-
+bsDatepicker [(bsValue)]="bsValue"  formControlName="myDate" [class.invalid]="dailyupdates.controls.myDate.invalid">
+</div>
 </div>
 
+<div class="form-group">
+  <label for="exampleInputEmail1">Monthly sales </label>
+  <input type="number" class="form-control" id="exampleInputEmail1"   formControlName="sales" [class.invalid]="dailyupdates.controls.sales.invalid">
 </div>
-
 
 <div class="form-group">
 <label for="exampleInputEmail1">Number of people Employed </label>
-<input type="email" class="form-control" id="exampleInputEmail1"   formControlName="number_people" [class.invalid]="dailyupdates.controls.number_people.invalid">
+<input type="number" class="form-control" id="exampleInputEmail1"   formControlName="employees" [class.invalid]="dailyupdates.controls.employees.invalid">
 </div>
+
 <div class="form-group">
 <label for="exampleInputEmail1">Number of female people Employed </label>
-<input type="email" class="form-control" id="exampleInputEmail1" formControlName="female_people" [class.invalid]="dailyupdates.controls.number_people.invalid">
+<input type="number" class="form-control" id="exampleInputEmail1" formControlName="female_employees" [class.invalid]="dailyupdates.controls.female_employees.invalid">
 </div>
-<div class="form-group">
-<label for="exampleInputEmail1">Mnth's sales revenue $ USD</label>
-<input type="email" class="form-control" id="exampleInputEmail1"   formControlName="number_people" [class.invalid]="dailyupdates.controls.number_people.invalid">
-</div>
+
 <div class="form-group">
 <label for="exampleInputEmail1">Number of served or paying customer</label>
-<input type="email" class="form-control" id="exampleInputEmail1"  formControlName="sales_revenue" [class.invalid]="dailyupdates.controls.sales_revenue.invalid">
+<input type="number" class="form-control" id="exampleInputEmail1"  formControlName="customers" [class.invalid]="dailyupdates.controls.customers.invalid">
 </div>
-<div class="form-group">
-<label for="exampleInputEmail1">Number of served or paying customer </label>
-<input type="email" class="form-control" id="exampleInputEmail1"  formControlName="paying_customer" [class.invalid]="dailyupdates.controls.paying_customer.invalid">
-</div>
+
 <div class="form-group">
 <label for="exampleInputEmail1">Number of meetings held with potential customers </label>
-<input type="email" class="form-control" id="exampleInputEmail1"   formControlName="meetings" [class.invalid]="dailyupdates.controls.meetings.invalid">
+<input type="number" class="form-control" id="exampleInputEmail1"   formControlName="meetings" [class.invalid]="dailyupdates.controls.meetings.invalid">
 </div>
+
 <div class="form-group">
 <label for="exampleInputEmail1">what is your market expenses $ </label>
-<input type="email" class="form-control" id="exampleInputEmail1"  placeholder="market expenses" formControlName="market_expenses" [class.invalid]="dailyupdates.controls.market_expenses.invalid">
+<input type="number" class="form-control" id="exampleInputEmail1"  placeholder="market expenses" formControlName="mkt_expenses" [class.invalid]="dailyupdates.controls.mkt_expenses.invalid">
 </div>
-<span  class="headers">Please Rate Imuka venture's support [1 to 5]</span>
+
+<div  class="form-group"> 
+  <label for="exampleInputEmail1">Number of Conversions to customers from meetings</label>
+  <input type="number" class="form-control" formControlName="conversions" [class.invalid]="dailyupdates.controls.conversions.invalid">
+</div>
+
 <div class="form-group">
 <label for="exampleFormControlSelect1">Commitment of experts</label>
-<select class="form-control" id="exampleFormControlSelect1" formControlName="Commitment_experts" [class.invalid]="dailyupdates.controls.Commitment_experts.invalid">
+<select class="form-control" id="exampleFormControlSelect1" formControlName="commitment" [class.invalid]="dailyupdates.controls.commitment.invalid">
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -406,9 +405,10 @@ bsDatepicker [(bsValue)]="bsValue"  formControlName="update_month" [class.invali
 <option value="5">5</option>
 </select>
 </div>
+
 <div class="form-group">
 <label for="exampleFormControlSelect1">Networking opportunities</label>
-<select class="form-control" id="exampleFormControlSelect1" formControlName="Networking_opps" [class.invalid]="dailyupdates.controls.Networking_opps.invalid">
+<select class="form-control" id="exampleFormControlSelect1" formControlName="networking_opps" [class.invalid]="dailyupdates.controls.networking_opps.invalid">
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -416,6 +416,7 @@ bsDatepicker [(bsValue)]="bsValue"  formControlName="update_month" [class.invali
 <option value="5">5</option>
 </select>
 </div>
+
 <div class="form-group">
 <label for="exampleFormControlSelect1">Benefit of expert to your business</label>
 <select class="form-control" id="exampleFormControlSelect1" formControlName="expert_grade" [class.invalid]="dailyupdates.controls.expert_grade.invalid">
@@ -426,9 +427,11 @@ bsDatepicker [(bsValue)]="bsValue"  formControlName="update_month" [class.invali
 <option value="5">5</option>
 </select>
 </div>
+
 <div class="form-group">
 <label for="exampleFormControlSelect1">Personal and proffessional development</label>
-<select class="form-control" id="exampleFormControlSelect1" formControlName="development_grade" [class.invalid]="dailyupdates.controls.development_grade.invalid">
+<select class="form-control" id="exampleFormControlSelect1" 
+formControlName="development_grade" [class.invalid]="dailyupdates.controls.development_grade.invalid">
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -438,8 +441,30 @@ bsDatepicker [(bsValue)]="bsValue"  formControlName="update_month" [class.invali
 </div>
 
 
-<button type="submit" class="btn btn-primary btn-block" (click)="add_dailyupdate()">Send updates</button>
+<div  class="form-group">
+  <label>Benefit of the Expert(s) to your business.</label>
+  <select class="form-control"
+  formControlName="business_support" [class.invalid]="dailyupdates.controls.business_support.invalid">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+</div>
 
+<div>
+  <label>Personal and professional development</label>
+  <select class="form-control" formControlName="support" [class.invalid]="dailyupdates.controls.support.invalid">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+</div>
+
+<button type="submit" class="btn btn-primary btn-block" (click)="add_dailyupdate()">Send updates</button>
 
 </form>
 </div>
