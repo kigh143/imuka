@@ -140,7 +140,6 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.business_id = +params['id'];
           this.getbusiness(params['id']);
       });
-      this.init();
   }
 
   selectTab(tabId: number) {
