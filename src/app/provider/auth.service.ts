@@ -102,7 +102,7 @@ api_url: string;
   }
   uploadpp(upload){
   return this.http
-    .post(this.api_url + '',upload, this.options)
+    .post(this.api_url + 'upload_image/json',upload, this.options)
     .pipe(map(res=> res.json()));
   }
 
