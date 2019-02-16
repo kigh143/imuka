@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { api_base_url} from '../constants/constants';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ api_url: string;
   headers: Headers;
   options: RequestOptions;
   constructor(public http: Http) {
-    this.api_url = 'http://52.14.29.113/index.php/welcome/';
+    this.api_url = api_base_url;
      this.headers = new Headers();
     this.headers.append(
       'Content-Type',
