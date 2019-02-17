@@ -46,7 +46,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   financials:any;
 
   updates_form: any;
-  months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
     milestones = [
         {
         name: 'Needs assessment',
@@ -222,6 +222,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     this.spinnerService.show();
     const updates = this.updates_form.value;
     updates['business_id'] = this.business_id;
+    updates['month'] = updates['myDate'];
     this.businessServices.adddailyupdates(updates).subscribe(data => {
     this.spinnerService.hide();
     if (data.flag) {
