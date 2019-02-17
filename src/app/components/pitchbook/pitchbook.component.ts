@@ -45,6 +45,7 @@ export class PitchbookComponent implements OnInit {
       this.businesses = result;
       this.active_business = result[this.initial_business_id];
       this.fetch_pitcbook_data(result.business_id);
+      this.fetch_pitcbook_data( this.active_business.business_id );
     }, error => {
       console.log(error);
     });
