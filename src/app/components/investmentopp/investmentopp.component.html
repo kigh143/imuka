@@ -27,7 +27,7 @@
                 </p>
               </div>
               <div class="card-body">
-                <a href="#" class="card-link">2 Follows</a>
+                <a class="card-link" (click)="openModal(template)" style="">2 Follows</a>
                 <a href="#" class="card-link"> 23 Views</a>
                 <a href="#" class="card-link"> 2 investiment</a>
               </div>
@@ -40,3 +40,49 @@
   </div>
 </div>
 <app-footer></app-footer>
+
+
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Business name</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <div class="bellow">2 followers <div class="" style="float:right"><button class="btn" (click)="follow_business(business.business_id)">follow</button></div></div>
+      <hr>
+      <hr>
+    <ul class="list-group">
+      <li class="list-group-item">
+      <div class="bottom">
+      <img src="assets/user.png" alt="" height="25" />
+      </div>
+      <div class="center">
+      <span style="">hello word</span><br>
+      <span style="font-size:10px; color:gray">12:00 Am</span>
+      </div>
+      <div class="left">
+      <div><button class="btn">Connect</button></div>
+      </div>
+      </li>
+      </ul>
+      <ul class="list-group">
+          <li class="list-group-item">
+          <div class="bottom">
+          <img src="assets/user.png" alt="" height="25" />
+          </div>
+          <div class="center">
+          <span style="">hello word</span><br>
+          <span style="font-size:10px; color:gray">12:00 Am</span>
+          </div>
+          <div class="left">
+          <div><button class="btn">Connect</button></div>
+          </div>
+          </li>
+          </ul>
+      
+     
+  </div>
+</ng-template>

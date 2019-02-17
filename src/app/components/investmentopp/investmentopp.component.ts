@@ -37,6 +37,13 @@ export class InvestmentoppComponent implements OnInit {
   }
     );
 }
+openModal(template: TemplateRef<any>) {
+  this.modalRef = this.modalService.show(template);
+}
+follow_business(business_id){
+  let investor=this.currentuser.user_id
+  
+}
 
 
 }
