@@ -61,4 +61,10 @@ export class PitchbookComponent implements OnInit {
     });
   }
 
+  save_changes() {
+    this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
+      console.log(data);
+    });
+  }
+
 }
