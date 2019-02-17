@@ -42,6 +42,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   linechart: Chart;
   mline: Chart;
   piechart: Chart;
+  sector_info:any;
 
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     milestones = [
@@ -154,6 +155,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.businessServices.fetch_abusiness(biz_id).subscribe(data => {
           this.business_data = data;
           this.biznes  = data['business_info'];
+          this.sector_info= JSON.parse(this.biznes.sectors)
+          console.log(this.sector_info);
           this.dailyupdates = data['daily_updates'];
           this.draw();
       });
@@ -218,7 +221,6 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       dailyupdates['business_id'] = this.business_id;
       const m = parseInt(dailyupdates['myDate'].split('/')[0], 10);
       dailyupdates['month'] = this.months[m - 1];
-
       console.log(dailyupdates);
       
     //   this.businessServices.adddailyupdates(dailyupdates).subscribe(data => {
