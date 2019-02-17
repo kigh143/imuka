@@ -45,7 +45,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   sector_info:any;
   financials:any;
 
-    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  updates_form: any;
+  months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     milestones = [
         {
         name: 'Needs assessment',
@@ -118,7 +119,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           cash_bank:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
       });
 
-      this.dailyupdates = this.formBuilder.group({
+      this.updates_form = this.formBuilder.group({
           myDate:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           employees:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           female_employees:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
@@ -141,7 +142,6 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.sub = this.route.params.subscribe(params => {
           this.business_id = +params['id'];
           this.getbusiness(params['id']);
-          
       });
   }
 
@@ -160,7 +160,6 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.sector_info= JSON.parse(this.biznes.sectors)
           this.financials = data['financials']
           console.log(this.business_data);
-          
           this.dailyupdates = data['daily_updates'];
           this.draw();
       });
@@ -179,17 +178,16 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       if (data.flag) {
         this.bizproduct.reset();
         this.getbusiness(this.business_id);
-
     }});
   }
 
   adddoc() {
     this.spinnerService.show();
     const document = this.bizdoc.value;
-    document['business_id']=this.business_id;
-    this.businessServices.adddocument(document).subscribe(data=>{ 
+    document['business_id'] = this.business_id;
+    this.businessServices.adddocument(document).subscribe(data => {
     this.spinnerService.hide();
-      if(data.flag){
+      if ( data.flag ) {
         this.bizdoc.reset();
         this.getbusiness(this.business_id);
           }
@@ -212,35 +210,30 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   addteam() {
     this.spinnerService.show();
       const team = this.bizteam.value;
-      this.businessServices.addteam(team).subscribe(data=>{
+      this.businessServices.addteam(team).subscribe(data => {
         this.spinnerService.hide();
           if (data.flag) {
               this.bizteam.reset();
           }
-      });
+    });
   }
 
   add_dailyupdate() {
-      this.spinnerService.show();
-      const dailyupdates = this.dailyupdates.value;
-      dailyupdates['business_id'] = this.business_id;
-      const m = parseInt(dailyupdates['myDate'].split('/')[0], 10);
-      dailyupdates['month'] = this.months[m - 1];
-      console.log(dailyupdates);
-      
-    //   this.businessServices.adddailyupdates(dailyupdates).subscribe(data => {
-    //     this.spinnerService.hide();
-    //     if (data.flag) {
-    //       this.getbusiness(this.business_id);
-    //       this.modalRef.hide();
-    //     }
-    //   });
+    this.spinnerService.show();
+    const updates = this.updates_form.value;
+    updates['business_id'] = this.business_id;
+    this.businessServices.adddailyupdates(updates).subscribe(data => {
+    this.spinnerService.hide();
+    if (data.flag) {
+        this.getbusiness(this.business_id);
+        this.modalRef.hide();
+    }
+    });
   }
 
   updatebusiness() {
     this.spinnerService.show();
-    const business_data = this.business_data;
-    this.businessServices.updatebusiness(business_data).subscribe(data=>{
+    this.businessServices.updatebusiness(this.business_data).subscribe(data => {
       this.spinnerService.hide();
       if (data.flag) {
         this.getbusiness(this.business_id);
