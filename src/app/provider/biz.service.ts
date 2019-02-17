@@ -181,4 +181,11 @@ api_url: string;
     .pipe(map(res => res.json()));
 
   }
+
+  get_pitch_book( business_id ) {
+    return this.http
+    .get(this.api_url + 'getpitchbook/business_id/' + business_id + '/json')
+    .pipe(map(res => res.json()));
+
+  }
 }

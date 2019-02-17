@@ -25,24 +25,26 @@
             <section>
                 <b>Company purpose</b><br/>  
                 <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
+                <textarea class="form-control" name="pitch.purpose" [(ngModel)]="pitch.purpose" cols="30" rows="10"></textarea>            
             </section>
 
             <section>
                 <b>Problem or opportunity</b><br/>  
-                <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
-
+                <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
+                </p>          
+                <textarea class="form-control" name="pitch.problem" [(ngModel)]="pitch.problem" cols="30" rows="10"></textarea>
             </section>
 
             <section>
                 <b>Solution</b><br/>      
                 <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
-
+                <textarea class="form-control" name="pitch.solution" [(ngModel)]="pitch.solution" cols="30" rows="10"></textarea>
             </section>
 
             <section>
                 <b>Why now</b><br/>   
                 <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets </p>          
-
+                <textarea class="form-control" name="pitch.why_now" [(ngModel)]="pitch.why_now" cols="30" rows="10"></textarea>
             </section>
 
             <section>
@@ -76,7 +78,12 @@
                         <p>Potetinal Markert : <b>80000</b></p>
                         <p>Served Markert : <b>80000</b></p>
                     </div>
-                </div>           
+                </div> 
+                <div>
+                    <input type="number" name="pitch.available" [(ngModel)]="pitch.available" placeholder=""/>
+                    <input type="number" name="pitch.potetinal" [(ngModel)]="pitch.potetinal" placeholder=""/>
+                    <input type="number" name="pitch.served" [(ngModel)]="pitch.served" placeholder=""/>
+                </div>          
             </section>
 
             <section>
@@ -85,22 +92,26 @@
 
             <section>
                 <b>Business Model</b><br/>  
-                
                 <p>Revenue</p>
                 <p>Pricing</p>
                 <p>Average accont size / Lifetime value</p>
-                <p>Sales / distributin model</p>
+                <p>Distribution model</p>
+                <div>
+                    <textarea class="form-control" name="pitch.business_model" [(ngModel)]="pitch.business_model" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="pitch.revenue" [(ngModel)]="pitch.revenue" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="pitch.pricing" [(ngModel)]="pitch.pricing" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="pitch.lifetime_value" [(ngModel)]="pitch.lifetime_value" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="pitch.distribution_model" [(ngModel)]="pitch.distribution_model" cols="30" rows="10"></textarea>
+                </div>
+            </section>
+
+            <section>
+                <b>Business Financials</b><br/>  
+            </section>
+
+            <section>
+                <b>Investiment Request</b><br/> 
                 
-            </section>
-
-            <section>
-                <b>Financials</b><br/>  
-
-            </section>
-
-            <section>
-                <b>Investiment</b><br/> 
-
             </section>
 
             <section>
