@@ -43,8 +43,18 @@ export class PitchbookComponent implements OnInit {
   fetch_business_for_user() {
     this.businessService.getbusinesses_for_user(this.user.user_id).subscribe( result => {
       this.businesses = result;
-      this.active_business = result[this.initial_business_id];
+
+      const biz = result.filter(val => {
+          if (val.business_id === this.initial_business_id) {
+              return val;
+          }
+      });
+
+      this.active_business = biz[0];
+
       this.load_active_business(this.active_business);
+      this.fetch_pitcbook_data(this.initial_business_id);
+
     }, error => {
       console.log(error);
     });
