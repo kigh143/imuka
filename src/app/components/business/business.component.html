@@ -6,11 +6,11 @@
       <div class="jumbotron">
           <h1 class="display-4" style="color:#14978a">{{biznes?.business_name}}</h1>
        
-          <p>Sector(s) : {{biznes?.sector}}</p>
+          <p>Sector(s) : {{sector_info}}</p>
           <p>Balance: NILL</p>
           <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
         
-          <div *ngIf="biznes.on_program==='Y'" >
+          <div *ngIf="biznes?.on_program==='Y'" >
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
               <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
@@ -19,7 +19,7 @@
           
       </div>
     </div>
-    <div *ngIf="biznes.on_program==='Y'" class="col-md-4">
+    <div *ngIf="biznes?.on_program==='Y'" class="col-md-4">
         <ul class="list-group">
             <li class="list-group-item list-group-item-dark">Breakdown of the imuka activities and milestones.</li>
             <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
@@ -30,7 +30,7 @@
   </div>
 
 <hr>
-<div *ngIf="biznes.on_program==='Y'">
+<div *ngIf="biznes?.on_program==='Y'">
     <div class="row"><div class="col-lg-4 col-md-12">
         <div [chart]="chart"></div>
       </div>
@@ -178,17 +178,17 @@
                 </div>
                 <div class="form-group">
                   <label for="pdtname">Product Price</label>
-                  <input type="text" class="form-control" id="price" placeholder="Enter price name" formControlName="price" [class.invalid]="bizproduct.controls.price.invalid">
+                  <input type="number" class="form-control" id="price" placeholder="Enter price" formControlName="price" [class.invalid]="bizproduct.controls.price.invalid">
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Product description</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required formControlName="description"   [class.invalid]="bizproduct.controls.description.invalid"></textarea>
+                  <textarea class="form-control" id="validationTextarea"  required formControlName="description"   [class.invalid]="bizproduct.controls.description.invalid"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlFile1">Add image</label>
                   <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="addpdt()">Add ProductS</button>
+                <button type="submit" class="btn btn-primary" (click)="addpdt()">Add Products</button>
               </form>
             </div>
           </div></div>
@@ -213,7 +213,7 @@
               <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
                 <form  [formGroup]="bizdoc">
                   <div class="form-group">
-                    <label for="doctype">Document type</label>
+                    <label for="doctype">Document Format</label>
                     <select class="form-control" name="doc_type"  formControlName="doc_type" [class.invalid]="bizdoc.controls.doc_type.invalid">
                       <option value="Image">Image</option>
                       <option value="pdf">PDF</option>
@@ -225,12 +225,20 @@
                   <div class="form-group">
                     <label for="name">Document name</label>
                     <select class="form-control" name="name"  formControlName="name" [class.invalid]="bizdoc.controls.name.invalid">
-                      <option value="Image">Image</option>
-                      <option value="PDF">PDF</option>
-                      <option value="word">word</option>
-                      <option value="Botswana">Botswana</option>
-                      <option value="Burkina Faso">Burkina Faso</option>
-
+                      <option value="Business plan">Business plan</option>
+                      <option value="Tin registration">Tin registration</option>
+                      <option value="Trading license">Trading license</option>
+                      <option value="Certificate of registration">Certificate of registration</option>
+                      <option value="Memorandum and article of associations">Memorandum and article of associations</option>
+                      <option value="ids or passports">ids or passports</option>
+                      <option value="Management Accounts">Management Accounts</option>
+                      <option value="Certified or Audited Accounts">Certified or Audited Accounts</option>
+                      <option value="Cash flow Statement or Projects">Cash flow Statement or Projects</option>
+                      <option value="Aged Debtors Listing">Aged Debtors Listing</option>
+                      <option value="Aged Creditors Listing">Aged Creditors Listing</option>
+                      <option value="Confirmation of Tax Affairs">Confirmation of Tax Affairs</option>
+                      <option value="Contract Document">Contract Document</option>
+                      <option value="Project document">Project document</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -279,39 +287,39 @@
                   <h4>Add financials</h4>
                   <form [formGroup]="bizfinancial">
                     <div class="input-group">
-                      <input type="date" formControlName="from_date" [class.invalid]="bizfinancial.controls.from_date.invalid" class="form-control" placeholder="from_date">
-                      <input type="date" class="form-control"  formControlName="end_date" [class.invalid]="bizfinancial.controls.end_date.invalid"  placeholder="End period" >
+                      <input type="date" formControlName="from_date" [class.invalid]="bizfinancial.controls.from_date.invalid" class="form-control" placeholder="from_date" data-toggle="tooltip" title="Start Period">
+                      <input type="date" class="form-control"  formControlName="end_date" [class.invalid]="bizfinancial.controls.end_date.invalid"  placeholder="End period" data-toggle="tooltip" title="End Period" >
                     </div>
                     <div class="input-group">
-                      <input type="text"  formControlName="revenue" [class.invalid]="bizfinancial.controls.revenue.invalid" placeholder="Revenue" class="form-control" >
-                      <input type="text" formControlName="cogs" [class.invalid]="bizfinancial.controls.cogs.invalid" placeholder="cost of goods sold" class="form-control" >
+                      <input type="number"  formControlName="revenue" [class.invalid]="bizfinancial.controls.revenue.invalid" placeholder="Revenue" class="form-control" >
+                      <input type="number" formControlName="cogs" [class.invalid]="bizfinancial.controls.cogs.invalid" placeholder="cost of goods sold" class="form-control" >
                     </div>
                     <div class="input-group">
-                      <input type="text" formControlName="grossprofit" [class.invalid]="bizfinancial.controls.grossprofit.invalid"  placeholder="Grossprofit" class="form-control" >
-                      <input type="text" formControlName="total_expenditure" [class.invalid]="bizfinancial.controls.total_expenditure.invalid" placeholder="Total expenditure" class="form-control">
+                      <input type="number" formControlName="grossprofit" [class.invalid]="bizfinancial.controls.grossprofit.invalid"  placeholder="Grossprofit" class="form-control" >
+                      <input type="number" formControlName="total_expenditure" [class.invalid]="bizfinancial.controls.total_expenditure.invalid" placeholder="Total expenditure" class="form-control">
                     </div>
                     <div class="input-group">
                       <input type="text" formControlName="tax" [class.invalid]="bizfinancial.controls.tax.invalid"  placeholder="Tax" class="form-control" >
-                      <input type="text" formControlName="net_profit" [class.invalid]="bizfinancial.controls.net_profit.invalid"  placeholder="Net Profit" class="form-control" >
+                      <input type="number" formControlName="net_profit" [class.invalid]="bizfinancial.controls.net_profit.invalid"  placeholder="Net Profit" class="form-control" >
                     </div>
                     <div class="input-group">
-                      <input type="text" formControlName="ebitda" [class.invalid]="bizfinancial.controls.ebitda.invalid" placeholder="EBITDA" class="form-control" >
-                      <input type="text" formControlName="ebit" [class.invalid]="bizfinancial.controls.ebit.invalid"  placeholder="EBIT" class="form-control" >
+                      <input type="number" formControlName="ebitda" [class.invalid]="bizfinancial.controls.ebitda.invalid" placeholder="EBITDA" class="form-control" >
+                      <input type="number" formControlName="ebit" [class.invalid]="bizfinancial.controls.ebit.invalid"  placeholder="EBIT" class="form-control" >
                     </div>
                     <div class="input-group">
-                      <input type="text" formControlName="depriciation" [class.invalid]="bizfinancial.controls.depriciation.invalid" class="form-control"  placeholder="Depriciation" >
-                      <input type="text" formControlName="land" [class.invalid]="bizfinancial.controls.land.invalid" placeholder="Land & building" class="form-control" >
+                      <input type="number" formControlName="depriciation" [class.invalid]="bizfinancial.controls.depriciation.invalid" class="form-control"  placeholder="Depriciation" >
+                      <input type="number" formControlName="land" [class.invalid]="bizfinancial.controls.land.invalid" placeholder="Land & building" class="form-control" >
                     </div>
                     <div class="input-group">
-                      <input type="text" formControlName="machinery" [class.invalid]="bizfinancial.controls.machinery.invalid" placeholder="machinery & equip" class="form-control" >
-                      <input type="text" formControlName="furniture" [class.invalid]="bizfinancial.controls.furniture.invalid"  placeholder="furniture & fittings" class="form-control">
+                      <input type="number" formControlName="machinery" [class.invalid]="bizfinancial.controls.machinery.invalid" placeholder="machinery & equip" class="form-control" >
+                      <input type="number" formControlName="furniture" [class.invalid]="bizfinancial.controls.furniture.invalid"  placeholder="furniture & fittings" class="form-control">
                     </div>
                     <div class="input-group">
-                      <input type="text" formControlName="stock" [class.invalid]="bizfinancial.controls.stock.invalid"  placeholder="stock" class="form-control" >
-                      <input type="text" formControlName="debtors" [class.invalid]="bizfinancial.controls.debtors.invalid"  placeholder="Debtors" class="form-control">
+                      <input type="number" formControlName="stock" [class.invalid]="bizfinancial.controls.stock.invalid"  placeholder="stock" class="form-control" >
+                      <input type="number" formControlName="debtors" [class.invalid]="bizfinancial.controls.debtors.invalid"  placeholder="Debtors" class="form-control">
                     </div>
                     <div class="input-group">
-                      <input type="text" formControlName="shareholder_equity" [class.invalid]="bizfinancial.controls.shareholder_equity.invalid"  placeholder="shareholder's equity" class="form-control" >
+                      <input type="number" formControlName="shareholder_equity" [class.invalid]="bizfinancial.controls.shareholder_equity.invalid"  placeholder="shareholder's equity" class="form-control" >
                       <input type="text" formControlName="cash_bank" [class.invalid]="bizfinancial.controls.cash_bank.invalid"   placeholder="cash/Bank" class="form-control">
                     </div>
                     <div class="form-group" style="margin-top:10px">

@@ -6,7 +6,7 @@
       <div class="mainmenu">
         <a class="business" *ngFor="let business of businesses; let i=index;" (click)="load_active_business(business)">
             <b>{{business.business_name}}</b><br/>
-            <span>{{business.legal_entity}}</span>
+            <p style="overflow-wrap: break-word;">{{business.legal_entity}}</p>
         </a><br/>
       </div>
       </div>
@@ -54,14 +54,14 @@
                     <div>
                         <b>Prodcur name</b>
                         <p>is simply dummy text of the printing and typesetting industry.</p>
-                        <p>Price : 3000o ugx.</p>
+                        <p>Price : 3000 ugx.</p>
                     </div>
                 </div>
 
                 <div>
                     <b>Service name</b>
                     <p>is simply dummy text of the printing and typesetting industry.</p>
-                    <p>Price : 3000o ugx.</p>
+                    <p>Price : 3000 ugx.</p>
                 </div>
             </section>
 
