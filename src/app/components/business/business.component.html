@@ -272,12 +272,12 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let financial of business_data.financials">
-                      <th scope="row">2016</th>
-                      <td>50</td>
-                      <td>29</td>
-                      <td>49</td>
-                      <td>56</td>
-                      <td>59</td>
+                      <th scope="row">{{financial.period_to}}</th>
+                      <td>{{financial.ros}}</td>
+                      <td>{{financial.roi}}</td>
+                      <td>{{financial.roe}}</td>
+                      <td>{{financial.der}}</td>
+                      <td>{{financial.irr}}</td>
                     </tr>
                   </tbody>
                 </table>
