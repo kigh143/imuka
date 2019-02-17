@@ -43,6 +43,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   mline: Chart;
   piechart: Chart;
   sector_info:any;
+  financials:any;
 
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     milestones = [
@@ -140,6 +141,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.sub = this.route.params.subscribe(params => {
           this.business_id = +params['id'];
           this.getbusiness(params['id']);
+          
       });
   }
 
@@ -156,7 +158,9 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.business_data = data;
           this.biznes  = data['business_info'];
           this.sector_info= JSON.parse(this.biznes.sectors)
-          console.log(this.sector_info);
+          this.financials = data['financials']
+          console.log(this.business_data);
+          
           this.dailyupdates = data['daily_updates'];
           this.draw();
       });
@@ -175,6 +179,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       if (data.flag) {
         this.bizproduct.reset();
         this.getbusiness(this.business_id);
+
     }});
   }
 

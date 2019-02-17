@@ -35,7 +35,7 @@ api_url: string;
   }
    addfinancial(financial) {
       return this.http
-      .post(this.api_url + 'addfinancial/json', financial, this.options)
+      .post(this.api_url + 'addfinancials/json', financial, this.options)
       .pipe(map(res => res.json()));
 
   }
