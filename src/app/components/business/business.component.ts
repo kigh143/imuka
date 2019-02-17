@@ -41,62 +41,61 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   chart: Chart;
   linechart: Chart;
   mline: Chart;
-  piechart:Chart;
+  piechart: Chart;
 
-months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-  milestones = [
-    {
-      name: 'Needs assessment',
-      complete: 'true'
-    },
-    {
-      name: 'Financial palnning and management',
-      complete: true
-    },
-    {
-      name: 'Business model innovation',
-      complete: false
-    },
-    {
-      name: 'unlimitted personalsized support',
-      complete: true
-    },
-    {
-      name: 'Success fee',
-      complete: true
-    }
-  ];
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    milestones = [
+        {
+        name: 'Needs assessment',
+        complete: 'true'
+        },
+        {
+        name: 'Financial palnning and management',
+        complete: true
+        },
+        {
+        name: 'Business model innovation',
+        complete: false
+        },
+        {
+        name: 'unlimitted personalsized support',
+        complete: true
+        },
+        {
+        name: 'Success fee',
+        complete: true
+        }
+    ];
 
   constructor(
-    public formBuilder: FormBuilder, 
-    public route: ActivatedRoute, 
-    public router : Router, 
-    public modalService: BsModalService,  
-    public businessServices :BizService, 
-    public session : SessionService,
+    public formBuilder: FormBuilder,
+    public route: ActivatedRoute,
+    public router: Router,
+    public modalService: BsModalService,
+    public businessServices: BizService,
+    public session: SessionService,
     public spinnerService: Ng4LoadingSpinnerService) {
-      this.bizteam=this.formBuilder.group({
-          teamname:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          position:[ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
+      this.bizteam = this.formBuilder.group({
+          teamname: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          position: [ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
           phonenumber: [ '', Validators.compose([ Validators.minLength(10),  Validators.required ])],
           email: [ '', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),  Validators.required ])],
-          address:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          image:[]
+          address: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          image: []
       });
 
-      this.bizdoc=this.formBuilder.group({
-          doc_type:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          name:[ '',Validators.required ],
+      this.bizdoc = this.formBuilder.group({
+          doc_type: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          name: [ '', Validators.required ],
       });
 
-      this.bizproduct=this.formBuilder.group({
-          name:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
-          price:[ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
-          description:[ '', Validators.compose([ Validators.minLength(2),  Validators.required ])]
-        
+      this.bizproduct = this.formBuilder.group({
+          name: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
+          price: [ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
+          description: [ '', Validators.compose([ Validators.minLength(2),  Validators.required ])]
       });
 
-      this.bizfinancial=this.formBuilder.group({
+      this.bizfinancial = this.formBuilder.group({
           from_date:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           end_date:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           revenue:[ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
@@ -116,7 +115,7 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
           shareholder_equity:[ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
           cash_bank:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
       });
-      
+
       this.dailyupdates = this.formBuilder.group({
           myDate:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           employees:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
@@ -141,7 +140,6 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
           this.business_id = +params['id'];
           this.getbusiness(params['id']);
       });
-      this.init();
   }
 
   selectTab(tabId: number) {
@@ -150,15 +148,14 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
 
   openModal(template: TemplateRef<any>) {
       this.modalRef = this.modalService.show(template);
-  } 
+  }
 
-  getbusiness(biz_id){
-      this.businessServices.fetch_abusiness(biz_id).subscribe(data=>{
-          this.business_data=data;
+  getbusiness(biz_id) {
+      this.businessServices.fetch_abusiness(biz_id).subscribe(data => {
+          this.business_data = data;
           this.biznes  = data['business_info'];
-          this.dailyupdates = data['daily_updates']
-          console.log(this.biznes);
-          console.log(this.business_data);
+          this.dailyupdates = data['daily_updates'];
+          this.draw();
       });
   }
 
@@ -166,22 +163,21 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
       this.sub.unsubscribe();
   }
 
-  addpdt(){
+  addpdt() {
     this.spinnerService.show();
-    let products=this.bizproduct.value  ;
-    products['business_id']=this.business_id;
-    this.businessServices.addproduct(products).subscribe(data=>{
-      
+    const products = this.bizproduct.value  ;
+    products['business_id'] = this.business_id;
+    this.businessServices.addproduct(products).subscribe(data => {
     this.spinnerService.hide();
-      if(data.flag){
+      if (data.flag) {
         this.bizproduct.reset();
         this.getbusiness(this.business_id);
     }});
   }
 
-  adddoc(){
+  adddoc() {
     this.spinnerService.show();
-    let document=this.bizdoc.value;
+    const document = this.bizdoc.value;
     document['business_id']=this.business_id;
     this.businessServices.adddocument(document).subscribe(data=>{ 
     this.spinnerService.hide();
@@ -192,57 +188,61 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
       });
   }
 
-  addfinancial(){
+  addfinancial() {
     this.spinnerService.show();
-    let financial=this.bizfinancial.value;
-    financial['business_id']=this.business_id;
+    const financial = this.bizfinancial.value;
+    financial['business_id'] = this.business_id;
         this.businessServices.addfinancial(financial).subscribe(data=>{
           this.spinnerService.hide();
-          if(data.flag){
+          if (data.flag) {
             this.bizfinancial.reset();
              this.getbusiness(this.business_id);
           }
-      })
+      });
   }
 
-  addteam(){
+  addteam() {
     this.spinnerService.show();
-      let team=this.bizteam.value;
+      const team = this.bizteam.value;
       this.businessServices.addteam(team).subscribe(data=>{
         this.spinnerService.hide();
-          if(data.flag){
+          if (data.flag) {
               this.bizteam.reset();
           }
       });
   }
 
-  add_dailyupdate(){
+  add_dailyupdate() {
       this.spinnerService.show();
-      let dailyupdates = this.dailyupdates.value;
-      dailyupdates['business_id']=this.business_id;
-      dailyupdates['month']=this.business_id;
-      this.businessServices.adddailyupdates(dailyupdates).subscribe(data=>{
-        this.spinnerService.hide();
-        if(data.flag){
-          this.getbusiness(this.business_id);
-          this.modalRef.hide
-          ();
-        }                                                                                                                                                                                                                            
-      });
+      const dailyupdates = this.dailyupdates.value;
+      dailyupdates['business_id'] = this.business_id;
+      const m = parseInt(dailyupdates['myDate'].split('/')[0], 10);
+      dailyupdates['month'] = this.months[m - 1];
+
+      console.log(dailyupdates);
+      
+    //   this.businessServices.adddailyupdates(dailyupdates).subscribe(data => {
+    //     this.spinnerService.hide();
+    //     if (data.flag) {
+    //       this.getbusiness(this.business_id);
+    //       this.modalRef.hide();
+    //     }
+    //   });
   }
 
-  updatebusiness(){
+  updatebusiness() {
     this.spinnerService.show();
-    let business_data = this.business_data;
+    const business_data = this.business_data;
     this.businessServices.updatebusiness(business_data).subscribe(data=>{
       this.spinnerService.hide();
-      if(data.flag){
+      if (data.flag) {
         this.getbusiness(this.business_id);
       }
     });
   }
-  init() {
-    let chart = new Chart({
+
+  draw() {
+    const chart = new Chart({
       chart: {
         type: 'column'
     },
@@ -258,7 +258,7 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
     series: this.dailyupdates.revenue
   });
     
-    let linechart = new Chart({
+    const linechart = new Chart({
       chart: {
         type: 'line'
       },
@@ -278,7 +278,7 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
 
 
 
-  let mline= new Chart({
+  const mline = new Chart({
     title: {
       text: 'Employees vs Female employees'
   },
@@ -290,65 +290,12 @@ months=['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug', 'Sept', 'Oct', 'Nov',
   },
   series: this.dailyupdates.employees,
 });
-let piechart = new Chart({
-  chart: {
-    plotBackgroundColor: null,
-    plotBorderWidth: null,
-    plotShadow: false,
-    type: 'pie'
-},
-title: {
-    text: 'Browser market shares in January, 2018'
-},
-tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-},
-plotOptions: {
-    pie: {
-        allowPointSelect: true,
-        cursor: 'pointer',
-        dataLabels: {
-            enabled: false
-        },
-        showInLegend: true
-    }
-},
-series: [{
-    name: 'Brands',
-    
-    data: [{
-        name: 'Chrome',
-        y: 61.41,
-        sliced: true,
-        selected: true
-    }, {
-        name: 'Internet Explorer',
-        y: 11.84
-    }, {
-        name: 'Firefox',
-        y: 10.85
-    }, {
-        name: 'Edge',
-        y: 4.67
-    }, {
-        name: 'Safari',
-        y: 4.18
-    }, {
-        name: 'Other',
-        y: 7.05
-    }]
-}]
-});
+
     
     this.chart = chart;
-    this.mline= mline;
-    this.piechart=piechart;
+    this.mline = mline;
     this.linechart= linechart;
-   
-    
-
     chart.ref$.subscribe(console.log);
   }
- 
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SessionService } from "../app/provider/session.service";
+import { SessionService } from '../app/provider/session.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,10 @@ import { SessionService } from "../app/provider/session.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor( public sessionService:SessionService ){
+  constructor( public sessionService: SessionService ) {
     this.sessionService.checkUser();
   }
-  onActivate(){
-    window.scroll(0,0);
+  onActivate() {
+    window.scroll(0, 0);
   }
 }
