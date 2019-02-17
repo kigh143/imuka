@@ -8,13 +8,13 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  oneAtATime: boolean = true;
+  oneAtATime = true;
   user: any;
   files: any[];
-  url:any;
-  constructor(public sessionService: SessionService, 
-    public authService: AuthService, 
-    public spinnerService: Ng4LoadingSpinnerService ) { 
+  url: any;
+  constructor(public sessionService: SessionService,
+    public authService: AuthService,
+    public spinnerService: Ng4LoadingSpinnerService ) {
       this.files = [];
     }
 
