@@ -14,6 +14,7 @@
       <button routerLink="/plans" class="btn btn-primary btn-block btn-sm">Renew Plan</button>
   </div>
 </div>
+
 <ul class="list-group list-group-flush"  *ngIf="user?.user_type==='entrepreneur'">
   <li class="list-group-item"><a routerLink="/"><i class="fa fa-tachometer"></i> My Dashboard</a></li>
   <li class="list-group-item"><a routerLink="/my_businesses"><i class="fa fa-briefcase"></i> My Business</a></li>
@@ -26,7 +27,7 @@
 
 <ul class="list-group list-group-flush" *ngIf="user?.user_type==='investor'">
     <li class="list-group-item"><a routerLink="/"><i class="fa fa-tachometer"></i> My Dashboard</a></li>
-    <li class="list-group-item"><a routerLink="/investmentrequest"><i class="fa fa-info-circle"></i> My Investments</a></li>
+    <li class="list-group-item"><a routerLink="/investmentrequest"><i class="fa fa-info-circle"></i> My Investment(s)</a></li>
     <li class="list-group-item"><a routerLink="/investiment_opportunities"><i class="fa fa-info-circle"></i> Investment opportunities</a></li>
     <li class="list-group-item"><a routerLink="/contracts"><i class="fa fa-info-circle"></i> Contracts and Projects</a></li>
     <li class="list-group-item"><a routerLink="/notifications"><i class="fa fa-bell"></i> Notifications</a></li>

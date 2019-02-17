@@ -63,6 +63,7 @@ export class ProfileComponent implements OnInit {
         console.log( error);
       });
   }
+
   processFile(imageInput: any) {
     const file = imageInput.target.files[0];
   }
