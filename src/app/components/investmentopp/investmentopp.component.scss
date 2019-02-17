@@ -49,5 +49,19 @@
 app-mainmenu{
     background: #fff;
 }
+.list-group-item {
+  display: flex;
+  flex-direction: row;
+}
+.bottom {
+  flex: 1;
+}
+.center {
+  flex: 9;
+}
+.left {
+  flex: 1;
+  text-align: right;
+}
   
   
