@@ -72,15 +72,15 @@ export class ProfileComponent implements OnInit {
   onFileChanged(event: any) {
     this.files = event.target.files;
     this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
     this.spinnerService.show();
     const uploadData = new FormData();
     uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
     this.authService.uploadpp( uploadData ).subscribe( data => {
-      if ( data.flag ) {
-        this.url = this.selectedFile.target.result;
-        this.spinnerService.hide();
-      }
+      // if ( data.flag ) {
+      //   this.url = this.selectedFile.target.result;
+      //   this.spinnerService.hide();
+      // }
+      console.log(data);
     });
   }
 
