@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -7,9 +7,9 @@ import { BehaviorSubject } from "rxjs";
 })
 export class SessionService {
   authenticationState = new BehaviorSubject(false);
-  isLoggedin: boolean = false;
-  KEY = "user_object";
-  user : any;
+  isLoggedin = false;
+  KEY = 'user_object';
+  user: any;
 
   constructor() {
     this.checkUser();

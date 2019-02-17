@@ -11,14 +11,16 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './pitchbook.component.html',
   styleUrls: ['./pitchbook.component.scss']
 })
+
 export class PitchbookComponent implements OnInit {
 
   modalRef: BsModalRef;
   businesses: any;
   user: any;
   active_business: any;
-  pitchbook: any;
+  pitch: any;
   initial_business_id: any;
+
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
@@ -53,8 +55,16 @@ export class PitchbookComponent implements OnInit {
     this.fetch_pitcbook_data(business.business_id);
   }
 
-  fetch_pitcbook_data(business_id) {
-    this.pitchbook = business_id;
+  fetch_pitcbook_data( business_id) {
+    this.businessService.get_pitch_book( business_id ).subscribe( data => {
+        this.pitch = data;
+    });
+  }
+
+  save_changes() {
+    this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
+      console.log(data);
+    });
   }
 
 }

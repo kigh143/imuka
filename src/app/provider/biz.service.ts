@@ -181,4 +181,16 @@ api_url: string;
     .pipe(map(res => res.json()));
 
   }
+
+  get_pitch_book( business_id ) {
+    return this.http
+    .get(this.api_url + 'getpitchbook/business_id/' + business_id + '/json')
+    .pipe(map(res => res.json()));
+  }
+
+  edit_pitchbook(data) {
+    return this.http
+    .post(this.api_url + 'editpitchbook/json', data, this.options)
+    .pipe(map(res => res.json()));
+  }
 }

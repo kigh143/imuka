@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-9">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, {{user.header}}! </h1>
+            <h1 class="display-4">Hello, {{header}}! </h1>
             <p><a routerLink="/profile">update your profile.</a></p>
 
             <p *ngIf="user?.user_type==='entrepreneur'">Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>            
@@ -41,7 +41,7 @@
 
         <section  *ngIf="user?.user_type==='entrepreneur'">
             <div class="d-flex bd-highlight heading" (click)="navigate_to('people')">
-                <div class="p-2 flex-grow-1 bd-highlight"><div>My Connections </div> <span class="badge badge-light float-right">4</span></div>
+                <div class="p-2 flex-grow-1 bd-highlight">My Connection(s)</div>
                 <div class="p-2">
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
