@@ -14,7 +14,7 @@
         </div>
         <div>
           <form>
-            <div class="form-group">
+            <div class="form-group" data-toggle="tooltip" title="click Ctrl and select">
               <label> What makes your business unique? Select all that apply.</label>
               <select [(ngModel)]="uniqueness" name="uniqueness" multiple class="form-control">
               <option value="Price"> Price</option>
@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group">
-                <label>What is the approximate monthly turn over? Enter amount</label>
+                <label>What is the approximate monthly turn over? Select the range of amount</label>
                 <select [(ngModel)]="turn_over"  name="turn_over" class="form-control">
                   <option value="< $ 500">< $500 </option> <option value="$501 - 1,000"> $501 - 1,000</option>
                   <option value="$1,001 - 2,500"> $1,000 - 2,500</option>
@@ -78,7 +78,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group"  data-toggle="tooltip" title="click Ctrl and select">
                 <label> What are your biggest challenges? <br />(Select all that apply)</label>
                 <select [(ngModel)]="challenges" name="challenges" multiple class="form-control">
                   <option value="Limited  starting capital">Limited  starting capital</option>,
@@ -93,7 +93,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group"  data-toggle="tooltip" title="click Ctrl and select">
                 <label>What are your expectations? [select all that apply]</label>
                 <select [(ngModel)]="expectations" name="expectations" multiple class="form-control">
                   <option value="Improve my leadership and management skills">Improve my leadership and management skills</option>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="form-group">
-                <label>Range of amount required ($) USD</label>
+                <label> Select Range of amount required ($) USD</label>
                 <select [(ngModel)]="amount_required" name="amount_required" class="form-control">
                     <option value="< $ 500">< $500 </option> <option value="$501 - 1,000"> $501 - 1,000
                     </option>

@@ -25,7 +25,7 @@
 
         <section *ngIf="user?.user_type==='entrepreneur'">
             <div class="d-flex bd-highlight heading" (click)="navigate_to('my_businesses')">
-                <div class="p-2 flex-grow-1 bd-highlight">My Business summary</div>
+                <div class="p-2 flex-grow-1 bd-highlight">Business(es) </div>
                 <div class="p-2">
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
@@ -41,7 +41,7 @@
 
         <section  *ngIf="user?.user_type==='entrepreneur'">
             <div class="d-flex bd-highlight heading" (click)="navigate_to('people')">
-                <div class="p-2 flex-grow-1 bd-highlight">My Connections</div>
+                <div class="p-2 flex-grow-1 bd-highlight"><div>My Connections </div> <span class="badge badge-light float-right">4</span></div>
                 <div class="p-2">
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
@@ -58,7 +58,7 @@
 
         <section *ngIf="user?.user_type==='investor'">
             <div class="d-flex bd-highlight heading"  (click)="navigate_to('investmentrequest')">
-                <div class="p-2 flex-grow-1 bd-highlight">My Investments</div>
+                <div class="p-2 flex-grow-1 bd-highlight">My Investments  <span class="badge badge-light float-right">4</span></div>
                 <div class="p-2">
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
@@ -74,7 +74,7 @@
 
         <section>
             <div class="d-flex bd-highlight heading">
-                <div class="p-2 flex-grow-1 bd-highlight" (click)="navigate_to('request')">My Requests to imuka</div>
+                <div class="p-2 flex-grow-1 bd-highlight" (click)="navigate_to('request')">Requests  <span class="badge badge-light float-right">4</span></div>
                 <div class="p-2">
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>

@@ -6,7 +6,7 @@
       <div class="jumbotron">
           <h1 class="display-4" style="color:#14978a">{{biznes?.business_name}}</h1>
        
-          <p>Sector(s) : {{biznes?.sector}}</p>
+          <p>Sector(s) :<span ngFor="let sector of biznes?.sectors">{{sector}}</span> </p>
           <p>Balance: NILL</p>
           <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
         
