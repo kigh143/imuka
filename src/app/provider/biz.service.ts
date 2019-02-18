@@ -193,4 +193,10 @@ api_url: string;
     .post(this.api_url + 'editpitchbook/json', data, this.options)
     .pipe(map(res => res.json()));
   }
+  follow_business(investor){
+    return this.http
+      .post(this.api_url + 'follow_business/json', investor, this.options)
+      .pipe(map(res => res.json()));
+  }
+  
 }
