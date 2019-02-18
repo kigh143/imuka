@@ -39,10 +39,10 @@ export class InvestmentoppComponent implements OnInit {
   ngOnInit() {
     let data = this.session.getuser();
     this.currentuser=data;
-    this.get_investmentable_business();
+    this.get_investmentable_business(this.currentuser.user_id);
   }
-  get_investmentable_business(){
-    this.business_service.getallbusinesses().subscribe(data=>{
+  get_investmentable_business(user_id){
+    this.business_service.get_investment_opp(user_id).subscribe(data=>{
       console.log(data);
       this.investmentopp=data;
       this.business_id = this.investmentopp.business_id
@@ -65,13 +65,14 @@ openModal(template: TemplateRef<any>, mdbodal:string, business) {
   }
 }
 follow_business(){
-  let investor=new FormData();
+  let investor= {};
   investor['user_id']=this.currentuser.user_id;
   investor['business_id']= this.active_business.business_id
   console.log(investor);
   this.business_service.follow_business(investor).subscribe(data=>{
     if(data.flag){
-      this.get_investmentable_business()
+      this.get_investmentable_business(this.currentuser.user_id);
+      this.modalRef.hide();
       //increase the count for follow
       //notification "you have followed "
     }
@@ -82,7 +83,7 @@ makearequest(){
   this.spinnerService.show();
   let invest_request= this.request.value;
   invest_request['user_id']= this.currentuser.user_id;
-  invest_request['business_id']= this.active_business.business_id
+  
   console.log(invest_request);
   this.business_service.sendinvestrequest(invest_request).subscribe(data=>{
     this.spinnerService.hide();

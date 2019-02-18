@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { api_base_url} from '../constants/constants';
+import { httpFactory } from '@angular/http/src/http_module';
 
 @Injectable({
   providedIn: 'root'
@@ -195,14 +196,18 @@ api_url: string;
   }
   follow_business(investor){
     return this.http
-      .post(this.api_url + 'follow_business/json', investor, this.options)
+      .post(this.api_url + 'followbusiness/json', investor, this.options)
       .pipe(map(res => res.json()));
   }
-  get_investment_opp() {
+  get_investment_opp(user_id) {
     return this.http
-      .get(this.api_url + 'get_investment_opportunities/json')
+      .get(this.api_url + 'getinvestmentopportunities/user_id/'+user_id+'/json')
       .pipe(map(res => res.json()));
   }
  
-  
+  get_user_investement(user_id){
+    return this.http
+    .get(this.api_url + 'getmyinvestments/user_id/' + user_id + '/json')
+    .pipe(map(res => res.json()));
+  }
 }

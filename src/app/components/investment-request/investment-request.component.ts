@@ -21,8 +21,10 @@ export class InvestmentRequestComponent implements OnInit {
   investmentopp:any;
   currentuser:any;
   request:any;
+  accepted:any;
+  pending:any;
   oneAtATime: boolean = true;
-  constructor(public session : SessionService, public bizy : BizService, private modalService: BsModalService, public formBuilder: FormBuilder,  public spinnerService: Ng4LoadingSpinnerService, ) { 
+  constructor(public session : SessionService,public business_service: BizService, private modalService: BsModalService, public formBuilder: FormBuilder,  public spinnerService: Ng4LoadingSpinnerService, ) { 
    
     
   }
@@ -30,9 +32,18 @@ export class InvestmentRequestComponent implements OnInit {
   ngOnInit() {
     let data = this.session.getuser();
     this.currentuser=data;
+    this.get_user_investment(this.currentuser.user_id);
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+  get_user_investment(user_id){
+    this.business_service.get_user_investement(user_id).subscribe(data=>{
+       this.accepted=data.accepted;
+       this.pending= data.pending;
+       console.log(data)
+    })
+  
   }
  
 }
