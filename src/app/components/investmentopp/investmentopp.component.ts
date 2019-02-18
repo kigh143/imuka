@@ -17,15 +17,18 @@ import {
 export class InvestmentoppComponent implements OnInit {
   modalRef: BsModalRef;
   businesses = [1, 2];
+  business_id:any;
   investmentopp:any;
   currentuser:any;
   request:any;
+  active_business:any;
   modalbody = 'follow' ;
+  current_biz_id:any;
   constructor(public session : SessionService, public spinnerService: Ng4LoadingSpinnerService, private modalService: BsModalService, public formBuilder: FormBuilder, public business_service: BizService ) {
     this.request=this.formBuilder.group({
       financing_type:["", Validators.required],
       offer:["", Validators.required],
-      comments:[""]
+      comment:[""]
     });
     
    
@@ -42,14 +45,18 @@ export class InvestmentoppComponent implements OnInit {
     this.business_service.getallbusinesses().subscribe(data=>{
       console.log(data);
       this.investmentopp=data;
+      this.business_id = this.investmentopp.business_id
       console.log(this.investmentopp)
   }
     );
 }
-openModal(template: TemplateRef<any>, mdbodal:string) {
+openModal(template: TemplateRef<any>, mdbodal:string, business) {
   this.modalRef = this.modalService.show(template);
+  this.active_business = business;
+
   if(mdbodal == 'follow'){
     this.modalbody = 'follow' ;
+    
   }else if(mdbodal == 'view'){
     this.modalbody = 'view' ;
   }else{
@@ -58,8 +65,10 @@ openModal(template: TemplateRef<any>, mdbodal:string) {
   }
 }
 follow_business(){
-  let investor=this.currentuser['user_id'];
-  investor['business_id']= this.investmentopp.business_id;
+  let investor=new FormData();
+  investor['user_id']=this.currentuser.user_id;
+  investor['business_id']= this.active_business.business_id
+  console.log(investor);
   this.business_service.follow_business(investor).subscribe(data=>{
     if(data.flag){
       this.get_investmentable_business()
@@ -73,15 +82,19 @@ makearequest(){
   this.spinnerService.show();
   let invest_request= this.request.value;
   invest_request['user_id']= this.currentuser.user_id;
+  invest_request['business_id']= this.active_business.business_id
+  console.log(invest_request);
   this.business_service.sendinvestrequest(invest_request).subscribe(data=>{
     this.spinnerService.hide();
     if(data.flag){
       this.request.reset();
+     
       //add more code
     }
   });
 
 }
+
 
 
 }

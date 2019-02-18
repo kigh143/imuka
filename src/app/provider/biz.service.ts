@@ -127,7 +127,7 @@ api_url: string;
   
   sendinvestrequest(invest_request){
     return this.http
-      .post(this.api_url + 'sendinvestrequest/json', invest_request, this.options)
+      .post(this.api_url + 'makeinvestmentrequest/json', invest_request, this.options)
       .pipe(map(res => res.json()));
   }
 
@@ -198,5 +198,11 @@ api_url: string;
       .post(this.api_url + 'follow_business/json', investor, this.options)
       .pipe(map(res => res.json()));
   }
+  get_investment_opp() {
+    return this.http
+      .get(this.api_url + 'get_investment_opportunities/json')
+      .pipe(map(res => res.json()));
+  }
+ 
   
 }
