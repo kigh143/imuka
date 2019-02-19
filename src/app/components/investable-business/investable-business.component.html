@@ -49,39 +49,39 @@
     </div>
     <div class="modal-body">
             <section>
-                    <p><b>{{biznes?.business_name}}</b></p><br/>
+                    <span><b style="text-transform: capitalize">{{biznes?.business_name}}</b></span><br/>
                     <p>Sector: {{sector_info}}</p>                 
                 </section>
     
                 <section>
-                    <b>Company purpose</b><br/>  
+                    <div class="pitch-header"><b >Company purpose</b><br/></div>
                     <p>'Domain Tools' is a place for every type of diagnostic widget related to domain names. (2016, http://www.fecundlabs.com/)
                       The Internet Archive was founded to build an ‘Internet library,’ with the purpose of offering permanent access for researchers, historians, and scholars to historical collections that exist in digital format. (2006, http://www.archive.org/)</p>          
                 </section>
     
                 <section>
-                    <b>Problem or opportunity</b><br/>  
+                        <div class="pitch-header" ><b>Problem or opportunity</b></div> 
                     <p>Uganda like other african countries are still lagging behind in technology, because there are few skilled personel in the information technology sector. Most of the work is being done manually hence incurring alot of costs interms of money and time  </p>
                     <p>Fecundlabs is looking for looking for finance to help out in buying machines paying for internet, buying server space and paying our rental and taxes.</p>          
                 </section>
     
                 <section>
-                    <b>Solution</b><br/>      
+                        <div class="pitch-header" ><b>Solution</b></div>    
                     <p>We intend to develop a technology center with free internet where people can come present their proposed ideas, get conselling and when approved by the team they can use our facilities for their software development purpose.</p>          
     
                 </section>
     
                 <section>
-                    <b>Why now</b><br/>   
+                        <div class="pitch-header" ><b>Why now</b></div>  
                     <p>If Uganda is to develop Information technology should be improved, by helping those with innovative ideas to get facilitation.</p>          
     
                 </section>
     
                 <section>
-                    <b>Product or service</b><br/>    
+                        <div class="pitch-header" > <b>Product or service</b></div>   
                     <div>
                         <div>
-                            <img src="assets/user.png" alt="">
+                            //product image
                         </div>
                         <div>
                           <b>Our Products</b>
@@ -104,10 +104,11 @@
                 </section>
     
                 <section>
-                    <b>Market size</b><br/> 
+                        <div class="pitch-header" ><b>Market size</b></div> 
                     <div>
                         <div>
-                            <div class="row"><div class="col-lg-4 col-md-12">
+                            <div class="row" style="justify-content:center">
+                                <div class="col-lg-4 col-md-12">
                                 <div [chart]="piechart"></div>
                               </div>
                         </div></div>
@@ -116,11 +117,20 @@
                 </section>
     
                 <section>
-                    <b>Competitive Advantage</b><br/>            
+                        <div class="pitch-header" ><b>Competitive Advantage</b></div> 
+                       
+                                <div>
+                                        <div class="row" style="justify-content:center">
+                                                <div class="col-lg-8 col-md-12">
+                                                <div [chart]="competitive"></div>
+                                              </div>
+                                        </div></div>
+                               
+                                   
                 </section>
     
                 <section>
-                    <b>Business Model</b><br/> 
+                        <div class="pitch-header" ><b>Business Model</b></div> 
                   <span>Revenue Model</span>
                          <p>We generate our income form software development i.e. mobile application development and website design and development</p>
                          <span>Pricing</span>
@@ -128,142 +138,106 @@
                         </section>
     
                 <section>
-                    <b>Financials</b><br/>  
-    //add the table of financials
+                        <div class="pitch-header" ><b>Financials</b></div>  
+
+                    <div class="col-md-8 col-xs-12">
+                        <table class="table table-striped table-responsive-sm">
+                          <thead>
+                            <tr>
+                              <th scope="col">Year</th>
+                              <th scope="col">ROS</th>
+                              <th scope="col">ROI</th>
+                              <th scope="col">ROE</th>
+                              <th scope="col">DER</th>
+                              <th scope="col">IRR</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let financial of business_data?.financials">
+                              <th scope="row">{{financial.period_to}}</th>
+                              <td>{{financial.ros}}</td>
+                              <td>{{financial.roi}}</td>
+                              <td>{{financial.roe}}</td>
+                              <td>{{financial.der}}</td>
+                              <td>{{financial.irr}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                 </section>
     
                 <section>
-                    <b>Investiment</b><br/> 
-    
+                        <div class="pitch-header" ><b>Investiment</b></div> 
+                    <p>The total amount needed : 500000</p>
+                    <div class="row" style="justify-content:center">
+                        
+                        <div class="col-lg-6 col-md-12">
+                        <div [chart]="piechart2"></div>
+                      </div>
+                </div>
                 </section>
     
                 <section>
-                    <b>The sustainable Development Goals</b><br/> 
+                        <div class="pitch-header" ><b>The sustainable Development Goals</b></div> 
                     <ol>
       
-                        <li>
-                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
-                        </li>
-                        
-                        <li>
-                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
-                        </li>
-                        
-                        <li>
-                           Use the same method on the inside surfaces of all your teeth. 
-                        </li>
-                        
-                        <li>
-                           Brush the biting surfaces of the teeth. 
-                        </li>
-                        
-                        <li>
-                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
-                        </li>
-                        
-                        <li>
-                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
-                        </li>
+                            <li>No Poverty</li>
+                           <li>Zero Hunger</li>
+                            <li>Good Health and Well-being</li>
+                            <li>Quality Education</li>
+                            <li>Gender Equality</li>
+                            <li>Clean Water and Sanitation</li>
+                            <li>Affordable and Clean Energy</li>
+                            <li>Decent Work and Economic Growth</li>
+                            <li>Industry, Innovation and Infrastructure</li>
+                            <li>Reduced Inequality</li>
+                            <li>Sustainable Cities and Communities</li>
+                            <li>Responsible Consumption and Production</li>
+                           <li>Climate Action</li>
+                            <li>Life Below Water</li>
+                            <li>Life on Land</li>
+                            <li>Peace and Justice Strong Institutions</li>
+                            <li>Partnerships to achieve the Goal</li>
                       </ol>     
                 </section>
     
                 <section>
-                    <b>Social Impact</b><br/>  
-                    <ol>
+                        <div class="pitch-header" ><b>Social Impact</b></div>  
+                    <ol >
       
-                        <li>
-                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
-                        </li>
-                        
-                        <li>
-                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
-                        </li>
-                        
-                        <li>
-                           Use the same method on the inside surfaces of all your teeth. 
-                        </li>
-                        
-                        <li>
-                           Brush the biting surfaces of the teeth. 
-                        </li>
-                        
-                        <li>
-                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
-                        </li>
-                        
-                        <li>
-                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
+                        <li *ngFor="let impact of social_impacts;">
+                                {{impact.ans}}
                         </li>
                       </ol> 
                 </section>
     
                 <section>
-                    <b>Economic impact</b><br/>    
+                        <div class="pitch-header" > <b>Economic impact</b></div>    
                     <ol>
       
-                        <li>
-                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
-                        </li>
-                        
-                        <li>
-                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
-                        </li>
-                        
-                        <li>
-                           Use the same method on the inside surfaces of all your teeth. 
-                        </li>
-                        
-                        <li>
-                           Brush the biting surfaces of the teeth. 
-                        </li>
-                        
-                        <li>
-                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
-                        </li>
-                        
-                        <li>
-                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
+                        <li *ngFor="let impact of economic_impact;">
+                                {{impact.ans}}
                         </li>
                       </ol>         
                 </section>
     
                 <section>
-                    <b>Environmental impacts</b><br/>        
+                        <div class="pitch-header" > <b>Environmental impacts</b></div>        
                     <ol>
       
-                        <li>
-                           Place the head of your toothbrush against your teeth, then tilt the bristle tips to a 45 degree angle against the gum line. Move the brush in small circular movements, several times, on all the surfaces of every tooth. 
-                        </li>
-                        
-                        <li>
-                           Brush the outer surfaces of each tooth, upper and lower, keeping the bristles angled against the gum line. 
-                        </li>
-                        
-                        <li>
-                           Use the same method on the inside surfaces of all your teeth. 
-                        </li>
-                        
-                        <li>
-                           Brush the biting surfaces of the teeth. 
-                        </li>
-                        
-                        <li>
-                           To clean the inside surfaces of the front teeth, tilt the brush vertically and make several small circular strokes with the front part of the brush. 
-                        </li>
-                        
-                        <li>
-                           Brushing your tongue will help freshen your breath and clean your mouth by removing bacteria. If you struggle with your brushing technique, ask your dental team to help you find an effective style that works for you. 
+                        <li *ngFor="let impact of env_impact">
+                          {{impact.ans}}
                         </li>
                       </ol>     
                 </section>
     
                 <section>
-                    <b>Our Team</b><br/>  
+                        <div class="pitch-header" ><b>Our Team</b></div>  
                     <div class="row">
                         <div class="col-md-4 team">
-                            <img src="asstes/user.png" alt=""><br/>
-                            <b>Katende Iva</b><br/>
-                            <b>CEO and founder</b>
+                            <!--<img src="assets/user.png" alt=""><br/>-->
+                            <span>Katende Iva</span><br/>
+                            <span>CEO and founder</span>
                         </div>
                     </div>          
                 </section>
