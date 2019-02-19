@@ -57,12 +57,9 @@ import { JoinprogComponent } from './components/joinprog/joinprog.component';
 import {ToastrModule } from 'ngx-toastr';
 import { ToastsComponent } from './components/toasts/toasts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ChartsComponent } from './components/charts/charts.component';
-
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
-
-
+import { InvestableBusinessComponent } from './components/investable-business/investable-business.component';
 
 
 
@@ -106,7 +103,9 @@ const app_routes: Routes = [
   { path: 'org_profile', component : OrgProfileComponent, canActivate:[AuthGuard]},
   { path: 'toast', component : ToastsComponent, canActivate:[AuthGuard]},
   { path: 'join_imuka_program/:id/:type', component : JoinprogComponent, canActivate:[AuthGuard]},
-  { path: 'chart', component : ChartsComponent, canActivate:[AuthGuard]}
+  { path: 'chart', component : ChartsComponent, canActivate:[AuthGuard]},
+  { path: 'user_business', component : InvestableBusinessComponent, canActivate:[AuthGuard]},
+  { path: 'user_business/:id', component : InvestableBusinessComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
@@ -150,6 +149,7 @@ const app_routes: Routes = [
     JoinprogComponent,
     ToastsComponent,
     ChartsComponent,
+    InvestableBusinessComponent,
     
     
    

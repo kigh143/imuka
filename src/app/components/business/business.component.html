@@ -11,7 +11,7 @@
           <p>Balance: NILL</p>
           <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
         
-          <div *ngIf="biznes?.on_program==='Y'&& user.user_type == 'entrepreneur'" >
+          <div *ngIf="biznes?.on_program==='Y'" >
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
               <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
