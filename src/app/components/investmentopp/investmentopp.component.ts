@@ -24,6 +24,8 @@ export class InvestmentoppComponent implements OnInit {
   active_business:any;
   modalbody = 'follow' ;
   current_biz_id:any;
+  sector_info:any;
+  business_info:any;
   constructor(public session : SessionService, public spinnerService: Ng4LoadingSpinnerService, private modalService: BsModalService, public formBuilder: FormBuilder, public business_service: BizService ) {
     this.request=this.formBuilder.group({
       financing_type:["", Validators.required],
@@ -45,8 +47,10 @@ export class InvestmentoppComponent implements OnInit {
     this.business_service.get_investment_opp(user_id).subscribe(data=>{
       console.log(data);
       this.investmentopp=data;
-      this.business_id = this.investmentopp.business_id
-      console.log(this.investmentopp)
+      this.business_info = this.investmentopp.business_info
+      this.business_id = this.investmentopp.business_id;
+      this.sector_info = JSON.parse(this.business_info.sectors)
+      console.log( this.sector_info);
   }
     );
 }
