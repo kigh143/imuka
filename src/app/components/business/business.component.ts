@@ -222,7 +222,6 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     this.spinnerService.show();
     const updates = this.updates_form.value;
     updates['business_id'] = this.business_id;
-    console.log( this.business_id)
     updates['month'] = updates['myDate'];
     this.businessServices.adddailyupdates(updates).subscribe(data => {
     this.spinnerService.hide();
@@ -234,13 +233,14 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   updatebusiness() {
-    this.spinnerService.show();
-    this.businessServices.updatebusiness(this.business_data).subscribe(data => {
-      this.spinnerService.hide();
-      if (data.flag) {
-        this.getbusiness(this.business_id);
-      }
-    });
+    console.log(this.business_data);
+    // this.spinnerService.show();
+    // this.businessServices.updatebusiness(this.business_data).subscribe(data => {
+    //   this.spinnerService.hide();
+    //   if (data.flag) {
+    //     this.getbusiness(this.business_id);
+    //   }
+    // });
   }
 
   draw() {
