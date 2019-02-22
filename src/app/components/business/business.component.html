@@ -59,9 +59,16 @@
                 <span style="font-size:14px">General</span>
                 <hr>
                 <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-3 col-form-label" >Business name</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="business_name" [(ngModel)]="biznes.business_name"/>
+                  </div>
+                </div>
+
+                <div class="form-group row">
                   <label for="inputPassword" class="col-sm-3 col-form-label" >Description</label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" name="description" [(ngModel)]="business_data.description" rows="3"></textarea>
+                    <textarea class="form-control" name="description" [(ngModel)]="biznes.description" rows="3"></textarea>
                   </div>
                 </div>
                 
@@ -69,7 +76,7 @@
                     <div class="col-sm-3">  
                   <label for="exampleFormControlSelect1">Line of business/ sector</label></div>
                   <div class="col-sm-9">
-                  <select  class="form-control" multiple  [(ngModel)]="business_data.sectors" name="sectors">
+                  <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
                     <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
                     </option>
                     <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
@@ -90,7 +97,7 @@
                   <label for="inputPassword" class="col-sm-3 col-form-label">Phone number</label>
                   <div class="col-sm-9">
                     
-                    <input type="text"  name="phonenumber" class="form-control"  [(ngModel)]="business_data.phonenumber" placeholder="">
+                    <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
                   </div>
                 </div>
                 
@@ -98,14 +105,14 @@
                   <label for="inputPassword" class="col-sm-3 col-form-label">Website</label>
                   <div class="col-sm-9">
                     
-                    <input type="" class="form-control" name="website"  [(ngModel)]="business_data.website" placeholder="">
+                    <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
                   </div>
                 </div>
                 
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
                   <div class="col-sm-9">
-                    <input type="" class="form-control" name="email"  [(ngModel)]="business_data.email" placeholder="">
+                    <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
                   </div>
                 </div>
                 <span style="font-size:14px">Location</span>
@@ -115,7 +122,7 @@
                   <div class="col-sm-9">
 
                     <div class="input-group input-group-sm mb-3">
-                      <input type="text" class="form-control" name="location" [(ngModel)]="business_data.location">
+                      <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
                     </div>
                   </div>
                 </div>
@@ -124,21 +131,21 @@
                   <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
                     <div class="col-sm-9">
-                      <textarea class="form-control" name="mission" [(ngModel)]="business_data.mission" rows="3"></textarea>
+                      <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" rows="3"></textarea>
                     </div>
                   </div>
                   <hr>
                   <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Vision</label>
                     <div class="col-sm-9">
-                      <textarea class="form-control"  name="vision" [(ngModel)]="business_data.vision" rows="3"></textarea>
+                      <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" rows="3"></textarea>
                     </div>
                   </div>
                   <hr>
                   <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Founded</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="business_data.date_of_reg">
+                      <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
                     </div>
                   </div>
                   <hr>
@@ -159,7 +166,7 @@
           <div class="products">
             <div class="content-box row">
               <div class="col-md-8 col-xs-12">
-                <div class="row" *ngFor="let prdt of business_data.products">
+                <div class="row" *ngFor="let prdt of biznes.products">
                   <div class="col-md-4">
                     <img src={{prdt.image}} height="150px" />
                   </div>
@@ -201,7 +208,7 @@
               <div class="content-box row">
                 <div class="col-md-8 col-xs-12">
                   <div class="row">
-                    <div class="col-3" *ngFor="let doc of business_data.documents">
+                    <div class="col-3" *ngFor="let doc of biznes.documents">
                       <div class="box document" [ngClass]="isclicked?'active':''" >
                         <img src="{{doc.image}}" height="80px"/>
                         <h6>{{doc.name}}</h6>
@@ -270,7 +277,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let financial of business_data.financials">
+                      <tr *ngFor="let financial of biznes.financials">
                         <th scope="row">{{financial.period_to}}</th>
                         <td>{{financial.ros}}</td>
                         <td>{{financial.roi}}</td>
