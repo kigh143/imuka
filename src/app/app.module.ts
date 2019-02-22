@@ -60,6 +60,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsComponent } from './components/charts/charts.component';
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import { InvestableBusinessComponent } from './components/investable-business/investable-business.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { FlTrancatorPipe } from './pipes/fl-trancator.pipe';
 
 
 
@@ -105,7 +107,9 @@ const app_routes: Routes = [
   { path: 'join_imuka_program/:id/:type', component : JoinprogComponent, canActivate:[AuthGuard]},
   { path: 'chart', component : ChartsComponent, canActivate:[AuthGuard]},
   { path: 'user_business', component : InvestableBusinessComponent, canActivate:[AuthGuard]},
-  { path: 'user_business/:id', component : InvestableBusinessComponent, canActivate:[AuthGuard]}
+  { path: 'user_business/:id', component : InvestableBusinessComponent, canActivate:[AuthGuard]},
+  { path: 'filter', component :FiltersComponent, canActivate:[AuthGuard]}
+
 ];
 
 @NgModule({
@@ -150,6 +154,8 @@ const app_routes: Routes = [
     ToastsComponent,
     ChartsComponent,
     InvestableBusinessComponent,
+    FiltersComponent,
+    FlTrancatorPipe,
     
     
    

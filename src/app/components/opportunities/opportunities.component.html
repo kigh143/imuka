@@ -15,16 +15,58 @@
             <a class="btn btn-primary btn-sm" (click)="openTheModal(template)">Post an opportunity</a>
             <hr>
             <div class="form-group row">
-                <label for="inputPassword" class="col-md-4 col-form-label">  Filter opportunities by : </label>
-                <div class="col-md-8">
-                    <select class="form-control" (change)="onChange($event.target.value)">
-                        <option value="">--- select type of opportunity --- </option>
-                        <option value="Market/Supply Opportunities">Market/Supply Opportunities</option>
-                        <option value="Partnership Opportunitie">Partnership Opportunitie</option>
-                        <option value="Franchising/Distributorships Opportunities">Franchising/Distributorships Opportunities</option>
-                        <option value="General">General</option>
-                    </select>
-                </div>
+                    <div class="form-group row">
+                            <div class="col-md-3">
+                                <select class="form-control" (change)="onChange($event.target.value)">
+                                    <option value="">select event type</option>
+                                    <option value="Business networking event">Business networking event</option>
+                                    <option value="Workshop/Conference">Workshop/Conference</option>
+                                    <option value="Training">Training</option>
+                                    <option value="Pitching">Pitching</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                    <select class="form-control" (change)="onChange($event.target.value)">
+                                        <option value="">hosted by</option>
+                                        <option value="Business networking event">Imuka</option>
+                                        <option value="Workshop/Conference">Support organisations</option>
+                                       
+                                    </select>
+                                </div><div class="col-md-3">
+                                        <select class="form-control" (change)="onChange($event.target.value)">
+                                            <option value="">Region</option>
+                                            <option value="Business networking event">Western</option>
+                                            <option value="Workshop/Conference">Northern</option>
+                                            <option value="Training">Eastern</option>
+                                            <option value="Pitching">Southern</option>
+                                        </select>
+                                    </div><div class="col-md-3">
+                                            <select class="form-control" (change)="onChange($event.target.value)">
+                                                <option value="">Month</option>
+                                                <option value="January">Jan</option>
+                                                <option value="February">Feb</option>
+                                                <option value="March">Mar</option>
+                                                <option value="Pitching">Apr</option>
+                                                <option value="April">May</option>
+                                                <option value="June">Jun</option>
+                                                <option value="July">Jul</option>
+                                                <option value="August">Aug</option>
+                                                <option value="September">Sept</option>
+                                                <option value="October">Oct</option>
+                                                <option value="November">Nov</option>
+                                                <option value="December">Dec</option>
+
+
+                                            </select>
+                                        </div><div class="col-md-3">
+                                                <select class="form-control" (change)="onChange($event.target.value)">
+                                                    <option value="">Recommended</option>
+                                                    <option value="Business networking event">Business networking event</option>
+                                                    <option value="Workshop/Conference">Workshop/Conference</option>
+                                                    <option value="Training">Training</option>
+                                                    <option value="Pitching">Pitching</option>
+                                                </select>
+                                            </div>
             </div>
             
         </div>
@@ -32,15 +74,16 @@
             <div class="row">
                 <div class="col-md-6 carddata" *ngFor="let opportunity of opportunities">
                     <div class="card">
-                    <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
+                    <div class="height:100px">
+                    <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="height:150px"></div>
                     <div class="card-body">
-                        <h5 class="card-title">Opportunity title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title">{{opportunity.title}}</h5>
+                        <p class="card-text">{{opportunity.short_description|flTrancator}}<a [href]="opportunity.link" target="_blank">Continue reading</a> </p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">website</li>
-                        <li class="list-group-item">Facebook</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">{{opportunity.due_date}}</li>
+                        
+                       
                     </ul>
                     </div>
                 </div>

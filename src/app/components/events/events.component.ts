@@ -22,7 +22,7 @@ export class EventsComponent implements OnInit {
   filter: string;
 
   events_clone: any;
-
+   
   modalRef: BsModalRef;
   constructor(
     private modalService: BsModalService,
@@ -45,6 +45,7 @@ export class EventsComponent implements OnInit {
       this.eventServices.fetch_events().subscribe( data  =>  {
           this.events = data;
           this.events_clone  = this.events;
+      
       }, err => {
         console.log(err);
       });

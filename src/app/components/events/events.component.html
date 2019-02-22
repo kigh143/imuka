@@ -16,31 +16,72 @@
             <a class="btn btn-primary btn-sm" (click)="openModal(template)">Post an Event</a>
             <hr>
             <div class="form-group row">
-                <label for="inputPassword" class="col-md-4 col-form-label">  Filter events by : </label>
-                <div class="col-md-8">
+                <div class="col-md-3">
                     <select class="form-control" (change)="onChange($event.target.value)">
-                        <option value="">--- select event type ---</option>
+                        <option value="">select event type</option>
                         <option value="Business networking event">Business networking event</option>
                         <option value="Workshop/Conference">Workshop/Conference</option>
                         <option value="Training">Training</option>
                         <option value="Pitching">Pitching</option>
                     </select>
                 </div>
+                <div class="col-md-3">
+                        <select class="form-control" (change)="onChange($event.target.value)">
+                            <option value="">Hosted by</option>
+                            <option value="Imuka">Imuka</option>
+                            <option value="Support organisations">Support organisations</option>
+                           
+                        </select>
+                    </div><div class="col-md-3">
+                            <select class="form-control" (change)="onChange($event.target.value)">
+                                <option value="">Region</option>
+                                <option value="Western">Western</option>
+                                <option value="Northern">Northern</option>
+                                <option value="Eastern">Eastern</option>
+                                <option value="Southern">Southern</option>
+                                <option value="Others">Other countries</option>
+                            </select>
+                        </div><div class="col-md-3">
+                                <select class="form-control" (change)="onChange($event.target.value)">
+                                    <option value="">Month</option>
+                                    <option value="January">Jan</option>
+                                    <option value="February">Feb</option>
+                                    <option value="March">Mar</option>
+                                    <option value="Pitching">Apr</option>
+                                    <option value="April">May</option>
+                                    <option value="June">Jun</option>
+                                    <option value="July">Jul</option>
+                                    <option value="August">Aug</option>
+                                    <option value="September">Sept</option>
+                                    <option value="October">Oct</option>
+                                    <option value="November">Nov</option>
+                                    <option value="December">Dec</option>
+                                </select>
+                            </div><div class="col-md-3">
+                                    <select class="form-control" (change)="onChange($event.target.value)">
+                                        <option value="">Recommended</option>
+                                        <option value="Business networking event">Business networking event</option>
+                                        <option value="Workshop/Conference">Workshop/Conference</option>
+                                        <option value="Training">Training</option>
+                                        <option value="Pitching">Pitching</option>
+                                    </select>
+                                </div>
             </div>
         </div>
             <div class="content">
                 <div class="row">
                     <div class="col-md-6 carddata" *ngFor="let event of events_clone">
                         <div class="card">
-                        <img class="card-img-top" src="assets/v.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Event title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:240px">
+                        <div class="card-body" style="height:170px">
+                            <h6 class="card-title">{{event.title}}({{event.event_type}})</h6>
+                            <!----><p class="card-text">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Continue reading</a> </p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Time odio</li>
-                            <li class="list-group-item">Vennue ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                            <!--<li class="list-group-item"><span>{{event.time_of_event}}</span><span class="float-right" [ngClass]="{{ event.daysleft | slice : 0 : 1  }}>5?,'ontime':'notime'">{{event.daysleft}}</span></li>-->
+                            <li class="list-group-item">{{event.venue}}</li>
+                            
+                           
                         </ul>
                         </div>
                     </div>
