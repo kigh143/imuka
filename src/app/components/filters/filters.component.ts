@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent implements OnInit {
+  @Input('filterImuka')filterImuka: any[];
+  filter_info =[];
   isFirstOpen = true;
   constructor() {
 
@@ -13,6 +15,8 @@ export class FiltersComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.filter_info= this.filterImuka;
+    console.log(this.filter_info);
   }
 
 

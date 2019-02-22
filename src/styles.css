@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family:Helvetica, Arial, sans-serif !important;
+    font-size:12px !important;
+}
 
 .banner{
     background: #fff !important;

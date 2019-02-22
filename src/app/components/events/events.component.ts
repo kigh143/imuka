@@ -5,6 +5,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { EventsService } from '../../services/events.service';
 import { SessionService } from 'src/app/provider/session.service';
 import { Router } from '@angular/router';
+import { FiltersComponent} from '../../components/filters/filters.component'
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -22,6 +24,74 @@ export class EventsComponent implements OnInit {
   filter: string;
 
   events_clone: any;
+  filter_info:Array<any>=[{
+    name:"Event type",
+    options:[
+      'Business networking event',
+      'Workshop/Conference',
+      'Training',
+      'Pitching'
+    ]
+  },
+  {
+    name:"Region",
+    options:[
+     'Western',
+     'Northern',  
+     'Eastern',
+      'Southern',
+      'Others'
+    ]
+  },
+  {
+    name:"Month",
+    options:[
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'October',
+      'November',
+      'December'
+    ]
+  },
+  {
+    name:"Recomended by",
+    options:[
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'October',
+      'November',
+      'December'
+    ]
+  },
+  {
+    name:"Month",
+    options:[
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'October',
+      'November',
+      'December'
+    ]
+  }
+]
    
   modalRef: BsModalRef;
   constructor(
@@ -35,6 +105,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.get_all_events();
+    console.log(this.filter_info)
   }
 
   openModal(template: TemplateRef<any>) {
