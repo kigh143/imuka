@@ -21,7 +21,8 @@ export class EventsComponent implements OnInit {
   link: string;
   venue: string;
   user: any;
-  filter={
+ filter_name;
+ event_filter={
     name:"",
     options:[]
   }
@@ -29,6 +30,7 @@ export class EventsComponent implements OnInit {
   events_clone: any;
   filter_info:Array<any>=[{
     name:"Event type",
+    db_name:"event_type",
     options:[
       'Business networking event',
       'Workshop/Conference',
@@ -38,62 +40,27 @@ export class EventsComponent implements OnInit {
   },
   {
     name:"Region",
+    db_name:"region",
     options:[
      'Western',
      'Northern',  
      'Eastern',
       'Southern',
-      'Others'
-    ]
-  },
-  {
-    name:"Month",
-    options:[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'October',
-      'November',
-      'December'
+      'Others',
+      'All'
     ]
   },
   {
     name:"Recomended by",
+    db_name:"event",
     options:[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'October',
-      'November',
-      'December'
+      'Imuka',
+      'Support Organisations',
+      'Entreprenuers',
+      'All',
     ]
   },
-  {
-    name:"Month",
-    options:[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'October',
-      'November',
-      'December'
-    ]
-  }
+ 
 ]
    
   modalRef: BsModalRef;
@@ -110,19 +77,18 @@ export class EventsComponent implements OnInit {
     this.get_all_events();
     console.log(this.filter_info)
   }
-  onChange(eve, main) {
-   
-    //item.checked = !item.checked;
-     let filter_name= main.name;
-        this.filter.name=filter_name;
-       this.filter.options=eve.target.value;
-     
-    // console.log(eve.target.value);
-    //  console.log(main.name);
-     console.log(this.filter)
-      //console.log(JSON.stringify(option.value));
-      //console.log(JSON.stringify(item));
+
+  onChange(event, main) {
+      // this.events_clone  = this.events;
+      console.log(this.events_clone )
+      this.events_clone = this.events_clone.filter((event_value) => {
+        if (event_value[main['db_name']] === event.target.value) {
+          console.log(event_value);
+          return event_value;
+        }
+      });
   }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
@@ -156,16 +122,7 @@ export class EventsComponent implements OnInit {
       this.eventServices.add_event(event).subscribe( data => { this.router.navigate(['/events']); });
   }
 
- // onChange( value ) {
-  //  if (value.length > 0 ) {
-   //   this.events_clone  = this.events;
-   //   this.events_clone = this.events_clone.filter((event_value) => {
-    //    if (event_value.event_type === value) {
-    //      return event_value;
-    //    }
-     // });
-   // } else {
-    //  console.log(' value is emtyp');
-  //  }
-  //}
+  reset(){
+    this. get_all_events();
+  }
 }
