@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ActivatedRoute, Router } from '@angular/router';
-import {BizService} from "../../provider/biz.service";
+import {BizService} from '../../provider/biz.service';
 
 
 @Component({
@@ -21,7 +21,8 @@ receiveable_clicked=true;
 payable_clicked=false;
 paymentrequest_clicked=false;
 modalRef: BsModalRef;
-constructor(private modalService: BsModalService, public route: ActivatedRoute, public router : Router, public businessService: BizService) { }
+constructor(private modalService: BsModalService, 
+  public route: ActivatedRoute, public router : Router, public businessService: BizService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -56,7 +57,6 @@ constructor(private modalService: BsModalService, public route: ActivatedRoute, 
  requestpayment(i, invoice){
    this.businessService.requestpayment(invoice.invoice_id).subscribe(data=>{
     this.get_invoices(invoice.prepared_by);
-
    });
 
  }
