@@ -14,7 +14,7 @@
           <div *ngIf="biznes?.on_program==='Y'" >
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
               <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
-              <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button>
+              <!-- <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button> -->
               <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(template)">update Progress</button>       
           </div>
           
@@ -58,24 +58,18 @@
               <form name=general>
                 <span style="font-size:14px">General</span>
                 <hr>
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-3 col-form-label" >Business name</label>
-                  <div class="col-sm-9">
+                <div class="form-group">
+                    <label for="inputPassword" class="form-label" >Business name</label>
                     <input type="text" class="form-control" name="business_name" [(ngModel)]="biznes.business_name"/>
-                  </div>
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-3 col-form-label" >Description</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" name="description" [(ngModel)]="biznes.description" rows="3"></textarea>
-                  </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="form-label" >Description</label>
+                    <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
                 </div>
                 
-                <div class="form-group row">
-                    <div class="col-sm-3">  
-                  <label for="exampleFormControlSelect1">Line of business/ sector</label></div>
-                  <div class="col-sm-9">
+                <div class="form-group"> 
+                  <label for="exampleFormControlSelect1">Line of business/ sector</label>
                   <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
                     <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
                     </option>
@@ -89,66 +83,46 @@
                     <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
                     <option value="Transport and Logistics">Transport and Logistics</option>
                     <option value="Services">Services</option>
-                </select></div>
+                </select>
                 </div>
-                <span style="font-size:14px">Contact</span>
-                <hr>
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">Phone number</label>
-                  <div class="col-sm-9">
-                    
+                
+                <div class="form-group">
+                    <label for="inputPassword" class="form-label">Phone number</label>
                     <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
-                  </div>
                 </div>
                 
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">Website</label>
-                  <div class="col-sm-9">
-                    
+                <div class="form-group">
+                    <label for="inputPassword" class="form-label">Website</label>
                     <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
-                  </div>
                 </div>
                 
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
-                  <div class="col-sm-9">
+                <div class="form-group">
+                    <label for="inputPassword" class="col-form-label">Email</label>
                     <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
-                  </div>
                 </div>
                 <span style="font-size:14px">Location</span>
                 <hr>
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">Address line</label>
-                  <div class="col-sm-9">
 
-                    <div class="input-group input-group-sm mb-3">
+                <div class="form-group">
+                      <label for="inputPassword" class="form-label">Address line</label>
                       <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
-                    </div>
-                  </div>
                 </div>
-                <span style="font-size:14px">More</span>
-                <hr>
-                  <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Mission</label>
-                    <div class="col-sm-9">
-                      <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" rows="3"></textarea>
-                    </div>
+
+        
+                  <div class="form-group">
+                      <label for="inputPassword" class="form-label">Mission</label>
+                      <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
                   </div>
-                  <hr>
-                  <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Vision</label>
-                    <div class="col-sm-9">
-                      <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" rows="3"></textarea>
-                    </div>
+                  
+                  <div class="form-group">
+                    <label for="inputPassword" class="form-label">Vision</label>
+                      <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
                   </div>
-                  <hr>
-                  <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Founded</label>
-                    <div class="col-sm-9">
+
+                  <div class="form-group">
+                      <label for="inputPassword" class="form-label">Founded</label>
                       <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
-                    </div>
                   </div>
-                  <hr>
                   
                   <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">Submit</button>
                 </form>
@@ -176,7 +150,7 @@
                   </div>  
                 </div>
               </div>
-              <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+              <div  class="col-md-4 col-xs-12" style="border-left:1px; margin-top:50px; solid #eee">
                 <form  [formGroup]="bizproduct">
                   <div class="form-group">
                     <label for="pdtname">Product Name</label>

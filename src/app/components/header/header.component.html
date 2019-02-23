@@ -2,22 +2,22 @@
   <nav class="navbar navbar-expand-md navbar-dark navbar-fixed fixed-top">
       <div class="container">
           <a class="navbar-brand" routerLink="/">
-              <img src="assets/icon1.png" alt="" style="height:40px; margin-left:20px;">
+              <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
           </a>
           <button class="navbar-toggler" type="button" (click)="openMenu()">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" [ngClass]="isClickedShowMenu?'no':'show'">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" routerLink="/people">
-                <i class="fa fa-address-book"></i>  People
+                <i class="fa fa-address-book"></i> People
               </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link" routerLink="/organisations">
-                  <i class="fa fa-sitemap"></i> Support organizations
+                  <i class="fa fa-sitemap"></i> Support Organizations
                 </a>
             </li>
 
