@@ -1,14 +1,18 @@
 .main{
-  background:#bcd5e2;
+ 
+ background:  linear-gradient(
+  rgba(216, 222, 223, 0.747), 
+  rgba(148, 150, 150, 0.45),
+ 
+);
   height:100vh !important;
   width:100%;
   .row{
       height:100vh;
       .info {
         display: flex;
-        background: #eee;
-        div{
-            margin: auto;
+        
+
         }
       }
 
@@ -20,4 +24,4 @@
           }
       }
   }
-}
+

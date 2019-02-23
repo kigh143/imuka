@@ -2,9 +2,8 @@
     <div class="row">
         <div class="col-md-6 info">
             <div>
-                    <h2>Imuka Access Tool</h2>
-                    <p>Made changes to the application page.</p>
-                    <div style="text-align:center; padding:20px"><a routerLink="/create_organisation" class="btn btn-default">Join As support organisation</a></div>
+                     <div> <img src="assets/icon.png" alt="" style="height:90px; margin-left:20px;"></div>
+                    <div style="text-align:center; padding:20px"></div>
             </div>
         </div>
         <div class="col-md-6 form">
@@ -38,7 +37,9 @@
                     <br>  
                     <button type="submit" class="btn btn-primary btn-block" [disabled]="myForm.invalid">Sign Up</button>
                 </form>
-                <div style="text-align:center; padding:20px"><a routerLink="/login" class="btn btn-default">Already has account? Login</a></div>
+                <div style="text-align:center; padding:20px"><a routerLink="/login" class="btn btn-default">Already has account? Login</a><br/>
+                    <a routerLink="/create_organisation" class="btn btn-default">Join As support organisation</a>
+                </div>
                 <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
             </div>
         </div>

@@ -1,17 +1,16 @@
 .main{
-    background:#bcd5e2;
-    height:100vh !important;
-    width:100vw;
+    background: linear-gradient(
+      rgba(4, 104, 95, 0.1), 
+      rgba(4, 173, 185, 0.1)
+    ),url(../../../assets/back1.svg);
+    background-repeat: no-repeat;
+    background-position:left top;
+    background-attachment: fixed;
+    height:100vh;
 
     .row{
         height:100vh;
-        .info {
-          display: flex;
-          background: #eee;
-          div{
-              margin: auto;
-          }
-        }
+        
   
         .form{
             display: flex;
