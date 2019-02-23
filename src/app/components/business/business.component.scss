@@ -37,16 +37,8 @@
     }
   
 }
-.box:hover{
--webkit-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
--moz-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
 
-}
 .active{
--webkit-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
--moz-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
-box-shadow: 10px 10px 12px 0px rgba(238,238,238,1);
 .h2{
    color:#1798d4;
 }
@@ -207,4 +199,8 @@ margin-right:10px !important;
       }
     }
   }
+}
+
+input, select, textarea {
+  border-radius:0px !important; 
 }

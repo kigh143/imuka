@@ -8,29 +8,30 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  oneAtATime = true;
-  user: any;
-  files: any[];
-  url: any;
+    oneAtATime = true;
+    user: any;
+    files: any[];
+    url: any;
+
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    dob: string;
+    mstatus: string;
+    gender: string;
+    education: string;
+    relevant_exp: string;
+    relevant_skills: string;
+    expertise: string;
+
+    selectedFile: any;
+
   constructor(public sessionService: SessionService,
     public authService: AuthService,
     public spinnerService: Ng4LoadingSpinnerService ) {
       this.files = [];
     }
-
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
-  dob: string;
-  mstatus: string;
-  gender: string;
-  education: string;
-  relevant_exp: string;
-  relevant_skills: string;
-  expertise: string;
-
-  selectedFile: any;
 
   ngOnInit() {
     const data = this.sessionService.getuser();
@@ -76,10 +77,10 @@ export class ProfileComponent implements OnInit {
     const uploadData = new FormData();
     uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
     this.authService.uploadpp( uploadData ).subscribe( data => {
-      // if ( data.flag ) {
-      //   this.url = this.selectedFile.target.result;
-      //   this.spinnerService.hide();
-      // }
+      if ( data.flag ) {
+        this.url = this.selectedFile.target.result;
+        this.spinnerService.hide();
+      }
       console.log(data);
     });
   }
