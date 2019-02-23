@@ -17,6 +17,7 @@ export class PitchbookComponent {
   business: any;
   business_id: any;
   pitch: any;
+  edit = false;
 
   constructor(
     private modalService: BsModalService,
@@ -35,7 +36,8 @@ export class PitchbookComponent {
   fetch_pitcbook_data( business_id ) {
     this.businessService.fetch_abusiness( business_id ).subscribe( data => {
         this.business = data.business_info;
-        console.log(this.business);
+        this.pitch  = data.pitch;
+        this.edit = false;
     });
   }
 
@@ -43,6 +45,10 @@ export class PitchbookComponent {
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
       console.log(data);
     });
+  }
+
+  edit_mode() {
+      this.edit = true;
   }
 
 }
