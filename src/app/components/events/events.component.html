@@ -7,14 +7,13 @@
             <app-mainmenu></app-mainmenu>
         </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
         <div class="jumbotron">
             <h1 class="display-4">Events</h1>
             <p>Find upcoming networking and training events in your sector and region,
             including Imuka Series events.</p>
             <hr class="my-4">
             <a class="btn btn-primary btn-sm" (click)="openModal(template)">Post an Event</a>
-            <hr>
             
         </div>
             <div class="content">
@@ -39,8 +38,22 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
-                <app-filters [filterImuka]="filter_info"></app-filters>
+        <div class="col-md-3">
+            <accordion>
+            <accordion-group [isOpen]="isFirstOpen" *ngFor="let filters of filter_info">
+            <div class=" clearfix" accordion-heading >
+            <div class="pull-left float-left" style="height:20px; padding-top: 10px">{{filters?.name}}</div>
+            <div class="float-right"><i class="fa fa-sort-desc"></i></div>
+            </div>
+            <div> <div class="form-group form-check" *ngFor="let option of filters.options; let i = index">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="{{option}}" value="{{option}}" (change)="onChange($event, filters)">
+            <label class="form-check-label" for="exampleCheck1">{{option}}</label>
+            </div>
+            </div>
+            </accordion-group>
+            </accordion>
+            <br/>
+            <button (click)="reset()" class="btn  btn-sm btn-outline-primary btn-block">Remove filters</button>
         </div>
       </div>
     </div>

@@ -21,11 +21,16 @@ export class EventsComponent implements OnInit {
   link: string;
   venue: string;
   user: any;
-  filter: string;
+ filter_name;
+ event_filter={
+    name:"",
+    options:[]
+  }
 
   events_clone: any;
   filter_info:Array<any>=[{
     name:"Event type",
+    db_name:"event_type",
     options:[
       'Business networking event',
       'Workshop/Conference',
@@ -35,62 +40,27 @@ export class EventsComponent implements OnInit {
   },
   {
     name:"Region",
+    db_name:"region",
     options:[
      'Western',
      'Northern',  
      'Eastern',
       'Southern',
-      'Others'
-    ]
-  },
-  {
-    name:"Month",
-    options:[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'October',
-      'November',
-      'December'
+      'Others',
+      'All'
     ]
   },
   {
     name:"Recomended by",
+    db_name:"event",
     options:[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'October',
-      'November',
-      'December'
+      'Imuka',
+      'Support Organisations',
+      'Entreprenuers',
+      'All',
     ]
   },
-  {
-    name:"Month",
-    options:[
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'October',
-      'November',
-      'December'
-    ]
-  }
+ 
 ]
    
   modalRef: BsModalRef;
@@ -106,6 +76,17 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.get_all_events();
     console.log(this.filter_info)
+  }
+
+  onChange(event, main) {
+      // this.events_clone  = this.events;
+      console.log(this.events_clone )
+      this.events_clone = this.events_clone.filter((event_value) => {
+        if (event_value[main['db_name']] === event.target.value) {
+          console.log(event_value);
+          return event_value;
+        }
+      });
   }
 
   openModal(template: TemplateRef<any>) {
@@ -141,16 +122,7 @@ export class EventsComponent implements OnInit {
       this.eventServices.add_event(event).subscribe( data => { this.router.navigate(['/events']); });
   }
 
-  onChange( value ) {
-    if (value.length > 0 ) {
-      this.events_clone  = this.events;
-      this.events_clone = this.events_clone.filter((event_value) => {
-        if (event_value.event_type === value) {
-          return event_value;
-        }
-      });
-    } else {
-      console.log(' value is emtyp');
-    }
+  reset(){
+    this. get_all_events();
   }
 }

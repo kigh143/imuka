@@ -5,8 +5,8 @@
           <div class="pull-left float-left" style="height:20px; padding-top: 10px">{{filters?.name}}</div>
           <div class="float-right"><i class="fa fa-sort-desc"></i></div>
       </div>
-      <div> <div class="form-group form-check" *ngFor="let option of filters.options">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="{{option}}" value="{{option}}" onselect="">
+      <div> <div class="form-group form-check" *ngFor="let option of filters.options; let i = index">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="{{option}}" value="{{option}}" (change)="onChange($event, filters)">
           <label class="form-check-label" for="exampleCheck1">{{option}}</label>
         </div>
        
@@ -14,3 +14,4 @@
   </accordion-group>
  
   </accordion>
+
