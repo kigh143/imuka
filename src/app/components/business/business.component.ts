@@ -237,6 +237,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.spinnerService.hide();
       if (data.flag) {
         this.getbusiness(this.business_id);
+        
       } else {
       console.log(data);
       }

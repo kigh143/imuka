@@ -7,72 +7,17 @@
         <app-mainmenu></app-mainmenu>
     </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6">
         <div class="jumbotron">
             <h1 class="display-4">Opportunities</h1>
             <p>Explore funding, skilling and resource opportunities in your business sector and region.</p>
             <hr class="my-4">
             <a class="btn btn-primary btn-sm" (click)="openTheModal(template)">Post an opportunity</a>
             <hr>
-            <div class="form-group row">
-                    <div class="form-group row">
-                            <div class="col-md-3">
-                                <select class="form-control" (change)="onChange($event.target.value)">
-                                    <option value="">select event type</option>
-                                    <option value="Business networking event">Business networking event</option>
-                                    <option value="Workshop/Conference">Workshop/Conference</option>
-                                    <option value="Training">Training</option>
-                                    <option value="Pitching">Pitching</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                    <select class="form-control" (change)="onChange($event.target.value)">
-                                        <option value="">hosted by</option>
-                                        <option value="Business networking event">Imuka</option>
-                                        <option value="Workshop/Conference">Support organisations</option>
-                                       
-                                    </select>
-                                </div><div class="col-md-3">
-                                        <select class="form-control" (change)="onChange($event.target.value)">
-                                            <option value="">Region</option>
-                                            <option value="Business networking event">Western</option>
-                                            <option value="Workshop/Conference">Northern</option>
-                                            <option value="Training">Eastern</option>
-                                            <option value="Pitching">Southern</option>
-                                        </select>
-                                    </div><div class="col-md-3">
-                                            <select class="form-control" (change)="onChange($event.target.value)">
-                                                <option value="">Month</option>
-                                                <option value="January">Jan</option>
-                                                <option value="February">Feb</option>
-                                                <option value="March">Mar</option>
-                                                <option value="Pitching">Apr</option>
-                                                <option value="April">May</option>
-                                                <option value="June">Jun</option>
-                                                <option value="July">Jul</option>
-                                                <option value="August">Aug</option>
-                                                <option value="September">Sept</option>
-                                                <option value="October">Oct</option>
-                                                <option value="November">Nov</option>
-                                                <option value="December">Dec</option>
-
-
-                                            </select>
-                                        </div><div class="col-md-3">
-                                                <select class="form-control" (change)="onChange($event.target.value)">
-                                                    <option value="">Recommended</option>
-                                                    <option value="Business networking event">Business networking event</option>
-                                                    <option value="Workshop/Conference">Workshop/Conference</option>
-                                                    <option value="Training">Training</option>
-                                                    <option value="Pitching">Pitching</option>
-                                                </select>
-                                            </div>
-            </div>
             
-        </div>
         <div class="content">
             <div class="row">
-                <div class="col-md-6 carddata" *ngFor="let opportunity of opportunities">
+                <div class="col-md-12 carddata" *ngFor="let opportunity of opportunities_clone">
                     <div class="card">
                     <div class="height:100px">
                     <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="height:150px"></div>
@@ -91,6 +36,23 @@
         </div>
     </div>
     </div>
+    <div class="col-md-3">
+            <accordion>
+            <accordion-group [isOpen]="isFirstOpen" *ngFor="let filters of filter_info">
+            <div class=" clearfix" accordion-heading >
+            <div class="pull-left float-left" style="height:20px; padding-top: 10px">{{filters?.name}}</div>
+            <div class="float-right"><i class="fa fa-sort-desc"></i></div>
+            </div>
+            <div> <div class="form-group form-check" *ngFor="let option of filters.options; let i = index">
+            <input type="radio" class="form-check-input" id="exampleCheck1" name="{{filters.db_name}}" value="{{option}}" (change)="onChange($event, filters)">
+            <label class="form-check-label" for="exampleCheck1">{{option}}</label>
+            </div>
+            </div>
+            </accordion-group>
+            </accordion>
+            <br/>
+            <button (click)="reset()" class="btn  btn-sm btn-outline-primary btn-block">Remove filters</button>
+        </div>
 </div>
 </div>
 

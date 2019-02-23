@@ -32,7 +32,7 @@ export class EventsComponent implements OnInit {
     name:"Event type",
     db_name:"event_type",
     options:[
-      'Business networking event',
+      'Business networking',
       'Workshop/Conference',
       'Training',
       'Pitching'
@@ -79,8 +79,6 @@ export class EventsComponent implements OnInit {
   }
 
   onChange(event, main) {
-      // this.events_clone  = this.events;
-      console.log(this.events_clone )
       this.events_clone = this.events_clone.filter((event_value) => {
         if (event_value[main['db_name']] === event.target.value) {
           console.log(event_value);
@@ -123,6 +121,6 @@ export class EventsComponent implements OnInit {
   }
 
   reset(){
-    this. get_all_events();
+    this.get_all_events();
   }
 }
