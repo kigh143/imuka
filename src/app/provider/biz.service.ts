@@ -56,7 +56,7 @@ api_url: string;
 
   fetch_abusiness(biz_id) {
     return this.http
-      .get(this.api_url + 'getabusiness/business_id/'+ biz_id +'/json')
+      .get(this.api_url + 'getabusiness/business_id/' + biz_id + '/json')
       .pipe(map(res => res.json()));
   }
 
