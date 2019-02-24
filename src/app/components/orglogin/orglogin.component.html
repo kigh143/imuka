@@ -2,14 +2,14 @@
   <div class="row">
       <div class="col-md-6 left">
           <div>
-              <h1><i class="fa fa-users"></i></h1>
-              <div> <img src="assets/icon.png" alt="" style="height:190px; margin-left:20px;"></div>
-              <p>Lets strengthen employers’ and entrepreneurs’ organisations in emerging markets to enhance the enabling environment for entrepreneurs and to promote the membership of entrepreneurs to those organisations. </p>
-              <button type="submit" class="btn btn-primary" routerLink="/login">Login to organisation</button>
+              <div style="margin-left:20px"> <img src="assets/icon.png" alt="" style="height:90px"></div>
+              <div style="margin-left:20px"><p>Lets strengthen employers’ and entrepreneurs’ organisations in emerging markets to enhance the enabling environment for entrepreneurs and to promote the membership of entrepreneurs to those organisations. </p>
+              </div>
             </div>
-
+            <div style="margin:auto"><img src="assets/support.svg" style="height:500px; width:500px"/></div>
+          
       </div>
-      <div class="col-md-6 right">
+      <div class="col-md-6 right" style="margin-top:30px">
         <div class="forms">
          
               <div class="form-create">
@@ -57,6 +57,7 @@
                       
                       <button type="submit" class="btn btn-primary" (click)="create_organisation()">Create you Account</button>
                   </form>
+                  <a  routerLink="/login" style="margin-top:5px">Login to organisation</a>
                   <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>   
               </div>
             

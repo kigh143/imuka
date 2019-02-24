@@ -4,22 +4,17 @@ app-orglogin{
 .main{
     height:100vh;
     width:100vw;
+    background: #eef;
     .row{
         .left{
-            background: rgb(12, 83, 131);
-            display: flex;
-            padding-top:20px;
+          
             height:100vh !important;
-
-            div{
-                margin:auto;
-                color:#fff;
-                text-align: center;
-            }
+            padding-left:10px !important;
+            
         }
         .right{
             padding-top:20px;
-            background: #fff;
+            background: transparent;
             .form-create{
                 padding:20px !important;
             }
