@@ -27,6 +27,13 @@
   color: #666;
   font-size:15px !important;
 }
+.active{
+  background: darkcyan !important;
+  color: white !important;
+  a{
+    color:white !important
+  }
+}
 
 .top {
   background: radial-gradient(circle at top left, #1798d4, rgb(61, 167, 167)) !important;

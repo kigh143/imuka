@@ -16,7 +16,9 @@
   border: 1px solid #eee;
   border-radius: 3px;
 }
-
+option{
+  font-size:12px;
+}
 .container {
   margin-top: 10px;
 }
@@ -111,4 +113,9 @@
     }
    
   }
+ 
+}
+.detail{
+  background: rgb(22, 22, 22) !important;
+  padding: 0;
 }

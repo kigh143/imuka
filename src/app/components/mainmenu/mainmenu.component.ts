@@ -24,5 +24,8 @@ export class MainmenuComponent implements OnInit {
   go_to_profile(){
     this.router.navigate(['profile']);
   }
+  activateClass(subModule){
+    subModule.active = !subModule.active;    
+  }
 
 }

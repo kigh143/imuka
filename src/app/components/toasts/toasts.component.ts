@@ -15,8 +15,8 @@ error:string;
   ngOnInit() {
 
   }
-  showSuccess() {
-    this.toastr.success('You are awesome!', 'Success!', {
+  showSuccess(succes_msg) {
+    this.toastr.success(succes_msg, 'Success!', {
       closeButton:true
     });
   }

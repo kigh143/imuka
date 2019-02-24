@@ -18,7 +18,8 @@ export class RequestComponent implements OnInit {
 	makerequest: any;
 	user: any;
 	requests: any;
-
+	current: number = 0;
+	items: Array<any>;
 	constructor(
 		public formBuilder: FormBuilder,
 		public router: Router,
@@ -36,6 +37,8 @@ export class RequestComponent implements OnInit {
 		this.user = this.session.getuser();
 		console.log(this.user);
 		this.receiverequest(this.user.user_id);
+		
+
 	
   }
 

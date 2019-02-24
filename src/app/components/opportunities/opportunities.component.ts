@@ -74,7 +74,7 @@ export class OpportunitiesComponent implements OnInit {
   onChange(event, main) {
     
     this.opportunities_clone = this.opportunities_clone.filter((opportunity_value) => {
-      if (opportunity_value[main['db_name']] == event.target.value) {
+      if (opportunity_value[main['db_name']] === event.target.value) {
         return opportunity_value;
       }
     });

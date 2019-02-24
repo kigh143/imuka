@@ -65,7 +65,10 @@
     .active {
       border-bottom:3px solid #1798d4 !important;
       border-radius: 0 !important;
-      background: #fff !important;
+      background: rgb(204, 241, 252) !important;
+      i{
+        color:white !important;
+      }
     }
 
     .collapse{

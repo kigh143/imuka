@@ -60,7 +60,7 @@
                 <hr>
                 <div class="form-group">
                     <label for="inputPassword" class="form-label" >Business name</label>
-                    <input type="text" class="form-control" name="business_name" [(ngModel)]="biznes.business_name"/>
+                    <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
                 </div>
 
                 <div class="form-group">
@@ -139,8 +139,8 @@
         <tab>
           <div class="products">
             <div class="content-box row">
-              <div class="col-md-8 col-xs-12">
-                <div class="row" *ngFor="let prdt of biznes.products">
+              <div class="col-md-8 col-xs-12" style="margin-top:10px;">
+                <div class="row" *ngFor="let prdt of products">
                   <div class="col-md-4">
                     <img src={{prdt.image}} height="150px" />
                   </div>
@@ -150,14 +150,14 @@
                   </div>  
                 </div>
               </div>
-              <div  class="col-md-4 col-xs-12" style="border-left:1px; margin-top:50px; solid #eee">
+              <div  class="col-md-4 col-xs-12" style="border-left:1px; margin-top:50px;">
                 <form  [formGroup]="bizproduct">
                   <div class="form-group">
-                    <label for="pdtname">Product Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter product name" formControlName="name" [class.invalid]="bizproduct.controls.name.invalid">
+                    <label for="pdtname">Product Name/Service offered</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter product / service name" formControlName="name" [class.invalid]="bizproduct.controls.name.invalid">
                   </div>
                   <div class="form-group">
-                    <label for="pdtname">Product Price</label>
+                    <label for="pdtname">Product/Service Price</label>
                     <input type="number" class="form-control" id="price" placeholder="Enter price" formControlName="price" [class.invalid]="bizproduct.controls.price.invalid">
                   </div>
                   <div class="form-group">
@@ -180,9 +180,9 @@
           <tab>
             <div class="documents" >
               <div class="content-box row">
-                <div class="col-md-8 col-xs-12">
+                <div class="col-md-8 col-xs-12" style="padding-top:20px">
                   <div class="row">
-                    <div class="col-3" *ngFor="let doc of biznes.documents">
+                    <div class="col-3" *ngFor="let doc of documents">
                       <div class="box document" [ngClass]="isclicked?'active':''" >
                         <img src="{{doc.image}}" height="80px"/>
                         <h6>{{doc.name}}</h6>
@@ -238,7 +238,7 @@
           <tab>
             <div class="financial" >
               <div class="content-box row">
-                <div class="col-md-8 col-xs-12">
+                <div class="col-md-8 col-xs-12" style="padding-top:20px">
                   <table class="table table-striped table-responsive-sm">
                     <thead>
                       <tr>
@@ -251,7 +251,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let financial of biznes.financials">
+                      <tr *ngFor="let financial of financials">
                         <th scope="row">{{financial.period_to}}</th>
                         <td>{{financial.ros}}</td>
                         <td>{{financial.roi}}</td>
@@ -262,7 +262,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0">
+                <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0; padding-top:20px">
                   <div class="form_fina">
                     <h4>Add financials</h4>
                     <form [formGroup]="bizfinancial">
@@ -516,4 +516,4 @@
       </tabset>
       </div>
       </div>
-</ng-template>
+    </ng-template>

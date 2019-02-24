@@ -16,6 +16,7 @@ import {BizService} from '../../provider/biz.service';
 import {SessionService} from '../../provider/session.service';
 import { ActivatedRoute } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap';
+import { ToastsComponent} from '../toasts/toasts.component'
 @Component({
 selector: 'app-business',
 templateUrl: './business.component.html',
@@ -44,6 +45,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   piechart: Chart;
   sector_info:any;
   financials:any;
+  products:any;
+  documents:any;
 
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
@@ -77,7 +80,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     public modalService: BsModalService,
     public businessServices: BizService,
     public session: SessionService,
-    public spinnerService: Ng4LoadingSpinnerService) {
+    public spinnerService: Ng4LoadingSpinnerService,
+    public alert: ToastsComponent) {
       this.bizteam = this.formBuilder.group({
           teamname: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           position: [ '', Validators.compose([ Validators.minLength(2),  Validators.required ])],
@@ -159,6 +163,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.biznes  = data['business_info'];
           this.sector_info= JSON.parse(this.biznes.sectors)
           this.financials = data['financials']
+          this.products = data['products']
+          this.documents = data['documents']
           this.dailyupdates = data['daily_updates'];
           this.draw();
       });
@@ -175,6 +181,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     this.businessServices.addproduct(products).subscribe(data => {
     this.spinnerService.hide();
       if (data.flag) {
+        this.alert.showSuccess("Product added");
         this.bizproduct.reset();
         this.getbusiness(this.business_id);
     }});
@@ -187,6 +194,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     this.businessServices.adddocument(document).subscribe(data => {
     this.spinnerService.hide();
       if ( data.flag ) {
+        this.alert.showSuccess("Document added");
         this.bizdoc.reset();
         this.getbusiness(this.business_id);
           }
@@ -200,8 +208,9 @@ export class BusinessComponent implements OnInit,  OnDestroy {
         this.businessServices.addfinancial(financial).subscribe(data=>{
           this.spinnerService.hide();
           if (data.flag) {
+            this.alert.showSuccess("Financial added");
             this.bizfinancial.reset();
-             this.getbusiness(this.business_id);
+            this.getbusiness(this.business_id);
           }
       });
   }
