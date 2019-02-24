@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { SessionService } from 'src/app/provider/session.service';
 import { BizService } from 'src/app/provider/biz.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,64 +11,106 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pitchbook.component.scss']
 })
 
-export class PitchbookComponent implements OnInit {
+export class PitchbookComponent {
 
   modalRef: BsModalRef;
-  businesses: any;
-  user: any;
-  active_business: any;
+  business: any;
+  business_id: any;
   pitch: any;
-  initial_business_id: any;
+  edit = false;
+  products: any;
+
+
+  social_impacts = [
+    { selected: false, ans: 'Security' },
+    { selected: false, ans: 'Self esteem' },
+    { selected: false, ans: 'Educational improvement' },
+    { selected: false, ans: 'It promotes girl education' },
+    {
+      selected: false,
+      ans: 'It promotes independence of the people especially women'
+    },
+    { selected: false, ans: 'Health improvement' },
+    { selected: false, ans: 'Food security' },
+    { selected: false, ans: 'Reduce unemployment through job creation' },
+    {
+      selected: false,
+      ans: 'Female engagement in employment/ gender equality'
+    },
+    {
+      selected: false,
+      ans: 'It improves the living standards and well being of the people'
+    },
+    { selected: false, ans: 'Reduces involvement of people in crimes' },
+    { selected: false, ans: 'Reduces idleness' },
+    { selected: false, ans: 'Improves the social infrastructure of the area' },
+    { selected: false, ans: 'It extends social services to the people' },
+    {
+      selected: false,
+      ans: 'It promotes justice and fairness with in the people'
+    },
+    { selected: false, ans: 'It improves the confidence of the people' },
+    {
+      selected: false,
+      ans: 'It improves the nutritional balance of the food '
+    },
+    {
+      selected: false,
+      ans:
+        'It promotes technological improvement (such as use of computer and merchinery) and innovation'
+    }
+  ];
+
+  economic_impact = [
+    { selected: false, ans: 'It provides jobs to the people' },
+    { selected: false, ans: 'It increases the incomes of the people' },
+    {
+      selected: false,
+      ans: 'Improvement in the standards of living of the people'
+    },
+    {
+      selected: false,
+      ans: 'It provides cheaper and affordable products/ services to the people'
+    }
+  ];
+
+  env_impact = [
+    {
+      selected: false,
+      ans: ' It encourages afforestation and preservation of plantations'
+    },
+    {
+      selected: false,
+      ans:
+        ' it encourages preservation of swamps and reduce environment degredation'
+    },
+    {
+      selected: false,
+      ans: ' it improves waste management within the area/ reduces pollution'
+    },
+    { selected: false, ans: ' it promotes recycling of the waste/ bi products' }
+  ];
 
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
-    public businessService: BizService,
-    public sessionService: SessionService) {
-      this.user = this.sessionService.getuser();
+    public businessService: BizService) {
       this.route.params.subscribe(params => {
-        this.initial_business_id = +params['id'];
+        this.business_id = +params['id'];
+        this.fetch_pitcbook_data(this.business_id);
       });
-  }
-
-  ngOnInit() {
-    this.fetch_business_for_user();
   }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
-  fetch_business_for_user() {
-    this.businessService.getbusinesses_for_user(this.user.user_id).subscribe( results => {
-      this.businesses = results;
-
-      const biz = results.filter( val => {
-          if (val.business_id === this.initial_business_id) {
-              return val;
-          }
-      });
-
-      this.active_business = biz[0];
-
-      this.load_active_business(this.active_business);
-      this.fetch_pitcbook_data(this.initial_business_id);
-
-    }, error => {
-      console.log(error);
-    });
-  }
-
-
-  load_active_business(business) {
-    this.active_business = business;
-    this.fetch_pitcbook_data(business.business_id);
-  }
-
   fetch_pitcbook_data( business_id ) {
-    this.businessService.get_pitch_book( business_id ).subscribe( data => {
-        // this.pitch = data;
-        console.log(data);
+    this.businessService.fetch_abusiness( business_id ).subscribe( data => {
+        this.business = data.business_info;
+        this.pitch  = data.pitch;
+        this.products  = data.products;
+        this.edit = false;
     });
   }
 
@@ -77,6 +118,10 @@ export class PitchbookComponent implements OnInit {
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
       console.log(data);
     });
+  }
+
+  edit_mode() {
+      this.edit = true;
   }
 
 }

@@ -56,7 +56,7 @@ api_url: string;
 
   fetch_abusiness(biz_id) {
     return this.http
-      .get(this.api_url + 'getabusiness/business_id/'+ biz_id +'/json')
+      .get(this.api_url + 'getabusiness/business_id/' + biz_id + '/json')
       .pipe(map(res => res.json()));
   }
 
@@ -125,16 +125,16 @@ api_url: string;
     .pipe(map(res => res.json()));
 
   }
-  
-  sendinvestrequest(invest_request){
+
+  sendinvestrequest(invest_request) {
     return this.http
       .post(this.api_url + 'makeinvestmentrequest/json', invest_request, this.options)
       .pipe(map(res => res.json()));
   }
 
-  updatebusiness(business_data){
+  updatebusiness(business_data) {
     return this.http
-      .post(this.api_url + "editbusiness/json",business_data, this.options)
+      .post(this.api_url + 'editbusiness/json', business_data, this.options)
       .pipe(map(res => res.json()));
   }
 
@@ -191,7 +191,7 @@ api_url: string;
 
   edit_pitchbook(data) {
     return this.http
-    .post(this.api_url + 'editpitchbook/json', data, this.options)
+    .post(this.api_url + 'editpitch/json', data, this.options)
     .pipe(map(res => res.json()));
   }
   follow_business(investor){
