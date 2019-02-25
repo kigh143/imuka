@@ -2,8 +2,8 @@
   <app-header></app-header>
   <div class="container">
     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-9">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
         <div class="jumbotron">
             <h1 class="display-4">{{business.businesss_name}} Pitch Book</h1>
             <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
@@ -134,7 +134,7 @@
                 <div class="form-group">
                     <label for="name">Social Impact</label>
                     <select class="form-control" name="pitch.social_impact"  [(ngModel)]="pitch.social_impact">
-            
+                          <option *ngFor="let impact of social_impacts" value="{{impact}}">{{impact}}</option>
                     </select>
                 </div>
                 </div>
@@ -150,6 +150,7 @@
                 <div class="form-group">
                 <label for="name">Economic impact</label>
                 <select class="form-control" name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
+                        <option *ngFor="let e_impact of economic_impact" value="{{e_impact}}">{{e_impact}}</option>
                 </select>
                 </div>
                 </div>
@@ -163,7 +164,7 @@
                     <div class="form-group">
                     <label for="name">Environmental impacts</label>
                     <select class="form-control" multiple name="pitch.environmental_impacts"  [(ngModel)]="pitch.environmental_impacts">
-                       <option *ngFor="" value=""></option>
+                       <option *ngFor="let environ_impact of env_impact" value="{{environ_impact.ans}}">{{environ_impact}}</option>
                     </select>
                     </div>
                 </div>   
