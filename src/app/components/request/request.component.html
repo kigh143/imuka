@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-6">
           <div class="content">
-                  <accordion [closeOthers]="oneAtATime">
+                  <!--<accordion [closeOthers]="oneAtATime">
                     <accordion-group  *ngFor="let request of requests" heading="{{request.title}}" style="margin-top:10px">
                      <div style="background: darkcyan; padding:0; margin:0px"> <div class="detail">
                         <p>{{request.details}}</p>
@@ -20,7 +20,22 @@
                         <p>{{request.reply_message}}</p>
                       </div></div>
                     </accordion-group>
-                  </accordion>
+                  </accordion>-->
+                  <ul class="list-group">
+                      <li class="list-group-item" *ngFor="let request of requests" (click)="openModal(template, request)">
+                      <div class="bottom">
+                      <img src="assets/user.png" alt="" height="25" />
+                      </div>
+                      <div class="center">
+                      <span style="">{{request.title}}</span><br>
+                      <span style="font-size:10px; color:gray">12:00 Am</span><br/>
+                      <span style="font-size:10px; color:gray"><i class="fa fa-eye"></i>View replies</span>
+                      </div>
+                      <div class="left">
+                      <span><i class="fa fa-calendar-check-o"></i></span>
+                      </div>
+                      </li>
+                      </ul>
               </div>
              
               
@@ -58,3 +73,37 @@
 
 
 <app-footer></app-footer>
+<ng-template #template >
+    <div class="modal-header" >
+      <span>{{activerequest.title}}</span>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="media">
+            <img src="assets/user.png" class="mr-3" alt="..." height="25" style="border-radius:50%">
+            <div class="media-body">
+              <span class="mt-0"><b>{{active_user?.name}}</b></span><br/>
+              <span style="color:rgb(167, 167, 168)">Published by Katende Kigh Hakim · January 6 · </span>
+            </div>
+          </div>
+          <div class="description">
+            <span>{{activerequest.details}}</span>
+              
+
+          </div>
+          <hr/>
+          <div class="replies">
+              <span><b>Replies</b></span>
+              <hr/>
+              <div class="media">
+                  <img src="assets/icon.png" class="mr-3" alt="..." height="25" style="border-radius:50%; border:1px solid rgb(153, 149, 149)">
+                  <div class="media-body" style="background:rgb(224, 205, 205); padding-left:5px;">
+                      <span>{{activerequest.reply_message}}</span>
+                  </div>
+                </div>
+             
+          </div>
+    </div>
+  </ng-template>

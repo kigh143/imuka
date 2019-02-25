@@ -119,3 +119,23 @@ option{
   background: rgb(22, 22, 22) !important;
   padding: 0;
 }
+.list-group-item {
+  display: flex;
+  flex-direction: row;
+}
+.bottom {
+  flex: 1;
+}
+.center {
+  flex: 9;
+}
+.left {
+  flex: 1;
+  text-align: right;
+}
+.description{
+  margin-bottom:20px;
+}
+.replies{
+  margin-top:10px;
+}

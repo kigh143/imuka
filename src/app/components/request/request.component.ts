@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   FormGroup,
@@ -6,6 +6,7 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {SessionService} from '../../provider/session.service';
 import {BizService} from '../../provider/biz.service';	
 @Component({
@@ -20,7 +21,10 @@ export class RequestComponent implements OnInit {
 	requests: any;
 	current: number = 0;
 	items: Array<any>;
-	constructor(
+	activerequest:any
+	modalRef: BsModalRef;
+	current_user:any;
+  constructor(private modalService: BsModalService,
 		public formBuilder: FormBuilder,
 		public router: Router,
 		public session: SessionService, 
@@ -40,6 +44,11 @@ export class RequestComponent implements OnInit {
 		
 
 	
+  }
+  openModal(template: TemplateRef<any>, request) {
+	this.modalRef = this.modalService.show(template);
+	this.activerequest = request;
+	this.current_user = this.user;
   }
 
 	sendrequest(){

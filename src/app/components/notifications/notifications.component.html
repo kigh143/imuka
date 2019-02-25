@@ -14,7 +14,7 @@
              
             <div class="content">
                 <ul class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item" (click)="openModal(template)">
                 <div class="bottom">
                 <img src="assets/user.png" alt="" height="25" />
                 </div>
@@ -27,6 +27,7 @@
                 </div>
                 </li>
                 </ul>
+                
             </div>
         </div>
         <div class="col-md-3 feeds">
@@ -38,4 +39,24 @@
     </div>
     </div>
     <app-footer></app-footer>
-    
+    <ng-template #template >
+        <div class="modal-header" >
+          <span>Modal</span>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="media">
+                <img src="assets/user.png" class="mr-3" alt="..." height="25" style="border-radius:50%">
+                <div class="media-body">
+                  <span class="mt-0"><b>Fecund labs</b></span><br/>
+                  <span style="color:rgb(167, 167, 168)">Published by Katende Kigh Hakim · January 6 · </span>
+                </div>
+              </div>
+              <div class="description">
+                  <span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
+
+              </div>
+        </div>
+      </ng-template>
