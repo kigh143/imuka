@@ -28,6 +28,11 @@ api_url: string;
       .pipe(map(res => res.json()));
 
   }
+  getcount(user_id){
+    return this.http
+    .get(this.api_url + 'getcounts/user_id/'+user_id+'/json')
+    .pipe(map(res => res.json()));
+  }
    addproduct(product) {
       return this.http
       .post(this.api_url + 'addproduct/json', product, this.options)

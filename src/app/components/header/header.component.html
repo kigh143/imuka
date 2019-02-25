@@ -28,21 +28,41 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" routerLink="/profile"> 
-                <i class="fa fa-fa fa-user-circle-o"></i> {{user?.email}}
-              </a>
-            </li>
+                <a class="nav-link" routerLink="/profile"> 
+                  <i class="fa fa-fa fa-user-circle-o"></i> {{user?.email}}
+                </a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link"> 
+                    BETA RELEASE
+                  </a>
+                </li>
           </ul>
           </div>
       </div>
   </nav>
 </header>
 
-<ul class="mobile_tabs">
+<ul class="mobile_tabs"  *ngIf="user?.user_type==='entrepreneur'">
   <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/"><i class="fa fa-home"></i></a></li>
   <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/events"><i class="fa fa-calendar"></i></a></li>
   <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/opportunities"><i class="fa fa-globe"></i></a></li>
   <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/organisations"><i class="fa fa-sitemap"></i></a></li>
-  <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/notifications"><i class="fa fa-bell"></i></a></li>
+  <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/request"><i class="fa fa-envelope"></i></a></li>
 </ul>
 
+<ul class="mobile_tabs" *ngIf="user?.user_type==='investor'">
+    <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/"><i class="fa fa-home"></i></a></li>
+    <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/investmentrequest"><i class="fa fa-money"></i></a></li>
+    <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/investiment_opportunities"><i class="fa fa-globe"></i></a></li>
+    <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/contracts"><i class="fa fa-globe"></i></a></li>
+    <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/request"><i class="fa fa-envelope"></i></a></li>
+  </ul>
+  <ul class="mobile_tabs" *ngIf="user?.user_type==='org'">
+      <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/"><i class="fa fa-home"></i></a></li>
+      <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/events"><i class="fa fa-calendar"></i></a></li>
+      <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/opportunities"><i class="fa fa-globe"></i></a></li>
+      <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/organisations"><i class="fa fa-sitemap"></i></a></li>
+      <li class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/request"><i class="fa fa-envelope"></i></a></li>
+    </ul>

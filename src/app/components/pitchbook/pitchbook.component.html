@@ -5,7 +5,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <div class="jumbotron">
-            <h1 class="display-4">{{business.businesss_name}} Pitch Book</h1>
+            <h1 class="display-4">{{business.business_name}} Pitch Book</h1>
             <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
             <button class="btn btn-primary btn-sm" (click)="openModal(template)">Generate Pitch book</button>
             <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
@@ -13,8 +13,8 @@
         </div>
         <div class="content">
             <section>
-                <b>{{businesss.businesss_name}}</b><br/>
-                <span>{{businesss.legal_entity}}</span>                 
+                <b>{{business.business_name}}</b><br/>
+                <span>{{business.legal_entity}}</span>                 
             </section>
 
             <section>
@@ -88,14 +88,14 @@
             </section>
 
             <section>
-                <b>businesss Model</b> <br/><span>{{pitch.businesss_model}}</span><br/>  
+                <b>business Model</b> <br/><span>{{pitch.business_model}}</span><br/>  
                 <p>Revenue</p><br/><span>{{pitch.revenue}}</span><br/>  
                 <b>Pricing</b><br/><span>{{pitch.pricing}}</span><br/>  
                 <b>Average accont size / Lifetime value</b><br/><span>{{pitch.lifetime_value}}</span><br/> 
                 <b>Distribution model</b><br/><span>{{pitch.distribution_model}}</span><br/> 
                 <div  *ngIf="edit">
-                    <b>businesss Model</b>
-                    <textarea class="form-control" name="pitch.businesss_model" [(ngModel)]="pitch.businesss_model" cols="30" rows="6"></textarea>
+                    <b>business Model</b>
+                    <textarea class="form-control" name="pitch.business_model" [(ngModel)]="pitch.business_model" cols="30" rows="6"></textarea>
                     <p>Revenue</p>
                     <textarea class="form-control" name="pitch.revenue" [(ngModel)]="pitch.revenue" cols="30" rows="6"></textarea>
                     <b>Pricing</b>
@@ -108,7 +108,7 @@
             </section>
 
             <section>
-                <b>businesss Financials</b><br/>  
+                <b>business Financials</b><br/>  
             </section>
 
             <section>
@@ -187,7 +187,7 @@
     </div>
     <div class="modal-body">
             <section>
-                    <b>businesss Name</b><br/>
+                    <b>business Name</b><br/>
                     <span>Technology</span>                 
                 </section>
     
@@ -252,8 +252,8 @@
                 </section>
     
                 <section>
-                    <p><b>businesss Model</b> </p>
-                    <br/><span>{{pitch.businesss_model}}</span><br/>  
+                    <p><b>business Model</b> </p>
+                    <br/><span>{{pitch.business_model}}</span><br/>  
                     <p>Revenue</p><br/><span>{{pitch.revenue}}</span><br/>  
                     <b>Pricing</b><br/><span>{{pitch.pricing}}</span><br/>  
                     <b>Average accont size / Lifetime value</b><br/><span>{{pitch.lifetime_value}}</span><br/> 

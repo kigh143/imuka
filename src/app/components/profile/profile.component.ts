@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../provider/session.service';
 import { AuthService } from '../../provider/auth.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { ToastsComponent } from '../toasts/toasts.component';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -29,7 +30,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(public sessionService: SessionService,
     public authService: AuthService,
-    public spinnerService: Ng4LoadingSpinnerService ) {
+    public spinnerService: Ng4LoadingSpinnerService, public alert:ToastsComponent) {
       this.files = [];
     }
 
@@ -57,6 +58,7 @@ export class ProfileComponent implements OnInit {
       this.authService.edit_user(object, this.user.user_id).subscribe( data => {
         this.spinnerService.hide();
         if (data.flag) {
+          this.alert.showSuccess("field(s) updated");
           console.log(data);
           this.sessionService.login(data.user);
         }
