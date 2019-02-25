@@ -140,14 +140,15 @@
           <div class="products">
             <div class="content-box row">
               <div class="col-md-8 col-xs-12" style="margin-top:10px;">
-                <div class="row" *ngFor="let prdt of products">
-                  <div class="col-md-4">
-                    <img src={{prdt.image}} height="150px" />
+             
+                <div class="media"  *ngFor="let prdt of products">
+                  <div class="media-left">
+                    <img src="{{prdt.image}}" class="media-object" style="width:60px">
                   </div>
-                  <div class="col-md-8" style="">
-                    <h6>{{prdt.name}}</h6>
+                  <div class="media-body">
+                    <h4 class="media-heading">{{prdt.name}}</h4>
                     <p>{{prdt.description}}</p>
-                  </div>  
+                  </div>
                 </div>
               </div>
               <div  class="col-md-4 col-xs-12" style="border-left:1px; margin-top:50px;">

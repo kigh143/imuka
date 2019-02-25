@@ -134,7 +134,7 @@
                 <div class="form-group">
                     <label for="name">Social Impact</label>
                     <select class="form-control" name="pitch.social_impact"  [(ngModel)]="pitch.social_impact">
-                          <option *ngFor="let impact of social_impacts" value="{{impact}}">{{impact}}</option>
+                        <option *ngFor="let impact of social_impacts" value="{{impact}}">{{impact}}</option>
                     </select>
                 </div>
                 </div>
@@ -150,7 +150,7 @@
                 <div class="form-group">
                 <label for="name">Economic impact</label>
                 <select class="form-control" name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
-                        <option *ngFor="let e_impact of economic_impact" value="{{e_impact}}">{{e_impact}}</option>
+                    <option *ngFor="let e_impact of economic_impact" value="{{e_impact}}">{{e_impact}}</option>
                 </select>
                 </div>
                 </div>
@@ -187,8 +187,8 @@
     </div>
     <div class="modal-body">
             <section>
-                    <b>business Name</b><br/>
-                    <span>Technology</span>                 
+                    <b>{{pitch?.problem}}</b><br/>
+                    <span>{{pitch?.problem}}</span>                 
                 </section>
     
                 <section>
