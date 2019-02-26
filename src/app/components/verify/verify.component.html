@@ -1,16 +1,57 @@
-<div class="main">
-    <div class="center">
-        <h3>Thank you for joining ImukaAccess!</h3>
-        <p>To verify your account, Check your Email address <span style="color:rgb(248, 200, 222); margin:4px;">{{currentuser.email}}</span> for the Verification code we sent you and enter it below.</p>
-
-        <form [formGroup]="verform">
-        <div class="form-group">
-        <label for="code">Verification code</label>
-        <input type="text" class="form-control" id="code"  formControlName="code" [class.invalid]="verform.controls.code.invalid">
+<section>
+        <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/signup">Create Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/create_organisation">Add support Organisation</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="card text-white bg-success mb-3" style="max-width: 100% ;">
+                            <div class="card-header">Thank you for joining ImukaAccess!.</div>
+                            <div class="card-body">
+                                    <p>To verify your account, Check your Email address <span style="color:rgb(248, 200, 222); margin:4px;">{{currentuser.email}}</span> for the Verification code we sent you and enter it below.</p>
+                                    <form [formGroup]="verform">
+                                        <div class="form-group">
+                                        <label for="code">Verification code</label>
+                                        <input type="text" class="form-control" id="code"  formControlName="code" [class.invalid]="verform.controls.code.invalid">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <button type="submit" class="btn btn-primary btn-block" (click)="verify()">Verify Account</button>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-warning btn-block" (click)="resend_code()">Resend Code</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block" (click)="verify()">Verify Account</button>
-        </form> 
-    </div>
-</div>
-
-  
+        <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+    </section>
+    
+    
+      

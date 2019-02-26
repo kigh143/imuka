@@ -1,67 +1,93 @@
-<div class="main">
-  <div class="row">
-      <div class="col-md-6 left">
-          <div>
-              <div style="margin-left:20px"> <img src="assets/icon.png" alt="" style="height:90px"></div>
-              <div style="margin-left:20px"><p>Lets strengthen employers’ and entrepreneurs’ organisations in emerging markets to enhance the enabling environment for entrepreneurs and to promote the membership of entrepreneurs to those organisations. </p>
-              </div>
+<section>
+        <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/signup">Create Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/create_organisation">Add support Organisation</a>
+                    </li>
+                </ul>
             </div>
-            <div style="margin:auto"><img src="assets/support.svg" style="height:500px; width:500px"/></div>
-          
-      </div>
-      <div class="col-md-6 right" style="margin-top:30px">
-        <div class="forms">
-         
-              <div class="form-create">
-                  <form>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Organisation name</label>
-                        <input type="text" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter email">
-                      </div>
-         
-                      <div class="form-group">
-                        <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
-                        <select class="form-control" multiple  name="services" [(ngModel)]="services" id="exampleInputPassword1" >
-                            <option value="Mentorship/Feedback">Mentorship/Feedback</option>
-                            <option value="Expertise/Know-How/Coaching(Online | hands-on  | both)">Expertise/Know-How/Coaching(Online | hands-on  | both)</option>
-                            <option value="Business Networking">Business Networking</option>
-                            <option value="Financing for my Business">Financing for my Business</option>
-                            <option value="Office/Space/Prestige">Office/Space/Prestige</option>
-                            <option value="Training Programs/Workshops">Training Programs/Workshops</option>
-                            <option value="Product development and refinement">Product development and refinement</option>
-                            <option value="Business management and strategy skills">Business management and strategy skills</option>
-                            <option value="Sales and Marketing skills">Sales and Marketing skills</option>
-                            <option value="Financial Management skills">Financial Management skills</option>
-                            <option value="Customized training services">Customized training services</option>
-                            <option value="Online Presence & Visibility(Online Brand)">Online Presence & Visibility(Online Brand)</option>
-                        </select>
-                        <small id="emailHelp" class="form-text text-muted">Press Ctrl / Command and then select all that apply.</small>
-                      </div>
-
-                      <div class="form-group">
-                          <label for="exampleInputPassword1">Organisation website</label>
-                          <input type="link" class="form-control" name="website" [(ngModel)]="website" id="exampleInputPassword1">
-                      </div>
-
-                      <div class="row">
-                          <div class="form-group col-md-6">
-                              <label for="exampleInputPassword1">Organisation Email</label>
-                              <input type="email" name="s_email" [(ngModel)]="s_email" class="form-control">
-                          </div>
-    
-                          <div class="form-group col-md-6">
-                              <label for="exampleInputPassword1">contact phone number</label>
-                              <input type="password" name="contact" [(ngModel)]="contact" class="form-control">
-                          </div>
-                      </div>
-                      
-                      <button type="submit" class="btn btn-primary" (click)="create_organisation()">Create you Account</button>
-                  </form>
-                  <a  routerLink="/login" style="margin-top:5px">Login to organisation</a>
-                  <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>   
-              </div>
-            
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div>
+                            <h1 class="display-4">Add support Organisation.</h1>
+                            <p>Lets strengthen employers’ and entrepreneurs’ organisations in emerging markets to enhance the enabling environment for entrepreneurs and to promote the membership of entrepreneurs to those organisations. </p>                            
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
+                            <div class="card-header">Add support Organisation.</div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Organisation Name</label>
+                                        <input type="text" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter email">
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
+                                        <select class="form-control" multiple  name="services" [(ngModel)]="services" id="exampleInputPassword1" >
+                                            <option value="Mentorship/Feedback">Mentorship/Feedback</option>
+                                            <option value="Expertise/Know-How/Coaching(Online | hands-on  | both)">Expertise/Know-How/Coaching(Online | hands-on  | both)</option>
+                                            <option value="Business Networking">Business Networking</option>
+                                            <option value="Financing for my Business">Financing for my Business</option>
+                                            <option value="Office/Space/Prestige">Office/Space/Prestige</option>
+                                            <option value="Training Programs/Workshops">Training Programs/Workshops</option>
+                                            <option value="Product development and refinement">Product development and refinement</option>
+                                            <option value="Business management and strategy skills">Business management and strategy skills</option>
+                                            <option value="Sales and Marketing skills">Sales and Marketing skills</option>
+                                            <option value="Financial Management skills">Financial Management skills</option>
+                                            <option value="Customized training services">Customized training services</option>
+                                            <option value="Online Presence & Visibility(Online Brand)">Online Presence & Visibility(Online Brand)</option>
+                                        </select>
+                                        <small id="emailHelp" class="form-text text-muted">Press Ctrl / Command and then select all that apply.</small>
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Organisation Website</label>
+                                        <input type="link" class="form-control" name="website" [(ngModel)]="website" id="exampleInputPassword1">
+                                    </div>
+                
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputPassword1">Organisation Email</label>
+                                            <input type="email" name="s_email" [(ngModel)]="s_email" class="form-control">
+                                        </div>
+                    
+                                        <div class="form-group col-md-6">
+                                            <label for="exampleInputPassword1">Contact Number</label>
+                                            <input type="tell" name="contact" [(ngModel)]="contact" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-block" (click)="create_organisation()"> Next </button>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <a style="color:#eee;" routerLink="/login">Already has account? Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
-</div>
+        <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+    </section>
+    
+    
+      

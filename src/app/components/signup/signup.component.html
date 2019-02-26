@@ -1,49 +1,82 @@
-<div class="main">
-    <div class="row">
-        <div class="col-md-6 info">
-            <div>
-                     <div> <img src="assets/icon.png" alt="" style="height:90px; margin-left:20px;"></div>
-                    <div style="text-align:center; padding:20px"></div>
+<section>
+        <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/signup">Create Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/create_organisation">Add support Organisation</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="col-md-6 form">
-            <div>
-                <form [formGroup]="myForm" (submit)="signup()">
-                    <div class="form-group">
-                    <label for="exampleInputEmail1">Choose account type</label>
-                    <select formControlName="user_type" class="form-control">
-                        <option value="entrepreneur">Entrepreneur</option>
-                        <option value="investor">Investor</option>
-                    </select>
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div>
+                            <h1 class="display-4">Create Account.</h1>
+                            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                    <label for="exampleInputEmail1">Phone number</label>
-                    <input type="text" class="form-control" id="Phone" placeholder="Phone number" formControlName="phone" [class.invalid]="myForm.controls.phone.invalid">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
+                    <div class="col-md-5">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
+                            <div class="card-header">Create Account.</div>
+                            <div class="card-body">
+                                <form [formGroup]="myForm" (submit)="signup()">
+                                    <div class="form-group">
+                                    <label for="exampleInputEmail1">Choose account type</label>
+                                    <select formControlName="user_type" class="form-control">
+                                        <option value="entrepreneur">Entrepreneur</option>
+                                        <option value="investor">Investor</option>
+                                    </select>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Phone number</label>
+                                                <input type="text" class="form-control" id="Phone" placeholder="Phone number" formControlName="phone" [class.invalid]="myForm.controls.phone.invalid">
+                                                <small id="emailHelp" class="form-text">We'll never share your phone number.</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" [class.invalid]="myForm.controls.email.invalid">
+                                                    <small id="emailHelp" class="form-text">We'll never share your email.</small>
+                                                </div>  
+                                        </div>
+                                    </div>
+                
+                                    <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" placeholder="Password" formControlName="password" [class.invalid]="myForm.controls.password.invalid">
+                                    </div>
+                                    <br>  
+                                    <button type="submit" class="btn btn-primary btn-block" [disabled]="myForm.invalid">Sign Up</button>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <a style="color:#eee;" routerLink="/login">Already has account? Login</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" [class.invalid]="myForm.controls.email.invalid">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-
-                    <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password" [class.invalid]="myForm.controls.password.invalid">
-                    </div>
-                    <br>  
-                    <button type="submit" class="btn btn-primary btn-block" [disabled]="myForm.invalid">Sign Up</button>
-                </form>
-                <div style="text-align:center; padding:20px"><a routerLink="/login" class="btn btn-default">Already has account? Login</a><br/>
-                    <a routerLink="/create_organisation" class="btn btn-default">Join As support organisation</a>
                 </div>
-                <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
             </div>
         </div>
-    </div>
-</div>
-
-  
+        <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+    </section>
+    
+    
+      
