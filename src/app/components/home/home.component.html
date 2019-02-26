@@ -9,9 +9,8 @@
     </div>
     <div class="col-md-9">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, {{header}}! </h1>
+            <h4>Hello, {{header}}! </h4>
             <p><a routerLink="/profile">update your profile.</a></p>
-
             <p *ngIf="user?.user_type==='entrepreneur'">Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>            
             <p  *ngIf="user?.user_type==='investor'">
                 Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Here you can find a

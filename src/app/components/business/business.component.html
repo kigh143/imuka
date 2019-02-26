@@ -5,41 +5,47 @@
   <div class="row">
     <div class="col-md-8">
       <div class="jumbotron">
-          <h1 class="display-4" style="color:#14978a">{{biznes?.business_name}}</h1>
-       
+          <h3 style="color:#14978a">{{biznes?.business_name}}</h3>
           <p>Sector(s) : {{sector_info}}</p>
-          <p>Balance: NILL</p>
           <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
-        
           <div *ngIf="biznes?.on_program==='Y'" >
-              <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">View pitch deck</button>
-              <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">View Inovices</button>
-              <!-- <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(followers)">Followers and Investiments</button> -->
-              <button type="button" class="btn btn-outline-primary spaced" (click)="openModal(template)">update Progress</button>       
+              <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">Pitch Deck</button>
+              <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">Inovices</button>
           </div>
-          
       </div>
     </div>
-    <div *ngIf="biznes?.on_program==='Y'" class="col-md-4">
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-dark">Breakdown of the imuka activities and milestones.</li>
-            <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
-              {{milestone?.name}} 
-              <i [ngClass]="{'fa fa-check': milestone.complete}" ></i>
-          </ul>
+
+    <div class="col-md-4">
+        <div *ngIf="biznes?.on_program==='Y'">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-dark">Breakdown of the imuka activities and milestones.</li>
+                <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
+                {{milestone?.name}} 
+                <i [ngClass]="{'fa fa-check': milestone.complete}" ></i>
+            </ul>
+        </div>
+
+        <div *ngIf="biznes?.on_program==='N'">
+          <h2><i class="fa fa-file-o"></i></h2>
+          <h4><b>Not yet on program</b></h4>
+        </div>
     </div>
   </div>
-  <hr>
-  <div *ngIf="biznes?.on_program==='Y'">
-      <div class="row"><div class="col-lg-5 col-md-12">
-          <div [chart]="chart"></div>
-        </div>
-        <div class="col-lg-2"></div>
-        <div class="col-lg-5 col-md-12">
-            <div [chart]="mline"></div>
+
+  <div class="card border-primary mb-3" style="max-width: 100%;" *ngIf="biznes?.on_program==='Y'">
+    <div class="card-header bg-transparent border-primary">Business Progress</div>
+    <div class="card-body text-primary">
+        <div class="row"><div class="col-md-6">
+            <div [chart]="chart"></div>
           </div>
-          
-      </div>
+          <div class="col-md-6">
+              <div [chart]="mline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-primary">
+        <button type="button" class="btn btn-primary" (click)="openModal(template)">Update Business Progress</button>       
+    </div>
   </div>
 
   <div class="tabst">
@@ -131,10 +137,6 @@
             </div>
           </div>
         </tab>
-
-
-
-
 
         <tab>
           <div class="products">
@@ -314,12 +316,45 @@
               </div> 
             </div>
           </tab>
+
+
     </tabset>
   </div>
 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 </div>
-<app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+
 
 <ng-template #template>
       <div class="modal-header">
@@ -449,7 +484,6 @@
       </div>
 </ng-template>
 
-
 <ng-template #followers style="padding:0px">
       <div class="modal-header">
       <h4 class="modal-title pull-left">Modal</h4>
@@ -517,4 +551,4 @@
       </tabset>
       </div>
       </div>
-    </ng-template>
+</ng-template>
