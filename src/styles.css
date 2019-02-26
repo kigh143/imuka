@@ -38,10 +38,8 @@ body{
   background: radial-gradient(circle at bottom left, #1798d4, rgb(61, 167, 167)) !important;
 }
 
-.btn-primary {
-    background-image: #1798d4;
+
+.navbar-brand{
     color:#fff !important;
-    border:1px solid #1798d4 !important;
 }
 
-  
