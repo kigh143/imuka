@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     relevant_exp: string;
     relevant_skills: string;
     expertise: string;
-
+    current:any;
     selectedFile: any;
 
   constructor(public sessionService: SessionService,
@@ -41,26 +41,29 @@ export class ProfileComponent implements OnInit {
 
   save(value) {
     if ( value === 'name') {
-      this.send_request({name: this.name});
+      this.send_request({name: this.user.name});
    } else  if ( value === 'contact') {
-      this.send_request({email: this.email, phone: this.phone, address: this.address });
+      this.send_request({email: this.user.email, phone: this.user.phone, address: this.user.address });
    } else  if ( value === 'personnal') {
-      this.send_request({dob: this.dob, mstatus: this.mstatus, gender: this.gender});
+      this.send_request({dob: this.user.dob, mstatus: this.user.mstatus, gender: this.user.gender});
    } else  if ( value === 'education') {
-      this.send_request({education: this.education});
+      this.send_request({education: this.user.education});
    } else  if ( value === 'experience') {
-      this.send_request({relevant_exp: this.relevant_exp, relevant_skills: this.relevant_skills, expertise: this.expertise });      
+      this.send_request({relevant_exp: this.user.relevant_exp, relevant_skills: this.user.relevant_skills, expertise: this.user.expertise });      
     }
   }
 
   send_request(object) {
+    console.log(object);
     this.spinnerService.show();
       this.authService.edit_user(object, this.user.user_id).subscribe( data => {
-        this.spinnerService.hide();
+       this.spinnerService.hide();
         if (data.flag) {
           this.alert.showSuccess("field(s) updated");
           console.log(data);
           this.sessionService.login(data.user);
+          this.current=this.sessionService.getuser();
+          console.log(this.current);
         }
       }, error => {
         console.log( error);
