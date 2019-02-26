@@ -43,24 +43,24 @@
 
                             <div class="form-group">
                             <label for="exampleInputPassword1">phone number</label>
-                            <input type="tell" class="form-control" name="phone" [(ngModel)]="phone" id="exampleInputPassword1">
+                            <input type="tell" class="form-control" name="phone" placeholder="Phone Number" [(ngModel)]="phone" id="exampleInputPassword1">
                             </div>
 
                             <div class="row">
 
                             <div class="form-group col-md-6">
                             <label for="exampleInputPassword1">Email Address</label>
-                            <input type="email" name="email" [(ngModel)]="email" class="form-control">
+                            <input type="email" name="email" [(ngModel)]="email" placeholder="Email Address" class="form-control">
                             </div>
 
                             <div class="form-group col-md-6">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" name="password" [(ngModel)]="password" class="form-control">
+                            <input type="password" name="password" [(ngModel)]="password" placeholder="Password" class="form-control">
                             </div>
 
                             </div>
 
-                            <button type="submit" class="btn btn-primary" (click)="create_admin()">Finish</button>
+                            <button type="submit" class="btn btn-outline-primary btn-block" (click)="create_admin()">Finish</button>
                             </form> 
                         </div>
                         <div class="card-footer"><a routerLink="/forgotPassword">Forgot password?</a></div>
