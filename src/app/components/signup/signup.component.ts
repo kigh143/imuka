@@ -18,6 +18,8 @@ import {
 export class SignupComponent {
 
   myForm: any;
+  error = false;
+  error_message: string;
 
   constructor(public formBuilder: FormBuilder, public router : Router, public auth: AuthService, 
     public spinnerService: Ng4LoadingSpinnerService,
@@ -39,7 +41,8 @@ export class SignupComponent {
         this.session.login(data.user);
         this.router.navigate(['/verify']);
       } else {
-
+        this.error = true;
+        this.error_message = data.messsage;
       }
     });
   }

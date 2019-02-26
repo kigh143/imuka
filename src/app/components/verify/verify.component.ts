@@ -5,9 +5,9 @@ FormGroup,
 FormBuilder,
 FormControl,
 Validators
-} from "@angular/forms";
-import {AuthService} from "../../provider/auth.service"
-import {SessionService} from "../../provider/session.service"
+} from '@angular/forms';
+import {AuthService} from '../../provider/auth.service'
+import {SessionService} from '../../provider/session.service'
 @Component({
   selector: 'app-verify',
   templateUrl: './verify.component.html',
@@ -15,24 +15,27 @@ import {SessionService} from "../../provider/session.service"
 })
 export class VerifyComponent  {
     verform: any;
-    currentuser:any;
+    currentuser: any;
+    error: Boolean;
+    error_message: String;
     constructor( public formBuilder: FormBuilder, public router : Router, public auth: AuthService, public session: SessionService) {
         this.verform = this.formBuilder.group({
-             code: [ "", Validators.compose([Validators.maxLength(4), Validators.maxLength(4), Validators.required]) ] 
+             code: [ '', Validators.compose([Validators.maxLength(4), Validators.maxLength(4), Validators.required]) ] 
         });
-        let data = this.session.getuser();
-        this.currentuser=data;
+        const data = this.session.getuser();
+        this.currentuser = data;
     }
 
-    verify(){
-      let user = this.verform.value;
-      user['user_id']=this.currentuser.user_id;
-      this.auth.verify(user,).subscribe( data => {
-          if (data.flag){
+    verify() {
+      const user = this.verform.value;
+      user['user_id'] = this.currentuser.user_id;
+      this.auth.verify(user).subscribe( data => {
+          if (data.flag) {
               this.session.login(data.user);
               this.router.navigate(['/']);
-          }else{
-
+          } else {
+            this.error = true;
+            this.error_message = data.message;
           }
       });
     }

@@ -66,6 +66,8 @@
                                     <br>  
                                     <button type="submit" class="btn btn-primary btn-block" [disabled]="myForm.invalid">Sign Up</button>
                                 </form>
+
+                                <div class="alert alert-danger error_msg" *ngIf="error"> <b>Error :</b> {{error_message}}</div>
                             </div>
                             <div class="card-footer">
                                 <a style="color:#eee;" routerLink="/login">Already has account? Login</a>
