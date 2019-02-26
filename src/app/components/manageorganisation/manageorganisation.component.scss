@@ -1,28 +1,55 @@
-app-orglogin{
-    height:100%;
-}
-.main{
-    height:100vh;
-    width:100vw;
-    .row{
-        .left{
-            background: rgb(12, 83, 131);
-            display: flex;
-            padding-top:20px;
-            height:100vh !important;
-
-            div{
-                margin:auto;
-                color:#fff;
-                text-align: center;
-            }
-        }
-        .right{
-            padding-top:20px;
-            background: #fff;
-            .form-create{
-                padding:20px !important;
-            }
-        }
+.forgot{
+    text-align: center;
+    padding:3px;
+  }
+  
+  .padding{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    h2{
+      margin-top:50px;
+      margin-bottom:50px;
     }
-}
+  }
+  
+  section {
+    .dark{
+      background: #eee;
+    }
+  }
+  
+  .jumbotron{
+    background: #eee !important;
+    .container {
+      margin-top:20px !important;
+    }
+  }
+  
+  .navbar {
+    background:#007bff !important;
+    color:#eee;
+  }
+  
+  .display-4{
+    color:#007bff  !important;
+  }
+  
+  .nav-link{
+    color:#eee !important;
+  }
+  
+  .col-md-7{
+    div {
+      margin-top:10vh;
+    }
+  }
+  
+  .card-footer {
+    a {
+      color:#eee;
+    }
+  }
+  
+  .card-footer{
+    text-align:center !important;
+  }
