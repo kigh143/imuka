@@ -1,6 +1,6 @@
 <section>
         <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/login">
                 <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,10 +59,10 @@
                                     </div>
                 
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Organisation Website</label>
-                                        <input type="link" class="form-control" name="website" [(ngModel)]="website" id="exampleInputPassword1">
+                                        <label for="exampleInputPassword1">Website Link</label>
+                                        <input type="link" class="form-control"  name="website" [(ngModel)]="website"/>
                                     </div>
-                
+               
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputPassword1">Organisation Email</label>
@@ -73,6 +73,7 @@
                                             <label for="exampleInputPassword1">Contact Number</label>
                                             <input type="tell" name="contact" [(ngModel)]="contact" class="form-control">
                                         </div>
+                            
                                     </div>
                                     
                                     <button type="submit" class="btn btn-primary btn-block" (click)="create_organisation()"> Next </button>
