@@ -48,97 +48,94 @@
     </div>
   </div>
 
-  <div class="tabst">
-    <div class="tabmenu" >
-      <a class="tabslink" (click)="selectTab(0)"><i class="fa fa-briefcase"></i>  <span>Business</span></a>
-      <a class="tabslink" (click)="selectTab(1)"><i class="fa fa-cubes"></i> <span>Product</span></a>
-      <a class="tabslink"  (click)="selectTab(2)"><i class="fa fa-file-pdf-o"></i> <span>Document</span></a>
-      <a class="tabslink" (click)="selectTab(3)"><i class="fa fa-money"></i> <span>Financial</span></a>
-    </div>
-    
-    <tabset #staticTabs>
-      <tab>
-        <div class="business">
-          <div class="content-box row" style="margin-top: 20px">
-            <div class="col-md-8 col-xs-12">
-              <form name=general>
-                <span style="font-size:14px">General</span>
-                <hr>
-                <div class="form-group">
-                    <label for="inputPassword" class="form-label" >Business name</label>
-                    <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
-                </div>
 
-                <div class="form-group">
-                    <label for="inputPassword" class="form-label" >Description</label>
-                    <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
-                </div>
-                
-                <div class="form-group"> 
-                  <label for="exampleFormControlSelect1">Line of business/ sector</label>
-                  <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
-                    <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
-                    </option>
-                    <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
-                    </option>
-                    <option value="Technology/ ICT and IT-Enabled Services">Technology/ ICT and IT-Enabled Services</option>
-                    <option value="Tourism and Hospitality">Tourism and Hospitality</option>
-                    <option value="Healthcare and Pharmaceuticals">Healthcare and Pharmaceuticals</option>
-                    <option value="Education">Education</option>
-                    <option value="Manufacturing">Manufacturing</option>
-                    <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
-                    <option value="Transport and Logistics">Transport and Logistics</option>
-                    <option value="Services">Services</option>
-                </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="inputPassword" class="form-label">Phone number</label>
-                    <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
-                </div>
-                
-                <div class="form-group">
-                    <label for="inputPassword" class="form-label">Website</label>
-                    <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
-                </div>
-                
-                <div class="form-group">
-                    <label for="inputPassword" class="col-form-label">Email</label>
-                    <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
-                </div>
-                <span style="font-size:14px">Location</span>
-                <hr>
-
-                <div class="form-group">
-                      <label for="inputPassword" class="form-label">Address line</label>
-                      <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
-                </div>
-
-        
+  <div>
+    <tabset>
+      <tab heading="Business Information" id="tab1">
+        <div>
+          <div class="business">
+            <div class="content-box row" style="margin-top: 20px">
+              <div class="col-md-8 col-xs-12">
+                <form name=general>
+                  <span style="font-size:14px">General</span>
+                  <hr>
                   <div class="form-group">
-                      <label for="inputPassword" class="form-label">Mission</label>
-                      <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
+                      <label for="inputPassword" class="form-label" >Business name</label>
+                      <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
+                  </div>
+  
+                  <div class="form-group">
+                      <label for="inputPassword" class="form-label" >Description</label>
+                      <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
+                  </div>
+                  
+                  <div class="form-group"> 
+                    <label for="exampleFormControlSelect1">Line of business/ sector</label>
+                    <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
+                      <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
+                      </option>
+                      <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
+                      </option>
+                      <option value="Technology/ ICT and IT-Enabled Services">Technology/ ICT and IT-Enabled Services</option>
+                      <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+                      <option value="Healthcare and Pharmaceuticals">Healthcare and Pharmaceuticals</option>
+                      <option value="Education">Education</option>
+                      <option value="Manufacturing">Manufacturing</option>
+                      <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
+                      <option value="Transport and Logistics">Transport and Logistics</option>
+                      <option value="Services">Services</option>
+                  </select>
                   </div>
                   
                   <div class="form-group">
-                    <label for="inputPassword" class="form-label">Vision</label>
-                      <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
-                  </div>
-
-                  <div class="form-group">
-                      <label for="inputPassword" class="form-label">Founded</label>
-                      <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
+                      <label for="inputPassword" class="form-label">Phone number</label>
+                      <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
                   </div>
                   
-                  <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">Submit</button>
-                </form>
-              </div> 
-
+                  <div class="form-group">
+                      <label for="inputPassword" class="form-label">Website</label>
+                      <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="inputPassword" class="col-form-label">Email</label>
+                      <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
+                  </div>
+                  <span style="font-size:14px">Location</span>
+                  <hr>
+  
+                  <div class="form-group">
+                        <label for="inputPassword" class="form-label">Address line</label>
+                        <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
+                  </div>
+  
+          
+                    <div class="form-group">
+                        <label for="inputPassword" class="form-label">Mission</label>
+                        <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="inputPassword" class="form-label">Vision</label>
+                        <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="inputPassword" class="form-label">Founded</label>
+                        <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
+                    </div>
+                    
+                    <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">Submit</button>
+                  </form>
+                </div> 
+  
+              </div>
             </div>
-          </div>
-        </tab>
+        </div>
+      </tab>
 
-        <tab>
+      <tab heading="Product and services">
+        <div>
           <div class="products">
             <div class="content-box row">
               <div class="col-md-8 col-xs-12" style="margin-top:10px;">
@@ -175,186 +172,156 @@
                 </form>
               </div>
             </div></div>
-          </tab>
+        </div>
+      </tab>
 
 
-
-
-          <tab>
-            <div class="documents" >
-              <div class="content-box row">
-                <div class="col-md-8 col-xs-12" style="padding-top:20px">
-                  <div class="row">
-                    <div class="col-3" *ngFor="let doc of documents">
-                      <div class="box document" [ngClass]="isclicked?'active':''" >
-                        <img src="{{doc.image}}" height="80px"/>
-                        <h6>{{doc.name}}</h6>
-                      </div> 
-                    </div>
+      <tab heading="Business Documents">
+        <div>
+          <div class="documents" >
+            <div class="content-box row">
+              <div class="col-md-8 col-xs-12" style="padding-top:20px">
+                <div class="row">
+                  <div class="col-3" *ngFor="let doc of documents">
+                    <div class="box document" [ngClass]="isclicked?'active':''" >
+                      <img src="{{doc.image}}" height="80px"/>
+                      <h6>{{doc.name}}</h6>
+                    </div> 
                   </div>
                 </div>
-                <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
-                  <form  [formGroup]="bizdoc">
-                    <div class="form-group">
-                      <label for="doctype">Document Format</label>
-                      <select class="form-control" name="doc_type"  formControlName="doc_type" [class.invalid]="bizdoc.controls.doc_type.invalid">
-                        <option value="Image">Image</option>
-                        <option value="pdf">PDF</option>
-                        <option value="word">word</option>
-                        <option value="excel">Excel</option>
+              </div>
+              <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+                <form  [formGroup]="bizdoc">
+                  <div class="form-group">
+                    <label for="doctype">Document Format</label>
+                    <select class="form-control" name="doc_type"  formControlName="doc_type" [class.invalid]="bizdoc.controls.doc_type.invalid">
+                      <option value="Image">Image</option>
+                      <option value="pdf">PDF</option>
+                      <option value="word">word</option>
+                      <option value="excel">Excel</option>
 
-                      </select>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Document name</label>
+                    <select class="form-control" name="name"  formControlName="name" [class.invalid]="bizdoc.controls.name.invalid">
+                      <option value="Business plan">Business plan</option>
+                      <option value="Tin registration">Tin registration</option>
+                      <option value="Trading license">Trading license</option>
+                      <option value="Certificate of registration">Certificate of registration</option>
+                      <option value="Memorandum and article of associations">Memorandum and article of associations</option>
+                      <option value="ids or passports">ids or passports</option>
+                      <option value="Management Accounts">Management Accounts</option>
+                      <option value="Certified or Audited Accounts">Certified or Audited Accounts</option>
+                      <option value="Cash flow Statement or Projects">Cash flow Statement or Projects</option>
+                      <option value="Aged Debtors Listing">Aged Debtors Listing</option>
+                      <option value="Aged Creditors Listing">Aged Creditors Listing</option>
+                      <option value="Confirmation of Tax Affairs">Confirmation of Tax Affairs</option>
+                      <option value="Contract Document">Contract Document</option>
+                      <option value="Project document">Project document</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Upload Document</label>
+                    <input type="file" class="form-control-file" id="docupload" >
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="adddoc()">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tab>
+
+
+      <tab heading="Business Financial">
+        <div>
+          <div class="financial" >
+            <div class="content-box row">
+              <div class="col-md-8 col-xs-12" style="padding-top:20px">
+                <table class="table table-striped table-responsive-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">Year</th>
+                      <th scope="col">ROS</th>
+                      <th scope="col">ROI</th>
+                      <th scope="col">ROE</th>
+                      <th scope="col">DER</th>
+                      <th scope="col">IRR</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let financial of financials">
+                      <th scope="row">{{financial.period_to}}</th>
+                      <td>{{financial.ros}}</td>
+                      <td>{{financial.roi}}</td>
+                      <td>{{financial.roe}}</td>
+                      <td>{{financial.der}}</td>
+                      <td>{{financial.irr}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0; padding-top:20px">
+                <div class="form_fina">
+                  <h4>Add financials</h4>
+                  <form [formGroup]="bizfinancial">
+                    <div class="input-group">
+                      <input type="date" formControlName="from_date" [class.invalid]="bizfinancial.controls.from_date.invalid" class="form-control" placeholder="from_date" data-toggle="tooltip" title="Start Period">
+                      <input type="date" class="form-control"  formControlName="end_date" [class.invalid]="bizfinancial.controls.end_date.invalid"  placeholder="End period" data-toggle="tooltip" title="End Period" >
                     </div>
-                    <div class="form-group">
-                      <label for="name">Document name</label>
-                      <select class="form-control" name="name"  formControlName="name" [class.invalid]="bizdoc.controls.name.invalid">
-                        <option value="Business plan">Business plan</option>
-                        <option value="Tin registration">Tin registration</option>
-                        <option value="Trading license">Trading license</option>
-                        <option value="Certificate of registration">Certificate of registration</option>
-                        <option value="Memorandum and article of associations">Memorandum and article of associations</option>
-                        <option value="ids or passports">ids or passports</option>
-                        <option value="Management Accounts">Management Accounts</option>
-                        <option value="Certified or Audited Accounts">Certified or Audited Accounts</option>
-                        <option value="Cash flow Statement or Projects">Cash flow Statement or Projects</option>
-                        <option value="Aged Debtors Listing">Aged Debtors Listing</option>
-                        <option value="Aged Creditors Listing">Aged Creditors Listing</option>
-                        <option value="Confirmation of Tax Affairs">Confirmation of Tax Affairs</option>
-                        <option value="Contract Document">Contract Document</option>
-                        <option value="Project document">Project document</option>
-                      </select>
+                    <div class="input-group">
+                      <input type="number"  formControlName="revenue" [class.invalid]="bizfinancial.controls.revenue.invalid" placeholder="Revenue" class="form-control" >
+                      <input type="number" formControlName="cogs" [class.invalid]="bizfinancial.controls.cogs.invalid" placeholder="cost of goods sold" class="form-control" >
                     </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlFile1">Upload Document</label>
-                      <input type="file" class="form-control-file" id="docupload" >
+                    <div class="input-group">
+                      <input type="number" formControlName="grossprofit" [class.invalid]="bizfinancial.controls.grossprofit.invalid"  placeholder="Grossprofit" class="form-control" >
+                      <input type="number" formControlName="total_expenditure" [class.invalid]="bizfinancial.controls.total_expenditure.invalid" placeholder="Total expenditure" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary" (click)="adddoc()">Submit</button>
+                    <div class="input-group">
+                      <input type="text" formControlName="tax" [class.invalid]="bizfinancial.controls.tax.invalid"  placeholder="Tax" class="form-control" >
+                      <input type="number" formControlName="net_profit" [class.invalid]="bizfinancial.controls.net_profit.invalid"  placeholder="Net Profit" class="form-control" >
+                    </div>
+                    <div class="input-group">
+                      <input type="number" formControlName="ebitda" [class.invalid]="bizfinancial.controls.ebitda.invalid" placeholder="EBITDA" class="form-control" >
+                      <input type="number" formControlName="ebit" [class.invalid]="bizfinancial.controls.ebit.invalid"  placeholder="EBIT" class="form-control" >
+                    </div>
+                    <div class="input-group">
+                      <input type="number" formControlName="depriciation" [class.invalid]="bizfinancial.controls.depriciation.invalid" class="form-control"  placeholder="Depriciation" >
+                      <input type="number" formControlName="land" [class.invalid]="bizfinancial.controls.land.invalid" placeholder="Land & building" class="form-control" >
+                    </div>
+                    <div class="input-group">
+                      <input type="number" formControlName="machinery" [class.invalid]="bizfinancial.controls.machinery.invalid" placeholder="machinery & equip" class="form-control" >
+                      <input type="number" formControlName="furniture" [class.invalid]="bizfinancial.controls.furniture.invalid"  placeholder="furniture & fittings" class="form-control">
+                    </div>
+                    <div class="input-group">
+                      <input type="number" formControlName="stock" [class.invalid]="bizfinancial.controls.stock.invalid"  placeholder="stock" class="form-control" >
+                      <input type="number" formControlName="debtors" [class.invalid]="bizfinancial.controls.debtors.invalid"  placeholder="Debtors" class="form-control">
+                    </div>
+                    <div class="input-group">
+                      <input type="number" formControlName="shareholder_equity" [class.invalid]="bizfinancial.controls.shareholder_equity.invalid"  placeholder="shareholder's equity" class="form-control" >
+                      <input type="text" formControlName="cash_bank" [class.invalid]="bizfinancial.controls.cash_bank.invalid"   placeholder="cash/Bank" class="form-control">
+                    </div>
+                    <div class="form-group" style="margin-top:10px">
+                      <label for="exampleFormControlFile1">Upload record</label>
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" (click)="addfinancial()">Add Financials</button>
                   </form>
                 </div>
               </div>
-            </div>
-          </tab>
-
-
-
-
-          <tab>
-            <div class="financial" >
-              <div class="content-box row">
-                <div class="col-md-8 col-xs-12" style="padding-top:20px">
-                  <table class="table table-striped table-responsive-sm">
-                    <thead>
-                      <tr>
-                        <th scope="col">Year</th>
-                        <th scope="col">ROS</th>
-                        <th scope="col">ROI</th>
-                        <th scope="col">ROE</th>
-                        <th scope="col">DER</th>
-                        <th scope="col">IRR</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let financial of financials">
-                        <th scope="row">{{financial.period_to}}</th>
-                        <td>{{financial.ros}}</td>
-                        <td>{{financial.roi}}</td>
-                        <td>{{financial.roe}}</td>
-                        <td>{{financial.der}}</td>
-                        <td>{{financial.irr}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0; padding-top:20px">
-                  <div class="form_fina">
-                    <h4>Add financials</h4>
-                    <form [formGroup]="bizfinancial">
-                      <div class="input-group">
-                        <input type="date" formControlName="from_date" [class.invalid]="bizfinancial.controls.from_date.invalid" class="form-control" placeholder="from_date" data-toggle="tooltip" title="Start Period">
-                        <input type="date" class="form-control"  formControlName="end_date" [class.invalid]="bizfinancial.controls.end_date.invalid"  placeholder="End period" data-toggle="tooltip" title="End Period" >
-                      </div>
-                      <div class="input-group">
-                        <input type="number"  formControlName="revenue" [class.invalid]="bizfinancial.controls.revenue.invalid" placeholder="Revenue" class="form-control" >
-                        <input type="number" formControlName="cogs" [class.invalid]="bizfinancial.controls.cogs.invalid" placeholder="cost of goods sold" class="form-control" >
-                      </div>
-                      <div class="input-group">
-                        <input type="number" formControlName="grossprofit" [class.invalid]="bizfinancial.controls.grossprofit.invalid"  placeholder="Grossprofit" class="form-control" >
-                        <input type="number" formControlName="total_expenditure" [class.invalid]="bizfinancial.controls.total_expenditure.invalid" placeholder="Total expenditure" class="form-control">
-                      </div>
-                      <div class="input-group">
-                        <input type="text" formControlName="tax" [class.invalid]="bizfinancial.controls.tax.invalid"  placeholder="Tax" class="form-control" >
-                        <input type="number" formControlName="net_profit" [class.invalid]="bizfinancial.controls.net_profit.invalid"  placeholder="Net Profit" class="form-control" >
-                      </div>
-                      <div class="input-group">
-                        <input type="number" formControlName="ebitda" [class.invalid]="bizfinancial.controls.ebitda.invalid" placeholder="EBITDA" class="form-control" >
-                        <input type="number" formControlName="ebit" [class.invalid]="bizfinancial.controls.ebit.invalid"  placeholder="EBIT" class="form-control" >
-                      </div>
-                      <div class="input-group">
-                        <input type="number" formControlName="depriciation" [class.invalid]="bizfinancial.controls.depriciation.invalid" class="form-control"  placeholder="Depriciation" >
-                        <input type="number" formControlName="land" [class.invalid]="bizfinancial.controls.land.invalid" placeholder="Land & building" class="form-control" >
-                      </div>
-                      <div class="input-group">
-                        <input type="number" formControlName="machinery" [class.invalid]="bizfinancial.controls.machinery.invalid" placeholder="machinery & equip" class="form-control" >
-                        <input type="number" formControlName="furniture" [class.invalid]="bizfinancial.controls.furniture.invalid"  placeholder="furniture & fittings" class="form-control">
-                      </div>
-                      <div class="input-group">
-                        <input type="number" formControlName="stock" [class.invalid]="bizfinancial.controls.stock.invalid"  placeholder="stock" class="form-control" >
-                        <input type="number" formControlName="debtors" [class.invalid]="bizfinancial.controls.debtors.invalid"  placeholder="Debtors" class="form-control">
-                      </div>
-                      <div class="input-group">
-                        <input type="number" formControlName="shareholder_equity" [class.invalid]="bizfinancial.controls.shareholder_equity.invalid"  placeholder="shareholder's equity" class="form-control" >
-                        <input type="text" formControlName="cash_bank" [class.invalid]="bizfinancial.controls.cash_bank.invalid"   placeholder="cash/Bank" class="form-control">
-                      </div>
-                      <div class="form-group" style="margin-top:10px">
-                        <label for="exampleFormControlFile1">Upload record</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                      </div>
-                      <button type="submit" class="btn btn-primary btn-block" (click)="addfinancial()">Add Financials</button>
-                    </form>
-                  </div>
-                </div>
-              </div> 
-            </div>
-          </tab>
-
-
+            </div> 
+          </div>
+        </div>
+      </tab>
+      <tab heading="Pitchbook preview">
+        <div></div>
+      </tab>
     </tabset>
   </div>
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <ng-template #template>
       <div class="modal-header">

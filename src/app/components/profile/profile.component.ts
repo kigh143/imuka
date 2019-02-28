@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
     oneAtATime = true;
     user: any;
     files: any[];
-    url: any;
+    url = 'assets/user.png';
 
     name: string;
     email: string;
@@ -30,8 +30,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(public sessionService: SessionService,
     public authService: AuthService,
-    public spinnerService: Ng4LoadingSpinnerService, public alert:ToastsComponent) {
-      this.files = [];
+    public spinnerService: Ng4LoadingSpinnerService, public alert: ToastsComponent) {
+
     }
 
   ngOnInit() {
@@ -58,7 +58,7 @@ export class ProfileComponent implements OnInit {
       this.authService.edit_user(object, this.user.user_id).subscribe( data => {
         this.spinnerService.hide();
         if (data.flag) {
-          this.alert.showSuccess("field(s) updated");
+          this.alert.showSuccess('field(s) updated');
           console.log(data);
           this.sessionService.login(data.user);
         }
@@ -67,25 +67,12 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  processFile(imageInput: any) {
-    const file = imageInput.target.files[0];
-  }
-
-
-  onFileChanged(event: any) {
-    this.files = event.target.files;
+  onFileSelected(event) {
     this.selectedFile = event.target.files[0];
-    this.spinnerService.show();
-    const uploadData = new FormData();
-    uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
-    this.authService.uploadpp( uploadData ).subscribe( data => {
-      if ( data.flag ) {
-        this.url = this.selectedFile.target.result;
-        this.spinnerService.hide();
-      }
-      console.log(data);
-    });
+    this.url = event.target.value;
+    console.log(event);
   }
+
 
   onUpload() {}
 
