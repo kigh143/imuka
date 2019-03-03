@@ -1,31 +1,60 @@
-<div class="main">
-    <div class="center">
-        <div class="row">
-            <div class="col-md-6 info">
-              </div>
-            <div class="col-md-6 form">
-                <h3>Forgot Your Password ?</h3>
-                <p>Enter the E-mail address or phone number attached to your account and we send the instructions to change you password.</p>
-                <form  [formGroup]="myForm">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address / Phone number</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email or phone number" formControlName="email" [class.invalid]="myForm.controls.email.invalid">
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Reset My Password</button>
-          </form>
+<section>
+    <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/signup">Create Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/create_organisation">Add support Organisation</a>
+                    </li>
+                </ul>
             </div>
-            <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
         </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
+                        <div class="card-header  text-center">Forgot Your Password ?.</div>
+                        <div class="card-body">
+                                <h6>Enter the E-mail address or phone number attached to your account and we send the instructions to change you password.</h6>
+                                <form  [formGroup]="myForm">
+                                <div class="form-group">
+                                <label for="exampleInputEmail1">Email address / Phone number</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email or phone number" formControlName="email" [class.invalid]="myForm.controls.email.invalid">
+                                </div>
 
-        <div class="lower">
-            <div>
-              <b><a routerLink="/">Back to login</a></b>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                         <button type="submit" class="btn btn-primary btn-block">Reset My Password</button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a routerLink="/login" class="btn btn-light btn-block">Back to Login</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
             </div>
         </div>
     </div>
-</div>
-
-<app-footer></app-footer>
+    <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+</section>
 
 
   

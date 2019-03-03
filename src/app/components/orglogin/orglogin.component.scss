@@ -1,24 +1,61 @@
-app-orglogin{
-    height:100%;
-}
-.main{
-    
-    background:  linear-gradient(
-  rgba(216, 222, 223, 0.747), 
-  rgba(148, 150, 150, 0.45));
-    .row{
-        .left{
-          
-            height:100vh !important;
-            padding-left:10px !important;
-            
-        }
-        .right{
-            padding-top:20px;
-            background: transparent;
-            .form-create{
-                padding:20px !important;
-            }
-        }
+.forgot{
+    text-align: center;
+    padding:3px;
+  }
+  
+  .padding{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    h2{
+      margin-top:50px;
+      margin-bottom:50px;
     }
-}
+  }
+  
+  section {
+    .dark{
+      background: #eee;
+    }
+  }
+  
+  .jumbotron{
+    background: #eee !important;
+    .container {
+      margin-top:20px !important;
+    }
+  }
+  
+  .navbar {
+    background: #007bff  !important;
+    color:#eee;
+  }
+  
+  .display-4{
+    color:#007bff !important;
+  }
+  
+  .nav-link{
+    color:#eee !important;
+  }
+  
+  .col-md-7{
+    div {
+      margin-top:10vh;
+    }
+  }
+  
+  .card-footer {
+    a {
+      color:#eee;
+    }
+  }
+  
+  #emailHelp { color: yellow !important; font-weight: bold !important; }
+  
+  .card-footer{
+    text-align:center !important;
+  }
+
+  option{
+      font-size:12px !important;
+  }

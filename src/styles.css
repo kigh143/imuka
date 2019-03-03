@@ -22,7 +22,7 @@ body{
    .jumbotron > h1{
       font-size: 28px;
       margin-bottom:10px;
-      color:#4672BF;
+      color:#007bff ;
    }
 
    .btn{
@@ -31,17 +31,18 @@ body{
 }
 
 .jumbotron h1{
-    color: #4672BF;
+    color: #007bff ;
 }
 
 .modal-header{
-  background: radial-gradient(circle at bottom left, #1798d4, rgb(61, 167, 167)) !important;
+  background: #007bff  !important;
 }
 
-.btn-primary {
-    background-image: #1798d4;
+
+.navbar-brand{
     color:#fff !important;
-    border:1px solid #1798d4 !important;
 }
 
-  
+.navbar {
+    background:#007bff !important;
+}

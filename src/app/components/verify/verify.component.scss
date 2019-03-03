@@ -1,16 +1,62 @@
+.forgot{
+  text-align: center;
+  padding:3px;
+}
 
-.main{
-  background:#17597a;
-  height:100vh !important;
-  width:100vw;
-  display: flex;
-  .center{
-      margin:auto;
-      color:#fff;
-      padding: 50px;
-      text-align: center;
-      background: rgba(221, 153, 153, 0.479);
-      border-radius: 3px;
+.padding{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  h2{
+    margin-top:50px;
+    margin-bottom:50px;
   }
+}
 
+section {
+  .dark{
+    background: #eee;
+  }
+}
+
+.jumbotron{
+  background: #eee !important;
+  .container {
+    margin-top:20px !important;
+  }
+}
+
+.navbar {
+  background: #007bff  !important;
+  color:#eee;
+}
+
+.display-4{
+  color:#007bff !important;
+}
+
+.nav-link{
+  color:#eee !important;
+}
+
+.col-md-7{
+  div {
+    margin-top:10vh;
+  }
+}
+
+.card-footer {
+  a {
+    color:#eee;
+  }
+}
+
+#emailHelp { color: yellow !important; font-weight: bold !important; }
+
+.card-footer{
+  text-align:center !important;
+}
+
+.error_msg{
+  text-align: center;
+  margin-top:10px;
 }

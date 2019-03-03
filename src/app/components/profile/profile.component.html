@@ -12,19 +12,17 @@
                 <div class="jumbotron">
                     <div class="row">
                         <div class="col-md-12 profilepic" >
-                            <img [src]="url ? url :'assets/user.png'">
+                            <img [src]="url">
                             <h1 class="display-4">{{user.name}}</h1>
                             <p class="lead">{{user.email}}</p>
                             <p class="lead">{{user.phone}}</p>
                         </div>
-                        <div class="pp">
                         <label class="image-upload-container ">
-                               <div style="border-radius:100%; background: cornsilk; padding:1px; height:30px; width:30px"> <i class="fa fa-camera" style="color:rgb(6, 44, 88)"></i></div>
-                                <input #imageInput  type="file" accept="image/*" name="file" id="file" (change)="onFileChanged($event)">
-                              </label>
-                            </div>
-                    </div>
+                            <input type="file" accept="image/*"  (change)="onFileSelected($event)">
+                        </label>
+                        <button class="btn btn-success" (click)="onUpload()"> upload file </button>
                 </div>
+            </div>
                 
                 <div class="container">
                     <div class="row">

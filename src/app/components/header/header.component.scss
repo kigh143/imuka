@@ -3,11 +3,11 @@
   font-size:12px !important;
 }
 .fixed-top{
-  background: radial-gradient(circle at top left, #4672BF, rgb(61, 167, 167)) !important;
+  background: #007bff !important;
 }
 
 .top{
-  background: radial-gradient(circle at bottom left, #4672BF, rgb(61, 167, 167)) !important;
+  background: #007bff !important;
   height:56px;
  }
 
@@ -63,7 +63,7 @@
     }
 
     .active {
-      border-bottom:3px solid #1798d4 !important;
+      border-bottom:3px solid #a7d3e7 !important;
       border-radius: 0 !important;
       background: rgb(204, 241, 252) !important;
       i{

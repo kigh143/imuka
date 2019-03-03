@@ -1,53 +1,88 @@
-<div class="main">
-    <div class="row">
-        <div class="col-md-6 info">
-            <div>
-               <div> <img src="assets/icon.png" alt="" style="height:90px; margin-left:20px;"></div>
-               
-               
+<section>
+    <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" routerLink="/login">ImukaAccess</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/signup">Create Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/create_organisation">Add support Organisation</a>
+                    </li>
+                </ul>
             </div>
-            <div style="margin:auto"><img src="assets/login1.svg" style="height:500px; width:500px"/></div>
         </div>
-        <div class="col-md-6 form">
-            <div>
-                <form  [formGroup]="loginForm" (submit)="login()">
-                <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-                formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
-                />
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div>
+                        <h1 class="display-4">ImukaAccess, </h1>
+                        <p class="lead">Connect to your next <b>business opportunity.</b></p>
+                    </div>
                 </div>
-                <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-                formControlName="password" 
-                [class.invalid]="loginForm.controls.password.invalid"
-                />
+                <div class="col-md-5">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
+                    <div class="card-header">Login to your Account.</div>
+                    <div class="card-body">
+                        <form  [formGroup]="loginForm" (submit)="login()">
+                            <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" placeholder="Enter email" formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
+                            />
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password"class="form-control" placeholder="Password" formControlName="password" [class.invalid]="loginForm.controls.password.invalid"
+                            />
+                            </div>
+                            <button type="submit" class="btn btn-outline-warning btn-block"  [disabled]="loginForm.invalid">Login</button>
+                        </form>
+                    </div>
+                    <div class="card-footer"><a routerLink="/forgotPassword">Forgot password?</a></div>
+                    </div>
                 </div>
-
-                <div style="text-align:center; padding:20px"><a routerLink="/forgotPassword" class="btn btn-default">Forgot password?</a></div>
-                <button type="submit" class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">
-                Login Now
-                </button>
-               
-                </form>
-               
-                <div style="text-align:center; padding:20px"><a routerLink="/signup" class="btn btn-default">Create Account</a></div>
-                <a routerLink="/create_organisation" class="btn btn-default">Join As Support Organisation</a>
-                <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
-            </div> 
-           
-
-            
-</div>
-
-  
+            </div>
+        </div>
+    </div>
+    <div class="container text-center padding">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Access <b>Opportunities</b></h5>
+                        <p>Access relevant business opportunities and events to build your socilal capital.</p> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Access <b>Business Support</b></h5>
+                        <p>Receive personalized business mentorship for sustainable growth and to become investment-ready.</p>                            
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5>Access <b>Business Financing</b></h5>
+                        <p>Find the right financing to scale your business.</p>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+</section>

@@ -9,38 +9,35 @@
     </div>
     <div class="col-md-6">
         <div class="jumbotron">
-            <h1 class="display-4">Opportunities</h1>
+            <h4>{{opportunities_clone.length}} Opportunities</h4>
             <p>Explore funding, skilling and resource opportunities in your business sector and region.</p>
             <hr class="my-4">
             <a class="btn btn-primary btn-sm" (click)="openTheModal(template)">Post an opportunity</a>
             <hr>
-            
+        </div>  
         <div class="content">
-            <div class="row">
-                <div class="col-md-12 carddata" *ngFor="let opportunity of opportunities_clone">
-                    <div class="card">
+            <div *ngFor="let opportunity of opportunities_clone" style="margin-top:10px;">
+                <div class="card">
                     <div class="height:100px">
-                    <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="height:150px"></div>
+                        <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="width:100%">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{opportunity.title}}</h5>
                         <p class="card-text">{{opportunity.short_description|flTrancator}}<a [href]="opportunity.link" target="_blank">Continue reading</a> </p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">{{opportunity.due_date}}</li>
-                        
-                       
                     </ul>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    
     </div>
     <div class="col-md-3">
-            <accordion>
-            <accordion-group [isOpen]="isFirstOpen" *ngFor="let filters of filter_info">
-            <div class=" clearfix" accordion-heading >
-            <div class="pull-left float-left" style="height:20px; padding-top: 10px">{{filters?.name}}</div>
+            <div>
+            <div *ngFor="let filters of filter_info">
+            <div class=" clearfix">
+            <div class="pull-left float-left" style="height:20px; padding-top: 10px">{{filters?.name}}</div> <br/>
             <div class="float-right"><i class="fa fa-sort-desc"></i></div>
             </div>
             <div> <div class="form-group form-check" *ngFor="let option of filters.options; let i = index">
@@ -48,8 +45,7 @@
             <label class="form-check-label" for="exampleCheck1">{{option}}</label>
             </div>
             </div>
-            </accordion-group>
-            </accordion>
+            </div>
             <br/>
             <button (click)="reset()" class="btn  btn-sm btn-outline-primary btn-block">Remove filters</button>
         </div>
