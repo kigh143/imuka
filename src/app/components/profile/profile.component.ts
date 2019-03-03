@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit {
 
   onUpload() {
     const file_object  = this.selectedFile;
-   console.log(file_object);
+    console.log(file_object);
   }
 
 }
