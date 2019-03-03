@@ -39,4 +39,8 @@ export class VerifyComponent  {
           }
       });
     }
+
+    resend_code() {
+
+    }
 }

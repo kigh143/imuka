@@ -70,10 +70,12 @@ export class ProfileComponent implements OnInit {
   onFileSelected(event) {
     this.selectedFile = event.target.files[0];
     this.url = event.target.value;
-    console.log(event);
   }
 
 
-  onUpload() {}
+  onUpload() {
+    const file_object  = this.selectedFile;
+   console.log(file_object);
+  }
 
 }
