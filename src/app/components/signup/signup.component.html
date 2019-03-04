@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </nav>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid"  [ngStyle]="{'background-image':'url(' + imageUrl + ')'}">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
@@ -64,7 +64,7 @@
                                     <input type="password" class="form-control" placeholder="Password" formControlName="password" [class.invalid]="myForm.controls.password.invalid">
                                     </div>
                                     <br>  
-                                    <button type="submit" class="btn btn-primary btn-block" [disabled]="myForm.invalid">Sign Up</button>
+                                    <button type="submit" class="btn btn-outline-warning btn-block" [disabled]="myForm.invalid">Sign Up</button>
                                 </form>
 
                                 <div class="alert alert-danger error_msg" *ngIf="error"> <b>Error :</b> {{error_message}}</div>

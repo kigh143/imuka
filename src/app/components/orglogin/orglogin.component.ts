@@ -15,6 +15,7 @@ export class OrgloginComponent implements OnInit {
   name:string;
   services: any;
   website: string;
+  imageUrl = 'assets/bkg.jpg';
 
   constructor( public organisationService: OrganisationService, public router: Router, public spinnerService: Ng4LoadingSpinnerService,) { }
 

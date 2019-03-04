@@ -20,6 +20,7 @@ export class SignupComponent {
   myForm: any;
   error = false;
   error_message: string;
+  imageUrl = 'assets/bkg.jpg';
 
   constructor(public formBuilder: FormBuilder, public router : Router, public auth: AuthService, 
     public spinnerService: Ng4LoadingSpinnerService,

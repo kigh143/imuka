@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { FormBuilder, Validators } from "@angular/forms";
-import {AuthService} from "../../provider/auth.service"
-import {SessionService} from "../../provider/session.service"
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import {AuthService} from '../../provider/auth.service'
+import {SessionService} from '../../provider/session.service'
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { NotifierService } from 'angular-notifier';
 import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
@@ -12,9 +12,9 @@ import { ToastsComponent} from '../toasts/toasts.component'
 
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   loginForm: any; 
@@ -24,7 +24,7 @@ export class LoginComponent {
     timeout: 5000
   }];
   private _success = new Subject<string>();
-
+  imageUrl = 'assets/bkg.jpg';
   staticAlertClosed = false;
   successMessage: string;
   
@@ -33,8 +33,8 @@ export class LoginComponent {
     public spinnerService: Ng4LoadingSpinnerService,  public notifierService: NotifierService,
     public session: SessionService, public alert: ToastsComponent) {
     this.loginForm = this.formBuilder.group({
-      email: ["", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),Validators.required])],
-      password: ["", Validators.compose([Validators.minLength(5), Validators.required])]
+      email: ['', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),Validators.required])],
+      password: ['', Validators.compose([Validators.minLength(5), Validators.required])]
     });
     this.notifier = notifierService;
     this.notifier.notify( 'success', 'You are awesome! I mean it!' );
@@ -72,7 +72,5 @@ export class LoginComponent {
   onClosed(dismissedAlert: AlertComponent): void {
     this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
   }
- 
 
-  
 }

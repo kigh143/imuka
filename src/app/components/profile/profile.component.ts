@@ -49,7 +49,13 @@ export class ProfileComponent implements OnInit {
    } else  if ( value === 'education') {
       this.send_request({education: this.user.education});
    } else  if ( value === 'experience') {
-      this.send_request({relevant_exp: this.user.relevant_exp, relevant_skills: this.user.relevant_skills, expertise: this.user.expertise });      
+      this.send_request(
+        {
+          relevant_exp: this.user.relevant_exp ,
+          relevant_skills: this.user.relevant_skills ,
+          expertise: this.user.expertise
+        }
+        );
     }
   }
 
