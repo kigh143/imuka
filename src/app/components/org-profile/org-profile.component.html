@@ -172,6 +172,11 @@
                         </ul>
                         </div>
                     </div>
+                    <div *ngIf="events.length===0" style="text-align:center; padding-top:70px; color:#666; ">
+                        <h1><i class="fa fa-calendar"></i></h1>
+                        <h4>No events Added yet</h4>
+                        <a routerLink="/events" class="btn btn-primary">Please add your event.</a>
+                    </div>
                 </div>
   
               </div>
@@ -193,6 +198,11 @@
                         </ul>
                         </div>
                     </div>
+                    <div *ngIf="events.opportunities===0" style="text-align:center; padding-top:70px; color:#666; ">
+                            <h1><i class="fa fa-file-o"></i></h1>
+                            <h4>No opportunities Added yet</h4>
+                            <a routerLink="/opportunities" class="btn btn-primary">Please add your opportunity.</a>
+                        </div>
                 </div>
               </div>
               <div *ngIf="active_index == 3">

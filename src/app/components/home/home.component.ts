@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     if ( this.user.name !== '') {
       this.header = this.user.name;
     } else {
-      this.header = this.user.user_type;
+      this.header = 'Welcome to imukaAccess';
     }
   }
 

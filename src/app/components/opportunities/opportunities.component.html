@@ -7,7 +7,7 @@
         <app-mainmenu></app-mainmenu>
     </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-9">
         <div class="jumbotron">
             <h4>{{opportunities_clone.length}} Opportunities</h4>
             <p>Explore funding, skilling and resource opportunities in your business sector and region.</p>
@@ -15,8 +15,8 @@
             <a class="btn btn-primary btn-sm" (click)="openTheModal(template)">Post an opportunity</a>
             <hr>
         </div>  
-        <div class="content">
-            <div *ngFor="let opportunity of opportunities_clone" style="margin-top:10px;">
+        <div class="content row">
+            <div class="col-md-6" *ngFor="let opportunity of opportunities_clone" style="margin-top:10px;">
                 <div class="card">
                     <div class="height:100px">
                         <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="width:100%">
@@ -33,23 +33,6 @@
         </div>
     
     </div>
-    <div class="col-md-3">
-            <div>
-            <div *ngFor="let filters of filter_info">
-            <div class=" clearfix">
-            <div class="pull-left float-left" style="height:20px; padding-top: 10px">{{filters?.name}}</div> <br/>
-            <div class="float-right"><i class="fa fa-sort-desc"></i></div>
-            </div>
-            <div> <div class="form-group form-check" *ngFor="let option of filters.options; let i = index">
-            <input type="radio" class="form-check-input" id="exampleCheck1" name="{{filters.db_name}}" value="{{option}}" (change)="onChange($event, filters)">
-            <label class="form-check-label" for="exampleCheck1">{{option}}</label>
-            </div>
-            </div>
-            </div>
-            <br/>
-            <button (click)="reset()" class="btn  btn-sm btn-outline-primary btn-block">Remove filters</button>
-        </div>
-</div>
 </div>
 
 

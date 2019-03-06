@@ -7,7 +7,7 @@
             <app-mainmenu></app-mainmenu>
         </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
         <div class="jumbotron">
             <h4>{{events_clone.length}} Events</h4>
             <p>Find upcoming networking and training events in your sector and region,
@@ -20,7 +20,7 @@
                     
                 <div class="row">
                     
-                    <div class="col-md-12 carddata" *ngFor="let event of events_clone">
+                    <div class="col-md-6 carddata" *ngFor="let event of events_clone">
                         <div class="card">
                         <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:240px">
                         <div class="card-body" style="height:170px">
@@ -34,29 +34,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-            <div class="card-header">
-                Featured
-            </div>
-            <div class="card-body">
-                    <div *ngFor="let filters of filter_info">
-                        <div class=" clearfix" >
-                            <div class="pull-left float-left" style="height:20px; padding-top: 10px">{{filters?.name}}</div> <br/>
-                            <div class="float-right"><i class="fa fa-sort-desc"></i></div>
-                        </div>
-                        <div> 
-                        <div class="form-group form-check" *ngFor="let option of filters.options; let i = index">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="{{option}}" value="{{option}}" (change)="onChange($event, filters)">
-                            <label class="form-check-label" for="exampleCheck1">{{option}}</label>
-                        </div>
-                        </div>
-                    </div>
-                    <br/>
-                    <button (click)="reset()" class="btn  btn-sm btn-outline-primary btn-block">Remove filters</button>
-            </div>
             </div>
         </div>
       </div>
