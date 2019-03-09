@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './opportunities.component.html',
   styleUrls: ['./opportunities.component.scss']
 })
+
 export class OpportunitiesComponent implements OnInit {
   opportunities = [];
   modalRef: BsModalRef;
@@ -21,10 +22,10 @@ export class OpportunitiesComponent implements OnInit {
   short_description: any;
   user: any;
   opportunities_clone: any;
-  filter_info:Array<any>=[{
-    name:"Category",
-    db_name:"opp_type",
-    options:[
+  filter_info: Array<any> = [{
+    name: 'Category',
+    db_name: 'opp_type',
+    options: [
       'Market/Supply Opportunities',
       'Partnership Opportunities',
       'Franchising/Distributorships Opportunities',
@@ -49,7 +50,6 @@ export class OpportunitiesComponent implements OnInit {
 
   get_opportunities() {
     this.eventServices.fetch_opportunities().subscribe( data  => { this.opportunities = data;  this.opportunities_clone = data; });
-    
   }
 
   add_opportunities() {
@@ -67,12 +67,14 @@ export class OpportunitiesComponent implements OnInit {
       data['added_by'] = this.user.user_id;
       data['user_type'] = 'user';
     }
-    this.eventServices.add_opportunities(data).subscribe(result => {  this.router.navigate(['/opportunities']);  });
+    this.eventServices.add_opportunities(data).subscribe(result => {
+      this.modalRef.hide();
+      this.get_opportunities();
+     });
   }
 
 
   onChange(event, main) {
-    
     this.opportunities_clone = this.opportunities_clone.filter((opportunity_value) => {
       if (opportunity_value[main['db_name']] === event.target.value) {
         return opportunity_value;
@@ -80,9 +82,8 @@ export class OpportunitiesComponent implements OnInit {
     });
   }
 
-reset(){
+reset() {
   this.get_opportunities();
 }
-  
 
 }

@@ -24,7 +24,7 @@ export class LoginComponent {
     timeout: 5000
   }];
   private _success = new Subject<string>();
-  imageUrl = 'assets/ia.jpg';
+  imageUrl = 'assets/imuka.jpg';
   staticAlertClosed = false;
   successMessage: string;
   

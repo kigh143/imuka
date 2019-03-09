@@ -24,6 +24,7 @@ section {
   .container {
     margin-top:20px !important;
   }
+  margin-bottom: 0px !important;
 }
 
 .navbar {
@@ -56,6 +57,23 @@ section {
 }
 
 
-.card {
+.lead  {
+   color:#fff !important;
+}
 
+.dark{
+  background: #eef !important;
+}
+
+.services {
+  .col-md-6{
+    text-align: center !important;
+    padding:20px !important;
+    height: 250px !important;
+  }
+}
+
+section{
+  padding-top:50px;
+  padding-bottom:50px;
 }

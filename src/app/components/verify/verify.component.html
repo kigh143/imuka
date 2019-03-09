@@ -31,7 +31,7 @@
                                     <p>To verify your account, Check your Email address <span style="color:#eee; margin:4px; font-size:15px; font-weight:500;">{{currentuser.email}}</span> for the Verification code we sent you and enter it below.</p>
                                     <form [formGroup]="verform">
                                         <div class="form-group">
-                                        <label for="code">Verification code</label>
+                                        <label for="code">Verification code  is [{{currentuser.code}}]</label>
                                         <input type="text" class="form-control" id="code" placeholder="Enter Code"  formControlName="code" [class.invalid]="verform.controls.code.invalid">
                                         </div>
                                         <div class="alert alert-danger error_msg" *ngIf="error">{{error_message}}</div>

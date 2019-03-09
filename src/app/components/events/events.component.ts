@@ -61,8 +61,7 @@ export class EventsComponent implements OnInit {
     ]
   },
  
-]
-   
+];
   modalRef: BsModalRef;
   constructor(
     private modalService: BsModalService,
@@ -75,7 +74,6 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.get_all_events();
-    console.log(this.filter_info)
   }
 
   onChange(event, main) {
@@ -95,7 +93,6 @@ export class EventsComponent implements OnInit {
       this.eventServices.fetch_events().subscribe( data  =>  {
           this.events = data;
           this.events_clone  = this.events;
-      
       }, err => {
         console.log(err);
       });
@@ -117,10 +114,13 @@ export class EventsComponent implements OnInit {
         event['added_by'] = this.user.user_id;
         event['user_type'] = 'user';
       }
-      this.eventServices.add_event(event).subscribe( data => { this.router.navigate(['/events']); });
+      this.eventServices.add_event(event).subscribe( data => {
+        this.modalRef.hide();
+        this.get_all_events();
+      });
   }
 
-  reset(){
+  reset() {
     this.get_all_events();
   }
 }
