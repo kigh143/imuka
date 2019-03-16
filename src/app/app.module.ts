@@ -63,19 +63,13 @@ import { InvestableBusinessComponent } from './components/investable-business/in
 import { FiltersComponent } from './components/filters/filters.component';
 import { FlTrancatorPipe } from './pipes/fl-trancator.pipe';
 
-
-
-
-
-
-
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
   { path: 'create_organisation', component : OrgloginComponent},
   { path: 'manage_organisation', component : ManageorganisationComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup/:type', component: SignupComponent },
   { path: 'verify', component: VerifyComponent },
   { path: 'forgotPassword', component: ForgotpassComponent },
   { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},

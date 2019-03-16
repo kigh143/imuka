@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/provider/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor( public router: Router, public sessionService: SessionService ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.sessionService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

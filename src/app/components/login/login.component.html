@@ -13,10 +13,10 @@
                         <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/signup">Create Account</a>
+                        <a class="nav-link" routerLink="/about">About ImukaAccess</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/create_organisation">Add support Organisation</a>
+                        <a class="nav-link" routerLink="/create_organisation">How it Woks</a>
                     </li>
                 </ul>
             </div>
@@ -27,8 +27,12 @@
             <div class="row">
                 <div class="col-md-7">
                     <div style="text-align:center;">
-                        <img src="assets/icon1.png" alt="" style="height:80px; margin-left:20px;">
-                        <p class="lead">Connect to <b>business opportunities.</b></p>
+                        <img src="assets/icon1.png" alt="imukaAccess" style="height:90px; margin-left:20px;">
+                        <h1 style="color:#fff;">Connect to <b>Business Opportunities.</b></h1>
+                        <br/>
+                        <button class="btn btn-outline-primary" routerLink="/signup/investor">Join As Investor</button> &nbsp;&nbsp;
+                        <button class="btn btn-outline-warning" routerLink="/signup/entrepreneur">Join As Entreprenuer</button>  &nbsp;&nbsp;
+                        <button class="btn btn-outline-info" routerLink="/create_organisation">Join And Support</button>  &nbsp;&nbsp;
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -51,15 +55,32 @@
                     </div>
 
                     <div class="card-footer row">
-                        <a class="col-md-6 col-sm-6 col-xs-6" routerLink="/forgotPassword">Forgot password?</a>
-                        <a class="col-md-6  col-sm-6 col-xs-6" routerLink="/signup">Create Your Account</a>
+                        <a class="col-md-12 col-sm-12 col-xs-12" routerLink="/forgotPassword">Forgot password?</a>
                     </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <section class="dark"> 
+    <section class="dark">
+            <div class="container">
+                <div class="row text-center stats">
+                    <div class="col-md-3"> 
+                    <b>10</b> Support organisations
+                    </div>
+                    <div class="col-md-3"> 
+                    <b>120</b> Businesses
+                    </div>
+                    <div class="col-md-3"> 
+                    <b>20</b> Investors / Finaciers
+                    </div>
+                    <div class="col-md-3"> 
+                    <b>110</b> Entrepreneurs
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section> 
         <div class="container padding">
             <div class="row">
                 <div class="col-md-4">
@@ -68,7 +89,30 @@
                 <div class="col-md-8">
                     <h1><b style="color:rgb(17, 49, 97);">ImukaAccess</b></h1>
                     <h4>strengthening trust and transparency between entrepreneurs and investors</h4>
-                    <p>The ImukaAccess app was designed to complement existing incubators, accelerators and business support services in the entrepreneurial ecosystem in Uganda; by helping entrepreneurs to access the right networks, opportunities, personalised support and investment.</p>
+                    <p>ImukaAccess has designed to complement existing incubators, accelerators and business support services in the entrepreneurial ecosystem in Uganda; by helping entrepreneurs to access the right networks, opportunities, personalised support and investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dark">
+        <div class="container">
+            <div class="row text-center icons">
+                <div class="col-md-3"> 
+                    <i class="fa fa-facebook"></i><br/>
+                    ImukaAccess
+                </div>
+                <div class="col-md-3"> 
+                    <i class="fa fa-twitter"></i><br/>
+                    @ImukaAccess
+                </div>
+                <div class="col-md-3"> 
+                    <i class="fa fa-instagram"></i><br/>
+                    #ImukaAccess
+                </div>
+                <div class="col-md-3"> 
+                    <i class="fa fa-linkedin"></i><br/>
+                    ImukaAccess
                 </div>
             </div>
         </div>
@@ -76,7 +120,10 @@
 
     <section>
         <div class="container padding">
-            <h1></h1>
+            <div class="text-center">
+                <h1>What we offer </h1>
+                <h3>To investor , Entreprenuer and Support organisation</h3>
+            </div>
             <div class="row services">
                 <div class="col-md-6 dark">
                     <h3>Personalized <b>Business Support</b></h3>
@@ -95,6 +142,17 @@
                     <p>We work with financial institutions to improve the funding available to SMEs by stimulating the provision of loans and venture capital through financial instruments.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section style="padding:100px;  background: #444; ">
+        <div style="text-align:center;">
+            <img src="assets/icon1.png" alt="imukaAccess" style="height:90px; margin-left:20px;">
+            <h2>Connect to <b>business opportunities.</b></h2>
+            <br/>
+            <button class="btn btn-outline-primary btn-lg" routerLink="/signup/investor">Join As Investor</button> &nbsp;&nbsp;
+            <button class="btn btn-outline-warning btn-lg" routerLink="/signup/entreprenuer">Join As Entreprenuer</button>  &nbsp;&nbsp;
+            <button class="btn btn-outline-info btn-lg" routerLink="/create_organisation">Join And Support</button>  &nbsp;&nbsp;
         </div>
     </section>
     <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
