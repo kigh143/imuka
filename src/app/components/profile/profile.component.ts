@@ -3,6 +3,7 @@ import { SessionService } from '../../provider/session.service';
 import { AuthService } from '../../provider/auth.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { ToastsComponent } from '../toasts/toasts.component';
+import { Http } from '@angular/http';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -13,7 +14,6 @@ export class ProfileComponent implements OnInit {
     user: any;
     files: any[];
     url = 'assets/user.png';
-
     name: string;
     email: string;
     phone: string;
@@ -25,12 +25,17 @@ export class ProfileComponent implements OnInit {
     relevant_exp: string;
     relevant_skills: string;
     expertise: string;
-    current:any;
+    current: any;
     selectedFile: any;
+    percentDone: number;
+    uploadSuccess: any;
 
-  constructor(public sessionService: SessionService,
+  constructor(
+    public sessionService: SessionService,
     public authService: AuthService,
-    public spinnerService: Ng4LoadingSpinnerService, public alert: ToastsComponent) {
+    public spinnerService: Ng4LoadingSpinnerService,
+    public http: Http,
+    public alert: ToastsComponent) {
 
     }
 
@@ -68,7 +73,7 @@ export class ProfileComponent implements OnInit {
           this.alert.showSuccess('field(s) updated');
           console.log(data);
           this.sessionService.login(data.user);
-          this.current=this.sessionService.getuser();
+          this.current = this.sessionService.getuser();
           console.log(this.current);
         }
       }, error => {
@@ -76,15 +81,11 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  onFileSelected(event) {
-    this.selectedFile = event.target.files[0];
-    this.url = event.target.value;
+  upload( files: File[] ) {
+    this.authService.uploadAndProgress(files).subscribe( data  => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
-
-
-  onUpload() {
-    const file_object  = this.selectedFile;
-    console.log(file_object);
-  }
-
 }

@@ -21,6 +21,8 @@ section {
 .jumbotron{
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+
   .container {
     margin-top:20px !important;
   }
@@ -60,4 +62,29 @@ section {
 .error_msg{
   text-align: center;
   margin-top:10px;
+}
+
+.col-md-7 {
+  div {
+    .display-4{
+        font-weight: bolder;
+    }
+    h3{
+      color:#eee !important
+    }
+
+    p{
+      color:rgb(112, 206, 235) !important;
+    }
+  }
+} 
+
+.light-section{
+  padding-top:50px;
+  padding-bottom:50px;
+}
+
+.dark-section{
+  padding-top:50px;
+  padding-bottom:50px;
 }

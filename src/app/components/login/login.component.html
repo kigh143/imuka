@@ -63,22 +63,22 @@
         </div>
     </div>
     <section class="dark">
-            <div class="container">
-                <div class="row text-center stats">
-                    <div class="col-md-3"> 
-                    <b>10</b> Support organisations
-                    </div>
-                    <div class="col-md-3"> 
-                    <b>120</b> Businesses
-                    </div>
-                    <div class="col-md-3"> 
-                    <b>20</b> Investors / Finaciers
-                    </div>
-                    <div class="col-md-3"> 
-                    <b>110</b> Entrepreneurs
-                    </div>
+        <div class="container">
+            <div class="row text-center stats">
+                <div class="col-md-3"> 
+                <b>10</b> Support organisations
+                </div>
+                <div class="col-md-3"> 
+                <b>120</b> Businesses
+                </div>
+                <div class="col-md-3"> 
+                <b>20</b> Investors / Finaciers
+                </div>
+                <div class="col-md-3"> 
+                <b>110</b> Entrepreneurs
                 </div>
             </div>
+        </div>
     </section>
     <section> 
         <div class="container padding">
@@ -100,19 +100,19 @@
             <div class="row text-center icons">
                 <div class="col-md-3"> 
                     <i class="fa fa-facebook"></i><br/>
-                    ImukaAccess
+                    <a href="https://www.facebook.com/ImukaAccess/" target="_blank">@ImukaAccess </a>
                 </div>
                 <div class="col-md-3"> 
                     <i class="fa fa-twitter"></i><br/>
-                    @ImukaAccess
+                    <a href="https://twitter.com/ImukaAccess" target="_blank">@ImukaAccess </a>
                 </div>
                 <div class="col-md-3"> 
                     <i class="fa fa-instagram"></i><br/>
-                    #ImukaAccess
+                    <a href="https://www.facebook.com/ImukaAccess/" target="_blank">@ImukaAccess </a>
                 </div>
                 <div class="col-md-3"> 
                     <i class="fa fa-linkedin"></i><br/>
-                    ImukaAccess
+                    <a href="https://www.linkedin.com/company/imukaaccess/" target="_blank">@ImukaAccess </a>
                 </div>
             </div>
         </div>
@@ -120,40 +120,56 @@
 
     <section>
         <div class="container padding">
-            <div class="text-center">
-                <h1>What we offer </h1>
-                <h3>To investor , Entreprenuer and Support organisation</h3>
-            </div>
-            <div class="row services">
-                <div class="col-md-6 dark">
-                    <h3>Personalized <b>Business Support</b></h3>
-                    <p></p>
+            <div class="row services text-center">
+                <div class="col-md-4">
+                    <h3>Entrepreneurs</h3>
+                    <p>Access Business Growth Opportunities, Technical and Financial support.</p>
+                    <button class="btn btn-outline-warning btn-block" routerLink="/signup/entrepreneur">Join As Entreprenuer</button>
                 </div>
-                <div class="col-md-6">
-                    <h3>Networking <b>Opportunities</b></h3>
-                    <p>Through networking, you can discover new opportunities, build your customer base and find new suppliers and staff. You may also find investors and business partners</p>
+                <div class="col-md-4">
+                    <h3>Investors</h3>
+                    <p>Access validated investment leads. Convenient & reliable deal origination platform</p>
+                    <button class="btn btn-outline-primary btn-block" routerLink="/signup/investor">Join As Investor</button>
                 </div>
-                <div class="col-md-6">
-                    <h3>Investment <b>Opportunities</b></h3>
-                    <p>Investors benefit from Imuka’s robust vetting system that identifies Entrepreneurs who are resilient and open to adapting based on sound Expert feedback. </p>
-                </div>
-                <div class="col-md-6 dark">
-                    <h3>Access <b>to Financing</b></h3>
-                    <p>We work with financial institutions to improve the funding available to SMEs by stimulating the provision of loans and venture capital through financial instruments.</p>
+                <div class="col-md-4">
+                    <h3>Support organisations</h3>
+                    <p>Access Entrepreneur Clients to benefit from your support Programs.</p>
+                    <button class="btn btn-outline-info btn-block" routerLink="/create_organisation">Join And Support</button>
                 </div>
             </div>
         </div>
     </section>
 
     <section style="padding:100px;  background: #444; ">
-        <div style="text-align:center;">
+        <div style="text-align:center; color:#fff;">
             <img src="assets/icon1.png" alt="imukaAccess" style="height:90px; margin-left:20px;">
             <h2>Connect to <b>business opportunities.</b></h2>
-            <br/>
-            <button class="btn btn-outline-primary btn-lg" routerLink="/signup/investor">Join As Investor</button> &nbsp;&nbsp;
-            <button class="btn btn-outline-warning btn-lg" routerLink="/signup/entreprenuer">Join As Entreprenuer</button>  &nbsp;&nbsp;
-            <button class="btn btn-outline-info btn-lg" routerLink="/create_organisation">Join And Support</button>  &nbsp;&nbsp;
+            <p>ImukaAccess is a web and mobile platform that connects East African Entrepreneurs to Investors and Business Support Specialists. We are building a sustainable business support model that combines technology and local talent to support early-stage businesses to move from survival to grow and thrive.</p>
         </div>
     </section>
-    <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+    <section class="light">
+        <div class="container">
+            <div class="row text-center partners">
+                <div class="col-md-2"> 
+                    <div><img src="assets/partners/ftbic.jpg" alt="" style="object-fit: contain;"></div>
+                </div>
+                <div class="col-md-2"> 
+                    <div><img src="assets/partners/grow.jpg" alt="" style="object-fit: contain;"></div>
+                </div>
+                <div class="col-md-2"> 
+                    <div><img src="assets/partners/imuka_logo.png" alt="" style="object-fit: contain;"></div>
+                </div>
+                <div class="col-md-2"> 
+                    <div><img src="assets/partners/kcca_esb.jpg" alt="" style="object-fit: contain;"></div>
+                </div>
+                <div class="col-md-2"> 
+                    <div><img src="assets/partners/renewable.png" alt="" style="object-fit: contain;"></div>
+                </div>
+                <div class="col-md-2"> 
+                    <div><img src="assets/partners/ewb.jpg" alt="" style="object-fit: contain;"></div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
 </section>

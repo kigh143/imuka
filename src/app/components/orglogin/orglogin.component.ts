@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrganisationService } from "../../services/organisation.service";
+import { OrganisationService } from '../../services/organisation.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Router } from '@angular/router';
 @Component({
@@ -12,10 +12,10 @@ export class OrgloginComponent implements OnInit {
   log_email: string;
   s_email: string;
   contact: string;
-  name:string;
+  name: string;
   services: any;
   website: string;
-  imageUrl = 'assets/imuka.jpg';
+  imageUrl = 'assets/group.jpg';
 
   constructor( public organisationService: OrganisationService, public router: Router, public spinnerService: Ng4LoadingSpinnerService,) { }
 
@@ -46,7 +46,7 @@ export class OrgloginComponent implements OnInit {
     this.organisationService.create_organisation(org).subscribe( data => {
       this.spinnerService.hide();
        if(data.flag){
-          localStorage.setItem("support_org", JSON.stringify(data.org));
+          localStorage.setItem('support_org', JSON.stringify(data.org));
           this.router.navigate(['/manage_organisation']);          
        }
     }, error =>{

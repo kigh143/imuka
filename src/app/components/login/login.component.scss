@@ -87,3 +87,15 @@ section{
   font-weight: bolder;
   font-size:25px;
 }
+.partners {
+  div{
+    div {
+      height:100px !important;
+      width:100px !important;
+      img{
+        object-fit: contain !important;
+        width: 100% !important;
+      }
+    }
+  }
+}

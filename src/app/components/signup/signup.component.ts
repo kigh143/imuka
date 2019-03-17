@@ -40,6 +40,7 @@ export class SignupComponent {
 
     this.activeRoute.params.subscribe(params => {
       this.urlValue = params['type'];
+      this.imageUrl = 'assets/' + params['type'] + '.jpg';
     });
    }
 

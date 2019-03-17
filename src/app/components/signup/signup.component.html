@@ -26,10 +26,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <div>
-                            <h1 class="display-4"  *ngIf="urlValue=='entrepreneur'">Join As  Entrepreneur</h1>
-                            <h1 class="display-4"  *ngIf="urlValue=='investor'">Join As Investor</h1>
-                            <p class="lead"></p>
+                        <div class="data"  *ngIf="urlValue=='entrepreneur'">
+                            <h1 class="display-4">Join as  Entrepreneur</h1>
+                            <h3>Access Business Growth Opportunities, Technical and Financial support.</h3>
+                            <p>Be intentional about Growing your Business…..Join Imuka Access today.</p>
+                        </div>
+                        <div class="data"  *ngIf="urlValue=='investor'">
+                            <h1 class="display-4">Join as Investor</h1>
+                            <h3>Access Validated Investment Leads</h3>
+                            <p>Be intentional about Growing your Investment Portfolio... Join Imuka Access today. </p>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -82,21 +87,107 @@
 
     <section *ngIf="urlValue=='investor'">
         <div class="container text-center">
-            <h1>What we offer to our Investors</h1>
+            <h1>Benefits</h1>
         </div>
 
-        <div class="container">
+        <div class="container dark-section">
             <div class="row">
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h4>Deal Origination</h4>
+                    <p>Convenient & Reliable Deal Origination platform</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Visibility of Investments</h4>
+                    <p>Progress visibility of potential investment leads</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>On-ground Validation support</h4>
+                    <p>Access on-ground validation support for initial due diligence activities. Save time and costs involved in the process.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Investment Portfolio</h4>
+                    <p>Grow & Diversify Your Investment portfolio</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Investment Exit Opportunity</h4>
+                    <p>Investment Exit Assured due different investors interested on different thresholds</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section *ngIf="urlValue=='entrepreneur'">
-        <div class="container text-center">
-             <h1>What we offer to our Entrepreneur</h1>
+        <div class="container dark-section">
+            <br/><h1>Benefits</h1><br/>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Share and Learn</h4>
+                    <p>Connect and share your experiences and learn from fellow entrepreneurs</p>
+                </div>
 
+                <div class="col-md-4">
+                    <h4>Business Growth Opportunities</h4>
+                    <p>Connect to various business growth Opportunities this include: market opportunities, Partnership Opportunities, Business Networks.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Investment Searching</h4>
+                    <p>Investment Searching is a long & sometimes frustrating task that can take you away from running your business. We help you search, not just for any investors, but the right investors for you and your business.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Finance & Cashflow Planning</h4>
+                    <p>Financial management in business is key.  We help your business not just find cash, but more importantly, find where the leaks are so your business can start growing and get stronger again. We need to plan how you spend your cash to make sure you have enough for today and tomorrow</p>
+                </div>
+
+
+                <div class="col-md-4">
+                    <h4>Marketing Strategies</h4>
+                    <p>Having a strong, tested, marketing strategy in place, with reliable ‘Return of Investment’ is crucial for the growth and future scaling of any business. We help you develop the right marketing strategies.</p>
+                </div>
+
+
+                <div class="col-md-4">
+                    <h4>Investment Ready</h4>
+                    <p>Is your company ready for investment? We can help you build strong and robust Business Plans, Financial Forecasts & Models while taking you through the step by step process of getting your business Investment Ready.</p>
+                </div>
+
+            </div>
         </div>
+        <div class="container light-section">
+                <br/><h1>Our Entrepreneurs</h1><br/>
+               <div class="row">
+                   <div class="col-md-4">
+                    <div class="card" style="width: 100%;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Chap Chap</h5>
+                          <p class="card-text">A digital marketplace that offers products which promote the adoption of mobile payments while enabling it’s user to Pay, Earn and Save.</p>
+                        </div>
+                      </div>
+                   </div>
+   
+                   <div class="col-md-4">
+                    <div class="card" style="width: 100%;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Sharom Organic</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                   </div>
+                   
+                   <div class="col-md-4">
+                    <div class="card" style="width: 100%;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Andasonia</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                    </div>
+               </div>
+           </div>
     </section>
     
     

@@ -3,17 +3,16 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { api_base_url} from '../constants/constants';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-api_url: string;
+  api_url: string;
   headers: Headers;
   options: RequestOptions;
   constructor(public http: Http) {
     this.api_url = api_base_url;
-     this.headers = new Headers();
+    this.headers = new Headers();
     this.headers.append(
       'Content-Type',
       'application/x-www-form-urlencoded; charset=UTF-8'
@@ -26,8 +25,8 @@ api_url: string;
     return this.http
       .post(this.api_url  +  'login/Json', user, this.options)
       .pipe(map(res => res.json()));
-
   }
+
   signup(user) {
     return this.http
       .post(this.api_url  +  'createuser/json', user, this.options)
@@ -63,8 +62,6 @@ api_url: string;
     .post(this.api_url  +  'addusertorg/json', user, this.options)
     .pipe(map(res => res.json()));
   }
-
-  // connection request functionality.
 
   get_connection_requests(user_id) {
     return this.http
@@ -102,10 +99,17 @@ api_url: string;
     .pipe(map(res => res.json()));
   }
 
-  uploadpp(upload_data) {
-      return this.http
-      .post(this.api_url + 'upload/json', upload_data, this.options)
-      .pipe(map(res => res.json()));
+  uploadAndProgress(files: File[]) {
+    console.log(files);
+    const formData = new FormData();
+    Array.from(files).forEach(f => formData.append('file', f ));
+    return this.http.post(this.api_url + 'upload', formData);
+  }
+
+  basicUpload(files: File[]) {
+    const formData = new FormData();
+    Array.from(files).forEach(f => formData.append('file', f));
+    return this.http.post(this.api_url + 'upload', formData);
   }
 
 }

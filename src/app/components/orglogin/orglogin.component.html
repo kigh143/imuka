@@ -1,39 +1,40 @@
 <section>
-        <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" routerLink="/login">
-                        <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">                        
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ml-auto ">
-                            <li class="nav-item active">
-                                <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" routerLink="/signup">Create Account</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" routerLink="/create_organisation">Add support Organisation</a>
-                            </li>
-                        </ul>
-                    </div>
+    <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" routerLink="/login">
+                    <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">                
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item active">
+                            <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/about">About ImukaAccess</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/create_organisation">How it Woks</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
         <div class="jumbotron jumbotron-fluid"  [ngStyle]="{'background-image':'url(' + imageUrl + ')'}">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
                         <div>
-                            <h1 class="display-4">Add support Organisation.</h1>
-                            <p class="lead">Lets strengthen employers’ and entrepreneurs’ organisations in emerging markets to enhance the enabling environment for entrepreneurs and to promote the membership of entrepreneurs to those organisations. </p>                            
+                            <h1 class="display-4">Entrepreneur Support Organization</h1>
+                            <h4 class="lead">Access Entrepreneur Clients to Benefit from your Support Programs.</h4>
+                            <p  class="lead">Be intentional about reaching more Entrepreneurs…..Join Imuka Access today. </p>                            
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
-                            <div class="card-header">Add support Organisation.</div>
+                            <div class="card-header">Join Imuka Access today.</div>
                             <div class="card-body">
                                 <form>
                                     <div class="form-group">
@@ -89,8 +90,27 @@
                 </div>
             </div>
         </div>
-        <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
-    </section>
+</section>
+<section style="background: #eee; padding:40px;" class="text-center">
+    <div class="container">
+        <h1>As an entrepreneur support organization; </h1>
+        <h3>the progress and growth of your member participants is critical to your success story and uptake of more members. Your success will also attract more stakeholders  partners and funding opportunities.</h3>
+    </div>
+</section>
+<section  style="background: #fff; padding:40px; ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"><h4>Finance & Cashflow Planning</h4><p>Financial management in business is key.  We help your business not just find cash, but more importantly, find where the leaks are so your business can start growing and get stronger again. We need to plan how you spend your cash to make sure you have enough for today and tomorrow</p></div>
+            <div class="col-md-4"><h4>Marketing Strategies</h4><p>Having a strong, tested, marketing strategy in place, with reliable ‘Return of Investment’ is crucial for the growth and future scaling of any business. We help you develop the right marketing strategies.</p></div>
+            <div class="col-md-4"><h4>Investment Ready</h4><p>Is your company ready for investment? We can help you build strong and robust Business Plans, Financial Forecasts & Models while taking you through the step by step process of getting your business Investment Ready.</p></div>
+            <div class="col-md-4"><h4>Broaden your Networks</h4><p>Connect with a wider entrepreneurial network.</p></div>
+            <div class="col-md-4"><h4>Organization Visibility</h4><p>Allow your organization and its services to be visible to a wider entrepreneurial network.</p></div>
+            <div class="col-md-4"><h4>Share your Events and Opportunities</h4><p>Share your opportunities and events to a wider entrepreneurial network.</p></div>
+            <div class="col-md-4"><h4>More traction</h4><p>Allow your entrepreneur clients to benefit to wider ecosystem opportunities for better success stories.</p></div>
+            <div class="col-md-4"><h4>Visibility/Progress insights</h4><p>Visibility and progress insights of your entrepreneur clients.</p></div>
+        </div>
+    </div>
+</section>
     
     
       

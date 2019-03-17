@@ -17,10 +17,10 @@
                             <p class="lead">{{user.email}}</p>
                             <p class="lead">{{user.phone}}</p>
                         </div>
-                        <label class="image-upload-container ">
-                            <input type="file" accept="image/*"  (change)="onFileSelected($event)">
-                        </label>
-                        <button class="btn btn-success" (click)="onUpload()"> upload file </button>
+                        <form action="">
+                            <input type="file" (change)="upload($event.target.files)" />
+                            Upload Percent: {{percentDone}}% <br />
+                        </form>
                 </div>
             </div>
                 

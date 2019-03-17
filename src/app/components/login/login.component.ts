@@ -24,10 +24,9 @@ export class LoginComponent {
     timeout: 5000
   }];
   private _success = new Subject<string>();
-  imageUrl = 'assets/imuka.jpg';
+  imageUrl = 'assets/entrepreneur.jpg';
   staticAlertClosed = false;
   successMessage: string;
-  
   private readonly notifier: NotifierService;
   constructor(private router: Router, public formBuilder: FormBuilder, public auth: AuthService,
     public spinnerService: Ng4LoadingSpinnerService,  public notifierService: NotifierService,
@@ -38,8 +37,8 @@ export class LoginComponent {
     });
     this.notifier = notifierService;
     this.notifier.notify( 'success', 'You are awesome! I mean it!' );
-    
   }
+
   ngOnInit(): void {
     setTimeout(() => this.staticAlertClosed = true, 20000);
 
