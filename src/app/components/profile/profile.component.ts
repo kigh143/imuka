@@ -82,8 +82,9 @@ export class ProfileComponent implements OnInit {
   }
 
   upload( files: File[] ) {
-    this.authService.uploadAndProgress(files).subscribe( data  => {
-      console.log(data);
+    const type = 'profile';
+    this.authService.uploadAndProgress(files, type, this.user.user_id).subscribe( data  => {
+      console.log(' Data => ' + data);
     }, error => {
       console.log(error);
     });

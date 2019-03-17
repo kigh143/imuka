@@ -99,14 +99,15 @@ export class AuthService {
     .pipe(map(res => res.json()));
   }
 
-  uploadAndProgress(files: File[]) {
-    console.log(files);
+  uploadAndProgress(files: File[], type: string, user_id: number) {
+    console.log(files, type, user_id);
     const formData = new FormData();
     Array.from(files).forEach(f => formData.append('file', f ));
     return this.http.post(this.api_url + 'upload', formData);
   }
 
-  basicUpload(files: File[]) {
+  basicUpload(files: File[], type: string, user_id: number) {
+    console.log(files, type, user_id);
     const formData = new FormData();
     Array.from(files).forEach(f => formData.append('file', f));
     return this.http.post(this.api_url + 'upload', formData);
