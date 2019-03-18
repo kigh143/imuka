@@ -18,7 +18,8 @@
                             <p class="lead">{{user.phone}}</p>
                         </div>
                         <form action="">
-                            <input type="file" (change)="upload($event.target.files)" />
+                            <input type="file" (change)="getTheImage($event.target.files, 'user_profile')" />
+                            <button  class="btn btn-primary" [disabled]="showBtn" (click)="upload()">Upload </button>
                         </form>
                 </div>
             </div>

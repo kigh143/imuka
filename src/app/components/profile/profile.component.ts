@@ -12,7 +12,6 @@ import { Http } from '@angular/http';
 export class ProfileComponent implements OnInit {
     oneAtATime = true;
     user: any;
-    files: any[];
     url = 'assets/user.png';
     name: string;
     email: string;
@@ -30,6 +29,11 @@ export class ProfileComponent implements OnInit {
     percentDone: number;
     uploadSuccess: any;
 
+    type: any;
+    showBtn = false;
+    files: any;
+
+
   constructor(
     public sessionService: SessionService,
     public authService: AuthService,
@@ -42,6 +46,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     const data = this.sessionService.getuser();
     this.user = data;
+    this.url =  data.profile_pic;
   }
 
   save(value) {
@@ -54,18 +59,11 @@ export class ProfileComponent implements OnInit {
    } else  if ( value === 'education') {
       this.send_request({education: this.user.education});
    } else  if ( value === 'experience') {
-      this.send_request(
-        {
-          relevant_exp: this.user.relevant_exp ,
-          relevant_skills: this.user.relevant_skills ,
-          expertise: this.user.expertise
-        }
-        );
+      this.send_request({relevant_exp: this.user.relevant_exp, relevant_skills: this.user.relevant_skills, expertise: this.user.expertise});
     }
   }
 
   send_request(object) {
-    console.log(object);
     this.spinnerService.show();
       this.authService.edit_user(object, this.user.user_id).subscribe( data => {
        this.spinnerService.hide();
@@ -81,12 +79,21 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  upload( files: File[] ) {
-    const type = 'profile';
-    this.authService.uploadAndProgress(files, type, this.user.user_id).subscribe( data  => {
-      console.log(' Data => ' + data);
+  upload() {
+    const data = this.sessionService.getuser();
+    console.log('uploading now', data);
+    this.authService.uploadAndProgress(this.files, this.type, data.user_id).subscribe( result  => {
+      this.sessionService.login(result.result['user']);
+      console.log(result);
     }, error => {
-      console.log(error);
+      console.log(' error => ' + error);
     });
   }
+
+  getTheImage(files: File[], type) {
+      this.files = files;
+      this.type = type;
+      this.user = false;
+  }
+
 }

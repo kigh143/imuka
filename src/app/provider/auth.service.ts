@@ -27,6 +27,12 @@ export class AuthService {
       .pipe(map(res => res.json()));
   }
 
+  user_get(user_id) {
+    return this.http
+    .get(this.api_url  +  'user/user_id/'  +  user_id  +  '/json')
+    .pipe(map(res => res.json()));
+  }
+
   signup(user) {
     return this.http
       .post(this.api_url  +  'createuser/json', user, this.options)
@@ -99,18 +105,11 @@ export class AuthService {
     .pipe(map(res => res.json()));
   }
 
-  uploadAndProgress(files: File[], type: string, user_id: number) {
-    console.log(files, type, user_id);
+  uploadAndProgress(files: File[], type: string, id: number) {
     const formData = new FormData();
     Array.from(files).forEach(f => formData.append('file', f ));
-    return this.http.post(this.api_url + 'upload', formData);
-  }
-
-  basicUpload(files: File[], type: string, user_id: number) {
-    console.log(files, type, user_id);
-    const formData = new FormData();
-    Array.from(files).forEach(f => formData.append('file', f));
-    return this.http.post(this.api_url + 'upload', formData);
+    return this.http.post('http://imukaaccess.com/welcome/upload/type/' + type + '/id/' + id + '/json', formData)
+    .pipe(map(res => res.json()));
   }
 
 }

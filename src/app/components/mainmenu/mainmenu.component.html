@@ -1,7 +1,7 @@
 <div class="profile" (click)="go_to_profile()">
   <div class="top"></div>
   <div class="bottom">
-    <img src="assets/user.png" alt="" /> 
+    <img src="{{user?.profile_pic}}" alt="" /> 
     <b style="font-size: 15px">{{user?.email}}</b>
     <span>{{user?.user_type}}</span>
   </div>

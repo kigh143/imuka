@@ -31,7 +31,7 @@ export class SessionService {
   }
 
   checkUser() {
-      let data = localStorage.getItem(this.KEY);
+      const data = localStorage.getItem(this.KEY);
       if (data !== null) {
         this.user = data;
         this.authenticationState.next(true);
@@ -42,11 +42,11 @@ export class SessionService {
       }
   }
 
-  getuser(){
-      return  JSON.parse( localStorage.getItem(this.KEY) );
+  getuser() {
+      return JSON.parse(localStorage.getItem(this.KEY));
   }
 
-  get_user_session(){
+  get_user_session() {
     return  this.isLoggedin;
   }
 }
