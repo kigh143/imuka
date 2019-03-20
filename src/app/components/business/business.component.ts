@@ -17,6 +17,7 @@ import {SessionService} from '../../provider/session.service';
 import { ActivatedRoute } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap';
 import { ToastsComponent} from '../toasts/toasts.component'
+import { AuthService } from 'src/app/provider/auth.service';
 @Component({
 selector: 'app-business',
 templateUrl: './business.component.html',
@@ -43,14 +44,18 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   linechart: Chart;
   mline: Chart;
   piechart: Chart;
-  sector_info:any;
-  financials:any;
-  products:any;
-  documents:any;
+  sector_info: any;
+  financials: any;
+  products: any;
+  documents: any;
+
+  files: any;
+  type: any;
+  user: any;
 
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-    milestones = [
+  milestones = [
         {
         name: 'Needs assessment',
         complete: 'true'
@@ -80,6 +85,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     public modalService: BsModalService,
     public businessServices: BizService,
     public session: SessionService,
+    public authService: AuthService,
     public spinnerService: Ng4LoadingSpinnerService,
     public alert: ToastsComponent) {
       this.bizteam = this.formBuilder.group({
@@ -312,4 +318,19 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     chart.ref$.subscribe(console.log);
   }
 
+
+
+  upload() {
+    const data = this.session.getuser();
+    this.authService.uploadAndProgress(this.files, this.type, this.business_id).subscribe( result  => {
+      console.log(result);
+    }, error => {
+      console.log(' error => ' + error);
+    });
+  }
+
+  getTheImage(files: File[], type) {
+      this.files = files;
+      this.type = type;
+  }
 }
