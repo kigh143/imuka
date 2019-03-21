@@ -84,6 +84,7 @@ export class ProfileComponent implements OnInit {
     console.log('uploading now', data);
     this.authService.uploadAndProgress(this.files, this.type, data.user_id).subscribe( result  => {
       this.sessionService.login(result.result['user']);
+      this.url = result.result['user']['profile_pic'];
       console.log(result);
     }, error => {
       console.log(' error => ' + error);
