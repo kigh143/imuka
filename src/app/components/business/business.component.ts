@@ -54,6 +54,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   user: any;
 
   fileload: boolean = false;
+  coveruploading: boolean = false;
+  logouploading: boolean = false;
 
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
@@ -327,9 +329,16 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
 
   upload() {
-    const data = this.session.getuser();
+    if(this.type == 'biz_logos'){
+        this.logouploading = true;
+    }else{
+      this.coveruploading=true;
+    }
     this.authService.uploadAndProgress(this.files, this.type, this.business_id).subscribe( result  => {
-      console.log(result);
+      this.getbusiness(this.business_id);
+      this.coveruploading=false;
+      this.logouploading=false;
+      this.showforms();
     }, error => {
       console.log(' error => ' + error);
     });

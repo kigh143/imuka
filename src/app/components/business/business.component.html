@@ -4,7 +4,8 @@
     
       <div class="row">
         <div class="col-md-8">
-          <div class="jumbotron">
+          <div class="jumbotron" [ngStyle]="{'background-image':'url(' + biznes?.business_cover + ')'}">
+              <img src="{{biznes?.business_logo}}">
               <h3 style="color:#14978a">{{biznes?.business_name}}</h3>
               <p>Sector(s) : {{sector_info}}</p>
               <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
@@ -12,7 +13,8 @@
                   <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">Pitch Deck</button>
                   <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">Inovices</button>
               </div>
-              <buttonn class="btn btn-light btn-sm" (click)="showforms()">Add logo or cover image</button>
+              <br/>
+              <button class="btn btn-light btn-sm" (click)="showforms()">Add Logo or Cover Image</button>
           </div>
         </div>
 
@@ -32,16 +34,19 @@
             </div>
         </div>
       </div>
-      <div class="row" *ngIf="fileload">
+
+      <div class="container row" *ngIf="fileload" style="margin: 10px auto; border:1px solid grey; padding:20px;">
           <div class="col-md-6">
               <h3>Add business logo</h3>
               <input type="file" class="file" (change)="getTheImage($event.target.files, 'biz_logos')" />
+              <p *ngIf="logouploading">uploading please wait ...</p>
               <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
           </div>
 
           <div class="col-md-6">
               <h3>Add business cover image</h3>
               <input type="file" class="file"  (change)="getTheImage($event.target.files, 'business_cover')" />
+              <p *ngIf="coveruploading">uploading please wait ...</p>
               <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
           </div>
         </div>
