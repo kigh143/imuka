@@ -53,6 +53,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   type: any;
   user: any;
 
+  fileload: boolean = false;
+
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   milestones = [
@@ -318,6 +320,10 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     chart.ref$.subscribe(console.log);
   }
 
+
+  showforms(){
+    this.fileload = !this.fileload;
+  }
 
 
   upload() {

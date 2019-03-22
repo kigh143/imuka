@@ -33,6 +33,9 @@ export class ProfileComponent implements OnInit {
     showBtn = false;
     files: any;
 
+    uploadForm: boolean = false;
+    btnText ="upload File";
+
 
   constructor(
     public sessionService: SessionService,
@@ -47,6 +50,10 @@ export class ProfileComponent implements OnInit {
     const data = this.sessionService.getuser();
     this.user = data;
     this.url =  data.profile_pic;
+  }
+
+  toggleUploadForm(){
+     this.uploadForm = !this.uploadForm;
   }
 
   save(value) {
@@ -81,13 +88,14 @@ export class ProfileComponent implements OnInit {
 
   upload() {
     const data = this.sessionService.getuser();
-    console.log('uploading now', data);
+    this.btnText ="uploading ...";
     this.authService.uploadAndProgress(this.files, this.type, data.user_id).subscribe( result  => {
       this.sessionService.login(result.result['user']);
       this.url = result.result['user']['profile_pic'];
-      console.log(result);
+      this.btnText ="upload";
+      this.uploadForm = false;
     }, error => {
-      console.log(' error => ' + error);
+      this.btnText ="upload";
     });
   }
 

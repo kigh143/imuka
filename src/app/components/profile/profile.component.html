@@ -14,13 +14,18 @@
                         <div class="col-md-12 profilepic" >
                             <img [src]="url">
                             <h1 class="display-4">{{user.name}}</h1>
-                            <p class="lead">{{user.email}}</p>
-                            <p class="lead">{{user.phone}}</p>
+                            <p>{{user.email}}</p>
+                            <p>{{user.phone}}</p>
+                            <button class="btn btn-sm btn-light" (click)="toggleUploadForm()">change profile</button>
                         </div>
-                        <form action="">
-                            <input type="file" (change)="getTheImage($event.target.files, 'user_profile')" />
-                            <button  class="btn btn-primary" [disabled]="showBtn" (click)="upload()">Upload </button>
-                        </form>
+                </div>
+                
+            </div>
+            <div *ngIf="uploadForm">
+                <input type="file" class="file" (change)="getTheImage($event.target.files, 'user_profile')" />
+                <div class="row">
+                    <div class="col-md-6"> <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">{{btnText}}</button></div>
+                    <div class="col-md-6"><button class="btn btn-danger btn-block" (click)="toggleUploadForm()">Close</button></div>
                 </div>
             </div>
                 

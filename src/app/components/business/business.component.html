@@ -12,21 +12,7 @@
                   <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">Pitch Deck</button>
                   <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">Inovices</button>
               </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <form action="">
-                    <input type="file" (change)="getTheImage($event.target.files, 'biz_logos')" />
-                    <button  class="btn btn-primary" [disabled]="showBtn" (click)="upload()">Upload </button>
-                </form>
-                </div>
-
-                <div class="col-md-4">
-                  <form action="">
-                    <input type="file" (change)="getTheImage($event.target.files, 'business_cover')" />
-                    <button  class="btn btn-primary" [disabled]="showBtn" (click)="upload()">Upload </button>
-                </form>
-                </div>
-              </div>
+              <buttonn class="btn btn-light btn-sm" (click)="showforms()">Add logo or cover image</button>
           </div>
         </div>
 
@@ -46,6 +32,19 @@
             </div>
         </div>
       </div>
+      <div class="row" *ngIf="fileload">
+          <div class="col-md-6">
+              <h3>Add business logo</h3>
+              <input type="file" class="file" (change)="getTheImage($event.target.files, 'biz_logos')" />
+              <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
+          </div>
+
+          <div class="col-md-6">
+              <h3>Add business cover image</h3>
+              <input type="file" class="file"  (change)="getTheImage($event.target.files, 'business_cover')" />
+              <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
+          </div>
+        </div>
 
       <div class="card border-primary mb-3" style="max-width: 100%;" *ngIf="biznes?.on_program==='Y'">
         <div class="card-header bg-transparent border-primary">Business Progress</div>
