@@ -61,28 +61,9 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-  milestones = [
-        {
-        name: 'Needs assessment',
-        complete: 'true'
-        },
-        {
-        name: 'Financial palnning and management',
-        complete: true
-        },
-        {
-        name: 'Business model innovation',
-        complete: false
-        },
-        {
-        name: 'unlimitted personalsized support',
-        complete: true
-        },
-        {
-        name: 'Success fee',
-        complete: true
-        }
-    ];
+  milestones: any = {};
+
+  
 
   constructor(
     public formBuilder: FormBuilder,
@@ -178,6 +159,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.products = data['products']
           this.documents = data['documents']
           this.dailyupdates = data['daily_updates'];
+          this.milestones = data['milestones'];
           this.draw();
       });
   }

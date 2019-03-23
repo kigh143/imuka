@@ -29,6 +29,9 @@ export class MybusinessComponent implements OnInit {
   currentuser: any;
   bizinfo: any;
   packages:any;
+  btnText = "Add Business";
+  error: boolean = false;
+  msg : any;
   
   constructor( public modalService: BsModalService, public router: Router,public spinnerService: Ng4LoadingSpinnerService,  public bizy :BizService, public session : SessionService) {
       const data = this.session.getuser();
@@ -41,7 +44,7 @@ export class MybusinessComponent implements OnInit {
   }
 
   add_business() {
-    this.spinnerService.show();
+    this.btnText = "Please wait ...";
       const biz = {
       business_name: this.business_name,
       region: this.region,
@@ -54,10 +57,18 @@ export class MybusinessComponent implements OnInit {
     };
     biz['owner_id'] = this.currentuser.user_id;
     this.bizy.addbiz(biz).subscribe(data => {
-      this.spinnerService.show();
+    this.btnText = "Add Business";
         if(data.flag) {
-        this.getbusinesses();
+          this.modalRef.hide();
+          this.getbusinesses();
+        }else{
+          this.error = true;
+          this.msg = data.message;
         }
+    },error => {
+          this.error = true;
+          this.msg = error.message;
+      this.btnText = "Add Business";
     });
   }
 
@@ -71,7 +82,6 @@ export class MybusinessComponent implements OnInit {
 
   getbusinesses() {
     this.bizy.getbusinesses_for_user(this.currentuser.user_id).subscribe(data=>{
-        console.log(data);
         this.businesses = data;
     });
   }

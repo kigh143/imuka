@@ -2,55 +2,64 @@
 <app-header></app-header>
 <br/>
   <div class="container">
+
       <div class="row">
         <div class="col-md-8">
-          <div class="jumbotron" [ngStyle]="{'background-image':'url(' + biznes.business_cover + ')'}">
-              <img src="{{biznes.business_logo}}">
-              <h3 style="color:#14978a">{{biznes?.business_name}}</h3>
-              <p>Sector(s) : {{sector_info}}</p>
-              <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
-              <div *ngIf="biznes?.on_program==='Y'" >
-                  <button type="button" class="btn btn-outline-primary spaced" routerLink="/pitchbook/{{business_id}}">Pitch Deck</button>
-                  <button type="button" class="btn btn-outline-primary spaced" routerLink="/einvoice/{{business_id}}">Inovices</button>
+            <div class="card">
+                <img src="{{biznes.business_cover}}" class="card-img-top" alt="..." style="height:160px;">
+                <div class="card-body">
+                  <div class="media">
+                      <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;">
+                      <div class="media-body">
+                        <h5 class="mt-0">{{biznes?.business_name}}</h5>
+                        {{biznes?.location}} {{biznes?.region}}  {{biznes?.country}}
+                      </div>
+                    </div>
+                </div>
+                <div class="card-footer btn-group" role="group" aria-label="Basic example" style="padding:8px;">
+                    <button class="btn btn-danger btn-sm spaced"  (click)="showforms()">Add Logo or Cover Image</button>
+                    <button *ngIf="biznes?.on_program==='Y'" type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
+                    <button *ngIf="biznes?.on_program==='Y'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Inovices</button>
+                </div>
               </div>
-              <br/>
-              <button class="btn btn-light btn-sm" (click)="showforms()">Add Logo or Cover Image</button>
-          </div>
         </div>
 
         <div class="col-md-4">
-            <div *ngIf="biznes?.on_program==='Y'">
+            <div *ngIf="biznes?.on_program=='Y'">
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-dark">Breakdown of the imuka activities and milestones.</li>
+                    <li class="list-group-item list-group-item-dark">ImukaAccess activities and milestones.</li>
                     <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
                     {{milestone?.name}} 
                     <i [ngClass]="{'fa fa-check': milestone.complete}" ></i>
                 </ul>
             </div>
 
-            <div *ngIf="biznes?.on_program==='N'">
-              <h2><i class="fa fa-file-o"></i></h2>
-              <h4><b>Not yet on program</b></h4>
+            <div *ngIf="biznes?.on_program=='N'" style="display:flex;">
+              <div style="margin:auto">
+                  <h2><i class="fa fa-file-o"></i></h2>
+                  <h4><b>Not yet on program</b></h4>
+              </div>
             </div>
         </div>
       </div>
+      <br/>
 
-      <div class="container row" *ngIf="fileload" style="margin: 10px auto; border:1px solid grey; padding:20px;">
+      <div class="container row" *ngIf="fileload" style="margin: 10px auto; border:1px solid #eee; background:#eee; padding:20px;">
           <div class="col-md-6">
-              <h3>Add business logo</h3>
+              <p>Add business logo (Best results with images at 200x200 pixels.)</p>
               <input type="file" class="file" (change)="getTheImage($event.target.files, 'biz_logos')" />
               <p *ngIf="logouploading">uploading please wait ...</p>
               <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
           </div>
 
           <div class="col-md-6">
-              <h3>Add business cover image</h3>
+              <p>Add business cover image (Best results with images at 1000x150 pixels.)</p>
               <input type="file" class="file"  (change)="getTheImage($event.target.files, 'business_cover')" />
-              <p *ngIf="coveruploading">uploading please wait ...</p>
+              <p *ngIf="coveruploading">Uploading  please wait ...</p>
               <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
           </div>
-        </div>
-
+      </div>
+      <hr/>
       <div class="card border-primary mb-3" style="max-width: 100%;" *ngIf="biznes?.on_program==='Y'">
         <div class="card-header bg-transparent border-primary">Business Progress</div>
         <div class="card-body text-primary">
@@ -66,84 +75,118 @@
             <button type="button" class="btn btn-primary" (click)="openModal(template)">Update Business Progress</button>       
         </div>
       </div>
-
-      <div>
+      <hr/>
+      <div style="padding:8px; border:1px solid #eee;">
         <tabset>
           <tab heading="Business Information" id="tab1">
             <div>
               <div class="business">
                 <div class="content-box row" style="margin-top: 20px">
-                  <div class="col-md-8 col-xs-12">
+                  <div class="col-md-6">
+
+                  </div>
+                  <div class="col-md-6 col-xs-12">
                     <form name=general>
-                      <span style="font-size:14px">General</span>
-                      <hr>
-                      <div class="form-group">
-                          <label for="inputPassword" class="form-label" >Business name</label>
-                          <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
-                      </div>
+                        <hr/>
+                            <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">General Business Info</span>
+                        <hr/>
+                        <div style="background:#eee; padding:16px;">
+                          <div class="form-group">
+                            <label for="inputPassword" class="form-label" >Business name</label>
+                            <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
+                          </div>
 
-                      <div class="form-group">
-                          <label for="inputPassword" class="form-label" >Description</label>
-                          <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
-                      </div>
-                      
-                      <div class="form-group"> 
-                        <label for="exampleFormControlSelect1">Line of business/ sector</label>
-                        <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
-                          <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
-                          </option>
-                          <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
-                          </option>
-                          <option value="Technology/ ICT and IT-Enabled Services">Technology/ ICT and IT-Enabled Services</option>
-                          <option value="Tourism and Hospitality">Tourism and Hospitality</option>
-                          <option value="Healthcare and Pharmaceuticals">Healthcare and Pharmaceuticals</option>
-                          <option value="Education">Education</option>
-                          <option value="Manufacturing">Manufacturing</option>
-                          <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
-                          <option value="Transport and Logistics">Transport and Logistics</option>
-                          <option value="Services">Services</option>
-                      </select>
-                      </div>
-                      
-                      <div class="form-group">
-                          <label for="inputPassword" class="form-label">Phone number</label>
-                          <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
-                      </div>
-                      
-                      <div class="form-group">
-                          <label for="inputPassword" class="form-label">Website</label>
-                          <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
-                      </div>
-                      
-                      <div class="form-group">
-                          <label for="inputPassword" class="col-form-label">Email</label>
-                          <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
-                      </div>
-                      <span style="font-size:14px">Location</span>
-                      <hr>
+                          <div class="form-group">
+                            <label for="inputPassword" class="form-label" >Description</label>
+                            <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
+                          </div>
 
-                      <div class="form-group">
-                            <label for="inputPassword" class="form-label">Address line</label>
-                            <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
-                      </div>
+                          <div class="form-group"> 
+                          <label for="exampleFormControlSelect1">Line of business/ sector</label>
+                          <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
+                            <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
+                            </option>
+                            <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
+                            </option>
+                            <option value="Technology/ ICT and IT-Enabled Services">Technology/ ICT and IT-Enabled Services</option>
+                            <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+                            <option value="Healthcare and Pharmaceuticals">Healthcare and Pharmaceuticals</option>
+                            <option value="Education">Education</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
+                            <option value="Transport and Logistics">Transport and Logistics</option>
+                            <option value="Services">Services</option>
+                          </select>
+                          </div>
 
-              
-                        <div class="form-group">
-                            <label for="inputPassword" class="form-label">Mission</label>
-                            <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                          <label for="inputPassword" class="form-label">Vision</label>
-                            <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
+                          <div class="row">
+                              <div class="col-md-8"></div>
+                              <div class="col-md-4">
+                                <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
+                              </div>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="inputPassword" class="form-label">Founded</label>
-                            <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
+                        <hr/>
+                            <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Business Contact Info</span>
+                        <hr/>
+                        <div style="background:#eee; padding:16px;">
+                          <div class="form-group">
+                              <label for="inputPassword" class="form-label">Phone number</label>
+                              <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
+                          </div>
+                          
+                          <div class="form-group">
+                              <label for="inputPassword" class="form-label">Website</label>
+                              <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
+                          </div>
+                          
+                          <div class="form-group">
+                              <label for="inputPassword" class="col-form-label">Email</label>
+                              <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
+                          </div>
+                          <span style="font-size:14px">Location</span>
+                          <hr>
+
+                          <div class="form-group">
+                                <label for="inputPassword" class="form-label">Address line</label>
+                                <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
+                          </div>
+                          <div class="row">
+                              <div class="col-md-8"></div>
+                              <div class="col-md-4">
+                                <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
+                              </div>
+                            </div>
                         </div>
-                        
-                        <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
+
+                        <hr/>
+                            <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Other information.</span>
+                        <hr/>
+                        <div style="background:#eee; padding:16px;">
+                            <div class="form-group">
+                                <label for="inputPassword" class="form-label">Mission</label>
+                                <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label for="inputPassword" class="form-label">Vision</label>
+                                <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="form-label">Founded</label>
+                                <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-4">
+                                  <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
+                                </div>
+                              </div>
+                        </div>
+
                       </form>
                     </div> 
 
