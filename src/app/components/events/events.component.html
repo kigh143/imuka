@@ -8,13 +8,19 @@
         </div>
         </div>
         <div class="col-md-9">
-        <div class="jumbotron">
+        <div class="jumbotron" [ngStyle]="{background: 'url(/assets/conferenceworkshop.jpg)'}">
             <h4>{{events_clone.length}} Events</h4>
             <p>Find upcoming networking and training events in your sector and region,
             including Imuka Series events.</p>
             <hr class="my-4">
-            <a class="btn btn-primary btn-sm" (click)="openModal(template)">Post an Event</a>
-            
+            <!-- <a class="btn btn-primary btn-sm" (click)="openModal(template)">Post an Event</a> -->
+            <div class="card col-4" style="margin:0 auto">
+               
+                <div class="card-body" >
+                  <i  style="color:#0056b3; font-size:30px; text-align: center" class="fa fa-globe" ></i><br/>
+                  <span style="color:black">Publish Event</span><br/>
+                  <span style="color:black; font-size: 12px">share your information about your event</span>
+                </div></div>
         </div>
             <div class="content">
                     
@@ -23,13 +29,14 @@
                     <div class="col-md-6 carddata" *ngFor="let event of events_clone">
                         <div class="card">
                         <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:240px">
-                        <div class="card-body" style="height:170px">
-                            <h6 class="card-title">{{event.title}}({{event.event_type}})</h6>
-                            <p class="card-text">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Continue reading</a> </p>
+                        <div class="card-body" style="height:200px">
+                            <span class="card-title">{{event.title}}({{event.event_type}})</span><br/>
+                            <span class="eventtime"><span style="color:#0056b3">Date: </span>&nbsp;{{event.time_of_event}}</span>
+                            <p class="card-text">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Read more <i class="fa fa-forward"></i></a> </p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <!--<li class="list-group-item"><span>{{event.time_of_event}}</span><span class="float-right" [ngClass]="{{ event.daysleft | slice : 0 : 1  }}>5?,'ontime':'notime'">{{event.daysleft}}</span></li>-->
-                            <li class="list-group-item">{{event.venue}}</li>
+                            <li class="list-group-item"><i class="fa fa-map-marker" style="color:#0056b3; font-size: 15px"></i>  {{event.venue}}</li>
                         </ul>
                         </div>
                     </div>
