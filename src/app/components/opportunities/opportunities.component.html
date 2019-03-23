@@ -8,26 +8,34 @@
     </div>
     </div>
     <div class="col-md-9">
-        <div class="jumbotron">
-            <h4>{{opportunities_clone.length}} Opportunities</h4>
-            <p>Explore funding, skilling and resource opportunities in your business sector and region.</p>
-            <hr class="my-4">
-            <a class="btn btn-primary btn-sm" (click)="openTheModal(template)">Post an opportunity</a>
-        </div>  
-        <div class="content row">
-            <div class="col-md-6" *ngFor="let opportunity of opportunities_clone" style="margin-top:10px;">
-                <div class="card">
-                    <div class="height:100px">
-                        <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="width:100%">
+        <div class="jumbotron" [ngStyle]="{background: 'url(/assets/conferenceworkshop.jpg)'}">
+            <div class="divcover"> <h4>Opportunities ({{opportunities_clone.length}})</h4>
+              
+             <p>Find upcoming networking and training events in your sector and region,</p>
+            
+             <div  class="row" ><div class="col-md-4"><a class="btn eventbutton btn-primary btn-sm" (click)="openTheModal(template)" >Post</a></div>
+             <div class="col-md-4"><a class="btn eventbutton btn-success btn-sm" (click)="get_opportunities()">All Opportunities</a></div>
+            <div class="col-md-4"> <a class="btn eventbutton btn-warning btn-sm" (click)="myopportunities()" >My Opportunities</a></div></div>
+         </div>
+         </div>
+         <div class="card-columns">
+            <div class="card" *ngFor="let opportunity of opportunities_clone">
+                
+                    <div >
+                        <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="width:100%;height:250px"
+                        onerror="this.src='/assets/conferenceworkshop.jpg'"
+                        >
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{opportunity.title}}</h5>
-                        <p class="card-text">{{opportunity.short_description|flTrancator}}<a [href]="opportunity.link" target="_blank">Continue reading</a> </p>
+                        <span class="card-title">{{opportunity.title}}</span><br/>
+                        <span class="eventtime"><span style="color:#0056b3">End On: </span>&nbsp;{{opportunity.due_date}}<span style="color:#0056b3; padding-left:10px">Days left: </span>&nbsp;{{opportunity.daysleft}}</span>
+                        <hr style="margin:2px">
+                        <span style="font-size:14px">Type : {{opportunity.opp_type}}</span>
+                       <hr  style="margin:0">
+                        <p class="card-text" >{{opportunity.short_description|flTrancator}}<a [href]="opportunity.link" target="_blank" style="color:#0056b3">Read More  <i class="fa fa-forward"></i></a> </p>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{opportunity.due_date}}</li>
-                    </ul>
-                </div>
+                   
+                
             </div>
         </div>
     

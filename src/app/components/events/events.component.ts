@@ -7,6 +7,7 @@ import { SessionService } from 'src/app/provider/session.service';
 import { Router } from '@angular/router';
 import { FiltersComponent} from '../../components/filters/filters.component'
 import { filter } from 'rxjs/operators';
+import { ToastsComponent} from '../toasts/toasts.component'
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -21,6 +22,7 @@ export class EventsComponent implements OnInit {
   link: string;
   venue: string;
   user: any;
+  all_event : any;
  filter_name;
  event_filter={
     name:"",
@@ -67,13 +69,14 @@ export class EventsComponent implements OnInit {
     private modalService: BsModalService,
     public eventServices: EventsService,
     public sessionservice: SessionService,
-    public router: Router
+    public router: Router,
+    public alert: ToastsComponent
     ) {
       this.user  = this.sessionservice.getuser();
   }
 
   ngOnInit() {
-    this.get_all_events();
+     this.get_all_events();
   }
 
   onChange(event, main) {
@@ -115,6 +118,7 @@ export class EventsComponent implements OnInit {
         event['user_type'] = 'user';
       }
       this.eventServices.add_event(event).subscribe( data => {
+        this.alert.showSuccess("Event Added");
         this.modalRef.hide();
         this.get_all_events();
       });
@@ -122,5 +126,9 @@ export class EventsComponent implements OnInit {
 
   reset() {
     this.get_all_events();
+  }
+ 
+  myevent(){
+    this.all_event = false;
   }
 }

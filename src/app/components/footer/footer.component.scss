@@ -19,3 +19,16 @@
 .logout{
 	cursor: pointer;
 }
+@media only screen and (max-width: 650px){
+	
+		ul{
+		display:flex;
+		flex-direction:column !important;
+		text-align:center;
+		padding:0 !important;
+		li{
+			padding:0 !important;
+			margin: 0 auto !important;
+		}
+	}
+}
