@@ -15,24 +15,16 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let investments of accepted">
           <div class="card " >
-              <img
-            class="card-img-top"
-            src="assets/v.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{investments?.business_name}}</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
-            </p>
-          </div>
+            <img  class="card-img-top" src="{{investments?.business_cover}}"  alt="Card image cap"/>
+            <div class="card-body">
+              <h5 class="card-title">{{investments?.business_name}}</h5>
+              <p class="card-text">
+                {{investments?.business_name}}
+              </p>
+            </div>
           <div style="display:flex; flex-direction: row; height:35px">
             <div class="card-footer text-muted" style="flex:5; padding-top:3px; ">
-            
               <a class="card-link" href="" ><i class="fa fa-info-circle"></i> Inquire</a>
-           
-    
             </div>
             <div class=""style="flex:1; background:darkcyan; font-size: 22px; text-align:center; padding-top:3px"><span> P</span></div>
             </div>
@@ -65,29 +57,6 @@
                       </div>
       </div>
     </div>
-    <!--<div class="row">
-      <div class="col-md-12" style="padding-left:30px">
-        <div class="req" style="border: 1px dotted #222; margin-top:30px">
-        <div class="row" style="padding:10px"><div class="bottom" style="padding-left:20px"><span>Investment Requests</span></div>
-        <div class="left" style="padding-right:5px"><button style="border-radius:100%" (click)="openModal(template)">+</button></div>
-        </div>
-          <ul class="list-group">
-              <li class="list-group-item"  *ngFor="let investments of pending">
-              <div class="bottom">
-              <img src="assets/user.png" alt="" height="25" />
-              </div>
-              <div class="center">
-              <span style="">{{investments.business_name}}</span><br>
-              <span style="font-size:10px; color:gray">{{investments.offer}}</span>
-              </div>
-              <div class="left">
-              <span>pending</span>
-              </div>
-              </li>
-              </ul>
-                      </div>
-      </div>
-    </div>-->
   </div>
     </div>
 </div>

@@ -1,11 +1,11 @@
 <div class="body">
 <app-header></app-header>
+<br/>
   <div class="container">
-    
       <div class="row">
         <div class="col-md-8">
-          <div class="jumbotron" [ngStyle]="{'background-image':'url(' + biznes?.business_cover + ')'}">
-              <img src="{{biznes?.business_logo}}">
+          <div class="jumbotron" [ngStyle]="{'background-image':'url(' + biznes.business_cover + ')'}">
+              <img src="{{biznes.business_logo}}">
               <h3 style="color:#14978a">{{biznes?.business_name}}</h3>
               <p>Sector(s) : {{sector_info}}</p>
               <p>Address: {{biznes?.location}} {{biznes?.country}}</p>
@@ -143,7 +143,7 @@
                             <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
                         </div>
                         
-                        <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">Submit</button>
+                        <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
                       </form>
                     </div> 
 

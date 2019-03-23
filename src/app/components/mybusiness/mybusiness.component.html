@@ -10,6 +10,7 @@
         <div class="content row">
           <div class="col-md-6 carddata" *ngFor="let business of businesses">
             <div class="card">
+              <img src="{{business.business_cover}}" class="card-img-top" alt="{{business.business_name}} logo">
               <div class="card-body">
                 <h5 class="card-title">{{business.business_name}}</h5>
                 <p class="card-text">

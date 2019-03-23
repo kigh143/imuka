@@ -57,6 +57,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   coveruploading: boolean = false;
   logouploading: boolean = false;
 
+  btnText="save all changes";
+
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   milestones = [
@@ -251,12 +253,11 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   updatebusiness() {
-    this.spinnerService.show();
+    this.btnText = "saving changes please wait ... ";
     this.businessServices.updatebusiness(this.biznes).subscribe(data => {
-      this.spinnerService.hide();
+      this.btnText="save all changes";
       if (data.flag) {
         this.getbusiness(this.business_id);
-        
       } else {
       console.log(data);
       }
