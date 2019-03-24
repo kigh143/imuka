@@ -28,12 +28,12 @@
                         <div class="card">
                         <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:250px">
                         <div class="card-body" style="height:200px">
-                            <h4 class="card-title">{{event.title}}</h4><br/>
+                            <h6 class="card-title">{{event.title}}</h6>
                             <span class="eventtime"><span style="color:#0056b3">Date: </span>&nbsp;{{event.time_of_event}} <span style="color:#0056b3; padding-left:10px">Days left: </span>&nbsp;{{event.daysleft}}</span>
                             <hr style="margin:2px">
                             <span style="font-size:14px">Type : {{event.event_type}}</span>
                            <hr  style="margin:0">
-                            <p class="card-text">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Read more <i class="fa fa-forward"></i></a> </p>
+                            <p class="card-text" style="font-size:12px">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Read more <i class="fa fa-forward"></i></a> </p>
                         </div>
                         <ul class="list-group list-group-flush">
                            

@@ -135,7 +135,7 @@ option{
   text-align: right;
 }
 .description{
-  margin-bottom:20px;
+  
 }
 .replies{
   margin-top:10px;
@@ -144,6 +144,9 @@ option{
   font-size:12px !important
 }
 @media only screen and (max-width: 650px){
+  .center{
+    padding-left:10px !important;
+  }
   .col-md-8{
     padding-left:0 !important;
     padding-right: 0 !important;
