@@ -78,6 +78,9 @@ export class SettingsComponent implements OnInit {
      }
 
   }
+  resetpassword(){
+    
+  }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
   }
