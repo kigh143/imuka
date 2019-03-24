@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganisationService } from '../../services/organisation.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { AuthService } from 'src/app/provider/auth.service';
 
 @Component({
   selector: 'app-org-profile',
@@ -23,7 +24,16 @@ export class OrgProfileComponent implements OnInit {
   events: any;
   opportunities: any;
 
-  constructor( public organisationService: OrganisationService, public spinnerService: Ng4LoadingSpinnerService) { }
+  type : any;
+  filesTo: any;
+  logouploading :boolean = false;
+  coveruploading :boolean = false;
+  upload_file = false;
+
+  constructor( 
+    public organisationService: OrganisationService, 
+    public spinnerService: Ng4LoadingSpinnerService
+    ) { }
 
   ngOnInit() {
     this.user  = JSON.parse(localStorage.getItem('user_object'));
@@ -64,8 +74,28 @@ export class OrgProfileComponent implements OnInit {
     });
   }
 
-  push_inquiry() {
+  getTheImage(files: File[], type){
+    this.filesTo = files;
+    this.type = type;
+  }
 
+  upload() {
+    if(this.type == 'biz_logos'){
+        this.logouploading = true;
+    }else{
+      this.coveruploading=true;
+    }
+    this.organisationService.uploadAndProgress(this.filesTo, this.type, this.user['org_id']).subscribe( result  => {
+      this.coveruploading=false;
+      this.logouploading=false;
+      this.showforms();
+    }, error => {
+      console.log(' error => ' + error);
+    });
+  }
+
+  showforms(){
+      this.upload_file = !this.upload_file;
   }
 
 }
