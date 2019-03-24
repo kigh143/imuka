@@ -58,4 +58,11 @@ export class OrganisationService {
       .get(this.api_url + 'getorganisationdata/org_id/' + org_id + '/json')
       .pipe(map(res => res.json()));
   }
+
+  uploadAndProgress(files: File[], type: string, id: number) {
+    const formData = new FormData();
+    Array.from(files).forEach(f => formData.append('file', f ));
+    return this.http.post('http://imukaaccess.com/welcome/upload/type/' + type + '/id/' + id + '/json', formData)
+    .pipe(map(res => res.json()));
+  }
 }
