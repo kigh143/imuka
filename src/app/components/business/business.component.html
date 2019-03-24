@@ -76,14 +76,42 @@
         </div>
       </div>
       <hr/>
-      <div style="padding:8px; border:1px solid #eee;">
+      <div style="padding:8px; border:1px solid #eee; margin-bottom: 200px;">
         <tabset>
           <tab heading="Business Information" id="tab1">
             <div>
               <div class="business">
                 <div class="content-box row" style="margin-top: 20px">
                   <div class="col-md-6">
+                      <div class="text-center">
+                          <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;">
+                      </div>
+                      <hr/>
+                      <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">General Business Info</span>
+                      <hr/>
+                      <div>
+                        <p>{{biznes.business_name}}</p>
+                        <p>{{biznes.description}}</p>
+                        <p>{{biznes.sectors}}</p>
+                      </div>
 
+                      <hr/>
+                      <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Business Contact Info</span>
+                      <hr/>
+                      <div>
+                        <p>{{biznes.phone}}</p>
+                        <p>{{biznes.website}}</p>
+                        <p>{{biznes.email}}</p>
+                        <p>{{biznes.location}}</p>
+                      </div>
+                      <hr/>
+                      <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Other information.</span>
+                      <hr/>
+                      <div>
+                        <p>{{biznes.mission}}</p>
+                        <p>{{biznes.vision}}</p>
+                        <p>{{biznes.date_of_reg}}</p>
+                      </div>
                   </div>
                   <div class="col-md-6 col-xs-12">
                     <form name=general>
@@ -102,26 +130,26 @@
                           </div>
 
                           <div class="form-group"> 
-                          <label for="exampleFormControlSelect1">Line of business/ sector</label>
-                          <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
-                            <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
-                            </option>
-                            <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
-                            </option>
-                            <option value="Technology/ ICT and IT-Enabled Services">Technology/ ICT and IT-Enabled Services</option>
-                            <option value="Tourism and Hospitality">Tourism and Hospitality</option>
-                            <option value="Healthcare and Pharmaceuticals">Healthcare and Pharmaceuticals</option>
-                            <option value="Education">Education</option>
-                            <option value="Manufacturing">Manufacturing</option>
-                            <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
-                            <option value="Transport and Logistics">Transport and Logistics</option>
-                            <option value="Services">Services</option>
-                          </select>
+                            <label for="exampleFormControlSelect1">Line of business/ sector</label>
+                            <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
+                              <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
+                              </option>
+                              <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
+                              </option>
+                              <option value="Technology/ ICT and IT-Enabled Services">Technology/ ICT and IT-Enabled Services</option>
+                              <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+                              <option value="Healthcare and Pharmaceuticals">Healthcare and Pharmaceuticals</option>
+                              <option value="Education">Education</option>
+                              <option value="Manufacturing">Manufacturing</option>
+                              <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
+                              <option value="Transport and Logistics">Transport and Logistics</option>
+                              <option value="Services">Services</option>
+                            </select>
                           </div>
 
                           <div class="row">
-                              <div class="col-md-8"></div>
-                              <div class="col-md-4">
+                              <div class="col-md-7"></div>
+                              <div class="col-md-5">
                                 <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
                               </div>
                             </div>
@@ -153,8 +181,8 @@
                                 <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
                           </div>
                           <div class="row">
-                              <div class="col-md-8"></div>
-                              <div class="col-md-4">
+                              <div class="col-md-7"></div>
+                              <div class="col-md-5">
                                 <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
                               </div>
                             </div>
@@ -180,8 +208,8 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-8"></div>
-                                <div class="col-md-4">
+                                <div class="col-md-7"></div>
+                                <div class="col-md-5">
                                   <button type="button" class="btn btn-block btn-primary" (click)="updatebusiness()">{{btnText}}</button>
                                 </div>
                               </div>
@@ -203,7 +231,7 @@
                   
                     <div class="media"  *ngFor="let prdt of products">
                       <div class="media-left">
-                        <img src="{{prdt.image}}" class="media-object" style="width:60px">
+                        <img src="{{prdt.images}}" class="media-object" style="width:60px">
                       </div>
                       <div class="media-body">
                         <h4 class="media-heading">{{prdt.name}}</h4>
@@ -214,7 +242,7 @@
                   <div  class="col-md-4 col-xs-12" style="border-left:1px; margin-top:50px;">
                     <form  [formGroup]="bizproduct">
                       <div class="form-group">
-                        <label for="pdtname">Product Name/Service offered</label>
+                        <label for="pdtname">Product Name/Service Offered</label>
                         <input type="text" class="form-control" id="name" placeholder="Enter product / service name" formControlName="name" [class.invalid]="bizproduct.controls.name.invalid">
                       </div>
                       <div class="form-group">
@@ -222,20 +250,19 @@
                         <input type="number" class="form-control" id="price" placeholder="Enter price" formControlName="price" [class.invalid]="bizproduct.controls.price.invalid">
                       </div>
                       <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Product description</label>
+                        <label for="exampleFormControlTextarea1">Product Description</label>
                         <textarea class="form-control" id="validationTextarea"  required formControlName="description"   [class.invalid]="bizproduct.controls.description.invalid"></textarea>
                       </div>
                       <div class="form-group">
-                        <label for="exampleFormControlFile1">Add image</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <label for="exampleFormControlFile1">Add Image</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="getimage($event.target.files)" >
                       </div>
-                      <button type="submit" class="btn btn-primary" (click)="addpdt()">Add Products</button>
+                      <button type="submit" class="btn btn-primary" (click)="addpdt()" [disabled]="isaddingproduct">Add Products</button>
                     </form>
                   </div>
                 </div></div>
             </div>
           </tab>
-
 
           <tab heading="Business Documents">
             <div>
@@ -245,7 +272,7 @@
                     <div class="row">
                       <div class="col-3" *ngFor="let doc of documents">
                         <div class="box document" [ngClass]="isclicked?'active':''" >
-                          <img src="{{doc.image}}" height="80px"/>
+                          <img src="{{doc.file_url}}" height="80px"/>
                           <h6>{{doc.name}}</h6>
                         </div> 
                       </div>
@@ -284,7 +311,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlFile1">Upload Document</label>
-                        <input type="file" class="form-control-file" id="docupload" >
+                        <input type="file" class="form-control-file" id="docupload" (change)="getimage($event.target.files)" >
                       </div>
                       <button type="submit" class="btn btn-primary" (click)="adddoc()">Submit</button>
                     </form>
@@ -293,7 +320,6 @@
               </div>
             </div>
           </tab>
-
 
           <tab heading="Business Financial">
             <div>
@@ -375,9 +401,7 @@
               </div>
             </div>
           </tab>
-          <tab heading="Pitchbook preview">
-            <div></div>
-          </tab>
+
         </tabset>
       </div>
 
