@@ -3,7 +3,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="jumbotron">
+        <div class="jumbotron" [ngStyle]="{'background-image':'url(' + organisation?.cover_image + ')'}">
+            <img [src]="organisation?.logo" style="height:80px; width:80px;"/>
           <h1 class="display-4">{{organisation?.name}}</h1>
           <p>
             Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your
