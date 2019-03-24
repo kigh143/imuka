@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-9" style="padding:0">
         <div style="width:100%; padding:0; margin-bottom:10px">
-            <div class="media" style="background:azure; padding-right:10px; margin-left:0">
+            <div class="media media1" style="background:#ccf1fc; margin-left:0; font-family: Lato">
                 <img src="assets/help.png" class="mr-3" alt="..." style="height:150px">
                 <div class="media-body" style="margin-top: 30px">
                   <h6 class="mt-0">Hello, there!</h6>
@@ -18,8 +18,8 @@
                 </div>
               </div>
         </div>
-        <div class="row">
-      <div class="col-md-8">
+        <div class="row allcontent">
+      <div class="col-md-8 cardpart">
           
           <div class="card">
               <div class="card-header">
@@ -70,7 +70,7 @@
                             <label for="exampleFormControlTextarea1">Detail your request</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="details"   [class.invalid]="makerequest.controls.details.invalid"  rows="3"></textarea>
                           </div>
-                            <button type="button" class="btn btn-primary btn-block">
+                            <button type="button" class="btn btn-primary btn-block" [disabled]="!makerequest.valid">
                             Send Request
                             </button>
                           </form>
