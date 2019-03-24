@@ -61,28 +61,12 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-  milestones = [
-        {
-        name: 'Needs assessment',
-        complete: 'true'
-        },
-        {
-        name: 'Financial palnning and management',
-        complete: true
-        },
-        {
-        name: 'Business model innovation',
-        complete: false
-        },
-        {
-        name: 'unlimitted personalsized support',
-        complete: true
-        },
-        {
-        name: 'Success fee',
-        complete: true
-        }
-    ];
+  milestones: any = {};
+  upload_files:any;
+
+  isaddingproduct = false;
+  addingprdt = false;
+  
 
   constructor(
     public formBuilder: FormBuilder,
@@ -178,6 +162,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.products = data['products']
           this.documents = data['documents']
           this.dailyupdates = data['daily_updates'];
+          this.milestones = data['milestones'];
           this.draw();
       });
   }
@@ -187,29 +172,51 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   addpdt() {
-    this.spinnerService.show();
-    const products = this.bizproduct.value  ;
+    this.addingprdt = true;
+    const products = this.bizproduct.value;
     products['business_id'] = this.business_id;
-    this.businessServices.addproduct(products).subscribe(data => {
-    this.spinnerService.hide();
+    products['file'] = this.upload_files;
+    const formData = new FormData();
+    for (const key in products) {
+      if (products.hasOwnProperty(key)) {
+        const element = products[key];
+        formData.append(key, element);
+      }
+    }
+    this.businessServices.addproduct(formData).subscribe(data => {
+      this.addingprdt = false;
       if (data.flag) {
         this.alert.showSuccess("Product added");
         this.bizproduct.reset();
         this.getbusiness(this.business_id);
-    }});
+    }}, error =>{
+    this.addingprdt = false;
+    });
   }
 
   adddoc() {
-    this.spinnerService.show();
+    this.isaddingproduct = true;
     const document = this.bizdoc.value;
     document['business_id'] = this.business_id;
-    this.businessServices.adddocument(document).subscribe(data => {
-    this.spinnerService.hide();
+    document['file'] = this.upload_files;
+    const formData = new FormData();
+    for (const key in document) {
+      if (document.hasOwnProperty(key)) {
+        const element = document[key];
+        formData.append(key, element);
+      }
+    }
+    this.businessServices.adddocument(formData).subscribe(data => {
+      this.isaddingproduct = false;
       if ( data.flag ) {
-        this.alert.showSuccess("Document added");
         this.bizdoc.reset();
         this.getbusiness(this.business_id);
-          }
+      }else{
+        console.log(data);
+      }
+      }, error =>{
+        this.isaddingproduct = false;
+        console.log(error);
       });
   }
 
@@ -253,7 +260,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   updatebusiness() {
-    this.btnText = "saving changes please wait ... ";
+    this.btnText = "Please wait ... ";
     this.businessServices.updatebusiness(this.biznes).subscribe(data => {
       this.btnText="save all changes";
       if (data.flag) {
@@ -348,5 +355,9 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   getTheImage(files: File[], type) {
       this.files = files;
       this.type = type;
+  }
+
+  getimage(files: File[] ){
+      this.upload_files = files[0];
   }
 }

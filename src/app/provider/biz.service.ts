@@ -26,16 +26,17 @@ api_url: string;
       return this.http
       .post(this.api_url + 'addbusiness/json', biz, this.options)
       .pipe(map(res => res.json()));
-
   }
+
   getcount(user_id){
     return this.http
     .get(this.api_url + 'getcounts/user_id/'+user_id+'/json')
     .pipe(map(res => res.json()));
   }
+
    addproduct(product) {
       return this.http
-      .post(this.api_url + 'addproduct/json', product, this.options)
+      .post(this.api_url + 'addproduct/json', product)
       .pipe(map(res => res.json()));
 
   }
@@ -45,12 +46,11 @@ api_url: string;
       .pipe(map(res => res.json()));
 
   }
-   adddocument(document) {
-      return this.http
-      .post(this.api_url + 'adddocument/json', document, this.options)
-      .pipe(map(res => res.json()));
-
+  
+  adddocument(document) {
+      return this.http.post(this.api_url + 'adddocument/json', document).pipe(map(res => res.json()));
   }
+  
    addteam(team) {
       return this.http
       .post(this.api_url + 'addteam/json', team, this.options)

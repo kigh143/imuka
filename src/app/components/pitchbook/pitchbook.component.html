@@ -2,8 +2,10 @@
   <app-header></app-header>
   <div class="container">
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
+      <div class="col-md-3">
+     
+      </div>
+      <div class="col-md-9">
         <div class="jumbotron">
             <h1 class="display-4">{{business.business_name}} Pitch Book</h1>
             <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
@@ -26,7 +28,7 @@
             <section>
                 <b>Problem or opportunity</b><br/>  
                 <p>{{pitch.problem}} </p>          
-                <textarea  *ngIf="edit" class="form-control" name="pitch.problem" [(ngModel)]="pitch.problem" cols="30" rows="6"></textarea>
+                <textarea *ngIf="edit" class="form-control" name="pitch.problem" [(ngModel)]="pitch.problem" cols="30" rows="6"></textarea>
             </section>
 
             <section>
@@ -184,133 +186,133 @@
         </button>
     </div>
     <div class="modal-body">
-            <section>
-                    <b>{{pitch?.problem}}</b><br/>
-                    <span>{{pitch?.problem}}</span>                 
-                </section>
-    
-                <section>
-                    <b>Company purpose</b><br/>  
-                    <p>{{pitch?.purpose}}</p>          
-                </section>
-    
-                <section>
-                    <b>Problem or opportunity</b><br/>  
-                    <p>{{pitch?.problem}}</p>          
-                </section>
-    
-                <section>
-                    <b>Solution</b><br/>    
-                    <p>{{pitch?.solution}}</p>          
-                </section>
-    
-                <section>
-                    <b>Why now</b><br/>  
-                    <p>{{pitch?.why_now}}</p>          
-                </section>
-    
-                <section>
-                    <b>Product or service</b><br/>    
-                    <div>
-                        <div>
-                            <img src="assets/user.png" alt="">
-                        </div>
-                        <div>
-                            <b>Prodcur name</b>
-                            <p>is simply dummy text of the printing and typesetting industry.</p>
-                            <p>Price : 3000o ugx.</p>
-                        </div>
-                    </div>
-    
-                    <div>
-                        <b>Service name</b>
-                        <p>is simply dummy text of the printing and typesetting industry.</p>
-                        <p>Price : 3000o ugx.</p>
-                    </div>
-                </section>
-    
-                <section>
-                    <b>Market size</b><br/> 
-                    <div>
-                        <div>
-                            <div style=""></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>        
-                            <p>Available Markert : <b>{{pitch?.purpose}}</b></p>
-                            <p>Potetinal Markert : <b>{{pitch?.purpose}}</b></p>
-                            <p>Served Markert    : <b>{{pitch?.purpose}}</b></p>
-                        </div>
-                    </div>           
-                </section>
-    
-                <section>
-                    <b>Competitive Advantage</b><br/>            
-                </section>
-    
-                <section>
-                    <p><b>business Model</b> </p>
-                    <br/><span>{{pitch.business_model}}</span><br/>  
-                    <p>Revenue</p><br/><span>{{pitch.revenue}}</span><br/>  
-                    <b>Pricing</b><br/><span>{{pitch.pricing}}</span><br/>  
-                    <b>Average accont size / Lifetime value</b><br/><span>{{pitch.lifetime_value}}</span><br/> 
-                    <b>Distribution model</b><br/><span>{{pitch.distribution_model}}</span><br/> 
+        <section>
+            <b>{{pitch?.problem}}</b><br/>
+            <span>{{pitch?.problem}}</span>                 
+        </section>
 
-                </section>
-    
-                <section>
-                    <b>Financials</b><br/>  
-    
-                </section>
-    
-                <section>
-                    <b>Investiment</b><br/> 
-    
-                </section>
-    
-                <section>
-                    <b>The sustainable Development Goals</b><br/> 
-                    <ol></ol>    
-                    <div *ngIf="edit">
+        <section>
+            <b>Company purpose</b><br/>  
+            <p>{{pitch?.purpose}}</p>          
+        </section>
 
-                    </div>  
-                </section>
-    
-                <section>
-                    <b>Social Impact</b><br/>  
-                    <ol></ol> 
-                    <div *ngIf="edit">
+        <section>
+            <b>Problem or opportunity</b><br/>  
+            <p>{{pitch?.problem}}</p>          
+        </section>
 
-                    </div> 
-                </section>
-    
-                <section>
-                    <b>Economic impact</b><br/>    
-                    <ol></ol>  
-                    <div *ngIf="edit">
+        <section>
+            <b>Solution</b><br/>    
+            <p>{{pitch?.solution}}</p>          
+        </section>
 
-                    </div>        
-                </section>
-    
-                <section>
-                    <b>Environmental impacts</b><br/>        
-                    <ol></ol>   
-                    <div *ngIf="edit">
+        <section>
+            <b>Why now</b><br/>  
+            <p>{{pitch?.why_now}}</p>          
+        </section>
 
-                    </div>  
-                </section>
-    
-                <section>
-                    <b>Our Team</b><br/>  
-                    <div class="row">
-                        <div class="col-md-4 team">
-                            <img src="asstes/user.png" alt=""><br/>
-                            <b>Katende Iva</b><br/>
-                            <b>CEO and founder</b>
-                        </div>
-                    </div>          
-                </section>
+        <section>
+            <b>Product or service</b><br/>    
+            <div>
+                <div>
+                    <img src="assets/user.png" alt="">
+                </div>
+                <div>
+                    <b>Prodcur name</b>
+                    <p>is simply dummy text of the printing and typesetting industry.</p>
+                    <p>Price : 3000o ugx.</p>
+                </div>
+            </div>
+
+            <div>
+                <b>Service name</b>
+                <p>is simply dummy text of the printing and typesetting industry.</p>
+                <p>Price : 3000o ugx.</p>
+            </div>
+        </section>
+
+        <section>
+            <b>Market size</b><br/> 
+            <div>
+                <div>
+                    <div style=""></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>        
+                    <p>Available Markert : <b>{{pitch?.purpose}}</b></p>
+                    <p>Potetinal Markert : <b>{{pitch?.purpose}}</b></p>
+                    <p>Served Markert    : <b>{{pitch?.purpose}}</b></p>
+                </div>
+            </div>           
+        </section>
+
+        <section>
+            <b>Competitive Advantage</b><br/>            
+        </section>
+
+        <section>
+            <p><b>business Model</b> </p>
+            <br/><span>{{pitch.business_model}}</span><br/>  
+            <p>Revenue</p><br/><span>{{pitch.revenue}}</span><br/>  
+            <b>Pricing</b><br/><span>{{pitch.pricing}}</span><br/>  
+            <b>Average accont size / Lifetime value</b><br/><span>{{pitch.lifetime_value}}</span><br/> 
+            <b>Distribution model</b><br/><span>{{pitch.distribution_model}}</span><br/> 
+
+        </section>
+
+        <section>
+            <b>Financials</b><br/>  
+
+        </section>
+
+        <section>
+            <b>Investiment</b><br/> 
+
+        </section>
+
+        <section>
+            <b>The sustainable Development Goals</b><br/> 
+            <ol></ol>    
+            <div *ngIf="edit">
+
+            </div>  
+        </section>
+
+        <section>
+            <b>Social Impact</b><br/>  
+            <ol></ol> 
+            <div *ngIf="edit">
+
+            </div> 
+        </section>
+
+        <section>
+            <b>Economic impact</b><br/>    
+            <ol></ol>  
+            <div *ngIf="edit">
+
+            </div>        
+        </section>
+
+        <section>
+            <b>Environmental impacts</b><br/>        
+            <ol></ol>   
+            <div *ngIf="edit">
+
+            </div>  
+        </section>
+
+        <section>
+            <b>Our Team</b><br/>  
+            <div class="row">
+                <div class="col-md-4 team">
+                    <img src="asstes/user.png" alt=""><br/>
+                    <b>Katende Iva</b><br/>
+                    <b>CEO and founder</b>
+                </div>
+            </div>          
+        </section>
         <div>
             <button class="btn btn-primary btn-sm">Print pitchbook</button>
         </div>
