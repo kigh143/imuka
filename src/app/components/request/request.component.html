@@ -8,8 +8,19 @@
               <app-mainmenu></app-mainmenu>
           </div>
       </div>
-      <div class="col-md-6">
-
+      <div class="col-md-9" style="padding:0">
+        <div style="width:100%; padding:0; margin-bottom:10px">
+            <div class="media media1" style="background:#ccf1fc; margin-left:0; font-family: Lato">
+                <img src="assets/help.png" class="mr-3" alt="..." style="height:150px">
+                <div class="media-body" style="margin-top: 30px">
+                  <h6 class="mt-0">Hello, there!</h6>
+                    Have a query? Write to us and we respond within 24 hrs
+                </div>
+              </div>
+        </div>
+        <div class="row allcontent">
+      <div class="col-md-8 cardpart">
+          
           <div class="card">
               <div class="card-header">
                 All Request
@@ -33,7 +44,7 @@
               </div>
             </div>     
       </div>
-      <div class="col-md-3" style="background:#fff; padding:0px;">
+      <div class="col-md-4" style="background:#fff; padding:0px;">
 
               <div class="card">
                   <div class="card-header">
@@ -59,13 +70,13 @@
                             <label for="exampleFormControlTextarea1">Detail your request</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="details"   [class.invalid]="makerequest.controls.details.invalid"  rows="3"></textarea>
                           </div>
-                            <button type="button" class="btn btn-primary btn-block">
+                            <button type="button" class="btn btn-primary btn-block" [disabled]="!makerequest.valid">
                             Send Request
                             </button>
                           </form>
                   </div>
                 </div>
-            </div>
+            </div></div></div>
           </div>
     </div>
 </div>
@@ -83,18 +94,18 @@
       <img src="assets/user.png" class="mr-3" alt="..." height="25" style="border-radius:50%">
       <div class="media-body">
         <span class="mt-0"><b>{{active_user?.name}}</b></span><br/>
-        <span style="color:rgb(167, 167, 168)">Published by Katende Kigh Hakim · January 6 · </span>
+        <span style="color:rgb(167, 167, 168);font-size:12px">Published by Katende Kigh Hakim · January 6 · </span>
       </div>
     </div>
     <div class="description">
-      <span>{{activerequest.details}}</span>
+      <span style="font-size:14px">{{activerequest.details}}</span>
         
 
     </div>
-    <hr/>
+    <hr style="margin:0"/>
     <div class="replies">
-        <span><b>Replies</b></span>
-        <hr/>
+        <span style="color:#0056b3"><b>Replies</b></span>
+        <hr style="margin-top:0"/>
         <div class="media">
             <img src="assets/icon.png" class="mr-3" alt="..." height="25" style="border-radius:50%; border:1px solid rgb(153, 149, 149)">
             <div class="media-body" style="background:rgb(224, 205, 205); padding-left:5px;">

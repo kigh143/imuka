@@ -3,16 +3,23 @@
     border:1px solid #eee;
     border-radius: 3px;
 }
-
+label{
+    font-size: 12px !important;
+}
 .feeds{
     background: #fff;
     border:1px solid #eee; 
     border-radius: 3px;
     background: none;
 }
-
+.banner{
+    background:transparent !important;
+}
+.media-body{
+    margin-top:20px !important;
+}
 .content{
-    background: #fff;
+    background: transparent;
     border:1px solid #eee; 
     border-radius: 3px;
 }
@@ -55,4 +62,13 @@ ul{
             }
     }
 
+}
+.card{
+    border-top:3px solid blue !important;
+    margin-bottom: 10px !important;
+}
+@media only screen and (max-width:650px){
+    .media-body{
+        margin-top:0 !important;
+    }
 }

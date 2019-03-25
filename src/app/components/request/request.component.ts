@@ -9,6 +9,7 @@ import {
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {SessionService} from '../../provider/session.service';
 import {BizService} from '../../provider/biz.service';	
+import { ToastsComponent } from '../toasts/toasts.component';
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
@@ -28,7 +29,8 @@ export class RequestComponent implements OnInit {
 		public formBuilder: FormBuilder,
 		public router: Router,
 		public session: SessionService, 
-		public businessServices: BizService) {
+		public businessServices: BizService,
+		public alert: ToastsComponent) {
 		this.makerequest=this.formBuilder.group({
 			request_type:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
 			title:[ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
@@ -56,7 +58,8 @@ export class RequestComponent implements OnInit {
 		request['user_id']=this.user.user_id;
 		console.log(request);
 		this.businessServices.sendrequest(request).subscribe(data=>{
-       if(data.flag){
+			 if(data.flag){
+				this.alert.showSuccess("Request sent");
 				 this.makerequest.reset();
 				 this.receiverequest(this.user.user_id);
 

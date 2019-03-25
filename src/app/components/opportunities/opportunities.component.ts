@@ -5,7 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { EventsService } from '../../services/events.service';
 import { SessionService } from '../../provider/session.service';
 import { Router } from '@angular/router';
-
+import { ToastsComponent} from '../toasts/toasts.component'
 @Component({
   selector: 'app-opportunities',
   templateUrl: './opportunities.component.html',
@@ -37,7 +37,8 @@ export class OpportunitiesComponent implements OnInit {
     private modalService: BsModalService,
     public sessionService: SessionService,
     public router: Router,
-    public eventServices: EventsService) { }
+    public eventServices: EventsService,
+    public alert: ToastsComponent) { }
 
   ngOnInit() {
     this.user = this.sessionService.getuser();
@@ -51,7 +52,9 @@ export class OpportunitiesComponent implements OnInit {
   get_opportunities() {
     this.eventServices.fetch_opportunities().subscribe( data  => { this.opportunities = data;  this.opportunities_clone = data; });
   }
-
+  myopportunities(){
+    //will fetch the opps
+  }
   add_opportunities() {
     const data = {
         link: this.link,
@@ -68,6 +71,7 @@ export class OpportunitiesComponent implements OnInit {
       data['user_type'] = 'user';
     }
     this.eventServices.add_opportunities(data).subscribe(result => {
+      this.alert.showSuccess("Opportunity Added");
       this.modalRef.hide();
       this.get_opportunities();
      });

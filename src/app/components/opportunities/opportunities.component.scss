@@ -3,7 +3,39 @@
     border:1px solid #eee;
     border-radius: 3px;
 }
+.card-title{
+    color:#0056b3 !important;
+}
+.eventtime{
+    font-size: 14px !important;
+    
+}
+.card-text{
+    margin-top: 5px !important;
+}
+.modal-title{
+    color:white !important;
+}
+.card-columns {
+      margin-top:10px !important;
+      column-count: 2;
+      padding:0 !important;
+    }
+.divcover{
+    background: linear-gradient(to top, rgba(8, 8, 8, 0.658),transparent) !important;
+    width:100% !important;
+    padding: 15px;
+}
+.jumbotron{
+    background-size: cover !important;
+    color:white !important;
+    padding:0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 0px !important;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
 
+}
 .feeds{
     background: #fff;
     border:1px solid #eee; 
@@ -28,4 +60,19 @@
 
 .col-md-3{
     background: none !important;
+}
+@media only screen and (max-width: 650px){
+    .eventbutton{
+        background:transparent;
+    }
+    .btnsm{
+        display:block;
+    }
+    .a{
+        font-size:8px !important;
+    }
+    .card-columns {
+       
+        column-count:1;
+      }
 }

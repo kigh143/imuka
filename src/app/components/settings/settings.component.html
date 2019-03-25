@@ -10,9 +10,9 @@
       <div class="col-md-9">
           <div class="banner">App settings </div>
           <div class="content">
-            <div>
+            <!-- <div>
             <tabset>
-                <!-- <tab heading="Notification" id="tab1">
+                <tab heading="Notification" id="tab1">
                     <div>
                       <h6 style="padding:20px">Edit your notification settings for:</h6>
                       <ul class="list-group">
@@ -25,7 +25,7 @@
                           </li>
                       </ul>
                     </div>
-                </tab> -->
+                </tab> 
                 <tab heading="Change Password" class="pwd"> 
                   <form [formGroup]="changeform">
                             <div class="form-group">
@@ -50,8 +50,64 @@
                   </form>      
                 </tab>
             </tabset>
+          </div> -->
+          
+          <div class="card">
+            <div class="card-body">
+              <h6 style="color:#0056b3">Change Password</h6>
+              <div class="media">
+                <img src="assets/resetpassword.png" class="mr-3" alt="..." height="100px">
+                <div class="media-body" style="font-size:14px">
+                 Feeling compromised with your password? change to a new one right away
+                </div>
+              </div>
+              <form [formGroup]="changeform">
+                  <div class="form-group input-group-sm">
+                  <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Old Password</label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="oldpassword" formControlName="oldpassword" [class.invalid]="changeform.controls.oldpassword.invalid">
+                  </div>
+                  <div class="form-group input-group-sm">
+                  <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   New Password</label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="newpassword" formControlName="newpassword" [class.invalid]="changeform.controls.newpassword.invalid">
+                  </div>
+
+                  <div class="form-group input-group-sm">
+                  <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>    Repeat password</label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword"  formControlName="confirmPassword" [class.invalid]="changeform.controls.confirmPassword.invalid">
+                  </div>
+                  <div class="error" *ngIf="errordiv">
+                      Passsword and ConfirmPassword didn't match.
+                     </div>
+                
+                  <button  type="button" class="btn btn-primary btn-sm" [disabled]="changeform.invalid" (submit)="changepassword()">Save settings</button>
+                 
+        </form>   
+            </div>
           </div>
-          </div>
+          <!-- <div class="card">
+              <div class="card-body">
+                <h6>Change Password</h6>
+                <div class="media">
+                  <img src="assets/resetpassword.png" class="mr-3" alt="..." height="100px">
+                  <div class="media-body">
+                   Feeling compromised with your password? change to a new one right away
+                  </div>
+                </div>
+                <div>
+                    <h6 style="padding:20px">Edit your notification settings for:</h6>
+                    <ul class="list-group">
+                        <li  class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let notification of nots; let i = index"  (click)="turnn(i)">
+                      {{notification.name}}
+                        <span class="badge badge-primary badge-pill">
+                          <span *ngIf="notification.isclicked">Turn off</span>
+                          <span *ngIf="!notification.isclicked">Turn on</span> 
+                        </span>
+                        </li>
+                    </ul>
+                  </div>
+              </div>
+            </div> -->
+        </div>
       </div>
     </div>
   </div>
