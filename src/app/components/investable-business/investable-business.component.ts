@@ -52,25 +52,30 @@ export class InvestableBusinessComponent implements OnInit {
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
     milestones = [
         {
-        name: 'Needs assessment',
+        name: 'Business Needs assessment and Evaluation',
         complete: 'true'
         },
         {
-        name: 'Financial palnning and management',
+        name: 'Financial Management, Modeling and Planning and Management',
         complete: true
         },
         {
-        name: 'Business model innovation',
+        name: 'Business Model Innovation and Strateegy',
         complete: false
         },
         {
-        name: 'unlimitted personalsized support',
+        name: 'unlimitted Personalsized Support',
         complete: true
         },
         {
-        name: 'Success fee',
-        complete: true
-        }
+          name: 'Business Advisory Support',
+          complete: true
+          },
+          {
+            name: 'Business Authentication/Validation',
+            complete: true
+            }
+       
     ];
     social_impacts = [
       { selected: false, ans: "Security" },
