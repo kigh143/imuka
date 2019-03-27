@@ -8,32 +8,28 @@
       </div>
       <div class="col-md-9">
         <div class="jumbotron">
-            <h1 class="display-4">Investment opportunities</h1>
-            <p class="lead">Edit your details here so that we can serve you better.</p>
+            <h3 style="color:rgb(7, 42, 88); font-weight: 700;">Investment Opportunities</h3>
+            <p>You can follow business that interest you over time, allowing you top pursue deals at a specific stage in their growth journey.</p>
         </div>
+
         <div class="content row">
           <div class="col-md-6 carddata" *ngFor="let business of investmentopp">
             <div class="card">
-              <img  class="card-img-top" [src]="business.business_cover" alt="{{business.business_name}}" />
-              <div class="card-body">
+              <img  class="card-img-top" src="{{business.business_cover}}" alt="{{business.business_name}}" />
+              <div class="card-body"  routerLink="/user_business/{{business.business_id}}" >
                 <h3 class="card-title">{{business.business_name}}</h3>
                 <p class="card-text">{{business.legal_entity}}</p>
                 <p class="card-text">{{business.country}} ({{business.region}})</p>
-                <button type="button" routerLink="/user_business/{{business.business_id}}" class="btn btn-primary">Business Info</button>
               </div>
               <div style="display:flex; flex-direction: row">
               <div class="card-footer text-muted" style="flex:5">
                 <div style="display:flex; flex-direction: row">
-                <a class="card-link" (click)="openModal(template, 'follow', business)" style=" flex:3;color:darkcyan"><i class="fa fa-users"></i> 2 Follows</a>
-                <a class="card-link" (click)="openModal(template, 'view',business)"  style=" flex:3;color:darkcyan"> <i class="fa fa-eye"></i> 23 Views</a>
-                <a class="card-link" (click)="openModal(template, 'invest', business)"  style=" flex:3;color:darkcyan"> <i class="fa fa-money"></i> invest</a>
+                <a class="card-link" (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> {{business.follows.length}} Followers</a>
+                <a class="card-link"> <i class="fa fa-eye"></i> {{business.views.length}} Views</a>
+                <a class="card-link" (click)="openModal(template, 'invest', business)"> <i class="fa fa-money"></i> {{business.investors.length}} Invest</a>
               </div>
             </div>
-            <div class=""style="flex:1; background:darkcyan; font-size: 22px; text-align:center; padding-top:10px"><span> P</span></div>
-            </div>
-            </div>
           </div>
-         
         </div>
       </div>
     </div>
@@ -45,138 +41,75 @@
  
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Business name</h4>
+    <h4 class="modal-title pull-left" style="color:#fff;">{{active_business.business_name}}</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
   <div class="modal-body" *ngIf="modalbody =='follow'">
-      <div class="bellow">2 followers <div class="" style="float:right"><button class="btn" (click)="follow_business()">follow</button></div></div>
-     
-      <hr>
-    <ul class="list-group">
-      <li class="list-group-item">
-      <div class="bottom">
-      <img src="assets/user.png" alt="" height="25" />
-      </div>
-      <div class="center">
-      <span style="">hello word</span><br>
-      <span style="font-size:10px; color:gray">12:00 Am</span>
-      </div>
-      <div class="left">
-      <div><button class="btn">Connect</button></div>
-      </div>
-      </li>
-      </ul>
       <ul class="list-group">
-          <li class="list-group-item">
+        <li class="list-group-item" *ngFor="let follow of active_business.business.follows">
           <div class="bottom">
-          <img src="assets/user.png" alt="" height="25" />
+            <img src="{{follow.profile_pic}}" alt="" height="25" />
           </div>
           <div class="center">
-          <span style="">hello word</span><br>
-          <span style="font-size:10px; color:gray">12:00 Am</span>
+              <span style="">{{follow.name}}</span><br>
+              <span style="font-size:10px; color:gray">{{follow.user_type}}</span>
           </div>
-          <div class="left">
-          <div><button class="btn">Connect</button></div>
-          </div>
-          </li>
-          </ul>
-      
-     
-  </div>
-  <div class="modal-body"  *ngIf="modalbody =='view'">
-    <div class="bellow">2 Views</div>
-    
-    <hr>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <div class="bottom">
-    <img src="assets/user.png" alt="" height="25" />
-    </div>
-    <div class="center">
-    <span style="">hello word</span><br>
-    <span style="font-size:10px; color:gray">12:00 Am</span>
-    </div>
-    <div class="left">
-    <div><button class="btn">Connect</button></div>
-    </div>
-    </li>
-    </ul>
-    <ul class="list-group">
-        <li class="list-group-item">
-        <div class="bottom">
-        <img src="assets/user.png" alt="" height="25" />
-        </div>
-        <div class="center">
-        <span style="">hello word</span><br>
-        <span style="font-size:10px; color:gray">12:00 Am</span>
-        </div>
-        <div class="left">
-        <div><button class="btn">Connect</button></div>
-        </div>
         </li>
-        </ul>
-    
-   
-</div>
-<div class="modal-body"  *ngIf="modalbody =='invest'">
-  <div class="bellow">2 Investors <div class="" style="float:right"></div></div>
-  <hr>
-<ul class="list-group">
-  <li class="list-group-item">
-  <div class="bottom">
-  <img src="assets/user.png" alt="" height="25" />
+      </ul>
   </div>
-  <div class="center">
-  <span style="">hello word</span><br>
-  <span style="font-size:10px; color:gray">12:00 Am</span>
-  </div>
-  <div class="left">
-  <div><button class="btn">Connect</button></div>
-  </div>
-  </li>
-  </ul>
-  <div class="card request_table">
-    <h5 class="card-header">Proposed Investment need</h5>
-    <div class="card-body">
-      <p><span>Marketing</span><span style="float:right">hi</span></p>
-      <p><span>Stock</span><span style="float:right">hi</span></p>
-      <p><span>Machinery</span><span style="float:right">hi</span></p>
-      <p><span>Operations</span><span style="float:right">hi</span></p>
-      <p><span>Total</span><span style="float:right">hi</span></p>
+
+  <div class="modal-body"  *ngIf="modalbody =='invest'">
+
+    <hr/>
+    <p style="color:darkcyan">Make your investiment offer to <b>{{active_business.business_name}}</b>.</p>
+    <hr/>
+
+    <div class="card request_table">
+      <h5 class="card-header"><b>{{active_business.business_name}}</b>'s' Investment Need</h5>
+      <div class="card-body">
+          <p><span>Marketing</span><span style="float:right">{{active_business.investment_need.marketing}}</span></p>
+          <p><span>Stock</span><span style="float:right">{{active_business.investment_need.stock}}</span></p>
+          <p><span>Machinery</span><span style="float:right">{{active_business.investment_need.machinery}}</span></p>
+          <p><span>Operations</span><span style="float:right">{{active_business.investment_need.operations}}</span></p>
+          <p><span>Total</span><span style="float:right">{{active_business.investment_need.total}}</span></p>
+      </div>
     </div>
-  </div>
-  <hr>
- <div>
-    <hr>
-    <p style="color:darkcyan">
-      You can tweak the values of the investment request and make a more convinient {{business?.business_name}} offer
-    </p>
-      <form [formGroup]="request" >
-          <div class="form-group">
-              <label for="exampleFormControlSelect1">What type of financing do you prefer?</label>
-              <select class="form-control" id="exampleFormControlSelect1" formControlName="financing_type" [class.invalid]="request.controls.financing_type.invalid">
+
+    <hr/>
+    <p style="color:darkcyan">You can tweak the values of the investment request and make a more convinient <b>{{active_business.business_name}}</b> offer.</p>
+    <hr/>
+
+    <form [formGroup]="request">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">What type of financing do you prefer?</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="financing_type" [class.invalid]="request.controls.financing_type.invalid">
                 <option value="Equity Financing">Equity Financing</option>
                 <option value="Debt Financing">Debt Financing</option>
                 <option value="Mezzainne Financing">Mezzainne Financing</option>
                 <option value="Islamic Financing">Islamic Financing</option>
                 <option value="Not sure">Not sure</option>
-              </select>
-            </div>
-          <div class="form-group">
+            </select>
+        </div>
+        <div class="form-group">
             <label for="exampleInputPassword1">Amount to offer ($) USD</label>
             <input type="number" class="form-control" id="exampleInputPassword1"  formControlName="offer" [class.invalid]="request.controls.offer.invalid">
-          </div>
-          <div class="form-group">
-              <label for="exampleFormControlTextarea1">Comment</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comment" [class.invalid]="request.controls.comment.invalid"></textarea>
-            </div>
-          <button type="submit" class="btn btn-primary" (click)="makearequest(business_id)">Make An Offer</button>
-        </form>
-        <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
-  </div>
-  
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Comment</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comment" [class.invalid]="request.controls.comment.invalid"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="makearequest(business_id)">Make An Offer</button>
+    </form>
+
+  <div>
  
-</div>
+  
+
+  <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+  </div>
+  </div>
+
 </ng-template>

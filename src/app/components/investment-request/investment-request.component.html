@@ -1,66 +1,55 @@
 <div class="body"> 
-<app-header></app-header>
-<div class="container">
-
-  
-    <div class="row">
-        <div class="col-md-3">
+    <app-header></app-header>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-3">
             <div class="mainmenu">
-                <app-mainmenu></app-mainmenu>
+            <app-mainmenu></app-mainmenu>
             </div>
           </div>
-      <div class="col-md-9">
-    <div class="col-md-12" style="margin-top:30px">
-        <div class="row" style="background: rgb(231, 230, 230); padding-bottom:10px; margin-bottom:30px"><div class="bottom" style="padding-left:20px"><span>My Investments</span></div></div>
-      <div class="row">
-        <div class="col-md-4" *ngFor="let investments of accepted">
-          <div class="card " >
-            <img  class="card-img-top" src="{{investments?.business_cover}}"  alt="Card image cap"/>
-            <div class="card-body">
-              <h5 class="card-title">{{investments?.business_name}}</h5>
-              <p class="card-text">
+          <div class="col-md-9">
+                <div class="header">My Investments</div>
+                <div class="col-md-4" *ngFor="let investments of accepted">
+                <div class="card">
+                <img  class="card-img-top" src="{{investments?.business_cover}}"  alt="Card image cap"/>
+                <div class="card-body">
+                <h5 class="card-title">{{investments?.business_name}}</h5>
+                <p class="card-text">
                 {{investments?.business_name}}
-              </p>
-            </div>
-          <div style="display:flex; flex-direction: row; height:35px">
-            <div class="card-footer text-muted" style="flex:5; padding-top:3px; ">
-              <a class="card-link" href="" ><i class="fa fa-info-circle"></i> Inquire</a>
-            </div>
-            <div class=""style="flex:1; background:darkcyan; font-size: 22px; text-align:center; padding-top:3px"><span> P</span></div>
-            </div>
-            </div></div>
-          
-           
-    </div>
-    </div>
-  
-  <div class="row">
-      <div class="col-md-12" style="padding-left:30px">
-        <div class="req" style="border: 1px dotted #222; margin-top:30px">
-        <div class="row" style="padding:10px"><div class="bottom" style="padding-left:20px"><span>Investment Requests</span></div>
-        
+                </p>
+                </div>
+                <div style="display:flex; flex-direction: row; height:35px">
+                <div class="card-footer text-muted" style="flex:5; padding-top:3px; ">
+                <a class="card-link" href="" ><i class="fa fa-info-circle"></i> Send Inquiry </a>
+                </div>
+                <div class=""style="flex:1; background:darkcyan; font-size: 22px; text-align:center; padding-top:3px"><span> P</span></div>
+                </div>
+                </div>
+                </div>
+
+
+                <div class="header">Pendding Investment Requests</div>
+                <ul class="list-group">
+                    <li class="list-group-item"  *ngFor="let investments of pending">
+                        <div class="bottom">
+                            <img src="{{investments.business_logo}}" alt="" style="height:40px; width:40px;" />
+                        </div>
+                        <div class="center">
+                            <span style="font-size:16px; color:#111; text-transform: capitalize;">{{investments.business_name}}</span><br>
+                            <span style="font-size:13px; color:#333;">Financing Type : <b>{{investments.financing_type}}.</b></span><br/>
+                            <span style="font-size:12px; color:#333;">Investments Offer : <b style="color:rgb(53, 180, 230);"> USD {{investments.offer}}</b></span><br/>
+                            <span style="font-size:12px; color:#333;">Your comment <b>{{investments.comment}}</b></span><br/>
+                        </div>
+                        <div class="left">
+                            <span *ngIf="investments.accepted_status == 'no'">Pending</span>
+                            <span *ngIf="investments.accepted_status == 'yes'">Accepted</span><br/>
+                            <span style="color:#aaa; font-size:8px;">{{investments.date}}</span>
+                        </div>
+                    </li>
+                </ul>
         </div>
-          <ul class="list-group">
-              <li class="list-group-item"  *ngFor="let investments of pending">
-              <div class="bottom">
-              <img src="assets/user.png" alt="" height="25" />
-              </div>
-              <div class="center">
-              <span style="">{{investments.business_name}}</span><br>
-              <span style="font-size:10px; color:gray">{{investments.offer}}</span>
-              </div>
-              <div class="left">
-              <span>pending</span>
-              </div>
-              </li>
-              </ul>
-                      </div>
-      </div>
     </div>
-  </div>
-    </div>
-</div>
 </div>
 <app-footer></app-footer>
 
- 
+

@@ -38,6 +38,9 @@
   .left {
     flex: 1;
     text-align: right;
+    justify-content: center;
+    align-items: center;
+    color:rgb(7, 78, 136);
   }
   .list-group-item {
     display: flex;
@@ -45,5 +48,13 @@
   }
   .req{
 
+  }
+
+
+  .header{
+    padding:16px;
+    background: #eff;
+    color:rgb(7, 78, 136);
+    margin:16px auto;
   }
   

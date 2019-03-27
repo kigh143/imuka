@@ -72,7 +72,17 @@ app-mainmenu{
    table{
      border:0px;
    }
+}
 
+.card-link{
+  flex:1;
+  color:darkcyan !important;
+  cursor: pointer;
+  text-align: center;
+  
 }
   
+.card-body {
+  cursor: pointer;
+}
   
