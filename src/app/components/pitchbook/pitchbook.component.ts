@@ -19,6 +19,30 @@ export class PitchbookComponent {
   pitch: any;
   edit = false;
   products: any;
+  comp_factors={"factor":""};
+  factors:boolean= true;
+  factor1;
+  factor2;
+  factor3;
+  competitors_info=[];
+  competitors = false;
+  competitor1 = false;
+  competitor2 = false;
+  competitive_advantage;
+  comp_factor:{};
+  competitor1_info={
+    "name":"owner",
+    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+  }
+  competitor2_info={
+    "name":"",
+    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+  }
+  competitor3_info={
+    "name":"",
+    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+  }
+ 
 
 
   social_impacts = [
@@ -99,6 +123,7 @@ export class PitchbookComponent {
         this.business_id = +params['id'];
         this.fetch_pitcbook_data(this.business_id);
       });
+
   }
 
   openModal(template: TemplateRef<any>) {
@@ -109,6 +134,7 @@ export class PitchbookComponent {
     this.businessService.fetch_abusiness( business_id ).subscribe( data => {
         this.business = data.business_info;
         this.pitch  = data.pitch;
+        console.log(this.pitch);
         this.products  = data.products;
         this.edit = false;
     });
@@ -118,10 +144,51 @@ export class PitchbookComponent {
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
       console.log(data);
     });
+   
   }
 
   edit_mode() {
       this.edit = true;
+  }
+  editcompetitive(){
+    if(this.factors){
+      this.competitors = true;
+      this.factors = false;
+      this.competitor1 = false;
+      this.competitor2 = false;
+      console.log(this.comp_factors)
+      
+     
+    }
+    else if(this.competitors){
+      this.competitor1 = true;
+      this.competitor2 = false;
+      this.factors = false;
+      this.competitors = false;
+     
+      this.competitors_info.push(this.competitor1_info)
+      
+    }
+    else if(this.competitor1){
+      this.competitor2 = true;
+      this.competitor1 = false;
+      this.factors = false;
+      this.competitors = false;
+      this.competitors_info.push(this.competitor2_info)
+      console.log(this.competitor2_info);
+    }
+    else if(this.competitor2){
+      this.competitors_info.push(this.competitor3_info)
+     this.pitch.competition= this.competitors_info;
+      console.log(this.pitch.competition);
+      this.save_changes();
+    }
+    
+  }
+
+
+  addtoobject(content){
+    
   }
 
 }

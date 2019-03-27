@@ -170,7 +170,9 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   ngOnDestroy() {
       this.sub.unsubscribe();
   }
-
+  go_back(){
+    
+  }
   addpdt() {
     this.addingprdt = true;
     const products = this.bizproduct.value;

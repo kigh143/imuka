@@ -11,7 +11,7 @@
             <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
             <button class="btn btn-primary btn-sm" (click)="openModal(template)">Generate Pitch book</button>
             <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
-            <button class="btn btn-warning btn-sm" (click)="edit_mode()" *ngIf="!edit">Enbale Editing Mode</button>
+            <button class="btn btn-warning btn-sm" (click)="edit_mode()" *ngIf="!edit">Enable Editing Mode</button>
         </div>
         <div class="content">
             <section>
@@ -86,7 +86,169 @@
             </section>
 
             <section>
-                <b>Competitive Advantage</b><br/>            
+                <b>Competitive Advantage</b><br/>  
+                <div *ngIf="edit">
+                    
+                        <div padding *ngIf="factors">
+                          <h5>Competitive advantage</h5>
+                         
+                          
+                              <label floating>Select only three factors.</label>
+                              <select multiple="true" [(ngModel)]="comp_factors">
+                                <option value="Price"> Price</option>
+                                <option value="Product"> Product</option>
+                                <option value="Reliability"> Reliability</option>
+                                <option value="Quality"> Quality</option>
+                                <option value="Durability"> Durability</option>
+                                <option value="Image or style"> Image or style </option>
+                                <option value="Value"> Value</option>
+                                <option value="Name Recognition"> Name Recognition </option>
+                                <option value="customer Service"> customer Service</option>
+                                <option value="Customer Relations"> Customer Relations</option>
+                                <option value="Convenience"> Convenience</option>
+                                <option value="Speed">Speed</option>
+                                <option value="Friendly service"> Friendly service</option>
+                                <option value="On time">On time</option>
+                                <option value="Service">Service</option>
+                                <option value="Selection or Variety"> Selection/Variety</option>
+                                <option value="Stability">Stability</option>
+                                <option value="Expertise">Expertise</option>
+                                <option value="Reputation or Image"> Reputation or Image</option>
+                                <option value="Location">Location</option>
+                                <option value="Appearance">Appearance</option>
+                                <option value="Sales Method">Sales Method</option>
+                                <option value="Credit policies">Credit policies</option>
+                                <option value="Distribution or Channel">Distribution or Channel</option>
+                                <option value="targeted customers">targeted customers</option>
+                                <option value="Positioning"> Positioning</option>
+                                <option value="Superior quality">Superior quality</option>
+                                <option value="Low price">Low price</option>
+                                <option value="Customizable products">Customizable products</option>
+                                <option value="Unique Features">Unique Features</option>
+                                <option value="Rapid Delivery">Rapid Delivery</option>
+                              </select> 
+                              <button button block (click)="editcompetitive()" >Next</button>
+                        </div>
+                        
+                            <div *ngIf="competitors">
+                                Rate your self on the scale of 5
+                                
+                                    <div class="form-group">
+                                    <label floating>{{comp_factors[0]}}</label>
+                                    <select class="form-control" [(ngModel)]="competitor1_info.comparison.factor1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label floating>{{comp_factors[1]}}</label>
+                                        <select class="form-control" [(ngModel)]="competitor1_info.comparison.factor2">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        </select>
+                                        </div>
+                                        <div class="form-group" >
+                                            <label floating>{{comp_factors[2]}}</label>
+                                            <select class="form-control" [(ngModel)]="competitor1_info.comparison.factor3">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                    <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Next</button>
+                              
+                               
+                            </div>
+                            <div *ngIf="competitor1"> 
+                                Rate your self on the scale of 5
+                               
+                                    <div class="form-group">
+                                    <input type="text" class="form-control" name="competitor2_info.name" [(ngModel)]="competitor2_info.name" placeholder="Enter competitor 1">
+                                    </div>
+                                    
+                                        <div class="form-group">
+                                            <label floating>{{comp_factors[0]}}</label>
+                                            <select class="form-control" [(ngModel)]="competitor2_info.comparison.factor1">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label floating>{{comp_factors[1]}}</label>
+                                                <select class="form-control" [(ngModel)]="competitor2_info.comparison.factor2">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                </select>
+                                                </div>
+                                                <div class="form-group" >
+                                                    <label floating>{{comp_factors[2]}}</label>
+                                                    <select class="form-control" [(ngModel)]="competitor2_info.comparison.factor3">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                    
+                                    <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Next</button>
+                               
+                               
+                                </div>
+                                <div *ngIf="competitor2"> 
+                                        Rate your self on the scale of 5
+                                       
+                                            <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter competitor 2" name="competitor3_info.name" [(ngModel)]="competitor3_info.name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label floating>{{comp_factors[0]}}</label>
+                                                <select class="form-control" [(ngModel)]="competitor3_info.comparison.factor1">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label floating>{{comp_factors[1]}}</label>
+                                                    <select class="form-control" [(ngModel)]="competitor3_info.comparison.factor2">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    </select>
+                                                    </div>
+                                                    <div class="form-group" >
+                                                        <label floating>{{comp_factors[2]}}</label>
+                                                        <select class="form-control" [(ngModel)]="competitor3_info.comparison.factor3">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Save</button>
+                            
+                                                </div>
+                </div>          
             </section>
 
             <section>
