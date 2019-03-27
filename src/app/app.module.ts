@@ -62,6 +62,7 @@ import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import { InvestableBusinessComponent } from './components/investable-business/investable-business.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { FlTrancatorPipe } from './pipes/fl-trancator.pipe';
+import { CleanwebsitelinkPipe } from './pipes/cleanwebsitelink.pipe';
 
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
@@ -150,6 +151,7 @@ const app_routes: Routes = [
     InvestableBusinessComponent,
     FiltersComponent,
     FlTrancatorPipe,
+    CleanwebsitelinkPipe,
     
     
    

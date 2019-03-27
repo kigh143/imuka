@@ -58,3 +58,14 @@
     margin:16px auto;
   }
   
+
+
+  .list-group-item {
+    .badge{
+      text-align: center; 
+      margin-top:5px;
+      background: red;
+      border-radius: 10px;
+      padding:8px;
+    }
+  }

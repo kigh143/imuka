@@ -3,15 +3,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-     
+            <app-mainmenu></app-mainmenu>     
       </div>
       <div class="col-md-9">
         <div class="jumbotron">
+            <button routerLink="/business/{{business_id}}" class="btn btn-primary"> << Back to business profile</button>
             <h1 class="display-4">{{business.business_name}} Pitch Book</h1>
             <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
-            <button class="btn btn-primary btn-sm" (click)="openModal(template)">Generate Pitch book</button>
-            <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
-            <button class="btn btn-warning btn-sm" (click)="edit_mode()" *ngIf="!edit">Enbale Editing Mode</button>
+            <button class="btn btn-primary btn-sm"  *ngIf="user?.user_type==='entrepreneur'" (click)="openModal(template)">Generate Pitch book</button>
+            <button class="btn btn-warning btn-sm"  *ngIf="user?.user_type==='entrepreneur' && edit" (click)="save_changes()" >Save Changes</button>
+            <button class="btn btn-warning btn-sm" *ngIf="user?.user_type==='entrepreneur' && !edit" (click)="edit_mode()">Enbale Editing Mode</button>
         </div>
         <div class="content">
             <section>

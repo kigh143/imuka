@@ -17,13 +17,14 @@
                     </div>
                 </div>
                 <div class="card-footer btn-group" role="group" aria-label="Basic example" style="padding:8px;">
-                    <button class="btn btn-danger btn-sm spaced"  (click)="showforms()">Add Logo or Cover Image</button>
+                    <button class="btn btn-danger btn-sm spaced" *ngIf="user?.user_type==='entrepreneur'"  (click)="showforms()">Add Logo or Cover Image</button>
                     <button *ngIf="biznes?.on_program==='Y'" type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
-                    <button *ngIf="biznes?.on_program==='Y'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Inovices</button>
+                    <button *ngIf="biznes?.on_program==='Y' && user?.user_type==='entrepreneur'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Inovices</button>
                 </div>
               </div>
         </div>
 
+    
         <div class="col-md-4">
             <div *ngIf="biznes?.on_program=='Y'">
                 <ul class="list-group">
@@ -72,7 +73,7 @@
             </div>
         </div>
         <div class="card-footer bg-transparent border-primary">
-            <button type="button" class="btn btn-primary" (click)="openModal(template)">Update Business Progress</button>       
+            <button type="button" class="btn btn-primary" *ngIf="user?.user_type==='entrepreneur'" (click)="openModal(template)">Update Business Progress</button>       
         </div>
       </div>
       <hr/>
@@ -113,7 +114,7 @@
                         <p>{{biznes.date_of_reg}}</p>
                       </div>
                   </div>
-                  <div class="col-md-6 col-xs-12">
+                  <div class="col-md-6 col-xs-12" *ngIf="user?.user_type==='entrepreneur'">
                     <form name=general>
                         <hr/>
                             <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">General Business Info</span>
@@ -239,7 +240,7 @@
                       </div>
                     </div>
                   </div>
-                  <div  class="col-md-4 col-xs-12" style="border-left:1px; margin-top:50px;">
+                  <div  class="col-md-4 col-xs-12" style="border-left:1px; margin-top:50px;" *ngIf="user?.user_type==='entrepreneur'">
                     <form  [formGroup]="bizproduct">
                       <div class="form-group">
                         <label for="pdtname">Product Name/Service Offered</label>
@@ -279,7 +280,7 @@
                       </div>
                     </div>
                   </div>
-                  <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee">
+                  <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee" *ngIf="user?.user_type==='entrepreneur'">
                     <form  [formGroup]="bizdoc">
                       <div class="form-group">
                         <label for="doctype">Document Format</label>
@@ -350,7 +351,7 @@
                       </tbody>
                     </table>
                   </div>
-                  <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0; padding-top:20px">
+                  <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0; padding-top:20px" *ngIf="user?.user_type==='entrepreneur'">
                     <div class="form_fina">
                       <h4>Add financials</h4>
                       <form [formGroup]="bizfinancial">

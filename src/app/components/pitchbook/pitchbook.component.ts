@@ -4,6 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BizService } from 'src/app/provider/biz.service';
 import { ActivatedRoute } from '@angular/router';
+import { SessionService } from 'src/app/provider/session.service';
 
 @Component({
   selector: 'app-pitchbook',
@@ -19,6 +20,7 @@ export class PitchbookComponent {
   pitch: any;
   edit = false;
   products: any;
+  user: any;
 
 
   social_impacts = [
@@ -94,11 +96,14 @@ export class PitchbookComponent {
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
+    public sesstion: SessionService,
     public businessService: BizService) {
       this.route.params.subscribe(params => {
         this.business_id = +params['id'];
         this.fetch_pitcbook_data(this.business_id);
       });
+
+      this.user  = this.sesstion.getuser();
   }
 
   openModal(template: TemplateRef<any>) {

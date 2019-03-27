@@ -16,11 +16,10 @@
 </div>
 
 <ul class="list-group list-group-flush"  *ngIf="user?.user_type==='entrepreneur'">
-  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"  ><a routerLink="/"  
-   ><i class="fa fa-tachometer"></i> Dashboard</a></li>
-  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/my_businesses"  ><i class="fa fa-briefcase"></i> Business(es)</a><span class="badge badge-light float-right" style="text-align: center; margin-top:5px">{{business_count}}</span></li>
-  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/events" ><i class="fa fa-calendar"></i> Events</a><span class="badge badge-light float-right" style="text-align: center; margin-top:5px">{{event_counter}}</span></li>
-  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/opportunities" ><i class="fa fa-globe"></i> Opportunities</a><span class="badge badge-light float-right" style="text-align: center; margin-top:5px">{{opps_count}}</span></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"  ><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/my_businesses"  ><i class="fa fa-briefcase"></i> Business(es)</a><span class="badge badge-light float-right">{{business_count}}</span></li>
+  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/events" ><i class="fa fa-calendar"></i> Events</a><span class="badge badge-light float-right">{{event_counter}}</span></li>
+  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/opportunities" ><i class="fa fa-globe"></i> Opportunities</a><span class="badge badge-light float-right" >{{opps_count}}</span></li>
   <!--<li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/notifications" ><i class="fa fa-bell"></i> Notifications</a>  <span class="badge badge-light float-right" style="text-align: center; margin-top:5px">4</span></li>-->
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/request"><i class="fa fa-info-circle"></i> Requests and Help</a></li>
   <li class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
@@ -28,9 +27,9 @@
 
 <ul class="list-group list-group-flush" *ngIf="user?.user_type==='investor'">
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investmentrequest"><i class="fa fa-money"></i> Investment(s)</a></li>
-    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investiment_opportunities"><i class="fa fa-globe"></i> Investment opportunities</a></li>
-    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/contracts"><i class="fa fa-cubes"></i> Contracts and Projects</a></li>
+    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investmentrequest"><i class="fa fa-money"></i> Investment(s)</a><span class="badge badge-light float-right" > {{my_investments}}</span></li>
+    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investiment_opportunities"><i class="fa fa-globe"></i> Investment opportunities</a><span class="badge badge-light float-right" >{{investment_opps}}</span></li>
+    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/contracts"><i class="fa fa-cubes"></i> Contracts and Projects </a><span class="badge badge-light float-right">{{contracts}}</span></li>
     <!--<li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/notifications"><i class="fa fa-bell"></i> Notifications  </a><span class="badge badge-light float-right" style="text-align: center; margin-top:5px"></span></li>-->
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/request"><i class="fa fa-info-circle"></i> Requests and Help</a></li>
     <li class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
@@ -39,9 +38,9 @@
 <ul class="list-group list-group-flush" *ngIf="user?.user_type==='org'">
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/org_profile"><i class="fa fa-info-breifcase"></i> Organisation Profile</a></li>
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/events"><i class="fa fa-calendar"></i> Events</a></li>
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/opportunities"><i class="fa fa-globe"></i> Opportunities</a></li>
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/notifications"><i class="fa fa-bell"></i>Notifications</a>  <span class="badge badge-light float-right" style="text-align: center; margin-top:5px">4</span></li>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/events"><i class="fa fa-calendar"></i> Events </a> <span class="badge badge-light float-right">{{event_counter}}</span></li>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/opportunities"><i class="fa fa-globe"></i> Opportunities</a><span class="badge badge-light float-right" >{{opps_count}}</span></li>
+    <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/notifications"><i class="fa fa-bell"></i>Notifications</a>  <span class="badge badge-light float-right" style="text-align: center; margin-top:5px">4</span></li> -->
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/request"><i class="fa fa-info-circle"></i> Requests and Help</a></li>
     <li class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
 </ul>
