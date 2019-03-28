@@ -215,4 +215,23 @@ api_url: string;
     .get(this.api_url + 'getmyinvestments/user_id/' + user_id + '/json')
     .pipe(map(res => res.json()));
   }
+
+
+  get_old_businesses(){
+    return this.http
+    .get('http://imukatrack.us.tempcloudsite.com/api/get_old_businesses')
+    .pipe(map(res => res.json()));
+  }
+
+  get_old_users(){
+    return this.http
+    .get('http://imukatrack.us.tempcloudsite.com/api/get_old_users')
+    .pipe(map(res => res.json()));
+  }
+
+  adduserbusiness(data){
+    return this.http
+      .post(this.api_url + 'adduserbusiness/json', data, this.options)
+      .pipe(map(res => res.json()));
+  }
 }
