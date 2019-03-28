@@ -217,21 +217,10 @@ api_url: string;
   }
 
 
-  get_old_businesses(){
+  gethomecounts(){
     return this.http
-    .get('http://imukatrack.us.tempcloudsite.com/api/get_old_businesses')
+    .get(this.api_url + 'gethomecounts/json')
     .pipe(map(res => res.json()));
   }
 
-  get_old_users(){
-    return this.http
-    .get('http://imukatrack.us.tempcloudsite.com/api/get_old_users')
-    .pipe(map(res => res.json()));
-  }
-
-  adduserbusiness(data){
-    return this.http
-      .post(this.api_url + 'adduserbusiness/json', data, this.options)
-      .pipe(map(res => res.json()));
-  }
 }

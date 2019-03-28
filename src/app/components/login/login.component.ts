@@ -28,6 +28,8 @@ export class LoginComponent {
   imageUrl = 'assets/entrepreneur.jpg';
   staticAlertClosed = false;
   successMessage: string;
+  counts: any;
+
   private readonly notifier: NotifierService;
   constructor(private router: Router, 
     public formBuilder: FormBuilder, 
@@ -43,6 +45,7 @@ export class LoginComponent {
     });
     this.notifier = notifierService;
     this.notifier.notify( 'success', 'You are awesome! I mean it!' );
+    this.getCounts();
   }
 
   ngOnInit(): void {
@@ -78,68 +81,10 @@ export class LoginComponent {
     this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
   }
 
-
-  get_old_businessee(){
-    this.businessService.get_old_businesses().subscribe(mdayta => {
-      console.log( mdayta);
-      mdayta.forEach(bis => {
-        const biz = {
-          business_name:bis.business_name, 
-          sectors:bis.line_of_business_operation, 
-          legal_status:bis.legal_entity, 
-          region:bis.region, 
-          start_of_operation:bis.date_of_start_of_operation, 
-          verified:'Y', 
-          business_logo:"http://imukaaccess.com/images/biz_logos/logo.jpg", 
-          owner_id:'57', 
-          location:bis.business_address, 
-          website:bis.business_website, 
-          country:bis.country, 
-          date_of_reg:bis.date_of_registration, 
-          business_stage:bis.business_stage_of_production, 
-          on_program:'Y', 
-          description:bis.business_products, 
-          email:bis.contact_person, 
-          phone:bis.contact_number, 
-          business_cover:" http://imukaaccess.com/images/business_cover/cover.jpg"
-        };
-  
-        this.businessService.addbiz(biz).subscribe( data => {
-          console.log(data);
-        })
-      });
-     
-    })
-  }
-
-  get_old_users(){
-
-    this.businessService.get_old_users().subscribe(mdayta => {
-      console.log( mdayta);
-      mdayta.forEach(user => {
-          const user_data = {
-            name:user.user_Fname + '  ' +user.user_Lname, 
-            email:user.user_email, 
-            user_type:user.status, 
-            password:"123456789", 
-            profile_pic:"http://imukaaccess.com/images/user_profile/dp.jpg", 
-            membership_id:user, 
-            phone:user.user_phoneno, 
-            country:user.user_country, 
-            verified:"Y", 
-            verified_by_imuka:"Y", 
-            gender:user.user_gender, 
-            salutation:user.user_title,
-            business_name: user.business_name
-        };
-  
-        this.businessService.adduserbusiness(user_data).subscribe( data => {
-          console.log(data);
-        })
-      });
-     
-    })
-
+  getCounts(){
+    this.businessService.gethomecounts().subscribe(results => {
+      this.counts = results
+    });
   }
 
 

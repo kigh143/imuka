@@ -62,20 +62,32 @@
             </div>
         </div>
     </div>
+    <section style="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="assets/notice.jpg" alt="" style="width:100%;">
+                </div>
+                <div class="col-md-10">
+                    <h4 style="color:red; font-weight: bolder;">We are nolonger using the ImukaAccess mobile App, <br/>Please login here with you email and the password was sent to you.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="dark">
         <div class="container">
             <div class="row text-center stats">
                 <div class="col-md-3"> 
-                <b>10</b> Support organisations
+                <b>{{counts.organisations}}</b> Support organisations
                 </div>
                 <div class="col-md-3"> 
-                <b>120</b> Businesses
+                <b>{{counts.businesses}}</b> Businesses
                 </div>
                 <div class="col-md-3"> 
-                <b>20</b> Investors / Finaciers
+                <b>{{counts.investors}}</b> Investors / Finaciers
                 </div>
                 <div class="col-md-3"> 
-                <b>110</b> Entrepreneurs
+                <b>{{counts.entrepreneurs}}</b> Entrepreneurs
                 </div>
             </div>
         </div>
@@ -171,8 +183,5 @@
                 
             </div>
         </div>
-    </section>
-    <section>
-        <button (click)="get_old_users()"> load old businesses</button>
     </section>
 </section>
