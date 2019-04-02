@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" routerLink="/login">
-                    <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">                
+                    <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -13,11 +13,11 @@
                             <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/about">About ImukaAccess</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/create_organisation">How it Woks</a>
-                        </li>
+                          <a class="nav-link" routerLink="/about">About ImukaAccess</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" routerLink="/howitworks">How it Woks</a>
+                      </li>
                     </ul>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <div>
                             <h1 class="display-4">Entrepreneur Support Organization</h1>
                             <h4 class="lead">Access Entrepreneur Clients to Benefit from your Support Programs.</h4>
-                            <p  class="lead">Be intentional about reaching more Entrepreneurs…..Join Imuka Access today. </p>                            
+                            <p  class="lead">Be intentional about reaching more Entrepreneurs…..Join Imuka Access today. </p>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -41,7 +41,7 @@
                                         <label for="exampleInputEmail1">Organisation Name</label>
                                         <input type="text" class="form-control" name="name" [(ngModel)]="name" id="exampleInputEmail1"  placeholder="Enter organisation name">
                                     </div>
-                        
+
                                     <div class="form-group">
                                         <label f for="exampleInputPassword1">What services do you offer to enteprenuers?</label>
                                         <select class="form-control" multiple  name="services" [(ngModel)]="services" id="exampleInputPassword1" >
@@ -60,25 +60,25 @@
                                         </select>
                                         <small id="emailHelp" class="form-text text-muted">Press Ctrl / Command and then select all that apply.</small>
                                     </div>
-                
+
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Website Link</label>
                                         <input type="link" class="form-control"  name="website" [(ngModel)]="website"/>
                                     </div>
-               
+
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputPassword1">Organisation Email</label>
                                             <input type="email" name="s_email" [(ngModel)]="s_email" class="form-control">
                                         </div>
-                    
+
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputPassword1">Contact Number</label>
                                             <input type="tell" name="contact" [(ngModel)]="contact" class="form-control">
                                         </div>
-                            
+
                                     </div>
-                                    
+
                                     <button type="submit" class="btn btn-outline-warning btn-block" (click)="create_organisation()"> Next </button>
                                 </form>
                             </div>
@@ -108,6 +108,5 @@
         </div>
     </div>
 </section>
-    
-    
-      
+
+

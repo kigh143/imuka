@@ -62,7 +62,8 @@ section {
 }
 
 .dark{
-  background: #eef !important;
+  background: #eee !important;
+  padding: 30px;
 }
 
 .services {
@@ -89,13 +90,9 @@ section{
 }
 .partners {
   div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     div {
       height:100px !important;
       width:100px !important;
-      margin: auto;
       img{
         object-fit: contain !important;
         width: 100% !important;

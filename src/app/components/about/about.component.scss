@@ -21,6 +21,8 @@ section {
 .jumbotron{
   background-repeat: no-repeat;
   background-size: cover;
+  background-blend-mode:multiply;
+  color:#fff;
   .container {
     margin-top:20px !important;
   }
@@ -89,17 +91,20 @@ section{
 }
 .partners {
   div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     div {
       height:100px !important;
       width:100px !important;
-      margin: auto;
       img{
-        object-fit: contain !important;
+        object-fit: cover !important;
         width: 100% !important;
       }
     }
+  }
+}
+
+
+.core{
+  .col-md-4{
+      background: #eee;
   }
 }

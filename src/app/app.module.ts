@@ -86,7 +86,7 @@ const app_routes: Routes = [
   { path: 'my_businesses', component: MybusinessComponent, canActivate:[AuthGuard] },
   { path: 'business/:id', component: BusinessComponent, canActivate:[AuthGuard] },
   { path: 'business', component: BusinessComponent , canActivate:[AuthGuard]},
-  { path: 'pitchbook/:id', component: PitchbookComponent, canActivate:[AuthGuard] }, 
+  { path: 'pitchbook/:id', component: PitchbookComponent, canActivate:[AuthGuard] },
   { path: 'search', component: SearchComponent, canActivate:[AuthGuard] },
   { path: 'investiment_opportunities', component: InvestmentoppComponent , canActivate:[AuthGuard]},
   { path: 'investmentrequest', component: InvestmentRequestComponent , canActivate:[AuthGuard]},
@@ -105,7 +105,9 @@ const app_routes: Routes = [
   { path: 'chart', component : ChartsComponent, canActivate:[AuthGuard]},
   { path: 'user_business', component : InvestableBusinessComponent, canActivate:[AuthGuard]},
   { path: 'user_business/:id', component : InvestableBusinessComponent, canActivate:[AuthGuard]},
-  { path: 'filter', component :FiltersComponent, canActivate:[AuthGuard]}
+  { path: 'filter', component :FiltersComponent, canActivate:[AuthGuard]},
+  { path: 'about', component :AboutComponent},
+  { path: 'howitworks', component :HowitworksComponent},
 
 ];
 
@@ -156,22 +158,22 @@ const app_routes: Routes = [
     CleanwebsitelinkPipe,
     AboutComponent,
     HowitworksComponent,
-    
-    
-   
+
+
+
   ],
- 
+
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule, 
-    HttpModule, 
-    RouterModule.forRoot(app_routes), 
-    AngularFontAwesomeModule, 
-    CarouselModule.forRoot(), 
-    TabsModule.forRoot(), 
-    AccordionModule.forRoot(), 
-    ModalModule.forRoot(), 
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(app_routes),
+    AngularFontAwesomeModule,
+    CarouselModule.forRoot(),
+    TabsModule.forRoot(),
+    AccordionModule.forRoot(),
+    ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     AlertModule.forRoot(),
@@ -181,8 +183,8 @@ const app_routes: Routes = [
     ToastrModule.forRoot(),
     ChartModule,
 
-    
-    
+
+
   ],
 
   providers: [AuthService, EventsService, AuthGuard, OrganisationService, ToastrModule, ToastsComponent],
