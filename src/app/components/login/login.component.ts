@@ -10,6 +10,7 @@ import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
 import { ToastsComponent} from '../toasts/toasts.component'
 import { BizService } from 'src/app/provider/biz.service';
+import { EventsService } from 'src/app/services/events.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { BizService } from 'src/app/provider/biz.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  loginForm: any; 
+  loginForm: any;
   alerts: any[] = [{
     type: 'success',
     msg: `Well done! You successfully read this important alert message. (added: ${new Date().toLocaleTimeString()})`,
@@ -29,16 +30,18 @@ export class LoginComponent {
   staticAlertClosed = false;
   successMessage: string;
   counts: any;
+  opportunities= [];
 
   private readonly notifier: NotifierService;
-  constructor(private router: Router, 
-    public formBuilder: FormBuilder, 
+  constructor(private router: Router,
+    public formBuilder: FormBuilder,
     public auth: AuthService,
-    public spinnerService: Ng4LoadingSpinnerService,  
+    public spinnerService: Ng4LoadingSpinnerService,
     public businessService : BizService,
     public notifierService: NotifierService,
-    public session: SessionService, 
-    public alert: ToastsComponent) {
+    public session: SessionService,
+    public alert: ToastsComponent,
+    public eventServices :EventsService) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),Validators.required])],
       password: ['', Validators.compose([Validators.minLength(5), Validators.required])]
@@ -46,6 +49,7 @@ export class LoginComponent {
     this.notifier = notifierService;
     this.notifier.notify( 'success', 'You are awesome! I mean it!' );
     this.getCounts();
+    this.get_featured_opps();
   }
 
   ngOnInit(): void {
@@ -56,20 +60,21 @@ export class LoginComponent {
       debounceTime(5000)
     ).subscribe(() => this.successMessage = null);
   }
-  login() {
 
+  login() {
     this.spinnerService.show();
     let user = this.loginForm.value;
-    this.auth.login(user).subscribe( data=>{ 
+    this.auth.login(user).subscribe( data=>{
       this.spinnerService.hide();
        if (data.flag){
          this.session.login(data.user);
-         this.router.navigate(['/']); 
+         this.router.navigate(['/']);
        }else{
         this.alert.showError(data.message);
        }
     });
   }
+
   add(): void {
     this.alerts.push({
       type: 'info',
@@ -77,6 +82,7 @@ export class LoginComponent {
       timeout: 5000
     });
   }
+
   onClosed(dismissedAlert: AlertComponent): void {
     this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
   }
@@ -84,6 +90,13 @@ export class LoginComponent {
   getCounts(){
     this.businessService.gethomecounts().subscribe(results => {
       this.counts = results
+    });
+  }
+
+  get_featured_opps(){
+    this.eventServices.fetch_opportunities().subscribe( data  => {
+      this.opportunities = data.slice(1, 4);
+      console.log(this.opportunities)
     });
   }
 

@@ -63,6 +63,8 @@ import { InvestableBusinessComponent } from './components/investable-business/in
 import { FiltersComponent } from './components/filters/filters.component';
 import { FlTrancatorPipe } from './pipes/fl-trancator.pipe';
 import { CleanwebsitelinkPipe } from './pipes/cleanwebsitelink.pipe';
+import { AboutComponent } from './components/about/about.component';
+import { HowitworksComponent } from './components/howitworks/howitworks.component';
 
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
@@ -152,6 +154,8 @@ const app_routes: Routes = [
     FiltersComponent,
     FlTrancatorPipe,
     CleanwebsitelinkPipe,
+    AboutComponent,
+    HowitworksComponent,
     
     
    
