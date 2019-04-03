@@ -66,6 +66,9 @@ import { CleanwebsitelinkPipe } from './pipes/cleanwebsitelink.pipe';
 import { AboutComponent } from './components/about/about.component';
 import { HowitworksComponent } from './components/howitworks/howitworks.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { MouComponent } from './components/mou/mou.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
+import { TermsComponent } from './components/terms/terms.component';
 
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
@@ -159,6 +162,9 @@ const app_routes: Routes = [
     CleanwebsitelinkPipe,
     AboutComponent,
     HowitworksComponent,
+    MouComponent,
+    PrivacyComponent,
+    TermsComponent,
 
 
 
