@@ -91,9 +91,13 @@ section{
 }
 .partners {
   div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     div {
       height:100px !important;
       width:100px !important;
+      margin: auto;
       img{
         object-fit: cover !important;
         width: 100% !important;

@@ -65,6 +65,7 @@ import { FlTrancatorPipe } from './pipes/fl-trancator.pipe';
 import { CleanwebsitelinkPipe } from './pipes/cleanwebsitelink.pipe';
 import { AboutComponent } from './components/about/about.component';
 import { HowitworksComponent } from './components/howitworks/howitworks.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
@@ -168,7 +169,7 @@ const app_routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(app_routes),
+    RouterModule.forRoot(app_routes, {useHash: true}),
     AngularFontAwesomeModule,
     CarouselModule.forRoot(),
     TabsModule.forRoot(),
@@ -187,7 +188,7 @@ const app_routes: Routes = [
 
   ],
 
-  providers: [AuthService, EventsService, AuthGuard, OrganisationService, ToastrModule, ToastsComponent],
+  providers: [AuthService, EventsService, AuthGuard, OrganisationService, ToastrModule, ToastsComponent, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
