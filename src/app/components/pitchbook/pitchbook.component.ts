@@ -24,6 +24,7 @@ export class PitchbookComponent {
   factor1;
   factor2;
   factor3;
+  competition;
   competitors_info=[];
   competitors = false;
   competitor1 = false;
@@ -137,6 +138,9 @@ export class PitchbookComponent {
         console.log(this.pitch);
         this.products  = data.products;
         this.edit = false;
+        this.env_impact = data.env_impact.map(env_impact =>
+            this.env_impact
+        )
     });
   }
 
@@ -183,7 +187,7 @@ export class PitchbookComponent {
      this.pitch.competition= this.competitors_info;
       console.log(this.pitch.competition);
       
-      this.save_changes();
+      
       
     }
     

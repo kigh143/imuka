@@ -331,7 +331,7 @@
                 <div *ngIf="edit">
                     <div class="form-group">
                     <label for="name">Environmental impacts</label>
-                    <select class="form-control" multiple name="pitch.environmental_impacts"  [(ngModel)]="pitch.environmental_impacts">
+                    <select class="form-control" multiple name="pitch.env_impact"  [(ngModel)]="pitch.env_impact">
                        <option *ngFor="let environ_impact of env_impact" value="{{environ_impact.ans}}">{{environ_impact.ans}}</option>
                     </select>
                     </div>
@@ -416,7 +416,10 @@
 
         <section>
             <b>Competitive Advantage</b><br/>   
-            {{pitch?.competition}}         
+            <div *ngFor="let competition of pitch?.competition">
+                <div>{{competition.name}}</div>
+                
+            </div>       
         </section>
 
         <section>
