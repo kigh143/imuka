@@ -123,7 +123,7 @@ export class PitchbookComponent {
         this.business_id = +params['id'];
         this.fetch_pitcbook_data(this.business_id);
       });
-
+    
   }
 
   openModal(template: TemplateRef<any>) {
@@ -182,6 +182,7 @@ export class PitchbookComponent {
      this.pitch.competition= this.competitors_info;
       console.log(this.pitch.competition);
       this.save_changes();
+      
     }
     
   }
