@@ -121,8 +121,11 @@ export class PitchbookComponent {
 
   save_changes() {
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
+      this.edit = false;
       console.log(data);
+      
     });
+    
   }
 
   edit_mode() {
