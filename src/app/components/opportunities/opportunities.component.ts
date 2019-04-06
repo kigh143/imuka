@@ -21,6 +21,7 @@ export class OpportunitiesComponent implements OnInit {
   title: any;
   short_description: any;
   user: any;
+  opp_image:any;
   opportunities_clone: any;
   filter_info: Array<any> = [{
     name: 'Category',
@@ -53,7 +54,7 @@ export class OpportunitiesComponent implements OnInit {
     this.eventServices.fetch_opportunities().subscribe( data  => { this.opportunities = data;  this.opportunities_clone = data; });
   }
   myopportunities(){
-    //will fetch the opps
+    this.eventServices.fetch_myopportunities(this.user.user_id).subscribe( data  => { this.opportunities = data;  this.opportunities_clone = data; });
   }
   add_opportunities() {
     const data = {
@@ -61,7 +62,8 @@ export class OpportunitiesComponent implements OnInit {
         due_date: this.due_date,
         opp_type: this.opp_type,
         title: this.title,
-        short_description: this.short_description
+        short_description: this.short_description,
+        opp_image: this.opp_image
     };
     if ( this.user.user_type === 'org' ) {
       data['added_by'] = this.user.org_id;
