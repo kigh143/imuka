@@ -142,8 +142,9 @@ export class PitchbookComponent {
 
   save_changes() {
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
-      console.log(data);
+      
     });
+    this.fetch_pitcbook_data(this.business_id);
    
   }
 
@@ -181,6 +182,7 @@ export class PitchbookComponent {
       this.competitors_info.push(this.competitor3_info)
      this.pitch.competition= this.competitors_info;
       console.log(this.pitch.competition);
+      
       this.save_changes();
       
     }

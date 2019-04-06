@@ -90,11 +90,10 @@
                 <div *ngIf="edit">
                     
                         <div padding *ngIf="factors">
-                          <h5>Competitive advantage</h5>
                          
-                          
+                            <div class="multiselect">
                               <label floating>Select only three factors.</label>
-                              <select multiple="true" [(ngModel)]="comp_factors">
+                              <select multiple="true" [(ngModel)]="comp_factors" style="width:100%">
                                 <option value="Price"> Price</option>
                                 <option value="Product"> Product</option>
                                 <option value="Reliability"> Reliability</option>
@@ -126,9 +125,14 @@
                                 <option value="Customizable products">Customizable products</option>
                                 <option value="Unique Features">Unique Features</option>
                                 <option value="Rapid Delivery">Rapid Delivery</option>
-                              </select> 
-                              <button button block (click)="editcompetitive()" >Next</button>
-                        </div>
+                              </select> </div>
+                              
+                               
+                              
+                              
+                                <button block  class="btn btn-primary btn-sm" (click)="editcompetitive()">Next</button>
+                               
+                            </div>
                         
                             <div *ngIf="competitors">
                                 Rate your self on the scale of 5
@@ -163,8 +167,9 @@
                                             <option value="5">5</option>
                                             </select>
                                         </div>
-                                    <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Next</button>
-                              
+                                       
+                                        <button type="button" (click)="editcompetitive()" class="btn btn-secondary btn-sm">Next</button>
+                                    
                                
                             </div>
                             <div *ngIf="competitor1"> 
@@ -298,7 +303,7 @@
                 <div class="form-group">
                     <label for="name">Social Impact</label>
                     <select class="form-control" name="pitch.social_impact"  [(ngModel)]="pitch.social_impact">
-                        <option *ngFor="let impact of social_impacts" value="{{impact}}">{{impact}}</option>
+                        <option *ngFor="let impact of social_impacts" value="{{impact}}">{{impact.ans}}</option>
                     </select>
                 </div>
                 </div>
@@ -313,7 +318,7 @@
                 <div class="form-group">
                 <label for="name">Economic impact</label>
                 <select class="form-control" name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
-                    <option *ngFor="let e_impact of economic_impact" value="{{e_impact}}">{{e_impact}}</option>
+                    <option *ngFor="let e_impact of economic_impact" value="{{e_impact}}">{{e_impact.ans}}</option>
                 </select>
                 </div>
                 </div>
@@ -327,7 +332,7 @@
                     <div class="form-group">
                     <label for="name">Environmental impacts</label>
                     <select class="form-control" multiple name="pitch.environmental_impacts"  [(ngModel)]="pitch.environmental_impacts">
-                       <option *ngFor="let environ_impact of env_impact" value="{{environ_impact.ans}}">{{environ_impact}}</option>
+                       <option *ngFor="let environ_impact of env_impact" value="{{environ_impact.ans}}">{{environ_impact.ans}}</option>
                     </select>
                     </div>
                 </div>   
@@ -410,7 +415,8 @@
         </section>
 
         <section>
-            <b>Competitive Advantage</b><br/>            
+            <b>Competitive Advantage</b><br/>   
+            {{pitch?.competition}}         
         </section>
 
         <section>
