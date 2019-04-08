@@ -4,7 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BizService } from 'src/app/provider/biz.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { Chart } from 'angular-highcharts';
 @Component({
   selector: 'app-pitchbook',
   templateUrl: './pitchbook.component.html',
@@ -21,15 +21,24 @@ export class PitchbookComponent {
   products: any;
   comp_factors={"factor":""};
   factors:boolean= true;
-  factor1;
-  factor2;
-  factor3;
-  competition;
+  factor1:any;
+  factor1_grade=[];
+  factor2_grade=[];
+  factor3_grade=[];
+  factor2:any;
+  factor3:any;
+  competition:any;
+  barchart;
+  chart: Chart;
+  months;
+  mline;
+  competitors_name=[];
   competitors_info=[];
   competitors = false;
   competitor1 = false;
   competitor2 = false;
   competitive_advantage;
+  competitor3 = false;
   comp_factor:{};
   competitor1_info={
     "name":"owner",
@@ -43,7 +52,10 @@ export class PitchbookComponent {
     "name":"",
     "comparison":{"factor1":"", "factor2":"", "factor3":""}
   }
- 
+  competitor4_info={
+    "name":"",
+    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+  }
 
 
   social_impacts = [
@@ -119,12 +131,14 @@ export class PitchbookComponent {
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
+    
     public businessService: BizService) {
       this.route.params.subscribe(params => {
         this.business_id = +params['id'];
         this.fetch_pitcbook_data(this.business_id);
       });
-    
+  this.months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+   this.draw();
   }
 
   openModal(template: TemplateRef<any>) {
@@ -149,13 +163,14 @@ export class PitchbookComponent {
       
     });
     this.fetch_pitcbook_data(this.business_id);
-   
+    this.draw();
   }
 
   edit_mode() {
       this.edit = true;
   }
-  editcompetitive(){
+ 
+    editcompetitive(){
     if(this.factors){
       this.competitors = true;
       this.factors = false;
@@ -166,6 +181,7 @@ export class PitchbookComponent {
      
     }
     else if(this.competitors){
+      
       this.competitor1 = true;
       this.competitor2 = false;
       this.factors = false;
@@ -183,7 +199,16 @@ export class PitchbookComponent {
       console.log(this.competitor2_info);
     }
     else if(this.competitor2){
+      this.competitor3 = true;
+      this.competitor2 = false;
+      this.competitor1 = false;
+      this.factors = false;
+      this.competitors = false;
       this.competitors_info.push(this.competitor3_info)
+      console.log(this.competitor3_info);
+    }
+    else if(this.competitor3){
+      this.competitors_info.push(this.competitor4_info)
      this.pitch.competition= this.competitors_info;
       console.log(this.pitch.competition);
       
@@ -193,7 +218,81 @@ export class PitchbookComponent {
     
   }
 
-
+  draw() {
+    this.competitors_info.forEach(data=>{
+       this.competitors_name.push(data.name);
+       this.factor1_grade.push(data.comparison.factor1);
+       this.factor2_grade.push(data.comparison.factor2);
+       this.factor3_grade.push(data.comparison.factor3); 
+    })
+    console.log(this.competitors_name);
+    console.log(this.factor1_grade);
+const barchart=new Chart({
+  chart: {
+      type: 'bar'
+  },
+  title: {
+      text: 'Historic World Population by Region'
+  },
+  subtitle: {
+      text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+  },
+  xAxis: {
+      categories: ['Owner', 'Competitor1', 'Competitor2', 'Competitor3'],
+      title: {
+          text: null
+      }
+  },
+  yAxis: {
+      min: 0,
+      title: {
+          text: 'Population (millions)',
+          align: 'high'
+      },
+      labels: {
+          overflow: 'justify'
+      }
+  },
+  tooltip: {
+      valueSuffix: ' millions'
+  },
+  plotOptions: {
+      bar: {
+          dataLabels: {
+              enabled: true
+          }
+      }
+  },
+  legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'top',
+      x: -40,
+      y: 80,
+      floating: true,
+      borderWidth: 1,
+      backgroundColor: (('blue' && 'green') || '#FFFFFF'),
+      shadow: true
+  },
+  credits: {
+      enabled: false
+  },
+  series: [{
+      name: 'PRICE',
+      data: [107, 31, 63]
+  }, {
+      name: 'QUALITY',
+      data: [133, 156, 94]
+  }, {
+      name: 'RELIABILTY',
+      data: [84, 41, 37]
+  }]
+});
+    this.barchart = barchart;
+//chart.ref$.subscribe(console.log);
+  
+   
+  }
   addtoobject(content){
     
   }

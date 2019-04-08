@@ -74,7 +74,7 @@
                     </div>
 
                     <div>
-                        <label for="">Potetinal Markert </label>
+                        <label for="">Potential Markert </label>
                         <input type="number" class="form-control"  name="pitch.potetinal" [(ngModel)]="pitch.potetinal" placeholder=""/>
                     </div>
 
@@ -87,9 +87,10 @@
 
             <section>
                 <b>Competitive Advantage</b><br/>  
+                <div style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto" [chart]="barchart"></div>
                 <div *ngIf="edit">
                     
-                        <div padding *ngIf="factors">
+                            <div padding *ngIf="factors">
                          
                             <div class="multiselect">
                               <label floating>Select only three factors.</label>
@@ -135,7 +136,7 @@
                             </div>
                         
                             <div *ngIf="competitors">
-                                Rate your self on the scale of 5
+                                Rate yourself on the scale of 5
                                 
                                     <div class="form-group">
                                     <label floating>{{comp_factors[0]}}</label>
@@ -213,8 +214,8 @@
                                     <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Next</button>
                                
                                
-                                </div>
-                                <div *ngIf="competitor2"> 
+                            </div>
+                            <div *ngIf="competitor2"> 
                                         Rate your self on the scale of 5
                                        
                                             <div class="form-group">
@@ -250,10 +251,49 @@
                                                         <option value="5">5</option>
                                                         </select>
                                                     </div>
-                                                    <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Save</button>
+                                                <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Next</button>
+                                                   
                             
-                                                </div>
-                </div>          
+                            </div>
+                            <div *ngIf="competitor3"> 
+                        Rate your self on the scale of 5
+                        
+                            <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter competitor 3" name="competitor4_info.name" [(ngModel)]="competitor4_info.name">
+                            </div>
+                            <div class="form-group">
+                                <label floating>{{comp_factors[0]}}</label>
+                                <select class="form-control" [(ngModel)]="competitor4_info.comparison.factor1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label floating>{{comp_factors[1]}}</label>
+                                    <select class="form-control" [(ngModel)]="competitor4_info.comparison.factor2">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group" >
+                                        <label floating>{{comp_factors[2]}}</label>
+                                        <select class="form-control" [(ngModel)]="competitor4_info.comparison.factor3">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                     <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Save</button>
+                            </div>  
+            </div>        
             </section>
 
             <section>
@@ -416,10 +456,9 @@
 
         <section>
             <b>Competitive Advantage</b><br/>   
-            <div *ngFor="let competition of pitch?.competition">
-                <div>{{competition.name}}</div>
-                
-            </div>       
+            
+           
+        <div style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto" [chart]="barchart"></div>
         </section>
 
         <section>
