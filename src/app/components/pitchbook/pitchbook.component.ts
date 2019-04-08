@@ -152,13 +152,14 @@ export class PitchbookComponent {
         console.log(this.pitch);
         this.products  = data.products;
         this.edit = false;
-        this.env_impact = data.env_impact.map(env_impact =>
-            this.env_impact
-        )
+        
     });
   }
 
   save_changes() {
+    this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact)
+    this.pitch.social_impact = JSON.stringify(this.pitch.social_impact)
+    this.pitch.env_impact=JSON.stringify(this.pitch.env_impact)
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
       
     });
