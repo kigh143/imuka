@@ -5,6 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BizService } from 'src/app/provider/biz.service';
 import { ActivatedRoute } from '@angular/router';
 import { Chart } from 'angular-highcharts';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-pitchbook',
   templateUrl: './pitchbook.component.html',
@@ -32,6 +33,10 @@ export class PitchbookComponent {
   chart: Chart;
   months;
   mline;
+  sdgs;
+  enviroment_impact;
+  social_impact
+  economic_impacts;
   competitors_name=[];
   competitors_info=[];
   competitors = false;
@@ -152,12 +157,17 @@ export class PitchbookComponent {
         console.log(this.pitch);
         this.products  = data.products;
         this.edit = false;
-        
+        this.enviroment_impact = JSON.parse(this.pitch.env_impact);
+        this.social_impact=JSON.parse(this.pitch.social_impact);
+       console.log(JSON.parse(this.pitch.economic_impact))
+        this.economic_impacts=JSON.parse(this.pitch.economic_impact);
+        this.sdgs = JSON.parse(this.pitch.impact_areas)
     });
   }
 
   save_changes() {
     this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact)
+    this.pitch.impact_areas= JSON.stringify(this.pitch.impact_areas);
     this.pitch.social_impact = JSON.stringify(this.pitch.social_impact)
     this.pitch.env_impact=JSON.stringify(this.pitch.env_impact)
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
@@ -226,20 +236,19 @@ export class PitchbookComponent {
        this.factor2_grade.push(data.comparison.factor2);
        this.factor3_grade.push(data.comparison.factor3); 
     })
-    console.log(this.competitors_name);
-    console.log(this.factor1_grade);
+  
 const barchart=new Chart({
   chart: {
       type: 'bar'
   },
   title: {
-      text: 'Historic World Population by Region'
+      text: 'Competitive Advantage'
   },
   subtitle: {
       text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
   },
   xAxis: {
-      categories: ['Owner', 'Competitor1', 'Competitor2', 'Competitor3'],
+      categories: this.competitors_name,
       title: {
           text: null
       }
@@ -247,7 +256,7 @@ const barchart=new Chart({
   yAxis: {
       min: 0,
       title: {
-          text: 'Population (millions)',
+          text: 'Factor ranges',
           align: 'high'
       },
       labels: {
@@ -272,21 +281,21 @@ const barchart=new Chart({
       y: 80,
       floating: true,
       borderWidth: 1,
-      backgroundColor: (('blue' && 'green') || '#FFFFFF'),
+      backgroundColor: (('#eee' && '#eee') || '#FFFFFF'),
       shadow: true
   },
   credits: {
       enabled: false
   },
   series: [{
-      name: 'PRICE',
-      data: [107, 31, 63]
+      name: this.comp_factors[0],
+      data: this.factor1_grade
   }, {
-      name: 'QUALITY',
-      data: [133, 156, 94]
+      name:  this.comp_factors[1],
+      data: this.factor2_grade
   }, {
-      name: 'RELIABILTY',
-      data: [84, 41, 37]
+      name:  this.comp_factors[2],
+      data: this.factor3_grade
   }]
 });
     this.barchart = barchart;
@@ -294,8 +303,6 @@ const barchart=new Chart({
   
    
   }
-  addtoobject(content){
-    
-  }
+ 
 
 }

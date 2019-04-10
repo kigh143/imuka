@@ -3,16 +3,19 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-     
+
+            <div class="jumbotron">
+            <button class="btn outline btn-sm" routerLink="/business/{{business.business_id}}"><i class="fa fa-chevron-left"></i></button><br/>
+
+                    <span class="display-4">{{business.business_name}} Pitch Book</span>
+                    <p>Details of your business' pitch book are here edit to update by changing the mode</p>
+                    <button class="btn btn-primary btn-sm" (click)="openModal(template)">Generate Pitch book</button>
+                    <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
+                    <button class="btn btn-warning btn-sm" (click)="edit_mode()" *ngIf="!edit">Enable Editing Mode</button>
+                </div>
       </div>
       <div class="col-md-9">
-        <div class="jumbotron">
-            <h1 class="display-4">{{business.business_name}} Pitch Book</h1>
-            <p>Find upcoming networking and training events in your sector and region, including Imuka Series events.</p>
-            <button class="btn btn-primary btn-sm" (click)="openModal(template)">Generate Pitch book</button>
-            <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
-            <button class="btn btn-warning btn-sm" (click)="edit_mode()" *ngIf="!edit">Enable Editing Mode</button>
-        </div>
+       
         <div class="content">
             <section>
                 <b>{{business.business_name}}</b><br/>
@@ -326,10 +329,30 @@
 
             <section>
                 <b>The sustainable Development Goals</b><br/>  
+                <ol>
+                    <li *ngFor="let sdg of sdgs">{{sdg}}</li>
+                </ol>
                   <div *ngIf="edit">
                     <div class="form-group">
-                    <label for="name">Document name</label>
-                    <select class="form-control" name="pitch.sdgs" [(ngModel)]="pitch.sdgs" >
+                    <label for="name">social Development Goals</label>
+                    <select class="form-control" multiple name="pitch.sdgs" [(ngModel)]="pitch.impact_areas" >
+                                    <option value="No Poverty">No Poverty</option>
+                                    <option value="Zero Hunger">Zero Hunger</option>
+                                    <option value="Good Health and Well-being">Good Health and Well-being</option>
+                                    <option value="Quality Education">Quality Education</option>
+                                    <option value="Gender Equality">Gender Equality</option>
+                                    <option value="Clean Water and Sanitation">Clean Water and Sanitation</option>
+                                    <option value="Affordable and Clean Energy">Affordable and Clean Energy</option>
+                                    <option value="Decent Work and Economic Growth">Decent Work and Economic Growth</option>
+                                    <option value="Industry, Innovation and Infrastructure">Industry, Innovation and Infrastructure</option>
+                                    <option value="Reduced Inequality">Reduced Inequality</option>
+                                    <option value="Sustainable Cities and Communitie">Sustainable Cities and Communities</option>
+                                    <option value="Responsible Consumption and Production">Responsible Consumption and Production</option>
+                                    <option value="Climate Action">Climate Action</option>
+                                    <option value="Life Below Water">Life Below Water</option>
+                                    <option value="Life on Land">Life on Land</option>
+                                    <option value="Peace and Justice Strong Institutions">Peace and Justice Strong Institutions</option>
+                                    <option value="Partnerships to achieve the Goal">Partnerships to achieve the Goal</option>
                     </select>
                     </div>
                   </div>
@@ -338,12 +361,13 @@
             <section>
                 <b>Social Impact</b><br/>  
                 <ol>
+                    <li *ngFor="let social of social_impact">{{social}}</li>
                 </ol> 
                 <div *ngIf="edit">
                 <div class="form-group">
                     <label for="name">Social Impact</label>
-                    <select class="form-control" name="pitch.social_impact"  [(ngModel)]="pitch.social_impact">
-                        <option *ngFor="let impact of social_impacts" value="{{impact}}">{{impact.ans}}</option>
+                    <select class="form-control" multiple name="pitch.social_impact"  [(ngModel)]="pitch.social_impact">
+                        <option *ngFor="let impact of social_impacts" value="{{impact.ans}}">{{impact.ans}}</option>
                     </select>
                 </div>
                 </div>
@@ -352,13 +376,13 @@
             <section>
                 <b>Economic impact</b><br/>    
                 <ol>
-                
+                   <li *ngFor = "let economic of economic_impacts">{{economic}}</li>
                 </ol>  
                 <div *ngIf="edit">
                 <div class="form-group">
                 <label for="name">Economic impact</label>
-                <select class="form-control" name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
-                    <option *ngFor="let e_impact of economic_impact" value="{{e_impact}}">{{e_impact.ans}}</option>
+                <select class="form-control" multiple name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
+                    <option *ngFor="let e_impact of economic_impact" value="{{e_impact.ans}}">{{e_impact.ans}}</option>
                 </select>
                 </div>
                 </div>
@@ -366,7 +390,8 @@
 
             <section>
                 <b>Environmental impacts</b><br/>        
-                <ol>
+                <ol >
+                    <li *ngFor="let env of enviroment_impact; let i = index">{{env}}</li>
                 </ol>  
                 <div *ngIf="edit">
                     <div class="form-group">
@@ -477,7 +502,7 @@
         </section>
 
         <section>
-            <b>Investiment</b><br/> 
+            <b>Investment</b><br/> 
 
         </section>
 
