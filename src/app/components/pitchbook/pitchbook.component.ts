@@ -220,7 +220,7 @@ export class PitchbookComponent {
     }
     else if(this.competitor3){
       this.competitors_info.push(this.competitor4_info)
-     this.pitch.competition= this.competitors_info;
+      this.pitch.competition= this.competitors_info;
       console.log(this.pitch.competition);
       
       
