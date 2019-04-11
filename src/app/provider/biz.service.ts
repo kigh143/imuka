@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { api_base_url} from '../constants/constants';
-import { httpFactory } from '@angular/http/src/http_module';
+
 
 @Injectable({
   providedIn: 'root'
@@ -46,11 +46,11 @@ api_url: string;
       .pipe(map(res => res.json()));
 
   }
-  
+
   adddocument(document) {
       return this.http.post(this.api_url + 'adddocument/json', document).pipe(map(res => res.json()));
   }
-  
+
    addteam(team) {
       return this.http
       .post(this.api_url + 'addteam/json', team, this.options)
@@ -175,7 +175,7 @@ api_url: string;
           price: '$1500',
           period: '1 yr',
           img: 'assets/industry.png',
-          description: 'plus Success feesn Based on finance received:2% if debt, 3% if equity, 5% if grant'        
+          description: 'plus Success feesn Based on finance received:2% if debt, 3% if equity, 5% if grant'
         },
       ];
 
@@ -209,7 +209,7 @@ api_url: string;
       .get(this.api_url + 'getinvestmentopportunities/user_id/'+user_id+'/json')
       .pipe(map(res => res.json()));
   }
- 
+
   get_user_investement(user_id){
     return this.http
     .get(this.api_url + 'getmyinvestments/user_id/' + user_id + '/json')

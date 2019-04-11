@@ -1,7 +1,7 @@
 <div class="profile" (click)="go_to_profile()">
   <div class="top"></div>
   <div class="bottom">
-    <img src="{{user?.profile_pic}}" alt="" /> 
+    <img src="{{user?.profile_pic}}" alt="" />
     <b style="font-size: 15px">{{user?.email}}</b>
     <span>{{user?.user_type}}</span>
   </div>
@@ -41,6 +41,7 @@
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/events"><i class="fa fa-calendar"></i> Events </a> <span class="badge badge-light float-right">{{event_counter}}</span></li>
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/opportunities"><i class="fa fa-globe"></i> Opportunities</a><span class="badge badge-light float-right" >{{opps_count}}</span></li>
     <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/notifications"><i class="fa fa-bell"></i>Notifications</a>  <span class="badge badge-light float-right" style="text-align: center; margin-top:5px">4</span></li> -->
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/sessions"><i class="fa fa-object-group" aria-hidden="true"></i> Sessions </a></li>
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/request"><i class="fa fa-info-circle"></i> Requests and Help</a></li>
     <li class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
 </ul>

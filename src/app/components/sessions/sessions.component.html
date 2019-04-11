@@ -1,0 +1,32 @@
+<div class="body">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+          <div class="mainmenu">
+              <app-mainmenu></app-mainmenu>
+          </div>
+      </div>
+      <div class="col-md-9">
+        <div class="jumbotron">
+        <h1 class="display-4">My Businesses</h1>
+        <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
+        </div>
+
+        <div>
+          <ul class="list-unstyled">
+            <li class="media"  *ngFor="let session of sessions">
+              <img [src]="session.profile_pic" class="mr-3" alt="...">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">{{session.tittle}}</h5>
+                {{session.description}}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

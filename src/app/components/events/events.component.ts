@@ -5,8 +5,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { EventsService } from '../../services/events.service';
 import { SessionService } from 'src/app/provider/session.service';
 import { Router } from '@angular/router';
-import { FiltersComponent} from '../../components/filters/filters.component'
-import { filter } from 'rxjs/operators';
 import { ToastsComponent} from '../toasts/toasts.component'
 @Component({
   selector: 'app-events',
@@ -30,40 +28,40 @@ export class EventsComponent implements OnInit {
   }
 
   events_clone: any;
-  filter_info:Array<any>=[{
-    name:"Event type",
-    db_name:"event_type",
-    options:[
-      'Business networking',
-      'Workshop/Conference',
-      'Training',
-      'Pitching'
-    ]
-  },
-  {
-    name:"Region",
-    db_name:"region",
-    options:[
-     'Western',
-     'Northern',  
-     'Eastern',
-      'Southern',
-      'Others',
-      'All'
-    ]
-  },
-  {
-    name:"Recomended by",
-    db_name:"event",
-    options:[
-      'Imuka',
-      'Support Organisations',
-      'Entreprenuers',
-      'All',
-    ]
-  },
- 
-];
+  filter_info:Array<any>=[
+      {
+      name:"Event type",
+      db_name:"event_type",
+      options:[
+        'Business networking',
+        'Workshop/Conference',
+        'Training',
+        'Pitching'
+      ]
+      },
+      {
+      name:"Region",
+      db_name:"region",
+      options:[
+        'Western',
+        'Northern',
+        'Eastern',
+        'Southern',
+        'Others',
+        'All'
+      ]
+      },
+      {
+      name:"Recomended by",
+      db_name:"event",
+      options:[
+        'Imuka',
+        'Support Organisations',
+        'Entreprenuers',
+        'All',
+      ]
+      }
+  ];
   modalRef: BsModalRef;
   constructor(
     private modalService: BsModalService,
@@ -82,7 +80,6 @@ export class EventsComponent implements OnInit {
   onChange(event, main) {
       this.events_clone = this.events_clone.filter((event_value) => {
         if (event_value[main['db_name']] === event.target.value) {
-          console.log(event_value);
           return event_value;
         }
       });
@@ -127,7 +124,7 @@ export class EventsComponent implements OnInit {
   reset() {
     this.get_all_events();
   }
- 
+
   myevent(){
     this.all_event = false;
   }

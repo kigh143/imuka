@@ -69,6 +69,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { MouComponent } from './components/mou/mou.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsComponent } from './components/terms/terms.component';
+import { SessionsComponent } from './components/sessions/sessions.component';
+import { CreatesessionComponent } from './components/createsession/createsession.component';
+import { MysessionsComponent } from './components/mysessions/mysessions.component';
+import { SessionComponent } from './components/session/session.component';
 
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
@@ -112,7 +116,8 @@ const app_routes: Routes = [
   { path: 'filter', component :FiltersComponent, canActivate:[AuthGuard]},
   { path: 'about', component :AboutComponent},
   { path: 'howitworks', component :HowitworksComponent},
-
+  { path: 'sessions', component :CreatesessionComponent},
+  { path: 'session/:id', component :SessionComponent}
 ];
 
 @NgModule({
@@ -165,6 +170,10 @@ const app_routes: Routes = [
     MouComponent,
     PrivacyComponent,
     TermsComponent,
+    SessionsComponent,
+    CreatesessionComponent,
+    MysessionsComponent,
+    SessionComponent,
 
 
 

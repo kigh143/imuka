@@ -1,0 +1,93 @@
+<div class="body">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+          <div class="mainmenu">
+              <app-mainmenu></app-mainmenu>
+          </div>
+      </div>
+      <div class="col-md-9">
+
+        <div class="card">
+          <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+              <li class="nav-item" *ngIf="!form">
+                <button class="btn btn-primary" (click)="showFor()">Create Session</button>
+              </li>
+              <li class="nav-item" *ngIf="form">
+                <button class="btn btn-light" (click)="showFor()">Close form</button>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body" *ngIf="form">
+              <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Sesssion title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Enter title" [(ngModel)]="session.title">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="exampleFormControlSelect2">Session Type</label>
+                      <select  [(ngModel)]="session.session_type" name="session_type" class="form-control" id="exampleFormControlSelect2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Session description</label>
+                    <textarea class="form-control"  rows="3" name="description" [(ngModel)]="session.description"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">location (venue of the session)</label>
+                    <input type="text" class="form-control" name="location" placeholder="Enter location" [(ngModel)]="session.location">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Due date</label>
+                    <input type="date" class="form-control" name="session_date" [(ngModel)]="session.session_date">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Session cost of attendance</label>
+                      <input type="text" class="form-control" name="session_cost" placeholder="Enter session cost" [(ngModel)]="session.session_cost">
+                    </div>
+
+                  <button type="submit" class="btn btn-primary" (click)="createSession()">Create Session</button>
+              </form>
+          </div>
+        </div>
+
+        <div style="margin-top: 15px;">
+
+          <div class="list-group" *ngIf="mySessions.length>0">
+            <a class="list-group-item list-group-item-action" *ngFor="let session of mySessions" routerLink="/session/{{session.session_id}}">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">List group item heading</h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+              <small>Donec id elit non mi porta.</small>
+            </a>
+          </div>
+
+          <div *ngIf="mySessions.length===0" class="text-center" style="display: flex; color:rgb(17, 17, 17); height:100%;">
+
+            <div style="margin:auto;">
+                <h4>You have not created any sessions yet</h4>
+                <p>click create session to get started</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <app-footer></app-footer>
