@@ -9,17 +9,23 @@
       </div>
       <div class="col-md-9">
         <div class="jumbotron">
-        <h1 class="display-4">My Businesses</h1>
+        <h1 class="display-4">Support Sessions</h1>
         <p>Find upcoming networking and training events in your sector and region, including ImukaAccess Series events.</p>
         </div>
-
-        <div>
+        <div class="card">
+          <div class="card-header">
+            Sessions
+          </div>
+        </div>
+        <div style="background: #fff;">
           <ul class="list-unstyled">
-            <li class="media"  *ngFor="let session of sessions">
-              <img [src]="session.profile_pic" class="mr-3" alt="...">
+            <li class="media"  *ngFor="let session of sessions" style="border:1px solid #eee; padding:8px;">
+              <img [src]="session.profile_pic" class="mr-3" alt="{{session.tittle}}" style="height:50px; width:50px;">
               <div class="media-body">
-                <h5 class="mt-0 mb-1">{{session.tittle}}</h5>
-                {{session.description}}
+                <h5 class="mt-0 mb-1">{{session.title}}</h5>
+                {{session.description}}<br/>
+                <a routerLink="session/{{session.session_id}}" class="btn btn-info btn-sm"> View  </a> &nbsp;
+                <a routerLink="session/{{session.session_id}}" class="btn btn-primary btn-sm"> Apply for session  </a>
               </div>
             </li>
           </ul>

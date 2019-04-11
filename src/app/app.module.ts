@@ -117,7 +117,8 @@ const app_routes: Routes = [
   { path: 'about', component :AboutComponent},
   { path: 'howitworks', component :HowitworksComponent},
   { path: 'sessions', component :CreatesessionComponent},
-  { path: 'session/:id', component :SessionComponent}
+  { path: 'session/:id', component :SessionComponent},
+  { path: 'all_sessions', component :SessionsComponent},
 ];
 
 @NgModule({
