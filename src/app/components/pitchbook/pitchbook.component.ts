@@ -22,18 +22,19 @@ export class PitchbookComponent {
   products: any;
   comp_factors={"factor":""};
   factors:boolean= true;
-  factor1:any;
+  factor1:number;
   factor1_grade=[];
   factor2_grade=[];
   factor3_grade=[];
-  factor2:any;
-  factor3:any;
+  factor2:number;
+  factor3:number;
   competition:any;
   barchart;
   chart: Chart;
   months;
   mline;
   sdgs;
+  piechart;
   enviroment_impact;
   social_impact
   economic_impacts;
@@ -47,19 +48,19 @@ export class PitchbookComponent {
   comp_factor:{};
   competitor1_info={
     "name":"owner",
-    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+    comparison:{factor1:1, factor2:1, factor3:1}
   }
   competitor2_info={
     "name":"",
-    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+    comparison:{factor1:1, factor2:1, factor3:1}
   }
   competitor3_info={
     "name":"",
-    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+    comparison:{factor1:1, factor2:1, factor3:1}
   }
   competitor4_info={
     "name":"",
-    "comparison":{"factor1":"", "factor2":"", "factor3":""}
+    comparison:{factor1:1, factor2:1, factor3:1}
   }
 
 
@@ -77,7 +78,7 @@ export class PitchbookComponent {
     { selected: false, ans: 'Reduce unemployment through job creation' },
     {
       selected: false,
-      ans: 'Female engagement in employment/ gender equality'
+      ans: 'Female engagement in employment or gender equality'
     },
     {
       selected: false,
@@ -112,7 +113,7 @@ export class PitchbookComponent {
     },
     {
       selected: false,
-      ans: 'It provides cheaper and affordable products/ services to the people'
+      ans: 'It provides cheaper and affordable products or services to the people'
     }
   ];
 
@@ -128,9 +129,9 @@ export class PitchbookComponent {
     },
     {
       selected: false,
-      ans: ' it improves waste management within the area/ reduces pollution'
+      ans: ' it improves waste management within the area or reduces pollution'
     },
-    { selected: false, ans: ' it promotes recycling of the waste/ bi products' }
+    { selected: false, ans: ' it promotes recycling of the waste or bi products' }
   ];
 
   constructor(
@@ -159,9 +160,9 @@ export class PitchbookComponent {
         this.edit = false;
         this.enviroment_impact = JSON.parse(this.pitch.env_impact);
         this.social_impact=JSON.parse(this.pitch.social_impact);
-       console.log(JSON.parse(this.pitch.economic_impact))
         this.economic_impacts=JSON.parse(this.pitch.economic_impact);
         this.sdgs = JSON.parse(this.pitch.impact_areas)
+        console.log(this.economic_impacts);
     });
   }
 
@@ -232,10 +233,14 @@ export class PitchbookComponent {
   draw() {
     this.competitors_info.forEach(data=>{
        this.competitors_name.push(data.name);
-       this.factor1_grade.push(data.comparison.factor1);
-       this.factor2_grade.push(data.comparison.factor2);
-       this.factor3_grade.push(data.comparison.factor3); 
-    })
+       this.factor1_grade.push(parseInt(data.comparison.factor1));
+       this.factor2_grade.push(parseInt(data.comparison.factor2));
+       this.factor3_grade.push(parseInt(data.comparison.factor3)); 
+    });
+    
+    console.log(this.factor1_grade);
+    
+
   
 const barchart=new Chart({
   chart: {
@@ -277,8 +282,8 @@ const barchart=new Chart({
       layout: 'vertical',
       align: 'right',
       verticalAlign: 'top',
-      x: -40,
-      y: 80,
+      x: 0,
+      y: 10,
       floating: true,
       borderWidth: 1,
       backgroundColor: (('#eee' && '#eee') || '#FFFFFF'),
@@ -298,6 +303,46 @@ const barchart=new Chart({
       data: this.factor3_grade
   }]
 });
+const piechart=new Chart( {
+  chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: 'pie'
+  },
+  title: {
+      text: 'Browser market shares in January, 2018'
+  },
+  tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+      pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+              enabled: false
+          },
+          showInLegend: true
+      }
+  },
+  series: [{
+      name: 'Brands',
+      data: [{
+          name: 'Available',
+          y: 61.41,
+          sliced: true,
+          selected: true
+      }, {
+          name: 'Potential',
+          y: 11.84
+      }, {
+          name: 'Served',
+          y: 10.85
+      }]
+  }]
+});
+    this.piechart = piechart;
     this.barchart = barchart;
 //chart.ref$.subscribe(console.log);
   

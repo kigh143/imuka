@@ -4,12 +4,12 @@
     <div class="row">
       <div class="col-md-3">
 
-            <div class="jumbotron">
-            <button class="btn outline btn-sm" routerLink="/business/{{business.business_id}}"><i class="fa fa-chevron-left"></i></button><br/>
+            <div class="jumbotron" style="padding-top:0">
+            <button class="btn btn-outline-primary btn-sm" style="width:50px" routerLink="/business/{{business.business_id}}"><i class="fa fa-chevron-left"></i></button><br/>
 
                     <span class="display-4">{{business.business_name}} Pitch Book</span>
                     <p>Details of your business' pitch book are here edit to update by changing the mode</p>
-                    <button class="btn btn-primary btn-sm" (click)="openModal(template)">Generate Pitch book</button>
+                    <button class="btn btn-primary btn-sm" style="margin-bottom:20px" (click)="openModal(template)">Generate Pitch book</button>
                     <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
                     <button class="btn btn-warning btn-sm" (click)="edit_mode()" *ngIf="!edit">Enable Editing Mode</button>
                 </div>
@@ -64,6 +64,8 @@
             <section>
                 <b>Market size</b><br/> 
                 <div>
+                <div style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto" [chart]="piechart"></div>
+
                     <div>
                         <p>Available Markert : <b>{{pitch.available}}</b></p>
                         <p>Potetinal Markert : <b>{{pitch.potetinal}}</b></p>
@@ -143,32 +145,32 @@
                                 
                                     <div class="form-group">
                                     <label floating>{{comp_factors[0]}}</label>
-                                    <select class="form-control" [(ngModel)]="competitor1_info.comparison.factor1">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
+                                    <select class="form-control" type="number" [(ngModel)]="competitor1_info.comparison.factor1">
+                                    <option value=1 >1</option>
+                                    <option value=2 >2</option>
+                                    <option value=3 >3</option>
+                                    <option value=4 >4</option>
+                                    <option value=5>5</option>
                                     </select>
                                     </div>
                                     <div class="form-group">
                                         <label floating>{{comp_factors[1]}}</label>
                                         <select class="form-control" [(ngModel)]="competitor1_info.comparison.factor2">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                        <option value=1>1</option>
+                                        <option value=2>2</option>
+                                        <option value=3>3</option>
+                                        <option value=4>4</option>
+                                        <option value=5>5</option>
                                         </select>
                                         </div>
                                         <div class="form-group" >
                                             <label floating>{{comp_factors[2]}}</label>
                                             <select class="form-control" [(ngModel)]="competitor1_info.comparison.factor3">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
+                                            <option value=1>1</option>
+                                            <option value=2>2</option>
+                                            <option value=3>3</option>
+                                            <option value=4>4</option>
+                                            <option value=5>5</option>
                                             </select>
                                         </div>
                                        
@@ -186,31 +188,31 @@
                                         <div class="form-group">
                                             <label floating>{{comp_factors[0]}}</label>
                                             <select class="form-control" [(ngModel)]="competitor2_info.comparison.factor1">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
+                                            <option value=1>1</option>
+                                            <option value=2>2</option>
+                                            <option value=3>3</option>
+                                            <option value=4>4</option>
+                                            <option value=5>5</option>
                                             </select>
                                             </div>
                                             <div class="form-group">
                                                 <label floating>{{comp_factors[1]}}</label>
                                                 <select class="form-control" [(ngModel)]="competitor2_info.comparison.factor2">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                                <option value=1>1</option>
+                                                <option value=2>2</option>
+                                                <option value=3>3</option>
+                                                <option value=4>4</option>
+                                                <option value=5>5</option>
                                                 </select>
                                                 </div>
                                                 <div class="form-group" >
                                                     <label floating>{{comp_factors[2]}}</label>
                                                     <select class="form-control" [(ngModel)]="competitor2_info.comparison.factor3">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
+                                                    <option value=1>1</option>
+                                                    <option value=2>2</option>
+                                                    <option value=3>3</option>
+                                                    <option value=4>4</option>
+                                                    <option value=5>5</option>
                                                     </select>
                                                 </div>
                                     
@@ -227,31 +229,31 @@
                                             <div class="form-group">
                                                 <label floating>{{comp_factors[0]}}</label>
                                                 <select class="form-control" [(ngModel)]="competitor3_info.comparison.factor1">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                                <option value=1>1</option>
+                                                <option value=2>2</option>
+                                                <option value=3>3</option>
+                                                <option value=4>4</option>
+                                                <option value=5>5</option>
                                                 </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label floating>{{comp_factors[1]}}</label>
                                                     <select class="form-control" [(ngModel)]="competitor3_info.comparison.factor2">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
+                                                    <option value=1>1</option>
+                                                    <option value=2>2</option>
+                                                    <option value=3>3</option>
+                                                    <option value=4>4</option>
+                                                    <option value=5>5</option>
                                                     </select>
                                                     </div>
                                                     <div class="form-group" >
                                                         <label floating>{{comp_factors[2]}}</label>
                                                         <select class="form-control" [(ngModel)]="competitor3_info.comparison.factor3">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
+                                                        <option value=1>1</option>
+                                                        <option value=2>2</option>
+                                                        <option value=3>3</option>
+                                                        <option value=4>4</option>
+                                                        <option value=5>5</option>
                                                         </select>
                                                     </div>
                                                 <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Next</button>
@@ -267,31 +269,31 @@
                             <div class="form-group">
                                 <label floating>{{comp_factors[0]}}</label>
                                 <select class="form-control" [(ngModel)]="competitor4_info.comparison.factor1">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
                                 </select>
                                 </div>
                                 <div class="form-group">
                                     <label floating>{{comp_factors[1]}}</label>
                                     <select class="form-control" [(ngModel)]="competitor4_info.comparison.factor2">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
                                     </select>
                                     </div>
                                     <div class="form-group" >
                                         <label floating>{{comp_factors[2]}}</label>
                                         <select class="form-control" [(ngModel)]="competitor4_info.comparison.factor3">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                        <option value=1>1</option>
+                                        <option value=2>2</option>
+                                        <option value=3>3</option>
+                                        <option value=4>4</option>
+                                        <option value=5>5</option>
                                         </select>
                                     </div>
                                      <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Save</button>
@@ -382,7 +384,10 @@
                 <div class="form-group">
                 <label for="name">Economic impact</label>
                 <select class="form-control" multiple name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
-                    <option *ngFor="let e_impact of economic_impact" value="{{e_impact.ans}}">{{e_impact.ans}}</option>
+                    <option value="It provides jobs to the people">It provides jobs to the people</option>
+                    <option value="It increases the incomes of the people">It increases the incomes of the people</option>
+                    <option value="Improvement in the standards of living of the people">Improvement in the standards of living of the people</option>                    
+                    <option value="It provides cheaper and affordable products or services to the people">It provides cheaper and affordable products or services to the people</option>
                 </select>
                 </div>
                 </div>
