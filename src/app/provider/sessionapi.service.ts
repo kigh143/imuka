@@ -31,7 +31,7 @@ export class SessionapiService {
 
   getmysessions(user_id) {
     return this.http
-    .get(this.api_url + 'getmysessions/user_id/'+user_id+'/json')
+    .get(this.api_url + 'getmysessions/added_by/'+user_id+'/json')
     .pipe(map(res => res.json()));
   }
 

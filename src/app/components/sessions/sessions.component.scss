@@ -67,3 +67,24 @@
   bottom: 50px;
   right:100px;
 }
+
+.active{
+  background: #eee !important;
+  font-weight: 700;
+  color:#222;
+}
+
+
+.card-header{
+  padding:0px !important;
+  .row{
+    .col-md-6 {
+      padding: .75rem 1.25rem;
+    }
+  }
+}
+
+
+.dat-heading{
+  margin: 10px auto;
+}

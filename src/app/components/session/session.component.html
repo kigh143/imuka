@@ -10,13 +10,20 @@
       <div class="col-md-9">
         <div class="card">
           <div class="card-header">
+
             <ul class="nav nav-pills card-header-pills">
               <li class="nav-item">
-                <a class="nav-link active" routerLink="/sessions">
+                <a class="nav-link active" routerLink="/sessions" *ngIf="user.user_type!='entrepreneur'">
                   <i class="fa fa-reply" aria-hidden="true"></i>  back
                 </a>
+
+                <a class="nav-link active" routerLink="/all_sessions" *ngIf="user.user_type=='entrepreneur'">
+                  <i class="fa fa-reply" aria-hidden="true"></i>  back
+                </a>
+
               </li>
             </ul>
+
           </div>
           <div class="card-body">
             <h5 class="card-title">{{session_info.title}}</h5>
@@ -35,8 +42,8 @@
                   <li class="media" *ngFor="let comment of session_info.comments">
                     <img [src]="comment.profile_pic" class="mr-3" alt="{{comment.name}}" style="width:45px; height: 45px;">
                     <div class="media-body">
-                      <span style="font-weight: 700; color:#222;">{{comment.name}}</span>
-                      <p style="color:#555; font-size:12px;">{{comment.comment}}</p>
+                      <span style="font-weight: 700; color:#222; font-size:15px;">{{comment.name}}</span>
+                       <p style="color:#555; font-size:12px;">{{comment.comment}}</p>
                     </div>
                   </li>
                 </ul>

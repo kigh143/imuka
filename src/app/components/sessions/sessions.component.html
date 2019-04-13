@@ -14,22 +14,71 @@
         </div>
         <div class="card">
           <div class="card-header">
-            Sessions
+            <div class="row text-center">
+              <div class="col-md-6" (click)="changePages('my')" [ngClass]="{'active':my}"> My Sessions  ({{mySessions.length}}) </div>
+              <div class="col-md-6"  (click)="changePages('all')"  [ngClass]="{'active':all}"> All Suport Sessions  ({{sessions.length}})</div>
+            </div>
           </div>
         </div>
-        <div style="background: #fff;">
+
+        <div *ngIf="my">
+          <div class="dat-heading">
+            <p>My Sessions</p>
+          </div>
           <ul class="list-unstyled">
-            <li class="media"  *ngFor="let session of sessions" style="border:1px solid #eee; padding:8px;">
-              <img [src]="session.profile_pic" class="mr-3" alt="{{session.tittle}}" style="height:50px; width:50px;">
+            <li class="media"  *ngFor="let session of  mySessions; let i = index;" style="border:1px solid #eee; padding:8px; background: #fff; margin-bottom: 10px;">
+              <img [src]="session.user.profile_pic" class="mr-3" alt="{{session.tittle}}" style="height:100px; width:100px;">
               <div class="media-body">
                 <h5 class="mt-0 mb-1">{{session.title}}</h5>
-                {{session.description}}<br/>
-                <a routerLink="session/{{session.session_id}}" class="btn btn-info btn-sm"> View  </a> &nbsp;
-                <a routerLink="session/{{session.session_id}}" class="btn btn-primary btn-sm"> Apply for session  </a>
+                <p style="color:#555;">{{session.description}}</p>
+                <hr/>
+                <div class="row">
+                  <div class="col-md-4">
+                    Price : {{session.session_cost}}
+                  </div>
+                  <div class="col-md-4">
+                    Type : {{session.session_type}}
+                  </div>
+                  <div class="col-md-4">
+                    Venue : {{session.location}}
+                  </div>
+                </div>
+                <hr/>
+                <a routerLink="/session/{{session.session_id}}" class="btn btn-info btn-sm"> CheckIn  </a>
               </div>
             </li>
           </ul>
         </div>
+
+        <div *ngIf="all">
+            <div class="dat-heading">
+                <p>All Suport Sessions</p>
+            </div>
+            <ul class="list-unstyled">
+              <li class="media"  *ngFor="let session of sessions; let i = index;" style="border:1px solid #eee; padding:8px; background: #fff; margin-bottom: 10px;">
+                <img [src]="session.profile_pic" class="mr-3" alt="{{session.tittle}}" style="height:100px; width:100px;">
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">{{session.title}}</h5>
+                  <p style="color:#555;">{{session.description}}</p>
+                  <hr/>
+                  <div class="row">
+                    <div class="col-md-4">
+                      Price : {{session.session_cost}}
+                    </div>
+                    <div class="col-md-4">
+                      Type : {{session.session_type}}
+                    </div>
+                    <div class="col-md-4">
+                      Venue : {{session.location}}
+                    </div>
+                  </div>
+                  <hr/>
+                  <a routerLink="session/{{session.session_id}}" class="btn btn-info btn-sm"> CheckIn  </a> &nbsp;
+                </div>
+              </li>
+            </ul>
+        </div>
+
       </div>
     </div>
   </div>

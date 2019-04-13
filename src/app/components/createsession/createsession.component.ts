@@ -37,7 +37,7 @@ export class CreatesessionComponent implements OnInit {
   }
 
   createSession() {
-    this.session['user_id'] = this.user.user_id;
+    this.session['added_by'] = this.user.user_id;
     this.api.creatsession(this.session).subscribe( data =>{
       if(data.flag){
         this.showFor();
