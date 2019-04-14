@@ -83,6 +83,7 @@ export class MybusinessComponent implements OnInit {
   getbusinesses() {
     this.bizy.getbusinesses_for_user(this.currentuser.user_id).subscribe(data=>{
         this.businesses = data;
+        //this.sectors= JSON.parse(data.sectors);
     });
   }
 

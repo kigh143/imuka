@@ -20,6 +20,7 @@ export class EventsComponent implements OnInit {
   link: string;
   venue: string;
   user: any;
+  event_image:any;
   all_event : any;
  filter_name;
  event_filter={
@@ -105,7 +106,8 @@ export class EventsComponent implements OnInit {
         time_of_event: this.time_of_event,
         description : this.description,
         link: this.link,
-        venue: this.venue
+        venue: this.venue,
+        event_image:this.event_image
       };
       if ( this.user.user_type === 'org' ) {
         event['added_by'] = this.user.org_id;
@@ -127,5 +129,7 @@ export class EventsComponent implements OnInit {
 
   myevent(){
     this.all_event = false;
+    this.eventServices.fetch_myevents(this.user.user_id).subscribe( data  => { this.events = data;  this.events_clone = data; });
+
   }
 }

@@ -94,7 +94,10 @@
                     <textarea class="form-control"  name="short_description" [(ngModel)]="short_description" ></textarea>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Upload Featuring image</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1"  name="event_image" [(ngModel)]="opp_image">
+                  </div>
 
                 <div>
                     <button class="btn btn-primary btn-sm" (click)="add_opportunities()">Submit Opportunity </button>
