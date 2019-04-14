@@ -18,19 +18,19 @@
                 </div>
                 <div class="card-footer btn-group" role="group" aria-label="Basic example" style="padding:8px;">
                     <button class="btn btn-danger btn-sm spaced" *ngIf="user?.user_type==='entrepreneur'"  (click)="showforms()">Add Logo or Cover Image</button>
-                    <button *ngIf="biznes?.on_program==='Y'" type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
+                    <button type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
                     <button *ngIf="biznes?.on_program==='Y' && user?.user_type==='entrepreneur'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Inovices</button>
                 </div>
               </div>
         </div>
 
-    
+
         <div class="col-md-4">
             <div *ngIf="biznes?.on_program=='Y'">
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-dark">ImukaAccess activities and milestones.</li>
                     <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
-                    {{milestone?.name}} 
+                    {{milestone?.name}}
                     <i [ngClass]="{'fa fa-check': milestone.complete}" ></i>
                 </ul>
             </div>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="card-footer bg-transparent border-primary">
-            <button type="button" class="btn btn-primary" *ngIf="user?.user_type==='entrepreneur'" (click)="openModal(template)">Update Business Progress</button>       
+            <button type="button" class="btn btn-primary" *ngIf="user?.user_type==='entrepreneur'" (click)="openModal(template)">Update Business Progress</button>
         </div>
       </div>
       <hr/>
@@ -130,7 +130,7 @@
                             <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
                           </div>
 
-                          <div class="form-group"> 
+                          <div class="form-group">
                             <label for="exampleFormControlSelect1">Line of business/ sector</label>
                             <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
                               <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
@@ -164,12 +164,12 @@
                               <label for="inputPassword" class="form-label">Phone number</label>
                               <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
                           </div>
-                          
+
                           <div class="form-group">
                               <label for="inputPassword" class="form-label">Website</label>
                               <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
                           </div>
-                          
+
                           <div class="form-group">
                               <label for="inputPassword" class="col-form-label">Email</label>
                               <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
@@ -197,7 +197,7 @@
                                 <label for="inputPassword" class="form-label">Mission</label>
                                 <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
                             </div>
-                            
+
                             <div class="form-group">
                               <label for="inputPassword" class="form-label">Vision</label>
                                 <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
@@ -217,7 +217,7 @@
                         </div>
 
                       </form>
-                    </div> 
+                    </div>
 
                   </div>
                 </div>
@@ -229,7 +229,7 @@
               <div class="products">
                 <div class="content-box row">
                   <div class="col-md-8 col-xs-12" style="margin-top:10px;">
-                  
+
                     <div class="media"  *ngFor="let prdt of products">
                       <div class="media-left">
                         <img src="{{prdt.images}}" class="media-object" style="width:60px">
@@ -276,7 +276,7 @@
                           <img [src]="doc.file_url" style="height:80px; width:80px;"/>
                           <h6>{{doc.name}}</h6>
                           <p>Approved <i class="fa fa-check" aria-hidden="true"></i></p>
-                        </div> 
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -399,7 +399,7 @@
                       </form>
                     </div>
                   </div>
-                </div> 
+                </div>
               </div>
             </div>
           </tab>
@@ -458,7 +458,7 @@
         <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="market expenses" formControlName="mkt_expenses" [class.invalid]="dailyupdates.controls.mkt_expenses.invalid">
         </div>
 
-        <div  class="form-group"> 
+        <div  class="form-group">
           <label for="exampleInputEmail1">Number of Conversions to customers from meetings</label>
           <input type="number" class="form-control" formControlName="conversions" [class.invalid]="dailyupdates.controls.conversions.invalid">
         </div>
@@ -498,7 +498,7 @@
 
         <div class="form-group">
           <label for="exampleFormControlSelect1">Personal and proffessional development</label>
-          <select class="form-control" id="exampleFormControlSelect1" 
+          <select class="form-control" id="exampleFormControlSelect1"
           formControlName="development_grade" [class.invalid]="dailyupdates.controls.development_grade.invalid">
           <option value="1">1</option>
           <option value="2">2</option>

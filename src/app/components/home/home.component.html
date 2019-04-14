@@ -1,4 +1,4 @@
-<div class="body"> 
+<div class="body">
 <app-header></app-header>
 <div class="container">
   <div class="row">
@@ -11,7 +11,7 @@
         <div class="jumbotron">
             <h4>Hello, {{header}}! </h4>
             <p><a routerLink="/profile">update your profile.</a></p>
-            <p *ngIf="user?.user_type==='entrepreneur'">Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>            
+            <p *ngIf="user?.user_type==='entrepreneur'">Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>
             <p  *ngIf="user?.user_type==='investor'">
                 Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Here you can find a
                 series of Imuka-validated leads for potential investiment opportunities.
@@ -19,7 +19,7 @@
                 pursue deals at a specific stage in their growth journey. You also have
                 the option to interact with and provide advice to enterpreneurs to help
                 them grow. Thank you!.
-              </p>            
+              </p>
         </div>
 
         <section *ngIf="user?.user_type==='entrepreneur'">
@@ -37,23 +37,6 @@
                 </div>
             </div>
         </section>
-
-        <section  *ngIf="user?.user_type==='entrepreneur'">
-            <div class="d-flex bd-highlight heading" (click)="navigate_to('people')">
-                <div class="p-2 flex-grow-1 bd-highlight">My Connection(s)</div>
-                <div class="p-2">
-                        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="body-content">
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                </div>
-            </div>
-        </section>
-
 
         <section *ngIf="user?.user_type==='investor'">
             <div class="d-flex bd-highlight heading"  (click)="navigate_to('investmentrequest')">
@@ -86,7 +69,7 @@
                 </div>
             </div>
         </section>
-        
+
     </div>
   </div>
 </div>

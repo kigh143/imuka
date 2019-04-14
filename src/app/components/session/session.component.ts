@@ -62,6 +62,7 @@ export class SessionComponent implements OnInit {
      this.modalRef.hide();
      this.isProcesssing = false;
      this.btnText = 'Post Comment';
+     this.getSession(this.session_id);
     }, error =>{
       console.dir(error);
     });

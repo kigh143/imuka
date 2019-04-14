@@ -73,7 +73,7 @@
                     </div>
                   </div>
                   <hr/>
-                  <a routerLink="session/{{session.session_id}}" class="btn btn-info btn-sm"> CheckIn  </a> &nbsp;
+                  <button (click)="applyForSession(session, i) " class="btn btn-info btn-sm"> Confirm  Attendance</button>
                 </div>
               </li>
             </ul>
