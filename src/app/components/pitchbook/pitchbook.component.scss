@@ -13,14 +13,14 @@
 
 .feeds{
     background: #fff;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     background: none;
 }
 
 .content{
     background: transparent;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     padding:10px;
 }
@@ -65,7 +65,7 @@ section{
 }
 
 .stepz li:hover {
-    background-color: #eee;   
+    background-color: #eee;
 }
 
 .stepz {
@@ -102,5 +102,18 @@ section{
 }
 select{
     width:100% !important;
+    b{
+      margin: 20px auto !important;
+    }
 }
+}
+
+.table{
+  thead{
+    tr{
+      th{
+        font-size:11px;
+      }
+    }
+  }
 }

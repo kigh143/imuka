@@ -2,19 +2,18 @@
   <app-header></app-header>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-
+      <div class="col-md-4">
             <div class="jumbotron" style="padding-top:0">
             <button class="btn btn-outline-primary btn-sm" style="width:50px" routerLink="/business/{{business.business_id}}"><i class="fa fa-chevron-left"></i></button><br/>
 
-                    <span class="display-4">{{business.business_name}} Pitch Book</span>
+                    <b>{{business.business_name}} Pitch Book</b>
                     <p>Details of your business' pitch book are here edit to update by changing the mode</p>
-                    <button class="btn btn-primary btn-sm" style="margin-bottom:20px" (click)="openModal(template)">Generate Pitch book</button>
-                    <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
+                    <button class="btn btn-primary btn-sm" style="margin-bottom:20px" (click)="openModal(template)">Generate Pitchbook</button><br/>
+                    <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button><br/>
                     <button class="btn btn-warning btn-sm" (click)="edit_mode()" *ngIf="!edit">Enable Editing Mode</button>
                 </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-8">
 
         <div class="content">
             <section>
@@ -324,10 +323,93 @@
 
             <section>
                 <b>business Financials</b><br/>
+
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Year</th>
+                      <th scope="col">Return on sales</th>
+                      <th scope="col">Return on Investment</th>
+                      <th scope="col">Return on equity</th>
+                      <th scope="col">Debt-Equity Ratio</th>
+                      <th scope="col">Internal Rate of Return</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let financial of business.financials">
+                      <td>{{financial.year}}</td>
+                      <td>{{financial.ros}}</td>
+                      <td>{{financial.roi}}</td>
+                      <td>{{financial.roe}}</td>
+                      <td>{{financial.der}}</td>
+                      <td>{{financial.irr}}</td>
+                    </tr>
+                  </tbody>
+                </table>
             </section>
 
             <section>
-                <b>Investiment Request</b><br/>
+                <b>Investiment Request</b><br/><br/>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Item</th>
+                      <th scope="col">Cash Need (USD)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Marketing</td>
+                      <td>{{investimentNeed.marketing}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>Operations and Administration</td>
+                      <td>{{investimentNeed.operations}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>Machinery and Equipment</td>
+                      <td>{{investimentNeed.machinery}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>Stock and Inventory</td>
+                      <td>{{investimentNeed.stock}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>Raw material</td>
+                      <td>{{investimentNeed.raw_material}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>Total</td>
+                      <td>{{total_need}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div *ngIf="edit">
+                  <b>Edit our investment need.</b>
+                    <p>For the fields below enter the amount you'll allocate to the respective sections. <b>All amounts should be in US Dollars ($) </b></p>
+
+                        <label>Marketing</label>
+                        <input type="number" [(ngModel)]="investimentNeed.marketing" name="marketing" />
+
+                        <label>Operations and Admin</label>
+                        <input type="number" [(ngModel)]="investimentNeed.operations" name="operations" />
+
+                        <label>Machinery and Equipment</label>
+                        <input type="number" [(ngModel)]="investimentNeed.machinery" name="machinery"/>
+
+                        <label>Stock and Inventory</label>
+                        <input type="number" [(ngModel)]="investimentNeed.stock" name="stock"/>
+
+                        <label>Raw material</label>
+                        <input type="number" [(ngModel)]="investimentNeed.raw_material" name="raw_material"/>
+
+                </div>
             </section>
 
             <section>

@@ -20,7 +20,7 @@ export class PitchbookComponent {
   pitch: any;
   edit = false;
   products: any;
-  comp_factors={"factor":""};
+  comp_factors={'factor':''};
   factors:boolean= true;
   factor1:number;
   factor1_grade=[];
@@ -47,19 +47,19 @@ export class PitchbookComponent {
   competitor3 = false;
   comp_factor:{};
   competitor1_info={
-    "name":"owner",
+    'name':'owner',
     comparison:{factor1:1, factor2:1, factor3:1}
   }
   competitor2_info={
-    "name":"",
+    'name':'',
     comparison:{factor1:1, factor2:1, factor3:1}
   }
   competitor3_info={
-    "name":"",
+    'name':'',
     comparison:{factor1:1, factor2:1, factor3:1}
   }
   competitor4_info={
-    "name":"",
+    'name':'',
     comparison:{factor1:1, factor2:1, factor3:1}
   }
 
@@ -134,6 +134,16 @@ export class PitchbookComponent {
     { selected: false, ans: ' it promotes recycling of the waste or bi products' }
   ];
 
+  investimentNeed = {
+    marketing: '',
+    operations: '',
+    machinery: '',
+    stock: '',
+    raw_material: ''
+  };
+
+  total_need: number;
+
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
@@ -154,24 +164,30 @@ export class PitchbookComponent {
     this.businessService.fetch_abusiness( business_id ).subscribe( data => {
         this.business = data.business_info;
         this.pitch  = data.pitch;
-        console.log(this.pitch);
         this.products  = data.products;
         this.edit = false;
         this.enviroment_impact = JSON.parse(this.pitch.env_impact);
-        this.social_impact=JSON.parse(this.pitch.social_impact);
+        this.social_impact = JSON.parse(this.pitch.social_impact);
         this.economic_impacts=JSON.parse(this.pitch.economic_impact);
-        this.sdgs = JSON.parse(this.pitch.impact_areas)
-        console.log(this.economic_impacts);
+        this.investimentNeed = JSON.parse(this.pitch.investimentNeed);
+        this.sdgs = JSON.parse(this.pitch.impact_areas);
+
+        this.getTotalNeed(this.investimentNeed);
     });
   }
 
-  save_changes() {
-    this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact)
-    this.pitch.impact_areas= JSON.stringify(this.pitch.impact_areas);
-    this.pitch.social_impact = JSON.stringify(this.pitch.social_impact)
-    this.pitch.env_impact=JSON.stringify(this.pitch.env_impact)
-    this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
+  getTotalNeed(investimentNeed){
+      const {  marketing, operations, machinery, stock, raw_material } = investimentNeed;
+      this.total_need = parseInt(marketing) + parseInt(operations) + parseInt(machinery) + parseInt(stock) +parseInt(raw_material);
+  }
 
+  save_changes() {
+    this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact);
+    this.pitch.impact_areas = JSON.stringify(this.pitch.impact_areas);
+    this.pitch.social_impact = JSON.stringify(this.pitch.social_impact);
+    this.pitch.env_impact = JSON.stringify(this.pitch.env_impact);
+    this.pitch.investimentNeed = JSON.stringify(this.investimentNeed);
+    this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
     });
     this.fetch_pitcbook_data(this.business_id);
     this.draw();
@@ -181,7 +197,7 @@ export class PitchbookComponent {
       this.edit = true;
   }
 
-    editcompetitive(){
+  editcompetitive(){
     if(this.factors){
       this.competitors = true;
       this.factors = false;
@@ -310,7 +326,7 @@ const piechart=new Chart( {
       type: 'pie'
   },
   title: {
-      text: 'Browser market shares in January, 2018'
+      text: 'Market size and share'
   },
   tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
