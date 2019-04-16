@@ -5,7 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BizService } from 'src/app/provider/biz.service';
 import { ActivatedRoute } from '@angular/router';
 import { Chart } from 'angular-highcharts';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { SessionService } from 'src/app/provider/session.service';
 @Component({
   selector: 'app-pitchbook',
   templateUrl: './pitchbook.component.html',
@@ -14,6 +14,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export class PitchbookComponent {
 
+  user : any;
   modalRef: BsModalRef;
   business: any;
   business_id: any;
@@ -139,14 +140,15 @@ export class PitchbookComponent {
     operations: '',
     machinery: '',
     stock: '',
-    raw_material: ''
+    raw_material: '',
+    total_needed:'',
+    investiment_type:''
   };
-
-  total_need: number;
 
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
+    public session: SessionService,
     public businessService: BizService) {
       this.route.params.subscribe(params => {
         this.business_id = +params['id'];
@@ -154,6 +156,7 @@ export class PitchbookComponent {
       });
   this.months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
    this.draw();
+   this.user = this.session.getuser();
   }
 
   openModal(template: TemplateRef<any>) {
@@ -178,10 +181,11 @@ export class PitchbookComponent {
 
   getTotalNeed(investimentNeed){
       const {  marketing, operations, machinery, stock, raw_material } = investimentNeed;
-      this.total_need = parseInt(marketing) + parseInt(operations) + parseInt(machinery) + parseInt(stock) +parseInt(raw_material);
+      this.investimentNeed.total_needed = parseInt(marketing) + parseInt(operations) + parseInt(machinery) + parseInt(stock) +parseInt(raw_material);
   }
 
   save_changes() {
+    this.getTotalNeed(this.investimentNeed);
     this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact);
     this.pitch.impact_areas = JSON.stringify(this.pitch.impact_areas);
     this.pitch.social_impact = JSON.stringify(this.pitch.social_impact);
@@ -318,7 +322,7 @@ const barchart=new Chart({
       data: this.factor3_grade
   }]
 });
-const piechart=new Chart( {
+const piechart = new Chart( {
   chart: {
       plotBackgroundColor: null,
       plotBorderWidth: null,
@@ -359,8 +363,6 @@ const piechart=new Chart( {
 });
     this.piechart = piechart;
     this.barchart = barchart;
-//chart.ref$.subscribe(console.log);
-
 
   }
 
