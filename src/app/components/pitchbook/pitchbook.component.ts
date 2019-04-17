@@ -141,7 +141,7 @@ export class PitchbookComponent {
     machinery: '',
     stock: '',
     raw_material: '',
-    total_needed:'',
+    total_needed:0,
     investiment_type:''
   };
 
@@ -181,7 +181,10 @@ export class PitchbookComponent {
 
   getTotalNeed(investimentNeed){
       const {  marketing, operations, machinery, stock, raw_material } = investimentNeed;
-      this.investimentNeed.total_needed = parseInt(marketing) + parseInt(operations) + parseInt(machinery) + parseInt(stock) +parseInt(raw_material);
+      if(marketing){
+        this.investimentNeed.total_needed = parseInt(marketing) + parseInt(operations) + parseInt(machinery) + parseInt(stock) +parseInt(raw_material);
+
+      }
   }
 
   save_changes() {

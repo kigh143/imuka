@@ -283,6 +283,9 @@
                   </div>
                   <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee" *ngIf="user?.user_type==='entrepreneur'">
                     <form  [formGroup]="bizdoc">
+
+
+
                       <div class="form-group">
                         <label for="doctype">Document Format</label>
                         <select class="form-control" name="doc_type"  formControlName="doc_type" [class.invalid]="bizdoc.controls.doc_type.invalid">
@@ -293,6 +296,7 @@
 
                         </select>
                       </div>
+
                       <div class="form-group">
                         <label for="name">Document name</label>
                         <select class="form-control" name="name"  formControlName="name" [class.invalid]="bizdoc.controls.name.invalid">
@@ -312,6 +316,8 @@
                           <option value="Project document">Project document</option>
                         </select>
                       </div>
+
+                     
                       <div class="form-group">
                         <label for="exampleFormControlFile1">Upload Document</label>
                         <input type="file" class="form-control-file" id="docupload" (change)="getimage($event.target.files)" >
