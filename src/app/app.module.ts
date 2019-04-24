@@ -73,7 +73,10 @@ import { SessionsComponent } from './components/sessions/sessions.component';
 import { CreatesessionComponent } from './components/createsession/createsession.component';
 import { MysessionsComponent } from './components/mysessions/mysessions.component';
 import { SessionComponent } from './components/session/session.component';
-
+import { ShareButtonsModule } from '@ngx-share/buttons';
+import { HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ShareModule } from '@ngx-share/core';
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
@@ -199,7 +202,11 @@ const app_routes: Routes = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ChartModule,
-
+    HttpModule,
+    HttpClientJsonpModule,
+    ShareButtonsModule,
+    HttpClientModule,
+    ShareModule
 
 
   ],

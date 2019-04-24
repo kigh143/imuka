@@ -7,6 +7,7 @@ import { SessionService } from '../app/provider/session.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  name = '@ngx-share/buttons';
   constructor( public sessionService: SessionService ) {
     this.sessionService.checkUser();
   }

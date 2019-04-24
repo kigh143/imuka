@@ -5,7 +5,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { EventsService } from '../../services/events.service';
 import { SessionService } from 'src/app/provider/session.service';
 import { Router } from '@angular/router';
-import { ToastsComponent} from '../toasts/toasts.component'
+import { ToastsComponent} from '../toasts/toasts.component';
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -69,7 +70,8 @@ export class EventsComponent implements OnInit {
     public eventServices: EventsService,
     public sessionservice: SessionService,
     public router: Router,
-    public alert: ToastsComponent
+    public alert: ToastsComponent,
+    
     ) {
       this.user  = this.sessionservice.getuser();
   }
