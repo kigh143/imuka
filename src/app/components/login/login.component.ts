@@ -11,6 +11,7 @@ import {debounceTime} from 'rxjs/operators';
 import { ToastsComponent} from '../toasts/toasts.component'
 import { BizService } from 'src/app/provider/biz.service';
 import { EventsService } from 'src/app/services/events.service';
+import { SessionapiService } from 'src/app/provider/sessionapi.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ import { EventsService } from 'src/app/services/events.service';
 })
 export class LoginComponent {
   loginForm: any;
+  events:any;
   alerts: any[] = [{
     type: 'success',
     msg: `Well done! You successfully read this important alert message. (added: ${new Date().toLocaleTimeString()})`,
@@ -30,6 +32,7 @@ export class LoginComponent {
   staticAlertClosed = false;
   successMessage: string;
   counts: any;
+  sessions:any;
   opportunities= [];
 
   private readonly notifier: NotifierService;
@@ -41,7 +44,9 @@ export class LoginComponent {
     public notifierService: NotifierService,
     public session: SessionService,
     public alert: ToastsComponent,
-    public eventServices :EventsService) {
+    public eventServices :EventsService,
+    public sessionapi: SessionapiService
+    ) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),Validators.required])],
       password: ['', Validators.compose([Validators.minLength(5), Validators.required])]
@@ -50,6 +55,8 @@ export class LoginComponent {
     this.notifier.notify( 'success', 'You are awesome! I mean it!' );
     this.getCounts();
     this.get_featured_opps();
+    this.get_featured_events();
+    this.get_featured_sessions();
   }
 
   ngOnInit(): void {
@@ -99,7 +106,18 @@ export class LoginComponent {
       console.log(this.opportunities)
     });
   }
-
+  get_featured_events(){
+    this.eventServices.fetch_events().subscribe(data => {
+      this.events = data.slice(1,4);
+       console.log(this.events);
+    })
+  } 
+  get_featured_sessions(){
+    this.sessionapi.getsessions().subscribe(data => {
+      this.sessions = data.slice(1,4);
+      console.log(this.sessions);
+    })
+  }
 
 }
 

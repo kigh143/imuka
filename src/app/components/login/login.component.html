@@ -1,4 +1,4 @@
-<section>
+<section >
     <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" routerLink="/login">
@@ -35,7 +35,7 @@
                         <button class="btn btn-outline-info" routerLink="/create_organisation">Support</button>  &nbsp;&nbsp;
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5" id="login">
                     <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
                     <div class="card-header">Login</div>
                     <div class="card-body">
@@ -101,18 +101,56 @@
     <section class="light">
         <div class="container">
 
-          <h3>Featured Opportunities.</h3>
+         
           <hr>
             <div class="row">
-              <div class="col-md-4" *ngFor="let opportunity of opportunities">
-                  <div class="card" style="width: 100%;">
-                      <img [src]="opportunity.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'" alt="{{opportunity.title}}" style="height:150px;">
-                      <div class="card-body">
-                        <h5 class="card-title">{{opportunity.title}}</h5>
-                        <p class="card-text">
-                          {{opportunity.short_description|flTrancator}}</p>
-                      </div>
+              <div class="col-md-4" >
+                    <h3>Featured Opportunities.</h3>
+                    <div class="card" *ngFor="let opportunity of opportunities" style="margin-bottom:10px">
+                   
+                    <div class="media"  style="width: 100%;">
+                            <img [src]="opportunity?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
+                            <div class="media-body">
+                              <h5 class="mt-0">{{opportunity?.title}}</h5>
+                              <p style="font-size:12px">{{opportunity?.short_description|flTrancator}}  <a href="#login">Readmore</a></p>
+                              
+                            </div>
+                           
                     </div>
+               </div>
+                    
+              </div>
+              <div class="col-md-4" >
+                    <h3>Featured Events.</h3>
+                    <div class="card" *ngFor="let opportunity of events" style="margin-bottom:10px">
+                    <div class="media"  style="width: 100%;">
+                            <img [src]="opportunity?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
+                            <div class="media-body">
+                              <h5 class="mt-0">{{opportunity?.title}}</h5>
+                              <p style="font-size:12px">{{opportunity?.description|flTrancator}} <a href="#login">Readmore</a> </p>
+                             
+                            </div>
+                          </div>
+                  </div>
+                    
+              </div>
+              <div class="col-md-4" >
+                    <h3>Featured Sessions.</h3>
+                   <div class="card" *ngFor="let opportunity of sessions" style="margin-bottom:10px"><div class="media"  style="width: 100%;">
+                            <!-- <img [src]="session?.profile_pic" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
+                            <div class="media-body">                              <h5 class="mt-0">{{session?.title}}</h5>
+                              <p>{{session?.description|flTrancator}} </p>
+                              <hr/>
+                            </div> -->
+                            <img [src]="opportunity?.profile_pic" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
+                            <div class="media-body">
+                              <h5 class="mt-0">{{opportunity?.title}}</h5>
+                              <p style="font-size:12px">{{opportunity?.description|flTrancator}}  <a href="#login">Readmore</a></p>
+                             
+                            </div>
+                          </div>
+                        </div> 
+                    
               </div>
             </div>
         </div>
