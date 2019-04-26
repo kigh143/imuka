@@ -1,0 +1,110 @@
+<div>
+  <div class="jumbotron jumbotron-fluid">
+
+<!-- <div class="row" style="margin-left:50px;margin-right:0">
+  <div class="col-sm-6">
+    <img [src]="event.image_url" class="eventimage" style="width:90%; height:500px"/>
+  </div>
+  <div class="col-sm-6" style="display:flex;justify-content: center; align-items: center">
+   
+       <div > <h5 >{{event.title}}</h5><br/>
+        <p >{{event.description}}</p>
+        <a href="#login" class="btn btn-primary">Read more</a>
+      </div>
+  </div>
+</div>  -->
+
+
+</div>
+<div class="logform" id="login" *ngIf="login">
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+						</div>
+					</form>
+				</div>
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<button type="button" name="button" class="btn login_btn" (click)="sign_ent()">Login</button>
+				</div>
+				<div class="mt-4"  tappable (click)="sign_ent()">
+					<div class="d-flex justify-content-center links" >
+						Don't have an account? <span class="ml-2">Sign Up</span>
+					</div>
+					<div class="d-flex justify-content-center links">
+						<!-- <a href="#">Forgot your password?</a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="logform" id="signup" *ngIf="signup">
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_cardsign">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form>
+            	<div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" name="" class="form-control input_user" placeholder="Full name" formControlName="name" [class.invalid]="myForm.controls.name.invalid">
+                </div>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-call"></i></span>
+							</div>
+              <input type="text" name="" class="form-control input_user" value="" formControlName="phone" [class.invalid]="myForm.controls.phone.invalid">
+            </div>
+            <div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+							</div>
+							<input type="text" class="form-control input_user" placeholder="Enter email" formControlName="email" [class.invalid]="myForm.controls.email.invalid">
+              
+            </div>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" class="form-control input_user" placeholder="password" formControlName="password" [class.invalid]="myForm.controls.password.invalid">
+						</div>
+					</form>
+				</div>
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<button type="button" name="button" class="btn login_btn" [disabled]="myForm.invalid">Sign up</button>
+				</div>
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links"  tappable (click)="login_ent()">
+						Already have an account? <a class="ml-2" >Login</a>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

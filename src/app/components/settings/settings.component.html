@@ -10,47 +10,23 @@
       <div class="col-md-9">
           <div class="banner">App settings </div>
           <div class="content">
-            <!-- <div>
-            <tabset>
-                <tab heading="Notification" id="tab1">
-                    <div>
-                      <h6 style="padding:20px">Edit your notification settings for:</h6>
-                      <ul class="list-group">
-                          <li  class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let notification of nots; let i = index"  (click)="turnn(i)">
-                        {{notification.name}}
-                          <span class="badge badge-primary badge-pill">
-                            <span *ngIf="notification.isclicked">Turn off</span>
-                            <span *ngIf="!notification.isclicked">Turn on</span> 
-                          </span>
-                          </li>
-                      </ul>
-                    </div>
-                </tab> 
-                <tab heading="Change Password" class="pwd"> 
-                  <form [formGroup]="changeform">
-                            <div class="form-group">
-                            <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Old Password</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="oldpassword" formControlName="oldpassword">
-                            </div>
-                            <div class="form-group">
-                            <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   New Password</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="newpassword" formControlName="newpassword">
-                            </div>
-
-                            <div class="form-group">
-                            <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>    Repeat password</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword"  formControlName="confirmPassword">
-                            </div>
-                            <div class="error" *ngIf="errordiv">
-                                Passsword and ConfirmPassword didn't match.
-                               </div>
-                            <div class="form-group">
-                            <button  type="button" class="btn btn-primary btn-sm">Save settings</button>
-                            <button type="button" class="btn btn-secondary pull-right btn-sm">Retore settings</button></div>
-                  </form>      
-                </tab>
-            </tabset>
-          </div> -->
+            <div class="card">
+              <div class="card-body">
+                
+                  <div>
+                    <h6>Share with us your sector / business line of interest</h6>
+                 
+                </div>
+                <form>
+            
+             
+              <div class="form-group form-check" *ngFor="let control of interests; let i=index">
+                <input type="checkbox" class="form-check-input"  id="exampleCheck{{i}}"  (change)="addinterest(control)">
+                <label class="form-check-label" for="exampleCheck{{i}}" >{{interests[i]}}</label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form></div></div></div> 
           
           <div class="card">
             <div class="card-body">
@@ -76,12 +52,12 @@
                   <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword"  formControlName="confirmPassword" [class.invalid]="changeform.controls.confirmPassword.invalid">
                   </div>
                   <div class="error" *ngIf="errordiv">
-                      Passsword and ConfirmPassword didn't match.
+                      Passsword and Confirm Password didn't match.
                      </div>
                 
                   <button  type="button" class="btn btn-primary btn-sm" [disabled]="changeform.invalid" (submit)="changepassword()">Save settings</button>
                  
-        </form>   
+        </form>  </div>
             </div>
           </div>
           <!-- <div class="card">
@@ -107,11 +83,34 @@
                   </div>
               </div>
             </div> -->
-        </div>
-      </div>
+       
     </div>
   </div>
-
+  <!-- <ion-option value="Agriculture/Agribusiness/ Value-addition "
+  >Agriculture/Agribusiness/ Value-addition
+</ion-option>
+<ion-option
+  value="Clean Energy/Recycling/Upcycling and Environmental Conservation "
+  >Clean Energy/Recycling/Upcycling and Environmental Conservation
+</ion-option>
+<ion-option value="Technology/ ICT and IT-Enabled Services"
+  >Technology/ ICT and IT-Enabled Services</ion-option
+>
+<ion-option value="Tourism and Hospitality"
+  >Tourism and Hospitality</ion-option
+>
+<ion-option value="Healthcare and Pharmaceuticals"
+  >Healthcare and Pharmaceuticals</ion-option
+>
+<ion-option value="Education">Education</ion-option>
+<ion-option value="Manufacturing">Manufacturing</ion-option>
+<ion-option value="Trade(Retail and Wholesale)"
+  >Trade(Retail and Wholesale)</ion-option
+>
+<ion-option value="Transport and Logistics"
+  >Transport and Logistics</ion-option
+>
+<ion-option value="Services">Services</ion-option> -->
   </div>
   <app-footer></app-footer>
   

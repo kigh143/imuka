@@ -57,4 +57,7 @@ export class EventsService {
      return this.http
      .get(this.api_url + 'fetchthreesessions/json').pipe(map(res=> res.json()));
    }
+   getanevent(event_id){
+     return this.http.get(this.api_url + 'getevent/' + event_id+'/json').pipe(map(res => res.json()))
+  }
 }

@@ -19,6 +19,11 @@ export class SettingsComponent implements OnInit {
   changeform:any;
   errordiv=false;
   currentuser:any;
+  investor_interest=[];
+  interests: Array<string>=["Agriculture or Agribusiness or Value-addition",
+  "Clean Energy or Recycling or Upcycling and Environmental Conservation",
+  "Technology or ICT and IT-Enabled Services","Tourism and Hospitality","Healthcare and Pharmaceuticals",
+  "Manufacturing","Trade(Retail and Wholesale)","Transport and Logistics","Education", "Services"]
   notifications=[{
 	name:"on event posted",
 	isclicked:true
@@ -84,5 +89,8 @@ export class SettingsComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
   }
-
+   addinterest(interest){
+      // if(interest.value==true){this.investor_interest.push(interest);}
+      console.log(interest)
+   }
 }

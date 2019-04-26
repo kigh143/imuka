@@ -7,6 +7,8 @@ import { SessionService } from 'src/app/provider/session.service';
 import { Router } from '@angular/router';
 import { ToastsComponent} from '../toasts/toasts.component';
 
+
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -24,6 +26,7 @@ export class EventsComponent implements OnInit {
   event_image:any;
   all_event : any;
  filter_name;
+ bookmarks=[];
  event_filter={
     name:"",
     options:[]
@@ -71,6 +74,7 @@ export class EventsComponent implements OnInit {
     public sessionservice: SessionService,
     public router: Router,
     public alert: ToastsComponent,
+   
     
     ) {
       this.user  = this.sessionservice.getuser();
@@ -134,4 +138,19 @@ export class EventsComponent implements OnInit {
     this.eventServices.fetch_myevents(this.user.user_id).subscribe( data  => { this.events = data;  this.events_clone = data; });
 
   }
+  mybookmark(event){
+    // let events = JSON.stringify(event)
+    let bmarks= localStorage.getItem('bookmarks')
+    
+      
+      if(bmarks !=null){
+       this.bookmarks = JSON.parse(bmarks);
+      }
+
+      this.bookmarks.push(event);
+      localStorage.setItem('bookmarks', JSON.stringify(this.bookmarks));
+      this.alert.showSuccess("Event Bookmarked");
+    }
+
+    
 }

@@ -77,6 +77,7 @@ import { ShareButtonsModule } from '@ngx-share/buttons';
 import { HttpClientJsonpModule } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareModule } from '@ngx-share/core';
+import { SharedEventComponent } from './components/shared-event/shared-event.component';
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
@@ -122,6 +123,7 @@ const app_routes: Routes = [
   { path: 'sessions', component :CreatesessionComponent},
   { path: 'session/:id', component :SessionComponent},
   { path: 'all_sessions', component :SessionsComponent},
+  { path: 'sharedevent', component :SharedEventComponent},
 ];
 
 @NgModule({
@@ -178,6 +180,7 @@ const app_routes: Routes = [
     CreatesessionComponent,
     MysessionsComponent,
     SessionComponent,
+    SharedEventComponent,
 
 
 
