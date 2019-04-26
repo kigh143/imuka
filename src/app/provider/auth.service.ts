@@ -111,5 +111,10 @@ export class AuthService {
     return this.http.post('http://imukaaccess.com/welcome/upload/type/' + type + '/id/' + id + '/json', formData)
     .pipe(map(res => res.json()));
   }
+  addinterest(interests, user_id){
+    return this.http
+    .post(this.api_url + `addinterest/user_id/${user_id}/json`, {sector_interest:JSON.stringify(interests)}, this.options)
+    .pipe(map(res=>res.json()));
+  }
 
 }

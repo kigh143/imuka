@@ -26,7 +26,7 @@ export class InvestmentoppComponent implements OnInit {
   current_biz_id:any;
   sector_info:any;
   business_info:any;
-  constructor(public session : SessionService, public spinnerService: Ng4LoadingSpinnerService, private modalService: BsModalService, public formBuilder: FormBuilder, public business_service: BizService ) {
+  constructor(public session : SessionService,public business:BizService, public spinnerService: Ng4LoadingSpinnerService, private modalService: BsModalService, public formBuilder: FormBuilder, public business_service: BizService ) {
     this.request=this.formBuilder.group({
       financing_type:["", Validators.required],
       offer:["", Validators.required],
@@ -84,9 +84,8 @@ export class InvestmentoppComponent implements OnInit {
         this.modalRef.hide();
       }
     });
-
+    
   }
-
 
 
 }

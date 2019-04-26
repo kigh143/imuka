@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {AbstractControl} from '@angular/forms';
 import { TabsetComponent } from 'ngx-bootstrap';
-import { FormBuilder, Validators } from "@angular/forms";
+
 import {AuthService} from "../../provider/auth.service";
 import {SessionService} from "../../provider/session.service";
+import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -12,6 +14,8 @@ import {SessionService} from "../../provider/session.service";
 })
 export class SettingsComponent implements OnInit {
   modalRef: BsModalRef;
+ 
+  nestedForm;
   config = {
     backdrop: true,};
   oneAtATime: boolean = true;
@@ -50,15 +54,28 @@ export class SettingsComponent implements OnInit {
    let data = this.session.getuser();
    this.currentuser=data;
    this.changeform=this.formBuilder.group({
-    oldpassword: ["", Validators.compose([ Validators.pattern("^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$"),Validators.required])],
+    oldpassword: ["", Validators.compose([ Validators.minLength(5),Validators.required])],
     newpassword: ["", Validators.compose([Validators.minLength(5), Validators.required])],
     confirmPassword:["", Validators.compose([Validators.minLength(5), Validators.required])]
    });
   }
 
   ngOnInit() {
-  }
+    this.nestedForm = this.formBuilder.group({
+      favFruits: this.addFruitsControls(),
+      
 
+    });
+    console.log(this.currentuser);
+  }
+  addFruitsControls() {
+    const arr = this.interests.map(item => {
+      return this.formBuilder.control(false);
+    });
+
+    return this.formBuilder.array(arr);
+   
+  }
   turnn(i){
   for(let j=0; j<this.nots.length; j++){
       if(i === j){
@@ -68,8 +85,11 @@ export class SettingsComponent implements OnInit {
   	
   }
   changepassword(){
+    
     let passwordchange= this.changeform.value;
+    
      if(passwordchange['newpassword'] != passwordchange['confirmPassword']){
+       console.log("bambi");
         this.errordiv=true;
      }
      else{
@@ -77,8 +97,9 @@ export class SettingsComponent implements OnInit {
        this.auth.changepassword(passwordchange).subscribe( data=>{
         if(data.flag){
           this.changeform.reset();
-         //add alert
+         console.log("comeon")
         }
+
        })
      }
 
@@ -88,9 +109,33 @@ export class SettingsComponent implements OnInit {
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
+  } 
+  get fruitsArray() {
+    return <FormArray>this.nestedForm.get('favFruits');
   }
-   addinterest(interest){
-      // if(interest.value==true){this.investor_interest.push(interest);}
-      console.log(interest)
+  getSelectedFruitsValue() {
+    this.investor_interest = [];
+    this.fruitsArray.controls.forEach((control, i) => {
+      if (control.value) {
+        this.investor_interest.push(this.interests[i]);
+      }
+    });
+     console.log(this.investor_interest)
+  }
+
+   addinterest(){
+      if(this.investor_interest!=null){
+         this.auth.addinterest(this.investor_interest, this.currentuser.user_id).subscribe(data=>{
+           if(data.flag){
+             console.log("success")
+             this.refresh()
+           }
+         })
+      }
+       
    }
+   refresh(): void {
+    window.location.reload();
+}
+
 }

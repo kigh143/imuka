@@ -9,7 +9,7 @@
         </div>
       <div class="col-md-9">
           <div class="banner">App settings </div>
-          <div class="content">
+          <div class="content" *ngIf="currentuser?.user_type=='investor'">
             <div class="card">
               <div class="card-body">
                 
@@ -20,12 +20,15 @@
                 <form>
             
              
-              <div class="form-group form-check" *ngFor="let control of interests; let i=index">
-                <input type="checkbox" class="form-check-input"  id="exampleCheck{{i}}"  (change)="addinterest(control)">
+              <div class="form-group form-check" *ngFor="let control of fruitsArray.controls; let i=index">
+                <input class="form-check-input" type="checkbox"  
+                (change)="getSelectedFruitsValue()"
+                [formControl] = "control"
+                id="inlineCheckbox{{i}}">
                 <label class="form-check-label" for="exampleCheck{{i}}" >{{interests[i]}}</label>
               </div>
               
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary" (click)="addinterest()">Submit</button>
             </form></div></div></div> 
           
           <div class="card">
@@ -37,7 +40,7 @@
                  Feeling compromised with your password? change to a new one right away
                 </div>
               </div>
-              <form [formGroup]="changeform">
+              <form [formGroup]="changeform" (submit)="changepassword()">
                   <div class="form-group input-group-sm">
                   <label for="exampleFormControlInput1"><i class="fa fa-lock"></i>   Old Password</label>
                   <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="oldpassword" formControlName="oldpassword" [class.invalid]="changeform.controls.oldpassword.invalid">
@@ -52,10 +55,10 @@
                   <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="repeat newpassword"  formControlName="confirmPassword" [class.invalid]="changeform.controls.confirmPassword.invalid">
                   </div>
                   <div class="error" *ngIf="errordiv">
-                      Passsword and Confirm Password didn't match.
+                     <span style="color:red"> Passsword and Confirm Password didn't match.</span>
                      </div>
                 
-                  <button  type="button" class="btn btn-primary btn-sm" [disabled]="changeform.invalid" (submit)="changepassword()">Save settings</button>
+                  <button  type="submit" class="btn btn-primary btn-sm" [disabled]="changeform.invalid" >Save settings</button>
                  
         </form>  </div>
             </div>
