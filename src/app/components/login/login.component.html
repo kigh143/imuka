@@ -106,7 +106,7 @@
             <div class="row">
               <div class="col-md-4" >
                     <h3>Featured Opportunities.</h3>
-                    <div class="card" *ngFor="let opportunity of opportunities" style="margin-bottom:10px">
+                    <!-- <div class="card" *ngFor="let opportunity of opportunities" style="margin-bottom:10px">
                    
                     <div class="media"  style="width: 100%;">
                             <img [src]="opportunity?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
@@ -117,12 +117,20 @@
                             </div>
                            
                     </div>
-               </div>
-                    
+               </div> -->
+               <div class="card" *ngFor="let opportunity of opportunities" style="width: 18rem; margin-bottom:20px;">
+                <span style=" padding:5px; font-size:13px; text-transform: uppercase; text-align: center; justify-content: center;" >{{opportunity?.title}}</span>
+                <img  style="height:120px" [src]="opportunity?.image_url"  onerror="this.src='/assets/conferenceworkshop.jpg'" alt="..." >
+                <!-- <div class="card-body">
+                 
+                  <p class="card-text">{{opportunity?.short_description|flTrancator}}</p> 
+                  
+                </div> -->
+              </div>
               </div>
               <div class="col-md-4" >
                     <h3>Featured Events.</h3>
-                    <div class="card" *ngFor="let opportunity of events" style="margin-bottom:10px">
+                    <!-- <div class="card" *ngFor="let opportunity of events" style="margin-bottom:10px">
                     <div class="media"  style="width: 100%;">
                             <img [src]="opportunity?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
                             <div class="media-body">
@@ -131,8 +139,16 @@
                              
                             </div>
                           </div>
+                  </div> -->
+                  <div class="card" *ngFor="let opportunity of events" style="width: 18rem; margin-bottom:20px;">
+                    <h6 style=" padding:5px; text-transform: uppercase; text-align: center; justify-content: center;">{{opportunity?.title}}</h6>
+                    <img [src]="opportunity?.image_url" class="card-img-top" alt="...">
+                    <!-- <div class="card-body">
+                     
+                      <p class="card-text">{{opportunity?.description|flTrancator}} <a href="#login">Readmore</a></p>
+                      
+                    </div> -->
                   </div>
-                    
               </div>
               <div class="col-md-4" >
                     <h3>Featured Sessions.</h3>
