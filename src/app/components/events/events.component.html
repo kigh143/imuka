@@ -13,7 +13,7 @@
           
             <p>Find upcoming networking and training events in your sector and region,
             including Imuka Series events.</p>
-           
+            
             <div  style="display:flex; flex-direction: row"><div style="flex:1"><a class="btn eventbutton btn-primary btn-sm" (click)="openModal(template)" style="float:left">Post Event</a></div>
             <div style="flex:1"><a class="btn eventbutton btn-success btn-sm" (click)="get_all_events()">All Events</a></div>
            <div style="flex:1"> <a class="btn eventbutton btn-warning btn-sm" (click)="myevent()" >My Event</a></div></div>
@@ -39,23 +39,29 @@
                         <ul class="list-group list-group-flush">
                            
                             <li class="list-group-item"><i class="fa fa-map-marker" style="color:#0056b3; font-size: 15px"></i>  {{event.venue}}</li>
+                            
+                                   
+   
                         </ul>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"> <share-buttons [theme]="'circles-dark'"
-                            [include]="['facebook','twitter','email']"
-                            [show]="5"
-                            [url]=" imukaacess.com/app"
-                            [description]="'this is imuka'"
-                            [image]="''"
-                            [autoSetMeta]="false"
-                            [tags]="'imukaacess.com'"
-                           ></share-buttons>
-</li>
-                               
-                        </ul>
+                           
+                                <li class="list-group-item"><share-buttons [theme]="'circles-dark'"
+                                    [include]="['facebook','twitter','email']"
+                                    [show]="5"
+                                    [url]="'http://www.imukaaccess.com/app/#/sharedevent/'+ event.event_id"
+                                    
+                                    [description]="event.description"
+                                    
+                                   ></share-buttons></li>
+                                
+                                       
+       
+                            </ul>
+                        
                         </div>
                     </div>
                 </div>
+               
                </div>
         </div>
       </div>

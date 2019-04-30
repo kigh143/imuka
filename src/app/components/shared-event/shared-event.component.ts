@@ -12,6 +12,7 @@ export class SharedEventComponent implements OnInit {
   event_id;
   login:boolean = true;
   signup: boolean = false;
+  imageUrl = 'assets/entrepreneur.jpg';
   constructor(
     public eventsapi : EventsService,
    public router :Router,
@@ -21,6 +22,7 @@ export class SharedEventComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.event_id = params['id'];
     })
+   console.log(this.event_id);
   }
 
   ngOnInit() {

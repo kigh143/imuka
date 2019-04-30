@@ -123,7 +123,7 @@ const app_routes: Routes = [
   { path: 'sessions', component :CreatesessionComponent},
   { path: 'session/:id', component :SessionComponent},
   { path: 'all_sessions', component :SessionsComponent},
-  { path: 'sharedevent', component :SharedEventComponent},
+  { path: 'sharedevent/:id', component :SharedEventComponent},
 ];
 
 @NgModule({
