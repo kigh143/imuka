@@ -1,0 +1,119 @@
+<app-header></app-header>
+<div class="body">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mainmenu">
+        <app-mainmenu></app-mainmenu>
+      </div>
+      <div class="col-md-9">
+        <div class="jumbotron">
+            <h3 style="color:rgb(7, 42, 88); font-weight: 700;">Investment Opportunities (Contracts and Projects)</h3>
+            <p></p>
+        </div>
+
+        <div class="content row">
+          <div class="col-md-6 carddata" *ngFor="let contract of contracts">
+            <div class="card ">
+              <img  class="card-img-top" src="{{contract.business_cover}}" alt="{{contract.business_name}}" />
+              <div class="card-body text-center" >
+                <h1 class="card-title">{{contract.business_name}}</h1>
+                <p class="card-text">{{contract.legal_entity}} | {{contract.country}} ({{contract.region}})</p>
+                <p>{{contract.sectors}} </p>
+                <hr>
+                Investment Need:
+                <hr>
+              </div>
+              <div style="display:flex; flex-direction: row">
+              <div class="card-footer text-muted" style="flex:5">
+                <div style="display:flex; flex-direction: row">
+                <a class="card-link" (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> {{contract.follows.length}} Followers</a>
+                <a class="card-link"> <i class="fa fa-eye"></i> {{contract.views.length}} Views</a>
+                <a class="card-link" (click)="openModal(template, 'invest', business)"> <i class="fa fa-money"></i> {{contract.investors.length}} Invest</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left" style="color:#fff;">{{active_business.business_name}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body" *ngIf="modalbody =='follow'">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let follow of active_business.business.follows">
+          <div class="bottom">
+            <img src="{{follow.profile_pic}}" alt="" height="25" />
+          </div>
+          <div class="center">
+              <span style="">{{follow.name}}</span><br>
+              <span style="font-size:10px; color:gray">{{follow.user_type}}</span>
+          </div>
+        </li>
+      </ul>
+      <button (click)="follow_business()"></button>
+  </div>
+
+  <div class="modal-body"  *ngIf="modalbody =='invest'">
+
+    <hr/>
+    <p style="color:darkcyan">Make your investiment offer to <b>{{active_business.business_name}}</b>.</p>
+    <hr/>
+
+    <div class="card request_table">
+      <h5 class="card-header"><b>{{active_business.business_name}}</b>'s' Investment Need</h5>
+      <div class="card-body">
+          <p><span>Marketing</span><span style="float:right">{{active_business.investment_need.marketing}}</span></p>
+          <p><span>Stock</span><span style="float:right">{{active_business.investment_need.stock}}</span></p>
+          <p><span>Machinery</span><span style="float:right">{{active_business.investment_need.machinery}}</span></p>
+          <p><span>Operations</span><span style="float:right">{{active_business.investment_need.operations}}</span></p>
+          <p><span>Total</span><span style="float:right">{{active_business.investment_need.total}}</span></p>
+      </div>
+    </div>
+
+    <hr/>
+    <p style="color:darkcyan">You can tweak the values of the investment request and make a more convinient <b>{{active_business.business_name}}</b> offer.</p>
+    <hr/>
+
+    <form [formGroup]="request">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">What type of financing do you prefer?</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="financing_type" [class.invalid]="request.controls.financing_type.invalid">
+                <option value="Equity Financing">Equity Financing</option>
+                <option value="Debt Financing">Debt Financing</option>
+                <option value="Mezzainne Financing">Mezzainne Financing</option>
+                <option value="Islamic Financing">Islamic Financing</option>
+                <option value="Not sure">Not sure</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Amount to offer ($) USD</label>
+            <input type="number" class="form-control" id="exampleInputPassword1"  formControlName="offer" [class.invalid]="request.controls.offer.invalid">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Comment</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comment" [class.invalid]="request.controls.comment.invalid"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="makearequest(business_id)">Make An Offer</button>
+    </form>
+
+  <div>
+
+
+
+  <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+  </div>
+  </div>
+
+</ng-template>

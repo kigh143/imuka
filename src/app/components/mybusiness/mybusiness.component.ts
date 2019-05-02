@@ -14,13 +14,15 @@ export class MybusinessComponent implements OnInit {
  modalRef: BsModalRef;
   businesses = [];
   avbiz:  any;
-
+  type;
   active_business: any;
 
   // business parameters
   business_name: string;
   region: string;
+  start_contract;
   country: string;
+  end_contract;
   date_of_reg: string;
   legal_status: string;
   sectors:  any;
@@ -53,7 +55,11 @@ export class MybusinessComponent implements OnInit {
       legal_status : this.legal_status,
       sectors: JSON.stringify(this.sectors),
       business_stage: this.business_stage,
-      start_of_operation: this.start_of_operation
+      start_of_operation: this.start_of_operation,
+      start_contract : this.start_contract,
+      end_contract : this.end_contract,
+      type : this.type
+
     };
     biz['owner_id'] = this.currentuser.user_id;
     this.bizy.addbiz(biz).subscribe(data => {
@@ -83,6 +89,7 @@ export class MybusinessComponent implements OnInit {
   getbusinesses() {
     this.bizy.getbusinesses_for_user(this.currentuser.user_id).subscribe(data=>{
         this.businesses = data;
+        
         //this.sectors= JSON.parse(data.sectors);
     });
   }
@@ -90,6 +97,9 @@ export class MybusinessComponent implements OnInit {
   joinProgram(prog_type) {
     this.modalRef.hide();
     this.router.navigate(['join_imuka_program', this.active_business.business_id, prog_type])
+  }
+  selecttype(event){
+    this.type= event.target.value;
   }
 }
 

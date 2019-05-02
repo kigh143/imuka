@@ -88,7 +88,11 @@ api_url: string;
       .post(this.api_url + 'adddailyupdate/json', dailyupdates, this.options)
       .pipe(map(res => res.json()));
   }
-
+  getcontracts(){
+    return this.http
+    .get(this.api_url + 'getallcontracts/json')
+    .pipe(map(res => res.json()));
+  }
   sendrequest(request) {
     return this.http
       .post(this.api_url + 'addrequest/json', request, this.options)

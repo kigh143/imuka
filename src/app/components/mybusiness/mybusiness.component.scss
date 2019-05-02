@@ -3,7 +3,15 @@
   border: 1px solid #eee;
   border-radius: 3px;
 }
-
+.card-title{
+  color:#222 !important;
+  font-weight:700 !important;
+  font-size:14px !important
+}
+.card-text{
+  color:#666 !important;
+  font-size: 12px !important;
+}
 .feeds {
   background: rgb(223, 156, 156);
   border: 5px solid #eee;
@@ -62,8 +70,8 @@
 
 .logo{
   height:80px;
-  width:80px;
-  position: absolute;
+  width:70%;
+  
   bottom: 50px;
-  right:100px;
+ 
 }

@@ -78,6 +78,9 @@ import { HttpClientJsonpModule } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareModule } from '@ngx-share/core';
 import { SharedEventComponent } from './components/shared-event/shared-event.component';
+import { ContractsComponent } from './components/contracts/contracts.component';
+import { FinalComponent } from './components/final/final.component';
+import { DetailsComponent } from './components/details/details.component';
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
@@ -124,6 +127,7 @@ const app_routes: Routes = [
   { path: 'session/:id', component :SessionComponent},
   { path: 'all_sessions', component :SessionsComponent},
   { path: 'sharedevent/:id', component :SharedEventComponent},
+  {path: 'contracts', component: ContractsComponent},
 ];
 
 @NgModule({
@@ -181,6 +185,9 @@ const app_routes: Routes = [
     MysessionsComponent,
     SessionComponent,
     SharedEventComponent,
+    ContractsComponent,
+    FinalComponent,
+    DetailsComponent,
 
 
 
