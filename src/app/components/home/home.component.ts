@@ -14,7 +14,18 @@ export class HomeComponent implements OnInit {
   myinvestment_count;
   request_count;
   count;
-  constructor( public router: Router,  public sessionService: SessionService, public businessService:BizService) { }
+  business;
+  counts:any;
+  constructor( public router: Router,  public sessionService: SessionService, public businessService:BizService) { 
+    this.business=[{
+      business_id:26
+    },
+      {business_id:23},
+      {business_id:27},
+      {business_id:85},
+      {business_id:25}
+  ]
+  }
 
   ngOnInit() {
     const data = this.sessionService.getuser();
@@ -25,6 +36,7 @@ export class HomeComponent implements OnInit {
       this.header = 'Welcome to imukaAccess';
     }
     this.getcount();
+    this.getCounts();
   }
 
   navigate_to(page) {
@@ -41,4 +53,11 @@ export class HomeComponent implements OnInit {
     });
 
 }
+getCounts(){
+  this.businessService.gethomecounts().subscribe(results => {
+    this.counts = results
+    console.log(this.counts);
+  });
+}
+
 }

@@ -57,3 +57,55 @@ section{
 .p-2{
     font-weight: 400 !important;
 }
+.card-footer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.card1{
+    background: transparent !important;
+}
+@media only screen and (max-width: 700px){
+    .media{
+        width:6rem !important; 
+        margin:0 !important;
+        padding:0 !important;
+        .mt-0{
+            display:none !important;
+        }
+        div{
+            div{
+                div{
+                    width:30px !important;
+                    height:30px !important;
+                }
+            }
+        }
+    }
+    .investornumbers{
+        height:10px !important;
+        display:flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .updates{
+        display:flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        .card{
+            width:21rem !important;
+        }
+    }
+    .card1{
+        width:4rem !important;
+        margin:0 !important;
+    }
+    .media-body{
+        p{
+        font-size:12px !important;
+        font-weight:5 !important;
+        justify-content:left !important;
+        text-align: left !important;
+        margin-bottom:0 !important;
+    }}
+}

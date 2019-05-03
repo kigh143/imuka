@@ -3,7 +3,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 mainmenu">
         <app-mainmenu></app-mainmenu>
       </div>
       <div class="col-md-9">
@@ -19,7 +19,7 @@
               <div class="card-body text-center"  routerLink="/business/{{business.business_id}}" >
                 <h1 class="card-title">{{business.business_name}}</h1>
                 <p class="card-text">{{business.legal_entity}} | {{business.country}} ({{business.region}})</p>
-                <p>{{business.sectors}} </p>
+                <p>{{business.sectors | stringArray}} </p>
                 <hr>
                 Investment Need:
                 <hr>

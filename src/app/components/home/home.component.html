@@ -20,9 +20,56 @@
                 the option to interact with and provide advice to enterpreneurs to help
                 them grow. Thank you!.
               </p>
+            
         </div>
-
-        <section *ngIf="user?.user_type==='entrepreneur'">
+         <div class="jumbotron investornumbers " style="height:100px; position:relative">
+                <div style="position:absolute; border:0; background:rgb(241, 241, 241); top:10px">
+                        <div class="row"><div class="col"><div class="card card1" style="width:13rem; margin:10px;">
+                         <div class="media" style="width:14rem; margin:10px; padding:10px" >
+                             <div class="align-self-center" style="background:rgb(236, 236, 236);
+                              display:flex; justify-content:center; align-items:center; border-radius:50%; width:40px; height:40px ">
+                              <div style="background:rgb(105, 247, 235);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:35px; height:35px">
+                                 <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:30px; height:30px;"><i style="text-align:center" class=" fa fa-users" alt="..."></i></div></div></div>
+                             <div class="media-body">
+                               <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Entrepreneurs</h5>
+                               <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.entrepreneurs}}</p>
+                               
+                             </div>
+                           </div></div>
+                         </div>
+                         <div class="col">
+                         <div class="card card1" style="width:13rem; margin:10px">
+                             <div class="media" style="width:14rem; margin:10px; padding:10px" >
+                                    <div class="align-self-center" style="background:rgb(236, 236, 236);
+                                    display:flex; justify-content:center; align-items:center; border-radius:50%; width:40px; height:40px ">
+                                    <div style="background:rgb(105, 247, 235);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:35px; height:35px">
+                                       <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:30px; height:30px;"><i style="text-align:center" class=" fa fa-briefcase" alt="..."></i></div></div></div>
+                                   <div class="media-body">
+                                     <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Total Businesses</h5>
+                                     <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.businesses}}</p>
+                                     
+                                   </div>
+                             </div></div>
+                            
+                   </div>
+                   <div class="col">
+                        <div class="card card1" style="width:13rem; margin:10px; ">
+                            <div class="media" style="width:14rem; margin:10px; padding:10px" >
+                                   <div class="align-self-center" style="background:rgb(236, 236, 236);
+                                   display:flex; justify-content:center; align-items:center; border-radius:50%; width:40px; height:40px ">
+                                   <div style="background:rgb(105, 247, 235);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:35px; height:35px">
+                                      <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:30px; height:30px;" data-toggle="tooltip" title="Disabled tooltip" ><i style="text-align:center" class="fa fa-pencil-square-o" alt="..."></i></div></div></div>
+                                  <div class="media-body">
+                                    <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Contract Requests</h5>
+                                    <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.contracts}}</p>
+                                    
+                                  </div>
+                              </div>
+                            </div>
+                </div>
+                </div>
+         </div></div>
+        <!-- <section *ngIf="user?.user_type==='entrepreneur'">
             <div class="d-flex bd-highlight heading" (click)="navigate_to('my_businesses')">
                 <div class="p-2 flex-grow-1 bd-highlight">Business(es) </div>
                 <div class="p-2">
@@ -36,9 +83,9 @@
                     <div class="col-md-4"></div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <section *ngIf="user?.user_type==='investor'">
+        <!-- <section *ngIf="user?.user_type==='investor'">
             <div class="d-flex bd-highlight heading"  (click)="navigate_to('investmentrequest')">
                 <div class="p-2 flex-grow-1 bd-highlight">My Investments  <span class="badge badge-light float-right">{{myinvestment_count}}</span></div>
                 <div class="p-2">
@@ -52,9 +99,9 @@
                     <div class="col-md-4"></div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <section>
+        <!-- <section>
             <div class="d-flex bd-highlight heading">
                 <div class="p-2 flex-grow-1 bd-highlight" (click)="navigate_to('request')">Requests  <span class="badge badge-light float-right">{{request_count}}</span></div>
                 <div class="p-2">
@@ -68,7 +115,90 @@
                     <div class="col-md-4"></div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+       
+       <section class="updates"style="border:0">
+        <div class="card-columns">
+            <div class="card text-center" style="width:14rem; margin:10px"> 
+                <div class="card-body" routerLink="/business/23">
+                    <div >
+                        <img src="assets/social-care.svg" style="height:40px; width:40px"/><br>
+                    </div>
+                    <div >
+                        <h5 class="card-title">Fecundlabs</h5>
+                        
+                    </div>
+                    <p>Added a contract request</p>
+
+                </div>
+                    <div class="card-footer text-muted">
+                    2 days ago
+                    </div>
+            </div>
+            <div class="card text-center" style="width:14rem; margin:10px"> 
+                    <div class="card-body" routerLink="/business/26">
+                        <div>
+                            <img src="assets/social-care.svg" style="height:40px; width:40px"/><br>
+                        </div>
+                        <div >
+                            <h5 class="card-title">Fecundlabs</h5>
+                        </div>
+                        <p>Added a contract request</p>
+                    </div>
+                        <div class="card-footer text-muted">
+                        2 days ago
+                        </div>
+                </div>
+                <div class="card text-center" style="width:14rem; margin:10px"> 
+                        <div class="card-body" routerLink="/business/27">
+                            <div >
+                                <img src="assets/social-care.svg" style="height:40px; width:40px"/><br>
+                            </div>
+                            <div>
+                                <h5 class="card-title">Fecundlabs</h5>
+                               
+                            </div>
+                            <p>Joined program</p>
+                        </div>
+                            <div class="card-footer text-muted">
+                            2 days ago
+                            </div>
+                </div>
+                <div class="card text-center" style="width:14rem; margin:10px"> 
+                        <div class="card-body" routerLink="/business/85">
+                            <div>
+                                <img src="assets/social-care.svg" style="height:40px; width:40px"/><br>
+                            </div>
+                            <div>
+                                <h5 class="card-title">Fecundlabs</h5>
+                                
+                            </div>
+                            <div>
+                                    <p>updated pitch book </p>
+                                    
+                                </div>
+                        </div>
+                            <div class="card-footer text-muted">
+                            2 days ago
+                            </div>
+                </div>
+                <div class="card" style="width:14rem; margin:10px"> 
+                        <div class="card-body" routerLink="/business/25">
+                            <div style="display:flex; justify-content: center; align-items:center">
+                                <img src="assets/social-care.svg" style="height:40px; width:40px"/><br>
+                            </div>
+                            <div style="display:flex; justify-content: center; align-items:center">
+                                <h5 class="card-title">Fecundlabs</h5>
+                            </div>
+        
+                        </div>
+                            <div class="card-footer text-muted">
+                            2 days ago
+                            </div>
+                </div>
+        </div>
+       </section>
 
     </div>
   </div>

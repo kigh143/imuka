@@ -81,6 +81,7 @@ import { SharedEventComponent } from './components/shared-event/shared-event.com
 import { ContractsComponent } from './components/contracts/contracts.component';
 import { FinalComponent } from './components/final/final.component';
 import { DetailsComponent } from './components/details/details.component';
+import { StringArrayPipe } from './pipes/string-array.pipe';
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
@@ -188,6 +189,7 @@ const app_routes: Routes = [
     ContractsComponent,
     FinalComponent,
     DetailsComponent,
+    StringArrayPipe,
 
 
 
