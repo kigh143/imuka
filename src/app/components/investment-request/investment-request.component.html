@@ -9,7 +9,7 @@
           </div>
           <div class="col-md-9">
                 <div class="header">My Investments</div>
-                <div class="col-md-4" *ngFor="let investments of accepted">
+                <!-- <div class="col-md-4" *ngFor="let investments of accepted">
                 <div class="card">
                 <img  class="card-img-top" src="{{investments?.business_cover}}"  alt="Card image cap"/>
                 <div class="card-body">
@@ -25,8 +25,27 @@
                 <div class=""style="flex:1; background:darkcyan; font-size: 22px; text-align:center; padding-top:3px"><span> P</span></div>
                 </div>
                 </div>
-                </div>
-
+                </div> -->
+                <ul class="list-group">
+                    <li class="list-group-item"  *ngFor="let investments of accepted">
+                        <div class="bottom">
+                            <img [src]="investments.business_cover" alt="" style="height:40px; width:40px;" />
+                        </div>
+                        <div class="center">
+                            <span style="font-size:16px; color:#111; text-transform: capitalize;">{{investments.business_name}}</span><br>
+                            <span style="font-size:13px; color:#333;">Financing Type : <b>{{investments.financing_type}}.</b></span><br/>
+                            <span style="font-size:12px; color:#333;">Investments Offer : <b style="color:rgb(53, 180, 230);"> USD {{investments.offer}}</b></span><br/>
+                            <span style="font-size:12px; color:#333;">Your comment <b>{{investments.comment}}</b></span><br/>
+                        </div>
+                        <div class="left">
+                            <span *ngIf="investments.accepted_status == 'no'">Pending</span>
+                            <span *ngIf="investments.accepted_status == 'yes'">Accepted</span><br/>
+                            <span style="color:#aaa; font-size:8px;">{{investments.date}}</span>
+                           
+                            
+                        </div>
+                    </li>
+                </ul>
 
                 <div class="header">Pending Investment Requests</div>
                 <ul class="list-group">
@@ -44,6 +63,7 @@
                             <span *ngIf="investments.accepted_status == 'no'">Pending</span>
                             <span *ngIf="investments.accepted_status == 'yes'">Accepted</span><br/>
                             <span style="color:#aaa; font-size:8px;">{{investments.date}}</span>
+                            <button class="btn btn-outline-danger btn-sm" (click)="cancelinvestment()">cancel</button>
                         </div>
                     </li>
                 </ul>

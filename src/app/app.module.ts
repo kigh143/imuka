@@ -129,6 +129,7 @@ const app_routes: Routes = [
   { path: 'all_sessions', component :SessionsComponent},
   { path: 'sharedevent/:id', component :SharedEventComponent},
   {path: 'contracts', component: ContractsComponent},
+ 
 ];
 
 @NgModule({

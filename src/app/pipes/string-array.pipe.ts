@@ -6,9 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StringArrayPipe implements PipeTransform {
   origarray:string;
   transform(value: any, args?: any): any {
-    let arrayres = JSON.parse(value);
-    return arrayres.join(", ");
-
+    if(value[0]=='['){
+       let arrayres = JSON.parse(value);
+      return arrayres.join(", ");
+      // return value[0];
+    }
+     else{
+       return value;
+     }
   }
 
 }

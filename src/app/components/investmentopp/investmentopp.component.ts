@@ -52,6 +52,7 @@ export class InvestmentoppComponent implements OnInit {
   openModal(template: TemplateRef<any>, mdbodal:string, business) {
     this.modalRef = this.modalService.show(template);
     this.active_business = business;
+    console.log(this.active_business)
     if(mdbodal == 'follow'){
       this.modalbody = 'follow';
     }else {
@@ -71,7 +72,11 @@ export class InvestmentoppComponent implements OnInit {
     });
   }
 
-
+  unfollow_business(followid){
+       this.business_service.unfollow(followid).subscribe(data=>{
+         this.get_investmentable_business(this.currentuser.user_id);
+       })
+  }
   makearequest(){
     this.spinnerService.show();
     let invest_request= this.request.value;

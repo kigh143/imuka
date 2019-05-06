@@ -226,5 +226,15 @@ api_url: string;
     .get(this.api_url + 'gethomecounts/json')
     .pipe(map(res => res.json()));
   }
+  unfollow(followid){
+     return this.http
+     .get(this.api_url + 'unfollowbusiness/follow_id/' + followid + '/json')
+     .pipe(map(res => res.json()))
+  }
+  cancelinvestment(request_id){
+    return this.http
+    .get(this.api_url + 'unfollowbusiness/request_id/' + request_id + '/json')
+    .pipe(map(res => res.json()))
+  }
 
 }
