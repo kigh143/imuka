@@ -58,9 +58,9 @@
                         </div>
                     </div>
                     <div class="card-footer btn-group" role="group" aria-label="Basic example" style="padding:8px;">
-                        <button class="btn btn-danger btn-sm spaced"   (click)="showforms()">Invest</button>
+                        <button class="btn btn-danger btn-sm spaced" *ngIf="biznes?.on_program==='Y'" (click)="openModal(template, biznes)">Invest</button>
                         <button type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
-                        <button *ngIf="biznes?.on_program==='Y' && user?.user_type==='entrepreneur'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Inovices</button>
+                       
                     </div>
                   </div>
             </div>
@@ -81,21 +81,9 @@
           </div>
           <br/>
     
-          <div class="container row" *ngIf="fileload" style="margin: 10px auto; border:1px solid #eee; background:#eee; padding:20px;">
-              <div class="col-md-6">
-                  <p>Add business logo (Best results with images at 200x200 pixels.)</p>
-                  <input type="file" class="file" (change)="getTheImage($event.target.files, 'biz_logos')" />
-                  <p *ngIf="logouploading">uploading please wait ...</p>
-                  <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
-              </div>
+         
     
-              <div class="col-md-6">
-                  <p>Add business cover image (Best results with images at 1000x150 pixels.)</p>
-                  <input type="file" class="file"  (change)="getTheImage($event.target.files, 'business_cover')" />
-                  <p *ngIf="coveruploading">Uploading  please wait ...</p>
-                  <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
-              </div>
-          </div>
+         
           <hr/>
           <div class="card border-primary mb-3" style="max-width: 100%;" *ngIf="biznes?.on_program==='Y'">
             <div class="card-header bg-transparent border-primary">Business Progress</div>
@@ -129,7 +117,7 @@
                           <div style="padding-left:10px;">
                             <p>{{biznes.business_name}}</p>
                             <p>{{biznes.description}}</p>
-                            <p>{{biznes.sectors}}</p>
+                            <p>{{biznes.sectors | stringArray}}</p>
                           </div>
     
                           <hr/>
@@ -239,200 +227,68 @@
       </div>
     
     
-    <ng-template #template>
-          <div class="modal-header">
-          <h4 class="modal-title pull-left">Lets know how you are progressing</h4>
+    
+    
+      <ng-template #template>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left" style="color:#fff;">{{active_business.business_name}}</h4>
           <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
           </button>
+        </div>
+      
+        
+      
+        <div class="modal-body"  >
+      
+          <hr/>
+          <p style="color:darkcyan">Make your investiment offer to <b>{{active_business.business_name}}</b>.</p>
+          <hr/>
+      
+          <div class="card request_table">
+            <h5 class="card-header"><b>{{active_business.business_name}}</b>'s' Investment Need</h5>
+            <div class="card-body">
+                <p><span>Marketing</span><span style="float:right">{{active_business.investment_need.marketing}}</span></p>
+                <p><span>Stock</span><span style="float:right">{{active_business.investment_need.stock}}</span></p>
+                <p><span>Machinery</span><span style="float:right">{{active_business.investment_need.machinery}}</span></p>
+                <p><span>Operations</span><span style="float:right">{{active_business.investment_need.operations}}</span></p>
+                <p><span>Total</span><span style="float:right">{{active_business.investment_need.total}}</span></p>
+            </div>
           </div>
-          <div class="modal-body">
-          <div>
-          <form class="updates"  [formGroup]="updates_form" (submit)="add_dailyupdate()">
-    
-            <div class="form-group">
-            <label for="exampleInputEmail1">Select Month </label>
-            <select class="form-control" formControlName="myDate" [class.invalid]="dailyupdates.controls.myDate.invalid">
-              <option *ngFor="let month of months" value="{{month}}">{{month}}</option>
-            </select>
-            </div>
-    
-            <div class="form-group">
-            <label for="exampleInputEmail1">Monthly sales </label>
-            <input type="number" class="form-control" id="exampleInputEmail1"   formControlName="sales" [class.invalid]="dailyupdates.controls.sales.invalid">
-            </div>
-    
-            <div class="form-group">
-            <label for="exampleInputEmail1">Number of people Employed </label>
-            <input type="number" class="form-control" id="exampleInputEmail1"   formControlName="employees" [class.invalid]="dailyupdates.controls.employees.invalid">
-            </div>
-    
-            <div class="form-group">
-            <label for="exampleInputEmail1">Number of female people Employed </label>
-            <input type="number" class="form-control" id="exampleInputEmail1" formControlName="female_employees" [class.invalid]="dailyupdates.controls.female_employees.invalid">
-            </div>
-    
-            <div class="form-group">
-            <label for="exampleInputEmail1">Number of served or paying customer</label>
-            <input type="number" class="form-control" id="exampleInputEmail1"  formControlName="customers" [class.invalid]="dailyupdates.controls.customers.invalid">
-            </div>
-    
-            <div class="form-group">
-            <label for="exampleInputEmail1">Number of meetings held with potential customers </label>
-            <input type="number" class="form-control" id="exampleInputEmail1"   formControlName="meetings" [class.invalid]="dailyupdates.controls.meetings.invalid">
-            </div>
-    
-            <div class="form-group">
-            <label for="exampleInputEmail1">what is your market expenses $ </label>
-            <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="market expenses" formControlName="mkt_expenses" [class.invalid]="dailyupdates.controls.mkt_expenses.invalid">
-            </div>
-    
-            <div  class="form-group">
-              <label for="exampleInputEmail1">Number of Conversions to customers from meetings</label>
-              <input type="number" class="form-control" formControlName="conversions" [class.invalid]="dailyupdates.controls.conversions.invalid">
-            </div>
-    
-            <div class="form-group">
-            <label for="exampleFormControlSelect1">Commitment of experts</label>
-            <select class="form-control" id="exampleFormControlSelect1" formControlName="commitment" [class.invalid]="dailyupdates.controls.commitment.invalid">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            </select>
-            </div>
-    
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Networking opportunities</label>
-              <select class="form-control" id="exampleFormControlSelect1" formControlName="networking_opps" [class.invalid]="dailyupdates.controls.networking_opps.invalid">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              </select>
-            </div>
-    
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Benefit of expert to your business</label>
-              <select class="form-control" id="exampleFormControlSelect1" formControlName="expert_grade" [class.invalid]="dailyupdates.controls.expert_grade.invalid">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              </select>
-            </div>
-    
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Personal and proffessional development</label>
-              <select class="form-control" id="exampleFormControlSelect1"
-              formControlName="development_grade" [class.invalid]="dailyupdates.controls.development_grade.invalid">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              </select>
-            </div>
-    
-    
-            <div  class="form-group">
-              <label>Benefit of the Expert(s) to your business.</label>
-              <select class="form-control"
-              formControlName="business_support" [class.invalid]="dailyupdates.controls.business_support.invalid">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              </select>
-            </div>
-    
-            <div>
-              <label>Personal and professional development</label>
-              <select class="form-control" formControlName="support" [class.invalid]="dailyupdates.controls.support.invalid">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-    
-            <input type="submit" class="btn btn-primary btn-block" value="Send updates"/>
+      
+          <hr/>
+          <p style="color:darkcyan">You can tweak the values of the investment request and make a more convinient <b>{{active_business.business_name}}</b> offer.</p>
+          <hr/>
+      
+          <form [formGroup]="request">
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">What type of financing do you prefer?</label>
+                  <select class="form-control" id="exampleFormControlSelect1" formControlName="financing_type" [class.invalid]="request.controls.financing_type.invalid">
+                      <option value="Equity Financing">Equity Financing</option>
+                      <option value="Debt Financing">Debt Financing</option>
+                      <option value="Mezzainne Financing">Mezzainne Financing</option>
+                      <option value="Islamic Financing">Islamic Financing</option>
+                      <option value="Not sure">Not sure</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Amount to offer ($) USD</label>
+                  <input type="number" class="form-control" id="exampleInputPassword1"  formControlName="offer" [class.invalid]="request.controls.offer.invalid">
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Comment</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comment" [class.invalid]="request.controls.comment.invalid"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="makearequest()">Make An Offer</button>
           </form>
-          </div>
-          </div>
-    </ng-template>
-    
-    <ng-template #followers style="padding:0px">
-          <div class="modal-header">
-          <h4 class="modal-title pull-left">Modal</h4>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-          </button>
-          </div>
-    
-          <div class="modal-body" style="padding:5px">
-          <div>
-          <tabset>
-          <tab heading="Followers" id="tab1">
-          <span>All Followers</span>
-          <hr>
-          <div class="list-group folls">
-          <div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-          <div class="follitem">
-          <div>
-          <img src="assets/user.png"/>
-          </div>
-          <div style="padding-left: 20px">
-          <span>Musoke Delta Mesly company</span>
-          <br>
-          <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-          </div>
-          </div>
-          <div class="follitem">
-          <div>
-          <img src="assets/user.png"/>
-          </div>
-          <div style="padding-left: 20px">
-          <span>Musoke Delta Mesly company</span>
-          <br>
-          <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-          </div>
-          </div>
-          </div>
-          </tab>
-          <tab heading="Investments">
-          <span>Investment</span>
-          <div class="list-group folls">
-          <div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-          <div class="follitem">
-          <div>
-          <img src="assets/user.png"/>
-          </div>
-          <div style="padding-left: 20px">
-          <span>Musoke Delta Mesly company</span>
-          <br>
-          <span  style="font-weight:5px; "><i class="fa fa-calendar"></i> 12/jan/2018</span>
-          </div>
-          </div>
-          <div class="follitem">
-          <div>
-          <img src="assets/user.png"/>
-          </div>
-          <div style="padding-left: 20px">
-          <span>Musoke Delta Mesly company</span>
-          <br>
-          <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-          </div>
-          </div>
-          </div>
-          </tab>
-          </tabset>
-          </div>
-          </div>
-    </ng-template>
+      
+        <div>
+      
+      
+      
+        <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
+        </div>
+        </div>
+      
+      </ng-template>
     

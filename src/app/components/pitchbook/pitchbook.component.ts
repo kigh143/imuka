@@ -3,7 +3,7 @@ import { TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BizService } from 'src/app/provider/biz.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Chart } from 'angular-highcharts';
 import { SessionService } from 'src/app/provider/session.service';
 @Component({
@@ -148,6 +148,7 @@ export class PitchbookComponent {
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
+    private router : Router,
     public session: SessionService,
     public businessService: BizService) {
       this.route.params.subscribe(params => {
@@ -157,6 +158,7 @@ export class PitchbookComponent {
   this.months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
    this.draw();
    this.user = this.session.getuser();
+   
   }
 
   openModal(template: TemplateRef<any>) {
@@ -368,6 +370,16 @@ const piechart = new Chart( {
     this.barchart = barchart;
 
   }
-
+goback(){
+  if(this.user.user_type === 'investor'){
+    this.router.navigate(["user_business/"+this.business_id ])
+  }
+  else{
+    if(this.user.user_type === 'entrepreneur'){
+    this.router.navigate(["business/"+this.business_id ])
+  }
+}
+  
+}
 
 }

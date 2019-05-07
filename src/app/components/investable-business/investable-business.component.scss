@@ -91,9 +91,12 @@
       background: #eee;
     }
     .active[_ngcontent-c1]{
-      box-shadow: 0 0 0 0 !important;
+      box-shadow: none !important;
     }
   @media only screen and (max-width:760px){
+    .investornumbers{
+      height:300px !important;
+    }
   .tabst{
     span{
      display:none;

@@ -30,6 +30,7 @@ export class InvestableBusinessComponent implements OnInit {
   minMode: BsDatepickerViewMode = 'month';
   bsConfig: Partial<BsDatepickerConfig>;
   complete: any;
+  sub: any;
   business_id: any;
   business_data: any;
   bizteam: any;
@@ -42,41 +43,31 @@ export class InvestableBusinessComponent implements OnInit {
   linechart: Chart;
   mline: Chart;
   piechart: Chart;
-  piechart2:any;
-  sector_info:any;
-  financials:any;
+  sector_info: any;
+  financials: any;
+  products: any;
+  documents: any;
   parameter:any;
-  competitive:any;
-
+  files: any;
+  type: any;
+  user: any;
+  active_business:any;
+  fileload: boolean = false;
+  coveruploading: boolean = false;
+  logouploading: boolean = false;
+  currentuser:any;
+  btnText="save all changes";
+  request;
   updates_form: any;
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-    milestones = [
-        {
-        name: 'Business Needs assessment and Evaluation',
-        complete: 'true'
-        },
-        {
-        name: 'Financial Management, Modeling and Planning and Management',
-        complete: true
-        },
-        {
-        name: 'Business Model Innovation and Strateegy',
-        complete: false
-        },
-        {
-        name: 'unlimitted Personalsized Support',
-        complete: true
-        },
-        {
-          name: 'Business Advisory Support',
-          complete: true
-          },
-          {
-            name: 'Business Authentication/Validation',
-            complete: true
-            }
-       
-    ];
+  milestones: any = {};
+  upload_files:any;
+  piechart2;
+ competitive;
+  isaddingproduct = false;
+  addingprdt = false;
+  
+ 
     social_impacts = [
       { selected: false, ans: "Security" },
       { selected: false, ans: "Self esteem" },
@@ -155,10 +146,16 @@ export class InvestableBusinessComponent implements OnInit {
     public businessServices: BizService,
     public session: SessionService,
     public spinnerService: Ng4LoadingSpinnerService) {
-    
+      this.request=this.formBuilder.group({
+        financing_type:["", Validators.required],
+        offer:["", Validators.required],
+        comment:[""]
+      });
   }
 
   ngOnInit() {
+    let data = this.session.getuser();
+    this.currentuser=data;
       this.bsConfig = Object.assign({}, { minMode : this.minMode  });
       this.parameter = this.route.params.subscribe(params => {
           this.business_id = +params['id'];
@@ -168,23 +165,37 @@ export class InvestableBusinessComponent implements OnInit {
 
   
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>, biznes) {
       this.modalRef = this.modalService.show(template);
+      this.active_business = biznes;
   }
-
+  C(){
+    this.spinnerService.show();
+    let invest_request= this.request.value;
+    invest_request['user_id']= this.currentuser.user_id;
+    invest_request['business_id']= this.business_id;
+    this.businessServices.sendinvestrequest(invest_request).subscribe(data=>{
+      this.spinnerService.hide();
+      if(data.flag){
+        this.request.reset();
+        this.modalRef.hide();
+      }
+    });
+    
+  }
   getbusiness(biz_id) {
-      this.businessServices.fetch_abusiness(biz_id).subscribe(data => {
-          this.business_data = data;
-          this.biznes  = data['business_info'];
-          this.sector_info= JSON.parse(this.biznes.sectors)
-          this.financials = data['financials']
-          console.log(this.business_data);
-          this.dailyupdates = data['daily_updates'];
-          this.draw();
-          console.log(this.dailyupdates);
-          
-      });
-  }
+    this.businessServices.fetch_abusiness(biz_id).subscribe(data => {
+        this.business_data = data;
+        this.biznes  = data['business_info'];
+        this.sector_info= JSON.parse(this.biznes.sectors)
+        this.financials = data['financials']
+        this.products = data['products']
+        this.documents = data['documents']
+        this.dailyupdates = data['daily_updates'];
+        this.milestones = data['milestones'];
+        this.draw();
+    });
+}
 
   ngOnDestroy() {
       this.parameter.unsubscribe();
