@@ -8,16 +8,23 @@
             </div>
         </div>
       <div class="col-md-9">
-          <div class="banner">App settings </div>
+          <div class="banner text-center">App settings </div>
           <div class="content" *ngIf="currentuser?.user_type=='investor'">
             <div class="card">
               <div class="card-body">
                 
-                  <div>
-                    <h6>Share with us your sector / business line of interest</h6>
                  
+                <div>
+                  <ul class="list-group">
+                    <li class="list-group-item disabled" *ngFor="let inter of sectorint" aria-disabled="true">{{inter}}</li>
+                   
+                  </ul>
                 </div>
-                <form>
+                <div style="padding-top:30px">
+                  <h6>Share with us your sector / business line of interest</h6>
+                    <button class="btn btn-sm" (click)="showoptions()" *ngIf="!display">Display options</button>
+              </div>
+                <form *ngIf="display">
             
              
               <div class="form-group form-check" *ngFor="let control of fruitsArray.controls; let i=index">

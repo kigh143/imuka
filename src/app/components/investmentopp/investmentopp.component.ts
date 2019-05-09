@@ -26,6 +26,7 @@ export class InvestmentoppComponent implements OnInit {
   current_biz_id:any;
   sector_info:any;
   business_info:any;
+  investment_need:any;
   constructor(public session : SessionService,public business:BizService, public spinnerService: Ng4LoadingSpinnerService, private modalService: BsModalService, public formBuilder: FormBuilder, public business_service: BizService ) {
     this.request=this.formBuilder.group({
       financing_type:["", Validators.required],
@@ -43,9 +44,8 @@ export class InvestmentoppComponent implements OnInit {
   get_investmentable_business(user_id){
     this.business_service.get_investment_opp(user_id).subscribe(data=>{
         this.investmentopp=data;
-        this.business_info = this.investmentopp.business_info
-        this.business_id = this.investmentopp.business_id;
-        this.sector_info = JSON.parse(this.business_info.sectors);
+        this.investment_need = JSON.parse(this.investmentopp.investment_need.investimentNeed)
+        console.log(this.investment_need)
     });
   }
 

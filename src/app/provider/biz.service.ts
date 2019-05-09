@@ -219,7 +219,12 @@ api_url: string;
     .get(this.api_url + 'getmyinvestments/user_id/' + user_id + '/json')
     .pipe(map(res => res.json()));
   }
+  getinvestorinterest(user_id){
+    return this.http
+    .get(this.api_url + 'getinvestorinterests/user_id/' + user_id +'/json')
+    .pipe(map(res => res.json()));
 
+    }
 
   gethomecounts(){
     return this.http
