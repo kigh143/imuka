@@ -8,7 +8,7 @@ export class InvestneedPipe implements PipeTransform {
   transform(value: any, args?: any): any {
    if(value == ""){
    
-     return 0
+     return "Not added yet"
   }
   else{
     let investmentneed = JSON.parse(value)

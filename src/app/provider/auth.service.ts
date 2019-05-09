@@ -47,7 +47,7 @@ export class AuthService {
 
   forgotpass(user) {
    return this.http
-     .post(this.api_url  +  'forgotpass/json', user, this.options)
+     .post(this.api_url  +  'forgotpassword/json', user, this.options)
       .pipe(map(res => res.json()));
   }
 
