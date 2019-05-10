@@ -65,6 +65,13 @@ section{
 .card1{
     background: transparent !important;
 }
+.media-icon{
+  flex:1 !important;
+}
+.media-body{
+   flex:1 !important;
+   height:110px !important;
+}
 @media only screen and (max-width: 768px){
     .media{
         width:6rem !important; 
@@ -118,4 +125,5 @@ section{
         margin-bottom:0 !important;
        
     }}
+
 }

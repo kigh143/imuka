@@ -22,14 +22,15 @@
               </p>
             
         </div>
-         <div class=" investornumbers " style="height:100px; position:relative" *ngIf="user?.user_type==='investor'">
+         <div class=" investornumbers " style="height:130px; position:relative" *ngIf="user?.user_type==='investor'">
                 <div style="position:absolute; border:0; background:transparent; top:10px">
-                        <div class="row"><div class="col"><div class="card card1" style="width:13rem; margin:0;">
+                        <div class="row"><div class="col"><div class="card card1" style="padding:5px; margin:0;">
                          <div class="media" style="width:14rem; margin:0; padding:0; background:white" >
-                             <div class="align-self-center" style="background:rgb(236, 236, 236);
-                              display:flex; justify-content:center; align-items:center; border-radius:50%; width:40px; height:40px ">
-                              <div style="background:rgb(105, 247, 235);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:35px; height:35px">
-                                 <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:30px; height:30px;"><i style="text-align:center" class=" fa fa-users" alt="..."></i></div></div></div>
+                            <div class="align-self-center media-icon" style="background:transparent;
+                                display:flex; justify-content:center; align-items:center; border-radius:50%; width:100px; height:100px ">
+                               
+                                   <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:60px; height:60px;"><i style="text-align:center; font-size:30px" class=" fa fa-users" alt="..."></i></div>
+                                  </div>
                              <div class="media-body" style="background:rgb(182, 182, 182); padding-top:5px">
                                <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Entrepreneurs</h5>
                                <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.entrepreneurs}}</p>
@@ -38,14 +39,16 @@
                            </div></div>
                          </div>
                          <div class="col">
-                         <div class="card card1" style="width:13rem; margin:0">
+                         <div class="card card1" style="margin:0; padding:5px">
                             
                             
                              <div class="media" style="width:14rem; margin:0; padding:0; background:white" >
-                                <div class="align-self-center" style="background:rgb(236, 236, 236);
-                                 display:flex; justify-content:center; align-items:center; border-radius:50%; width:40px; height:40px ">
-                                 <div style="background:rgb(105, 247, 235);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:35px; height:35px">
-                                    <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:30px; height:30px;"><i style="text-align:center" class=" fa fa-users" alt="..."></i></div></div></div>
+                                
+                                <div class="align-self-center media-icon" style="background:transparent;
+                                display:flex; justify-content:center; align-items:center; border-radius:50%; width:80px; height:80px ">
+                                
+                                   <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:60px; height:60px;"><i style="text-align:center; font-size:30px" class=" fa fa-briefcase" alt="..."></i></div>
+                                  </div>
                                 <div class="media-body" style="background:rgb(182, 182, 182); padding-top:5px">
                                     <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Total Businesses</h5>
                                     <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.businesses}}</p>
@@ -56,12 +59,13 @@
                             
                    </div>
                    <div class="col">
-                        <div class="card card1" style="width:13rem; margin:0; ">
+                        <div class="card card1" style="padding:5px; margin:0; ">
                             <div class="media" style="width:14rem; margin:0; padding:0; background:white" >
-                                <div class="align-self-center" style="background:rgb(236, 236, 236);
-                                 display:flex; justify-content:center; align-items:center; border-radius:50%; width:40px; height:40px ">
-                                 <div style="background:rgb(105, 247, 235);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:35px; height:35px">
-                                    <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:30px; height:30px;"><i style="text-align:center" class=" fa fa-users" alt="..."></i></div></div></div>
+                                <div class="align-self-center media-icon" style="background:transparent;
+                                display:flex; justify-content:center; align-items:center; border-radius:50%; width:80px; height:80px ">
+                                
+                                   <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:60px; height:60px;"><i style="text-align:center; font-size:30px" class="fa fa-pencil-square-o" alt="..."></i></div>
+                                  </div>
                                 <div class="media-body" style="background:rgb(182, 182, 182);  padding-top:5px">
                                     <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Contract Requests</h5>
                                     <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.contracts}}</p>
@@ -108,7 +112,10 @@
         </section>
 
        
-       <section class="updates" style="border:0" *ngIf="user?.user_type==='investor'">
+       <section class="updates" style="border:0; margin-top:30px" *ngIf="user?.user_type==='investor'">
+        <div class="" style="padding-left:10px" ><h5><b>Business Updates</b></h5>
+        <p>Lets Keep you Updated about the businesses  </p>
+        </div>
         <div class="card-columns">
             <div class="card text-center" style="width:14rem; margin:10px"> 
                 <div class="card-body" routerLink="/business/23">
