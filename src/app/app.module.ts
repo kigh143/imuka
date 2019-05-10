@@ -82,6 +82,7 @@ import { ContractsComponent } from './components/contracts/contracts.component';
 import { FinalComponent } from './components/final/final.component';
 import { DetailsComponent } from './components/details/details.component';
 import { StringArrayPipe } from './pipes/string-array.pipe';
+import { InvestneedPipe } from './pipes/investneed.pipe';
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
@@ -129,6 +130,7 @@ const app_routes: Routes = [
   { path: 'all_sessions', component :SessionsComponent},
   { path: 'sharedevent/:id', component :SharedEventComponent},
   {path: 'contracts', component: ContractsComponent},
+ 
 ];
 
 @NgModule({
@@ -190,6 +192,7 @@ const app_routes: Routes = [
     FinalComponent,
     DetailsComponent,
     StringArrayPipe,
+    InvestneedPipe,
 
 
 

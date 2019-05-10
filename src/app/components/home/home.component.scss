@@ -65,11 +65,20 @@ section{
 .card1{
     background: transparent !important;
 }
-@media only screen and (max-width: 700px){
+.media-icon{
+  flex:1 !important;
+}
+.media-body{
+   flex:1 !important;
+   height:110px !important;
+}
+@media only screen and (max-width: 768px){
     .media{
         width:6rem !important; 
         margin:0 !important;
         padding:0 !important;
+        background: transparent !important;
+       
         .mt-0{
             display:none !important;
         }
@@ -83,10 +92,13 @@ section{
         }
     }
     .investornumbers{
-        height:10px !important;
+        height:40px !important;
         display:flex !important;
         justify-content: center !important;
         align-items: center !important;
+        div{
+            top:-5px !important;
+        }
     }
     .updates{
         display:flex !important;
@@ -94,18 +106,24 @@ section{
         align-items: center !important;
         .card{
             width:21rem !important;
+            
         }
     }
     .card1{
         width:4rem !important;
         margin:0 !important;
+        background: transparent !important;
+        border:0 !important;
     }
     .media-body{
+        background:transparent !important;
         p{
         font-size:12px !important;
         font-weight:5 !important;
         justify-content:left !important;
         text-align: left !important;
         margin-bottom:0 !important;
+       
     }}
+
 }

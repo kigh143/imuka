@@ -28,11 +28,11 @@ this.myForm = this.formBuilder.group({
 
 forgotpass(){
   this.spinnerService.show();
-let user = this.myForm.value;
-this.auth.forgotpass(user).subscribe(data=>{
+  let user = this.myForm.value;
+  this.auth.forgotpass(user).subscribe(data=>{
   this.spinnerService.hide();
   if(!data.flag){
-
+    
   }else{
   this.router.navigate(['/login']);
   }

@@ -31,7 +31,7 @@
                         <div class="card-header  text-center">Forgot Your Password ?.</div>
                         <div class="card-body">
                                 <h6>Enter the E-mail address or phone number attached to your account and we send the instructions to change you password.</h6>
-                                <form  [formGroup]="myForm">
+                                <form  [formGroup]="myForm" (submit)="forgotpass()">
                                 <div class="form-group">
                                 <label for="exampleInputEmail1">Email address / Phone number</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email or phone number" formControlName="email" [class.invalid]="myForm.controls.email.invalid">

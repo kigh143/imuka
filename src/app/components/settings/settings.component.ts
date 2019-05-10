@@ -6,6 +6,7 @@ import { TabsetComponent } from 'ngx-bootstrap';
 import {AuthService} from "../../provider/auth.service";
 import {SessionService} from "../../provider/session.service";
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
+import { BizService } from 'src/app/provider/biz.service';
 
 @Component({
   selector: 'app-settings',
@@ -14,16 +15,18 @@ import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@ang
 })
 export class SettingsComponent implements OnInit {
   modalRef: BsModalRef;
- 
+  sectorint:any;
   nestedForm;
   config = {
     backdrop: true,};
   oneAtATime: boolean = true;
   nots:any;
+  display : boolean =false;
   changeform:any;
   errordiv=false;
   currentuser:any;
   investor_interest=[];
+  investorinterest=[];
   interests: Array<string>=["Agriculture or Agribusiness or Value-addition",
   "Clean Energy or Recycling or Upcycling and Environmental Conservation",
   "Technology or ICT and IT-Enabled Services","Tourism and Hospitality","Healthcare and Pharmaceuticals",
@@ -49,7 +52,7 @@ export class SettingsComponent implements OnInit {
   }
   ]
 
-  constructor(public formBuilder: FormBuilder, public auth: AuthService, public session: SessionService, private modalService: BsModalService) { 
+  constructor(public formBuilder: FormBuilder, public auth: AuthService, public session: SessionService, private modalService: BsModalService, private businessService:BizService) { 
    this.nots=this.notifications;
    let data = this.session.getuser();
    this.currentuser=data;
@@ -67,6 +70,7 @@ export class SettingsComponent implements OnInit {
 
     });
     console.log(this.currentuser);
+    this.getinvestorinterest(this.currentuser.user_id);
   }
   addFruitsControls() {
     const arr = this.interests.map(item => {
@@ -128,7 +132,7 @@ export class SettingsComponent implements OnInit {
          this.auth.addinterest(this.investor_interest, this.currentuser.user_id).subscribe(data=>{
            if(data.flag){
              console.log("success")
-             this.refresh()
+             this.display= false;
            }
          })
       }
@@ -137,5 +141,15 @@ export class SettingsComponent implements OnInit {
    refresh(): void {
     window.location.reload();
 }
-
+getinvestorinterest(user_id){
+   this.businessService.getinvestorinterest(user_id).subscribe( data=>{
+         this.investorinterest = data;
+         console.log(this.investorinterest);
+         this.sectorint = JSON.parse(data.sector_interest);
+         console.log(this.sectorint)
+   })
+}
+showoptions(){
+  this.display = true;
+}
 }

@@ -45,5 +45,10 @@ export class InvestmentRequestComponent implements OnInit {
     })
   
   }
+  cancelinvestment(investmentrequest_id){
+   this.business_service.cancelinvestment(investmentrequest_id).subscribe(data=>{
+    this.get_user_investment(this.currentuser.user_id);
+   })
+  }
  
 }

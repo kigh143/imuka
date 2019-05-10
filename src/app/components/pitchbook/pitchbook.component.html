@@ -4,9 +4,9 @@
     <div class="row">
       <div class="col-md-4">
           <div class="jumbotron" style="padding-top:0">
-              <button class="btn btn-outline-primary btn-sm" style="width:100px; margin-top:20px; margin-bottom: 10px;" routerLink="/business/{{business.business_id}}"><i class="fa fa-chevron-left"></i> back</button><br/>
-              <b>{{business.business_name}} Pitch Book</b>
-              <p>Details of your business' pitch book are here edit to update by changing the mode</p>
+              <button class="btn btn-outline-primary btn-sm" style="width:100px; margin-top:20px; margin-bottom: 10px;" (click)="goback()"><i class="fa fa-chevron-left"></i> back</button><br/>
+              <b style="font-size:14px">{{business.business_name}} Pitch Book</b>
+              <p *ngIf="user?.user_type=='entrepreneur'">Details of your business' pitch book are here edit to update by changing the mode</p>
               <button class="btn btn-primary btn-sm" style="margin-bottom:20px" (click)="openModal(template)">Generate Pitchbook</button><br/>
               <div *ngIf="user?.user_type=='entrepreneur'">
                 <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button><br/>

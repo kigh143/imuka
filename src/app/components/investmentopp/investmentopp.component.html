@@ -16,19 +16,20 @@
           <div class="col-md-6 carddata" *ngFor="let business of investmentopp">
             <div class="card ">
               <img  class="card-img-top" src="{{business.business_cover}}" alt="{{business.business_name}}" />
-              <div class="card-body text-center"  routerLink="/business/{{business.business_id}}" >
+              <div class="card-body text-center"  routerLink="/user_business/{{business.business_id}}" >
                 <h1 class="card-title">{{business.business_name}}</h1>
                 <p class="card-text">{{business.legal_entity}} | {{business.country}} ({{business.region}})</p>
                 <p>{{business.sectors | stringArray}} </p>
                 <hr>
-                Investment Need:
+                Investment Need:{{business.investment_need.investimentNeed| investneed}}
                 <hr>
               </div>
               <div style="display:flex; flex-direction: row">
               <div class="card-footer text-muted" style="flex:5">
                 <div style="display:flex; flex-direction: row">
-                <a class="card-link" (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> {{business.follows.length}} Followers</a>
-                <a class="card-link"> <i class="fa fa-eye"></i> {{business.views.length}} Views</a>
+                <a class="card-link" [ngClass]="{isfollowed: business.followed !== null}"
+                (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> {{business.follows.length}} Followers</a>
+                <a class="card-link"> <i class="fa fa-eye"></i> {{business.follows.length}} Views</a>
                 <a class="card-link" (click)="openModal(template, 'invest', business)"> <i class="fa fa-money"></i> {{business.investors.length}} Invest</a>
               </div>
             </div>
@@ -52,7 +53,7 @@
 
   <div class="modal-body" *ngIf="modalbody =='follow'">
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let follow of active_business.business.follows">
+        <li class="list-group-item" *ngFor="let follow of active_business.follows">
           <div class="bottom">
             <img src="{{follow.profile_pic}}" alt="" height="25" />
           </div>
@@ -62,7 +63,8 @@
           </div>
         </li>
       </ul>
-      <button (click)="follow_business()"></button>
+      <button *ngIf="active_business.followed === null"class="btn btn-primary" (click)="follow_business()">Follow</button>
+      <button *ngIf = "active_business.followed !== null" class="btn btn-light" (click)="unfollow_business(active_business.followed.follow_id)">unFollow</button>
   </div>
 
   <div class="modal-body"  *ngIf="modalbody =='invest'">

@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="container">
     
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-8">
         <div class="jumbotron">
             <h1 class="display-4" style="color:#14978a">{{biznes?.business_name}}</h1>
@@ -41,119 +41,171 @@
             
         </div>
     </div>
-  
-    <div class="tabst">
-      <div class="breadcrumb"  style="background:#666">
-        <h4 class="pull-left">Pitch Book</h4>
-      
-    </div>
-    <div class="modal-body">
-            <section>
-                    <span><b style="text-transform: capitalize">{{biznes?.business_name}}</b></span><br/>
-                    <p>Sector: {{sector_info}}</p>                 
-                </section>
+   -->
+   
     
-                <section>
-                    <div class="pitch-header"><b >Company purpose</b><br/></div>
-                    <p>'Domain Tools' is a place for every type of diagnostic widget related to domain names. (2016, http://www.fecundlabs.com/)
-                      The Internet Archive was founded to build an ‘Internet library,’ with the purpose of offering permanent access for researchers, historians, and scholars to historical collections that exist in digital format. (2006, http://www.archive.org/)</p>          
-                </section>
-    
-                <section>
-                        <div class="pitch-header" ><b>Problem or opportunity</b></div> 
-                    <p>Uganda like other african countries are still lagging behind in technology, because there are few skilled personel in the information technology sector. Most of the work is being done manually hence incurring alot of costs interms of money and time  </p>
-                    <p>Fecundlabs is looking for looking for finance to help out in buying machines paying for internet, buying server space and paying our rental and taxes.</p>          
-                </section>
-    
-                <section>
-                        <div class="pitch-header" ><b>Solution</b></div>    
-                    <p>We intend to develop a technology center with free internet where people can come present their proposed ideas, get conselling and when approved by the team they can use our facilities for their software development purpose.</p>          
-    
-                </section>
-    
-                <section>
-                        <div class="pitch-header" ><b>Why now</b></div>  
-                    <p>If Uganda is to develop Information technology should be improved, by helping those with innovative ideas to get facilitation.</p>          
-    
-                </section>
-    
-                <section>
-                        <div class="pitch-header" > <b>Product or service</b></div>   
-                    <div>
-                        <div>
-                            //product image
-                        </div>
-                        <div>
-                          <b>Our Products</b>
-                          <p>We at the moment have no products on the shelf since they have been purchased off. More are still under incubation</p>
-                            
+          <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <img src="{{biznes.business_cover}}" class="card-img-top" alt="{{biznes?.business_name}}" style="height:160px;">
+                    <div class="card-body">
+                      <div class="media">
+                          <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;">
+                          <div class="media-body">
+                            <h5 class="mt-0">{{biznes?.business_name}}</h5>
+                            {{biznes?.location}} {{biznes?.region}}  {{biznes?.country}}
+                          </div>
                         </div>
                     </div>
-    
-                    <div>
-                        <b>Our Services </b>
-                            <p>Software Development </p>
-                            <p>Price : Negotiable according to the requirements.</p>
-                            <p>Software Training and mentorship </p>
-                            <p>Price : Negotiable according to the requirements.</p>
-                            <p>Website design and development</p>
-                            <p>Price : Negotiable according to the requirements.</p>
-                            <p>Web hosting services</p>
-                            <p>Price : Negotiable according to the requirements.</p>
+                    <div class="card-footer btn-group" role="group" aria-label="Basic example" style="padding:8px;">
+                        <button class="btn btn-danger btn-sm spaced" *ngIf="biznes?.on_program==='Y'" (click)="openModal(template, biznes)">Invest</button>
+                        <button type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
+                       
                     </div>
-                </section>
+                  </div>
+            </div>
     
-                <section>
-                        <div class="pitch-header" ><b>Market size</b></div> 
-                    <div>
-                        <div>
-                            <div class="row" style="justify-content:center">
-                                <div class="col-lg-4 col-md-12">
-                                <div [chart]="piechart"></div>
-                              </div>
-                        </div></div>
-                       
-                    </div>           
-                </section>
     
-                <section>
-                        <div class="pitch-header" ><b>Competitive Advantage</b></div> 
-                       
-                                <div>
-                                        <div class="row" style="justify-content:center">
-                                                <div class="col-lg-8 col-md-12">
-                                                <div [chart]="competitive"></div>
-                                              </div>
-                                        </div></div>
-                               
-                                   
-                </section>
+            <div class="col-md-4">
+                <div *ngIf="biznes?.on_program=='Y'">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-dark">ImukaAccess activities and milestones.</li>
+                        <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
+                        {{milestone?.name}}
+                        <i [ngClass]="{'fa fa-check': milestone.complete}" ></i>
+                    </ul>
+                </div>
     
-                <section>
-                        <div class="pitch-header" ><b>Business Model</b></div> 
-                  <span>Revenue Model</span>
-                         <p>We generate our income form software development i.e. mobile application development and website design and development</p>
-                         <span>Pricing</span>
-                         <p>We charge according to the complexity of the system basing on the requirements provided by the customer</p>
-                        </section>
+                
+            </div>
+          </div>
+          <br/>
     
-                <section>
-                        <div class="pitch-header" ><b>Financials</b></div>  
-
-                    <div class="col-md-8 col-xs-12">
+         
+    
+         
+          <hr/>
+          <div class="card border-primary mb-3" style="max-width: 100%;" *ngIf="biznes?.on_program==='Y'">
+            <div class="card-header bg-transparent border-primary">Business Progress</div>
+            <div class="card-body text-primary">
+                <div class="row"><div class="col-md-6">
+                    <div [chart]="chart"></div>
+                  </div>
+                  <div class="col-md-6">
+                      <div [chart]="mline"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-primary">
+                <button type="button" class="btn btn-primary" *ngIf="user?.user_type==='entrepreneur'" (click)="openModal(template)">Update Business Progress</button>
+            </div>
+          </div>
+          <hr/>
+          <div style="padding:0; border:1px solid #eee; margin-bottom: 200px;">
+            <tabset>
+              <tab heading="Business Information" id="tab1">
+                <div>
+                  <div class="business">
+                    <div class="content-box" style="margin-top: 20px">
+                      <div class="">
+                          <div class="text-center">
+                              <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;">
+                          </div>
+                          <hr/>
+                           <span class="text-center" style="font-size:18px; padding-left:10px; font-weight:bolder; color:rgb(41, 137, 175);">General Business Info</span>
+                          <hr/>
+                          <div style="padding-left:10px;">
+                            <p>{{biznes.business_name}}</p>
+                            <p>{{biznes.description}}</p>
+                            <p>{{biznes.sectors | stringArray}}</p>
+                          </div>
+    
+                          <hr/>
+                          <span style="font-size:18px; font-weight:bolder; padding-left:10px; color:rgb(41, 137, 175);">Business Contact Info</span>
+                          <hr/>
+                          <div style="padding-left:10px;">
+                            <p>{{biznes.phone}}</p>
+                            <p>{{biznes.website}}</p>
+                            <p>{{biznes.email}}</p>
+                            <p>{{biznes.location}}</p>
+                          </div>
+                          <hr/>
+                          <span style="font-size:18px; padding-left:10px; font-weight:bolder; color:rgb(41, 137, 175);">Other information.</span>
+                          <hr/>
+                          <div style="padding-left:10px;">
+                            <p>{{biznes.mission}}</p>
+                            <p>{{biznes.vision}}</p>
+                            <p>{{biznes.date_of_reg}}</p>
+                          </div>
+                          
+                  </div>
+                     
+    
+                      </div>
+                    </div>
+                </div>
+              </tab>
+    
+              <tab heading="Product and services">
+                <div>
+                  <div class="products">
+                    <div class="content-box ">
+                      <div class="" style="margin-top:10px;">
+    
+                        <div class="media"  *ngFor="let prdt of products">
+                          <div class="media-left">
+                            <img src="{{prdt.images}}" class="media-object" style="width:60px">
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading">{{prdt.name}}</h4>
+                            <p>{{prdt.description}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    </div></div>
+                </div>
+              </tab>
+    
+              <tab heading="Business Documents">
+                <div>
+                  <div class="documents" >
+                    <div class="content-box ">
+                      <div class="" style="padding-top:20px">
+                        <div class="row">
+                          <div class="col-3" *ngFor="let doc of documents">
+                            <div class="box document" [ngClass]="isclicked?'active':''" >
+                              <img [src]="doc.file_url" style="height:80px; width:80px;"/>
+                              <h6>{{doc.name}}</h6>
+                              <p>Approved <i class="fa fa-check" aria-hidden="true"></i></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              </tab>
+    
+              <tab heading="Business Financial">
+                <div>
+                  <div class="financial" >
+                    <div class="content-box ">
+                      <div class="" style="padding-top:20px">
                         <table class="table table-striped table-responsive-sm">
                           <thead>
                             <tr>
                               <th scope="col">Year</th>
                               <th scope="col">ROS</th>
-                              <th scope="col">ROI</th> 
+                              <th scope="col">ROI</th>
                               <th scope="col">ROE</th>
                               <th scope="col">DER</th>
                               <th scope="col">IRR</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let financial of business_data?.financials">
+                            <tr *ngFor="let financial of financials">
                               <th scope="row">{{financial.period_to}}</th>
                               <td>{{financial.ros}}</td>
                               <td>{{financial.roi}}</td>
@@ -164,163 +216,79 @@
                           </tbody>
                         </table>
                       </div>
-                </section>
-    
-                <section>
-                        <div class="pitch-header" ><b>Investiment</b></div> 
-                    <p>The total amount needed : 500000</p>
-                    <div class="row" style="justify-content:center">
-                        
-                        <div class="col-lg-6 col-md-12">
-                        <div [chart]="piechart2"></div>
-                      </div>
+                    </div>
+                  </div>
                 </div>
-                </section>
+              </tab>
     
-                <section>
-                        <div class="pitch-header" ><b>The sustainable Development Goals</b></div> 
-                    <ol>
-      
-                            <li>No Poverty</li>
-                           <li>Zero Hunger</li>
-                            <li>Good Health and Well-being</li>
-                            <li>Quality Education</li>
-                            <li>Gender Equality</li>
-                            <li>Clean Water and Sanitation</li>
-                            <li>Affordable and Clean Energy</li>
-                            <li>Decent Work and Economic Growth</li>
-                            <li>Industry, Innovation and Infrastructure</li>
-                            <li>Reduced Inequality</li>
-                            <li>Sustainable Cities and Communities</li>
-                            <li>Responsible Consumption and Production</li>
-                           <li>Climate Action</li>
-                            <li>Life Below Water</li>
-                            <li>Life on Land</li>
-                            <li>Peace and Justice Strong Institutions</li>
-                            <li>Partnerships to achieve the Goal</li>
-                      </ol>     
-                </section>
+            </tabset>
+          </div>
     
-                <section>
-                        <div class="pitch-header" ><b>Social Impact</b></div>  
-                    <ol >
-      
-                        <li *ngFor="let impact of social_impacts;">
-                                {{impact.ans}}
-                        </li>
-                      </ol> 
-                </section>
+      </div>
     
-                <section>
-                        <div class="pitch-header" > <b>Economic impact</b></div>    
-                    <ol>
-      
-                        <li *ngFor="let impact of economic_impact;">
-                                {{impact.ans}}
-                        </li>
-                      </ol>         
-                </section>
     
-                <section>
-                        <div class="pitch-header" > <b>Environmental impacts</b></div>        
-                    <ol>
-      
-                        <li *ngFor="let impact of env_impact">
-                          {{impact.ans}}
-                        </li>
-                      </ol>     
-                </section>
     
-                <section>
-                        <div class="pitch-header" ><b>Our Team</b></div>  
-                    <div class="row">
-                        <div class="col-md-4 team">
-                            <!--<img src="assets/user.png" alt=""><br/>-->
-                            <span>Katende Iva</span><br/>
-                            <span>CEO and founder</span>
-                        </div>
-                    </div>          
-                </section>
-        <div>
-            <button class="btn btn-primary btn-sm">Print pitchbook</button>
-        </div>
-    </div>
-  
-      
-     
-    </div>
-  
-  </div>
-  </div>
-  <app-footer></app-footer>
-  
-  
-  
-  <ng-template #followers style="padding:0px">
+    
+      <ng-template #template>
         <div class="modal-header">
-        <h4 class="modal-title pull-left">Modal</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-        </button>
+          <h4 class="modal-title pull-left" style="color:#fff;">{{active_business.business_name}}</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-  
-        <div class="modal-body" style="padding:5px">
+      
+        
+      
+        <div class="modal-body"  >
+      
+          <hr/>
+          <p style="color:darkcyan">Make your investiment offer to <b>{{active_business.business_name}}</b>.</p>
+          <hr/>
+      
+          <div class="card request_table">
+            <h5 class="card-header"><b>{{active_business.business_name}}</b>'s' Investment Need</h5>
+            <div class="card-body">
+                <p><span>Marketing</span><span style="float:right">{{active_business.investment_need.marketing}}</span></p>
+                <p><span>Stock</span><span style="float:right">{{active_business.investment_need.stock}}</span></p>
+                <p><span>Machinery</span><span style="float:right">{{active_business.investment_need.machinery}}</span></p>
+                <p><span>Operations</span><span style="float:right">{{active_business.investment_need.operations}}</span></p>
+                <p><span>Total</span><span style="float:right">{{active_business.investment_need.total}}</span></p>
+            </div>
+          </div>
+      
+          <hr/>
+          <p style="color:darkcyan">You can tweak the values of the investment request and make a more convinient <b>{{active_business.business_name}}</b> offer.</p>
+          <hr/>
+      
+          <form [formGroup]="request">
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">What type of financing do you prefer?</label>
+                  <select class="form-control" id="exampleFormControlSelect1" formControlName="financing_type" [class.invalid]="request.controls.financing_type.invalid">
+                      <option value="Equity Financing">Equity Financing</option>
+                      <option value="Debt Financing">Debt Financing</option>
+                      <option value="Mezzainne Financing">Mezzainne Financing</option>
+                      <option value="Islamic Financing">Islamic Financing</option>
+                      <option value="Not sure">Not sure</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Amount to offer ($) USD</label>
+                  <input type="number" class="form-control" id="exampleInputPassword1"  formControlName="offer" [class.invalid]="request.controls.offer.invalid">
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Comment</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comment" [class.invalid]="request.controls.comment.invalid"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="makearequest()">Make An Offer</button>
+          </form>
+      
         <div>
-        <tabset>
-        <tab heading="Followers" id="tab1">
-        <span>All Followers</span>
-        <hr>
-        <div class="list-group folls">
-        <div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-        <div class="follitem">
-        <div>
-        <img src="assets/user.png"/>
-        </div>
-        <div style="padding-left: 20px">
-        <span>Musoke Delta Mesly company</span>
-        <br>
-        <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
+      
+      
+      
+        <ng4-loading-spinner  [timeout]="10000" [zIndex]="9999"></ng4-loading-spinner>
         </div>
         </div>
-        <div class="follitem">
-        <div>
-        <img src="assets/user.png"/>
-        </div>
-        <div style="padding-left: 20px">
-        <span>Musoke Delta Mesly company</span>
-        <br>
-        <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-        </div>
-        </div>
-        </div>
-        </tab>
-        <tab heading="Investments">
-        <span>Investment</span>
-        <div class="list-group folls">
-        <div style="background-color: #eee; height:27px; font-size: 14px; font-weight: 10px; border-top: 1px solid #B0B0B0" >January</div>
-        <div class="follitem">
-        <div>
-        <img src="assets/user.png"/>
-        </div>
-        <div style="padding-left: 20px">
-        <span>Musoke Delta Mesly company</span>
-        <br>
-        <span  style="font-weight:5px; "><i class="fa fa-calendar"></i> 12/jan/2018</span>
-        </div>
-        </div>
-        <div class="follitem">
-        <div>
-        <img src="assets/user.png"/>
-        </div>
-        <div style="padding-left: 20px">
-        <span>Musoke Delta Mesly company</span>
-        <br>
-        <span><i class="fa fa-calendar"></i> 12/jan/2018</span>
-        </div>
-        </div>
-        </div>
-        </tab>
-        </tabset>
-        </div>
-        </div>
-  </ng-template>
+      
+      </ng-template>
+    

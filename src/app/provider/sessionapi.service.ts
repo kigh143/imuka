@@ -40,7 +40,7 @@ export class SessionapiService {
     .get(this.api_url + 'getsessions/json')
     .pipe(map(res => res.json()));
   }
-
+     
   commentonsession(comment) { return this.http
     .post(this.api_url + 'commentonsession/json', comment, this.options)
     .pipe(map(res => res.json()));

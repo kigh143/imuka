@@ -19,20 +19,12 @@
               <div class="card-body text-center" >
                 <h1 class="card-title">{{contract.business_name}}</h1>
                 <p class="card-text">{{contract.legal_entity}} | {{contract.country}} ({{contract.region}})</p>
-                <p>{{contract.sectors}} </p>
+                <p>{{contract.sectors | stringArray}} </p>
                 <hr>
                 Investment Need:
                 <hr>
               </div>
-              <div style="display:flex; flex-direction: row">
-              <div class="card-footer text-muted" style="flex:5">
-                <div style="display:flex; flex-direction: row">
-                <a class="card-link" (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> {{contract.follows.length}} Followers</a>
-                <a class="card-link"> <i class="fa fa-eye"></i> {{contract.views.length}} Views</a>
-                <a class="card-link" (click)="openModal(template, 'invest', business)"> <i class="fa fa-money"></i> {{contract.investors.length}} Invest</a>
-              </div>
-            </div>
-          </div>
+              
         </div>
       </div>
     </div>
