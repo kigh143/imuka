@@ -101,31 +101,31 @@
     <section class="light">
         <div class="container">
 
-         
+
           <hr>
             <div class="row">
               <div class="col-md-6" >
                     <h5>Featured Opportunities.</h5>
                     <hr>
                     <div class="card" *ngFor="let opportunity of opportunities" style="margin-bottom:10px;  border:0">
-                   
+
                     <div class="media"  style="width: 100%;">
                             <img [src]="opportunity?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
                             <div class="media-body">
                               <h6 class="mt-0" style="font-size: 13px; text-transform:lowercase; color:#222; font-weight:700">{{opportunity?.title|flTrancator}}</h6>
                               <p style="font-size:12px; color:#666">{{opportunity?.short_description|flTrancator}}  <a href="#login">Readmore</a></p>
-                              
+
                             </div>
-                           
+
                     </div>
                </div>
                <!-- <div class="card" *ngFor="let opportunity of opportunities" style="width: 18rem; margin-bottom:20px;">
                 <span style=" padding:5px; font-size:13px; text-transform: uppercase; text-align: center; justify-content: center;" >{{opportunity?.title}}</span>
                 <img  style="height:120px" [src]="opportunity?.image_url"  onerror="this.src='/assets/conferenceworkshop.jpg'" alt="..." >
                  <div class="card-body">
-                 
-                  <p class="card-text">{{opportunity?.short_description|flTrancator}}</p> 
-                  
+
+                  <p class="card-text">{{opportunity?.short_description|flTrancator}}</p>
+
                 </div>
               </div> -->
               </div>
@@ -138,7 +138,7 @@
                             <div class="media-body">
                               <h6 class="mt-0"style="font-size: 13px; text-transform:lowercase; color:#222; font-weight:700">{{opportunity?.title|flTrancator}}</h6>
                               <p style="font-size:12px;color:#666">{{opportunity?.description|flTrancator}} <a href="#login">Readmore</a> </p>
-                             
+
                             </div>
                           </div>
                   </div>
@@ -146,13 +146,13 @@
                     <h6 style=" padding:5px; text-transform: uppercase; text-align: center; justify-content: center;">{{opportunity?.title}}</h6>
                     <img [src]="opportunity?.image_url" class="card-img-top" alt="...">
                     <div class="card-body">
-                     
+
                       <p class="card-text">{{opportunity?.description|flTrancator}} <a href="#login">Readmore</a></p>
-                      
-                    </div> 
+
+                    </div>
                   </div> -->
               </div>
-              
+
             </div>
         </div>
       </section>
@@ -211,6 +211,10 @@
             to Investors and Business Support Specialists. We are building a sustainable model that combines technology and local talent to support early-stage businesses to move from survival to grow and thrive.</p>
       </div>
       </div>
+    </section>
+
+    <section>
+      <button (click)="editLogos()"> edit logos</button>
     </section>
 
 

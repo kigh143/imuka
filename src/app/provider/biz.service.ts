@@ -40,6 +40,7 @@ api_url: string;
       .pipe(map(res => res.json()));
 
   }
+
    addfinancial(financial) {
       return this.http
       .post(this.api_url + 'addfinancials/json', financial, this.options)
@@ -88,11 +89,13 @@ api_url: string;
       .post(this.api_url + 'adddailyupdate/json', dailyupdates, this.options)
       .pipe(map(res => res.json()));
   }
+
   getcontracts(){
     return this.http
     .get(this.api_url + 'getallcontracts/json')
     .pipe(map(res => res.json()));
   }
+
   sendrequest(request) {
     return this.http
       .post(this.api_url + 'addrequest/json', request, this.options)
@@ -101,8 +104,8 @@ api_url: string;
 
   fetchrequest(user_id) {
     return this.http
-  .get(this.api_url + 'getrequests/user_id/' + user_id + '/json')
-  .pipe(map(res => res.json()));
+    .get(this.api_url + 'getrequests/user_id/' + user_id + '/json')
+    .pipe(map(res => res.json()));
   }
 
   getallbusinesses() {
@@ -203,11 +206,13 @@ api_url: string;
     .post(this.api_url + 'editpitch/json', data, this.options)
     .pipe(map(res => res.json()));
   }
+
   follow_business(investor){
     return this.http
       .post(this.api_url + 'followbusiness/json', investor, this.options)
       .pipe(map(res => res.json()));
   }
+
   get_investment_opp(user_id) {
     return this.http
       .get(this.api_url + 'getinvestmentopportunities/user_id/'+user_id+'/json')
@@ -224,6 +229,27 @@ api_url: string;
   gethomecounts(){
     return this.http
     .get(this.api_url + 'gethomecounts/json')
+    .pipe(map(res => res.json()));
+  }
+
+  getLogos() {
+    this.http
+    .get('http://www.imukatrack.us.tempcloudsite.com/api/get_logos')
+    .pipe(map(res => res.json())).subscribe( data  => {
+    for (let index = 0; index < data.length; index++) {
+      this.editBiz(data[index]).subscribe( result => {
+        console.log( "result = ", result);
+      })
+
+    }
+
+
+    })
+  }
+
+  editBiz(data){
+    return this.http
+    .post(this.api_url + 'editBiz/json', data, this.options)
     .pipe(map(res => res.json()));
   }
 

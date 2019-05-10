@@ -111,7 +111,8 @@ export class LoginComponent {
       this.events = data.slice(1,4);
        console.log(this.events);
     })
-  } 
+  }
+
   get_featured_sessions(){
     this.sessionapi.getsessions().subscribe(data => {
       this.sessions = data.slice(1,4);
@@ -119,5 +120,9 @@ export class LoginComponent {
     })
   }
 
+
+  editLogos(){
+    this.businessService.getLogos();
+  }
 }
 
