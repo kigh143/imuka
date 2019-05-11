@@ -33,7 +33,6 @@ export class MainmenuComponent implements OnInit {
        this.opps_count = data.opps;
        this.myinvestment_count = data.my_investment;
        this.investment_count = data.investments
-
        this.business_count = data.businesses;
        console.log(this.count);
 

@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   request_count;
   count;
   business;
+  businessupdates;
   counts:any;
   constructor( public router: Router,  public sessionService: SessionService, public businessService:BizService) { 
     this.business=[{
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
     }
     this.getcount();
     this.getCounts();
+    this.getbusinessupdate();
   }
 
   navigate_to(page) {
@@ -58,6 +60,12 @@ getCounts(){
     this.counts = results
     console.log(this.counts);
   });
+}
+getbusinessupdate(){
+  this.businessService.getbusinessupdates().subscribe(results =>{
+    this.businessupdates = results;
+    console.log(this.businessupdates)
+  })
 }
 
 }

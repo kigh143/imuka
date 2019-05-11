@@ -241,5 +241,9 @@ api_url: string;
     .get(this.api_url + 'unfollowbusiness/request_id/' + request_id + '/json')
     .pipe(map(res => res.json()))
   }
-
+  getbusinessupdates(){
+    return this.http
+    .get(this.api_url + 'getbusinessupdates/json')
+    .pipe(map(res => res.json()))
+  }
 }

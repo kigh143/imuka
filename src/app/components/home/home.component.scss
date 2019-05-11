@@ -72,7 +72,45 @@ section{
    flex:1 !important;
    height:110px !important;
 }
-@media only screen and (max-width: 768px){
+.text-right{
+     float: right !important;
+     color: gray !important;
+    }
+.quote{
+    .card-body{
+      height:150px !important;
+      padding:20px !important;
+      justify-content: center;
+      .card-text{
+          font-size: 25px !important;
+          color:gray ;
+      }
+    }}
+    
+.tagandlikes{
+    float: right !important;
+    padding:10px !important;
+    .tag{
+        border-radius: 10px !important;
+        border:1px solid gray !important;
+        height:35px !important;
+        padding:5px;
+        
+    }
+    .foot{
+        margin-right:15px !important;
+    }
+    .like{
+        border-radius: 50% !important;
+        border:1px solid gray !important;
+        height:35px !important;
+        width:35px !important;
+        text-align:center !important;
+        justify-content: center !important;
+        padding:5px;
+    }
+}
+@media only screen and (max-width: 750px){
     .media{
         width:6rem !important; 
         margin:0 !important;
@@ -97,11 +135,12 @@ section{
         justify-content: center !important;
         align-items: center !important;
         div{
-            top:-5px !important;
+            top:-25px !important;
         }
     }
     .updates{
         display:flex !important;
+        flex-direction: row !important;
         justify-content: center !important;
         align-items: center !important;
         .card{
@@ -117,6 +156,7 @@ section{
     }
     .media-body{
         background:transparent !important;
+        padding-top:30px !important;
         p{
         font-size:12px !important;
         font-weight:5 !important;
