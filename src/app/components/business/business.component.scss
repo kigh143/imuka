@@ -12,3 +12,37 @@ input.file {
     background-size: 60px 60px;
     margin: 10px auto !important;
 }
+.documents{
+    .content-box{
+    .row{
+        .text-center{
+            display:block !important;
+        }
+    }
+}
+}
+.docs{
+    display: none !important;
+}
+@media  only screen and (max-width: 750px){
+   .docs{
+       display: block !important;
+       margin:10px !important;
+       .media-body{
+           padding-left:15px !important;
+           padding-top:10px !important;
+       }
+   }
+   .box {
+       display: none !important;
+   }
+   .document{
+       display: none !important;
+   }
+   .sml{
+       display: block !important;
+   }
+   .bigl{
+     display:none !important
+   }
+}

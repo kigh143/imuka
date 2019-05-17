@@ -21,6 +21,7 @@ export class PitchbookComponent {
   pitch: any;
   edit = false;
   products: any;
+  purpose:any;
   comp_factors={'factor':''};
   factors:boolean= true;
   factor1:number;
@@ -37,7 +38,8 @@ export class PitchbookComponent {
   sdgs;
   piechart;
   enviroment_impact;
-  social_impact
+  social_impact;
+  message: string;
   economic_impacts;
   competitors_name=[];
   competitors_info=[];
@@ -46,6 +48,9 @@ export class PitchbookComponent {
   competitor2 = false;
   competitive_advantage;
   competitor3 = false;
+  biz_info;
+  heading;
+  competitions;
   comp_factor:{};
   competitor1_info={
     'name':'owner',
@@ -156,19 +161,23 @@ export class PitchbookComponent {
         this.fetch_pitcbook_data(this.business_id);
       });
   this.months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-   this.draw();
+  
    this.user = this.session.getuser();
    
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>, event) {
     this.modalRef = this.modalService.show(template);
+   
+    this.onchanged_value(event)
   }
 
   fetch_pitcbook_data( business_id ) {
     this.businessService.fetch_abusiness( business_id ).subscribe( data => {
         this.business = data.business_info;
         this.pitch  = data.pitch;
+        this.competitions = JSON.parse(this.pitch.competition);
+        
         this.products  = data.products;
         this.edit = false;
         this.enviroment_impact = JSON.parse(this.pitch.env_impact);
@@ -178,9 +187,12 @@ export class PitchbookComponent {
         this.sdgs = JSON.parse(this.pitch.impact_areas);
 
         this.getTotalNeed(this.investimentNeed);
+        this.draw(this.competitions);
+
     });
   }
-
+   
+   
   getTotalNeed(investimentNeed){
       const {  marketing, operations, machinery, stock, raw_material } = investimentNeed;
       if(marketing){
@@ -196,10 +208,11 @@ export class PitchbookComponent {
     this.pitch.social_impact = JSON.stringify(this.pitch.social_impact);
     this.pitch.env_impact = JSON.stringify(this.pitch.env_impact);
     this.pitch.investimentNeed = JSON.stringify(this.investimentNeed);
+    this.pitch.competition = JSON.stringify(this.competitors_info);
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
     });
     this.fetch_pitcbook_data(this.business_id);
-    this.draw();
+    this.draw(this.competitors_info);
   }
 
   edit_mode() {
@@ -251,19 +264,18 @@ export class PitchbookComponent {
 
 
     }
-
   }
 
-  draw() {
-    this.competitors_info.forEach(data=>{
+  draw(competitors) {
+       competitors.forEach(data=>{
        this.competitors_name.push(data.name);
        this.factor1_grade.push(parseInt(data.comparison.factor1));
        this.factor2_grade.push(parseInt(data.comparison.factor2));
        this.factor3_grade.push(parseInt(data.comparison.factor3));
     });
-
-    console.log(this.factor1_grade);
-
+  
+    console.log(this.competitors_info);
+    
 
 
 const barchart=new Chart({
@@ -380,6 +392,31 @@ goback(){
   }
 }
   
+}
+
+onchanged_value(event) {
+  
+ this.message= "";
+ this.heading = event.target.value + "Definition";
+  if (event.target.value === "Equity Financing") {
+    this.message =
+      "Equity financing is the process of raising capital through the sale of shares in an enterprise";
+
+  } else if (event.target.value === "Debt Financing") {
+    this.message =
+      "When a company borrows money to be paid back at a future date with interest it is known as debt financing";
+  } else if (event.target.value === "Mezzanine financing") {
+    this.message =
+      "Mezzanine financing is a hybrid of debt and equity financing that gives the lender the right to convert to an equity interest in the company in case of default, generally after venture capital companies and other senior lenders are paid. ";
+  } else if (event.target.value === "Islamic Finance") {
+    this.message =
+      "The main principle of Islamic finance is its adherence to interest or riba-free financial transactions,while other principles are: prohibition of fixed return, profit-and-loss sharing and hence risk sharing  participatory financing; prohibition of gharar (uncertainty), speculation and gambling;money not having any inherent value in itself; and also equity-based financing.";
+  }
+  else if (event.target.value === "Open to discussion") {
+    this.message =
+      "We help you make the best choice";
+  }
+
 }
 
 }

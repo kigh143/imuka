@@ -117,3 +117,28 @@ select{
     }
   }
 }
+.col-content{
+    margin-top:15px !important;
+}
+.modal-content{
+    background-color:transparent !important;
+}
+.message{
+    background: #f2f2f2 !important;
+   
+}
+.modal-dialog {
+   
+    background:transparent !important;
+  }
+  @media (max-width: 767px) {
+    .modal-dialog {
+      padding-left:10px !important;
+      padding-right:10px !important;
+      padding-top:10px !important;
+      margin:5px !important;
+    }
+    .multiclick{
+        display:none;
+    } 
+}

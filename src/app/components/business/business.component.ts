@@ -36,7 +36,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   business_data: any;
   bizteam: any;
   bizdoc: any;
-  bizproduct: any;
+  bizproduct:any;
   bizfinancial: any;
   biznes: any;
   dailyupdates: any;
@@ -48,11 +48,11 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   financials: any;
   products: any;
   documents: any;
-
+  bizproducts=[];
   files: any;
   type: any;
   user: any;
-
+  uploadd: boolean;
   fileload: boolean = false;
   coveruploading: boolean = false;
   logouploading: boolean = false;
@@ -90,6 +90,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.bizdoc = this.formBuilder.group({
           doc_type: [ '', Validators.compose([ Validators.minLength(4),  Validators.required ])],
           name: [ '', Validators.required ],
+          ihave:['']
       });
 
       this.bizproduct = this.formBuilder.group({
@@ -161,11 +162,12 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.biznes  = data['business_info'];
           this.sector_info= JSON.parse(this.biznes.sectors)
           this.financials = data['financials']
-          this.products = data['products']
+          this.bizproducts = data['products']
           this.documents = data['documents']
           this.dailyupdates = data['daily_updates'];
           this.milestones = data['milestones'];
           this.draw();
+          console.log(data);
       });
   }
 
@@ -177,6 +179,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
   addpdt() {
     this.addingprdt = true;
+    this.resetfields();
     const products = this.bizproduct.value;
     products['business_id'] = this.business_id;
     products['file'] = this.upload_files;
@@ -187,19 +190,22 @@ export class BusinessComponent implements OnInit,  OnDestroy {
         formData.append(key, element);
       }
     }
-    this.businessServices.addproduct(formData).subscribe(data => {
+     this.businessServices.addproduct(formData).subscribe(data => {
       this.addingprdt = false;
-      if (data.flag) {
-        this.alert.showSuccess("Product added");
-        this.bizproduct.reset();
-        this.getbusiness(this.business_id);
-    }}, error =>{
-    this.addingprdt = false;
-    });
+     if (data.flag) {
+     this.alert.showSuccess("Product added");
+     this.bizproduct.reset();
+     this.getbusiness(this.business_id)
+     }
+     }, error=>{
+       this.addingprdt = false;
+     });
   }
 
   adddoc() {
+
     this.isaddingproduct = true;
+    this.resetfields();
     const document = this.bizdoc.value;
     document['business_id'] = this.business_id;
     document['file'] = this.upload_files;
@@ -226,6 +232,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
   addfinancial() {
     this.spinnerService.show();
+    this.resetfields()
     const financial = this.bizfinancial.value;
     financial['business_id'] = this.business_id;
         this.businessServices.addfinancial(financial).subscribe(data=>{
@@ -236,6 +243,9 @@ export class BusinessComponent implements OnInit,  OnDestroy {
             this.getbusiness(this.business_id);
           }
       });
+  }
+  uploaddoc(){
+    this.uploadd = !this.uploadd;
   }
 
   addteam() {
@@ -363,5 +373,11 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
   getimage(files: File[] ){
       this.upload_files = files[0];
+  }
+
+  resetfields(){
+    this.bizproducts = []
+    this.documents = []
+    this.dailyupdates = [];
   }
 }

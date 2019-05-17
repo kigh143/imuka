@@ -48,17 +48,27 @@
 
             <section>
                 <b>Product or service</b><br/>
+                  <div class="media" *ngFor="let product of products">
+                        <img src="..." class="mr-3" alt="...">
+                        <div class="media-body">
+                          <h5 class="mt-0">{{product.name}}</h5>
+                          <p>{{product.description}}</p>
+                         <div class="row">
+                              <div class="col">
+                                  <span style="font-size: 12px">price</span><br/>
+                                  <span style="font-size: 12px">{{product.price}}</span>
+                              </div>
+                              <div class="col">
+                                <span style="font-size: 12px">Quantities</span><br/>
+                                <span style="font-size: 12px">Kilograms / grams</span>
+                                </div>
+                                <div class="col">
 
-                <div class="row" *ngFor="let product of products">
-                    <div class="col-md-2">
-                        <img src="assets/services.jpg" style="width:100%;">
-                    </div>
-                    <div class="col-md-10">
-                        <b>{{product.name}}</b>
-                        <p>{{product.description}}</p>
-                        <p>Price : {{product.price}} ugx.</p>
-                    </div>
-                </div>
+                                    </div>
+                         </div>
+                        </div>
+                      </div>
+                
             </section>
 
             <section>
@@ -98,7 +108,7 @@
                             <div padding *ngIf="factors">
 
                             <div class="multiselect">
-                              <label floating>Select only three factors.</label>
+                              <label floating>Select only three factors.></label> &nbsp;<span class="multiclick"  style="color:gray">Ctrl + Click</span>
                               <select multiple="true" [(ngModel)]="comp_factors" style="width:100%">
                                 <option value="Price"> Price</option>
                                 <option value="Product"> Product</option>
@@ -296,7 +306,7 @@
                                         <option value=5>5</option>
                                         </select>
                                     </div>
-                                     <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Save</button>
+                                     <button type="submit" (click)="editcompetitive()" class="btn btn-primary">Finish</button>
                             </div>
             </div>
             </section>
@@ -350,7 +360,7 @@
             </section>
 
             <section>
-                <b>Investiment Request</b><br/><br/>
+                <b>Investment Request</b><br/><br/>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -390,39 +400,62 @@
                     </tr>
                   </tbody>
                 </table>
-
                 <div *ngIf="edit">
-                  <b>Let us know the  type of investiment you're interested in, the specific purpose of the fund, and the amout required. Type of investiment.</b>
-                    <p>For the fields below enter the amount you'll allocate to the respective sections. <b>All amounts should be in US Dollars ($) </b></p>
-
-                        <label>Marketing</label>
-                        <input type="number" [(ngModel)]="investimentNeed.marketing" name="marketing" />
-
-                        <label>Operations and Admin</label>
-                        <input type="number" [(ngModel)]="investimentNeed.operations" name="operations" />
-
-                        <label>Machinery and Equipment</label>
-                        <input type="number" [(ngModel)]="investimentNeed.machinery" name="machinery"/>
-
-                        <label>Stock and Inventory</label>
-                        <input type="number" [(ngModel)]="investimentNeed.stock" name="stock"/>
-
-                        <label>Raw material</label>
-                        <input type="number" [(ngModel)]="investimentNeed.raw_material" name="raw_material"/>
-
-                        <div class="form-group">
-                          <label>Type of investiment</label>
-                          <select [(ngModel)]="investimentNeed.investiment_type"  name="investiment_type" class="form-control">
-                             <option value="Equity Financing">Equity Financing</option>
-                             <option value="Debt Financing">Debt Financing</option>
-                             <option value="Mezzanine financing">Mezzanine financing</option>
-                             <option value="Islamic Finance">Islamic Finance</option>
-                             <option value="Open to discussion">Open to discussion</option>
-                             <option value="Not sure">Not sure</option>
-                           </select>
-                       </div>
-
-                </div>
+                        <b>Let us know the  type of investment you're interested in, the specific purpose of the fund, and the amout required. Type of investment.</b>
+                        <p>For the fields below enter the amount you'll allocate to the respective sections. <b>All amounts should be in US Dollars ($) </b></p>
+                        <div class="row">
+                                <div class="col col-content">
+                                  <label>Marketing</label>
+                                  <input type="number" class="form-control" placeholder="marketing" [(ngModel)]="investimentNeed.marketing" name="marketing">
+                                </div>
+                                <div class="col col-content">
+                                  <label>Operations</label>
+                                  <input type="number" class="form-control" placeholder="operations" [(ngModel)]="investimentNeed.operations" name="operations">
+                                </div>
+                              </div>
+    
+                              <div class="row">
+                                    <div class="col col-content">
+                                      <label>Machinery</label>
+                                      <input type="number" class="form-control" placeholder="machinery" [(ngModel)]="investimentNeed.machinery" name="machinery">
+                                    </div>
+                                    <div class="col col-content">
+                                      <label>Stock</label>
+                                      <input type="number" class="form-control" placeholder="stock" [(ngModel)]="investimentNeed.stock" name="stock">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                        <div class="col col-content">
+                                         <label>Raw_material</label>
+                                          <input type="number" class="form-control" placeholder="raw_material" [(ngModel)]="investimentNeed.raw_material" name="raw_material">
+                                        </div>
+                                       
+                                      </div>
+                                      <div class="row">
+                                          <div class="col col-content"><div class="form-group">
+                                            <label>Type of investiment</label>
+                                            <select [(ngModel)]="investimentNeed.investiment_type"  name="investiment_type" class="form-control" (change)="onchanged_value($event)">
+                                               <option value="Equity Financing">Equity Financing</option>
+                                               <option value="Debt Financing">Debt Financing</option>
+                                               <option value="Mezzanine financing">Mezzanine financing</option>
+                                               <option value="Islamic Finance">Islamic Finance</option>
+                                               <option value="Open to discussion">Open to discussion</option>
+                                               <option value="Not sure">Not sure</option>
+                                             </select>
+                                         </div>
+                                        </div>
+                                        <div class="col col-content">
+                                                <div class="alert alert-success" role="alert">
+                                                        <h4 class="alert-heading" style="font-size: 13px"><i class="fa fa-info-circle" style="font-size:18px"></i> {{heading}}</h4>
+                                                        
+                                                        <hr>
+                                                        <p class="mb-0"  style="font-size: 12px">{{message}}</p>
+                                                      </div>
+                                           
+                                        </div>
+                                        </div>
+                    </div>
+               
             </section>
 
             <section>
@@ -432,7 +465,7 @@
                 </ol>
                   <div *ngIf="edit">
                     <div class="form-group">
-                    <label for="name">social Development Goals</label>
+                    <label for="name">social Development Goals</label> &nbsp; <span class="multiclick" style="color:gray">Ctrl + Click</span>
                     <select class="form-control" multiple name="pitch.sdgs" [(ngModel)]="pitch.impact_areas" >
                                     <option value="No Poverty">No Poverty</option>
                                     <option value="Zero Hunger">Zero Hunger</option>
@@ -478,7 +511,7 @@
                 </ol>
                 <div *ngIf="edit">
                 <div class="form-group">
-                <label for="name">Economic impact</label>
+                <label for="name">Economic impact</label> &nbsp;<span class="multiclick" style="color:gray">Ctrl + Click</span>
                 <select class="form-control" multiple name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
                     <option value="It provides jobs to the people">It provides jobs to the people</option>
                     <option value="It increases the incomes of the people">It increases the incomes of the people</option>
@@ -496,7 +529,7 @@
                 </ol>
                 <div *ngIf="edit">
                     <div class="form-group">
-                    <label for="name">Environmental impacts</label>
+                    <label for="name">Environmental impacts</label> &nbsp; <span class="multiclick" style="color:gray">Ctrl + Click</span>
                     <select class="form-control" multiple name="pitch.env_impact"  [(ngModel)]="pitch.env_impact">
                        <option *ngFor="let environ_impact of env_impact" value="{{environ_impact.ans}}">{{environ_impact.ans}}</option>
                     </select>
@@ -513,15 +546,15 @@
 
   <ng-template #template>
     <div class="modal-header">
-        <h4 class="modal-title pull-left">Post an event</h4>
+        <h4 class="modal-title pull-left"> Pitch Book</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
         <section>
-            <b>{{pitch?.problem}}</b><br/>
-            <span>{{pitch?.problem}}</span>
+            <b>{{business.business_name}}</b><br/>
+            
         </section>
 
         <section>
@@ -546,21 +579,32 @@
 
         <section>
             <b>Product or service</b><br/>
-            <div>
-                <div>
-                    <img src="assets/user.png" alt="">
-                </div>
-                <div>
-                    <b>Prodcur name</b>
-                    <p>is simply dummy text of the printing and typesetting industry.</p>
-                    <p>Price : 3000o ugx.</p>
-                </div>
-            </div>
+          
+                    <div class="media">
+                            <img src="..." class="mr-3" alt="...">
+                            <div class="media-body">
+                              <h5 class="mt-0">Media heading</h5>
+                             <div class="row">
+                                  <div class="col">
+                                      <span>price</span><br/>
+                                      <span>20000</span>
+                                  </div>
+                                  <div class="col">
+                                    <span>Quantities</span>
+                                    <span>Kg / grams</span>
+                                    </div>
+                                    <div class="col">
+
+                                        </div>
+                             </div>
+                            </div>
+                          </div>
+           
 
             <div>
                 <b>Service name</b>
-                <p>is simply dumy text of the printing and typesetting industry.</p>
-                <p>Price : 3000o ugx.</p>
+                <p></p>
+                <p></p>
             </div>
         </section>
 
@@ -573,9 +617,9 @@
                     <div></div>
                 </div>
                 <div>
-                    <p>Available Markert : <b>{{pitch?.purpose}}</b></p>
-                    <p>Potetinal Markert : <b>{{pitch?.purpose}}</b></p>
-                    <p>Served Markert    : <b>{{pitch?.purpose}}</b></p>
+                    <p>Available Market : <b>{{pitch?.purpose}}</b></p>
+                    <p>Potetinal Market : <b>{{pitch?.purpose}}</b></p>
+                    <p>Served Market    : <b>{{pitch?.purpose}}</b></p>
                 </div>
             </div>
         </section>
@@ -652,6 +696,18 @@
         <div>
             <button class="btn btn-primary btn-sm">Print pitchbook</button>
         </div>
+    </div>
+  </ng-template>
+  <ng-template #template1 >
+        <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button"  class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                  <span aria-hidden="true">&times;</span>
+                </button></div>
+      <div class="modal-dialog">
+        <div class="message text-center"><P>{{message}}</P></div>
+        
+      
     </div>
   </ng-template>
   <app-footer></app-footer>
