@@ -42,7 +42,6 @@
                   <button class="btn btn-danger  btn-sm"  routerLink="/my_businesses">Apply For Program</button>
               </div>
             </div>
-            
         </div>
       </div>
       <br/>
@@ -62,39 +61,7 @@
               <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
           </div>
       </div>
-      <div class="process">
-        <div class="process-row milestones">
-            <div class="process-step" *ngFor="let milestone of reports">
-                <button type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fa fa-user fa-3x"></i></button>
-                <p>{{milestone?.milestone}}</p>
-            </div>
-            <!-- <div class="process-step">
-                <button type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fa fa-comments-o fa-3x"></i></button>
-                <p>We confirm you</p>
-            </div>
-            <div class="process-step">
-                <button type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fa fa-thumbs-up fa-3x"></i></button>
-                <p>Tiger comes</p>
-            </div> 
-             <div class="process-step">
-                <button type="button" class="btn btn-success btn-circle" disabled="disabled"><i class="fa fa-eur fa-3x"></i></button>
-                <p>You Pay</p>
-            </div>  -->
-        </div>
-    </div>
-    <div class="col-md-6 offset-md-3 milestonesml">
-			<h4>Milestones</h4>
-      <ul class="timeline ">
-				<li *ngFor="let milestone of reports">
-          
-          <p>{{milestone?.milestone}}</p>
-          <p>{{milestone?.description}}</p>
-          
-				</li>
-				
-			</ul>
-		</div>
-     
+      <hr/>
       <div class="card border-primary mb-3" style="max-width: 100%;" *ngIf="biznes?.on_program==='Y'">
         <div class="card-header bg-transparent border-primary">Business Progress</div>
         <div class="card-body text-primary">
@@ -127,7 +94,7 @@
                       <div>
                         <p>{{biznes.business_name}}</p>
                         <p>{{biznes.description}}</p>
-                        <p>{{biznes.sectors | stringArray}} </p>
+                        <p>{{biznes.sectors}}</p>
                       </div>
 
                       <hr/>
@@ -156,7 +123,7 @@
                         <div style="background:#eee; padding:16px;">
                           <div class="form-group">
                             <label for="inputPassword" class="form-label" >Business name</label>
-                            <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
+                            <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select"/>
                           </div>
 
                           <div class="form-group">
@@ -265,12 +232,12 @@
                   <div class="col-md-8 col-xs-12" style="margin-top:10px;">
                   
                     <div class="media"  *ngFor="let prdt of bizproducts">
-                      <div class="media-left" style="padding:10px">
-                        <img src="{{prdt.images}}" class="media-object" style="width:100px">
+                      <div class="media-left">
+                        <img src="{{prdt.images}}" class="media-object" style="width:60px">
                       </div>
-                      <div class="media-body" style="padding:10px">
-                        <h6 class="media-heading" style="padding:10px">{{prdt.name}}</h6>
-                        <p style="font-size:13px" >{{prdt.description}}</p>
+                      <div class="media-body">
+                        <h4 class="media-heading">{{prdt.name}}</h4>
+                        <p>{{prdt.description}}</p>
                       </div>
                     </div>
                   </div>
@@ -395,7 +362,8 @@
               <div class="financial" >
                 <div class="content-box row">
                   <div class="col-md-8 col-xs-12" style="padding-top:20px">
-                    <table class="table table-striped table-responsive-sm">
+ 
+                    <table class="table table-striped table-responsive-sm bigl">
                       <thead>
                         <tr>
                           <th scope="col">Year</th>
@@ -416,6 +384,38 @@
                           <td>{{financial.irr}}</td>
                         </tr>
                       </tbody>
+                    </table>
+                    <table class="table sml ">
+                        <tbody>
+                            <tr>
+                              
+                              <th scope="col">Year</th>
+                              <td>{{financial.period_to}}</td>
+                              
+                              
+                              
+                             
+                            </tr>
+                            <tr>
+                                <th scope="col">ROS</th>
+                                <td>{{financial.ros}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">ROI</th>
+                                <td>{{financial.roi}}</td>
+                            </tr>
+                          <tr>
+                              <th scope="col">ROE</th>
+                              <td>{{financial.roe}}</td>
+                            </tr>
+                            <tr><th scope="col">DER</th>
+                              <td>{{financial.der}}</td>
+                              
+                            </tr>
+                            <tr> <th scope="col">IRR</th>
+                              <td>{{financial.irr}}</td>
+                            </tr>
+                        </tbody>
                     </table>
                   </div>
                   <div  class="col-md-4 col-xs-12" style="border-left:1px solid #eee; padding:0; padding-top:20px" *ngIf="user?.user_type==='entrepreneur'">

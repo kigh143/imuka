@@ -24,7 +24,7 @@
                 <div class="col-md-10">
                   <div class="card-body">
                     <h6 class="card-title">{{business?.business_name}} <small class="text-muted">({{business.legal_entity}})</small></h6>
-                    <p class="card-text">{{business.sectors}}</p>
+                    <p class="card-text">{{business.sectors | stringArray}}</p>
                     <p class="card-text">{{business.country}} <small>({{business.region}})</small></p>
                     <p class="card-text">
                       <button class="btn btn-danger  btn-sm" *ngIf="business.on_program==='N' && business.prop_type === 'business'" (click)="openModal(Join, business)" style="margin-right:10px;">Apply For Program</button>

@@ -75,3 +75,8 @@
   bottom: 50px;
  
 }
+@media only screen  and (max-width: 750px){
+ .btn{
+    margin-bottom:10px !important;
+  }
+}

@@ -50,6 +50,7 @@ export class PitchbookComponent {
   competitor3 = false;
   biz_info;
   heading;
+  team:any;
   competitions;
   comp_factor:{};
   competitor1_info={
@@ -177,7 +178,7 @@ export class PitchbookComponent {
         this.business = data.business_info;
         this.pitch  = data.pitch;
         this.competitions = JSON.parse(this.pitch.competition);
-        
+        this.team = data.pitch.team;
         this.products  = data.products;
         this.edit = false;
         this.enviroment_impact = JSON.parse(this.pitch.env_impact);

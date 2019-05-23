@@ -56,7 +56,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   fileload: boolean = false;
   coveruploading: boolean = false;
   logouploading: boolean = false;
-
+  reports: any;
   btnText="save all changes";
 
   updates_form: any;
@@ -166,6 +166,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
           this.documents = data['documents']
           this.dailyupdates = data['daily_updates'];
           this.milestones = data['milestones'];
+          this.reports = data['reports']
           this.draw();
           console.log(data);
       });
