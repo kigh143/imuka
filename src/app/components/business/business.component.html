@@ -19,31 +19,14 @@
                 <div class="card-footer btn-group" role="group" aria-label="Basic example" style="padding:8px;">
                     <button class="btn btn-danger btn-sm spaced" *ngIf="user?.user_type==='entrepreneur'"  (click)="showforms()">Add Logo or Cover Image</button>
                     <button type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
-                    <button *ngIf="biznes?.on_program==='Y' && user?.user_type==='entrepreneur'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Inovices</button>
+                    <button *ngIf="biznes?.on_program==='Y' && user?.user_type==='entrepreneur'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Invoices</button>
+                    <button *ngIf="biznes?.on_program=='N'" class="btn btn-danger  btn-sm"  routerLink="/my_businesses">Apply For Program</button>
                 </div>
               </div>
         </div>
 
 
-        <div class="col-md-4">
-            <div *ngIf="biznes?.on_program=='Y'">
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-dark">ImukaAccess activities and milestones.</li>
-                    <li *ngFor="let milestone of milestones" class="list-group-item list-group-item-success  d-flex justify-content-between align-items-center"  [ngClass]="{'list-group-item-success': milestone.complete, 'list-group-item-warning': !milestone.complete}" >
-                    {{milestone?.name}}
-                    <i [ngClass]="{'fa fa-check': milestone.complete}" ></i>
-                </ul>
-            </div>
-
-            <div *ngIf="biznes?.on_program=='N'" style="display:flex;">
-              <div style="margin:auto">
-                  <h2><i class="fa fa-file-o"></i></h2>
-                  <h4><b>Not yet on program</b></h4>
-                  <button class="btn btn-danger  btn-sm"  routerLink="/my_businesses">Apply For Program</button>
-              </div>
-            </div>
-            
-        </div>
+        
       </div>
       <br/>
 
@@ -64,9 +47,10 @@
       </div>
       <div class="process">
         <div class="process-row milestones">
-            <div class="process-step" *ngFor="let milestone of reports">
-                <button type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fa fa-user fa-3x"></i></button>
-                <p>{{milestone?.milestone}}</p>
+            <div class="process-step" *ngFor="let milestone of reports; let i = index" >
+                <!-- <button type="button" class="btn btn-default btn-circle" disabled="disabled" [style.background]="getColor()"><i class="fa fa-user fa-3x"></i></button> -->
+                <div class="milestonename" [style.background]= colors[i]><p>{{milestone?.milestone}}</p></div>
+                
             </div>
             <!-- <div class="process-step">
                 <button type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fa fa-comments-o fa-3x"></i></button>
@@ -85,7 +69,7 @@
     <div class="col-md-6 offset-md-3 milestonesml">
 			<h4>Milestones</h4>
       <ul class="timeline ">
-				<li *ngFor="let milestone of reports">
+				<li *ngFor="let milestone of reports" [style.color]=colors[i]>
           
           <p>{{milestone?.milestone}}</p>
           <p>{{milestone?.description}}</p>

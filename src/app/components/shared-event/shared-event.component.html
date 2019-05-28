@@ -21,26 +21,32 @@
                 </ul>
             </div>
         </div>
+
     </nav>
-  <div class="jumbotron jumbotron-fluid" >
 
-<div class="row" style="margin-left:50px;margin-right:0; margin-top:40px">
+<div class="container">
 
-		<div class="col-sm-6" style="display:flex;justify-content: center; align-items: center">
-   
-				<div style="width:70%"> <h3 style="margin-bottom:20px;">{{event.title}}</h3><br/>
-				 <p style="padding-left:15px;color:rgb(141, 139, 139); font-size:13px ">{{event.description}}</p>
-				 <div style="justify-content: center; align-items:center; display: flex"><a href="login" class="btn btn-round btn-outline-primary btn-primary" style="color:primary">See more</a></div>
-			 </div>
-	 </div>
-  <div class="col-sm-6">
-    <img [src]="event.image_url" class="eventimage" style="width:70%; height:380px"/>
-  </div>
   
+<div class="row" >
+  <div class="col-md-6"> 
+  <div class="firstpart" [ngStyle]="{'background-image':'url(' + event.image_url + ')'}">
+
+
 </div> 
 
 
 </div>
 
 
+<div class="col-md-6" style="display:flex;justify-content: center; align-items: center">
+
+           <div> <div style="width:70%"> <h3 style="margin-bottom:10px; margin-top:10px">{{event.title}}</h3><br/>
+             <p style="padding-left:15px;color:rgb(141, 139, 139); font-size:13px ">{{event.description}}</p>
+             <div style="justify-content: center; align-items:center; display: flex"><a href="login" class="btn btn-round btn-outline-primary btn-primary" style="color:primary">See more</a></div>
+         </div></div>
+ </div>
+
+
+</div> 
+</div>
 </div>

@@ -63,7 +63,8 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   milestones: any = {};
   upload_files:any;
-
+  colors=['#C7E8AC','#C9FFF0','#ACBCE8','#BD9BC7'];
+  randomItem;
   isaddingproduct = false;
   addingprdt = false;
   
@@ -178,6 +179,11 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   go_back(){
     
   }
+  getColor(){
+    this.randomItem = this.colors[Math.floor(Math.random()*this.colors.length)];
+    console.log('s',this.randomItem);
+    return this.randomItem;
+ }
   addpdt() {
     this.addingprdt = true;
     this.resetfields();

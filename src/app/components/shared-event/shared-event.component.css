@@ -10,7 +10,18 @@
   .display-4{
     color:#007bff  !important;
   }
+  .firstpart{
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top:80px !important;
+    height:60vh !important;
+    
+  }
+  .container {
+    margin-top:20px !important;
   
+  
+}
   .nav-link{
     color:#eee !important;
   }
