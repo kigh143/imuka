@@ -16,6 +16,7 @@ import { ForgotpassComponent } from './components/forgotpass/forgotpass.componen
 import { VerifyComponent } from './components/verify/verify.component';
 import { PeopleComponent } from './components/people/people.component';
 import { ChatComponent } from './components/chat/chat.component';
+
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { EventsComponent } from './components/events/events.component';
 import { OpportunitiesComponent } from './components/opportunities/opportunities.component';
@@ -83,9 +84,11 @@ import { FinalComponent } from './components/final/final.component';
 import { DetailsComponent } from './components/details/details.component';
 import { StringArrayPipe } from './pipes/string-array.pipe';
 import { InvestneedPipe } from './pipes/investneed.pipe';
+import { StartupquestionComponent } from './components/startupquestion/startupquestion.component';
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
+  { path: 'questions', component : StartupquestionComponent},
   { path: 'create_organisation', component : OrgloginComponent},
   { path: 'manage_organisation', component : ManageorganisationComponent},
   { path: 'login', component: LoginComponent },
@@ -193,6 +196,7 @@ const app_routes: Routes = [
     DetailsComponent,
     StringArrayPipe,
     InvestneedPipe,
+    StartupquestionComponent,
 
 
 

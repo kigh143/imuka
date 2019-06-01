@@ -1,0 +1,328 @@
+<div>
+  <ul class="progressbar">
+    <li class="active" ></li>
+    <li class="step2" [ngClass]="{'active': product_info1 === true}"></li>
+    <li class="step3" [ngClass]="{'active': doc_info1 === true}"></li>
+    <li class="step3" [ngClass] = "{'active': financial_info === true}"></li>
+  </ul>
+  <div class="container questions">
+   <div class="generalinfo questiontype" *ngIf="general_info"> <form >
+   
+   
+      <div>
+        
+     <div class="form-group" >
+      <label for="exampleInputEmail1"><span>{{type}}</span>Business name</label>
+      <input type="text" class="form-control" [(ngModel)]="business_name" name="business_name" placeholder="Enter Name">
+      
+    
+    </div>
+    </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Select Country</label>
+                <select class="form-control" [(ngModel)]="country" name="country">
+                  <option value="Algeria">Algeria</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Cape Verde">Cape Verde</option>
+                  <option value="Central African Republic"
+                    >Central African Republic</option
+                  >
+                  <option value="Chad">Chad</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo - Brazzaville"
+                    >Congo - Brazzaville</option
+                  >
+                  <option value="Congo - Kinshasa">Congo - Kinshasa</option>
+                  <option value="Côte d’Ivoire">Côte d’Ivoire</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="Equatorial Guinea"
+                    >Equatorial Guinea</option
+                  >
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mayotte">Mayotte</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Namibia">Namibia</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Réunion">Réunion</option>
+                  <option value="Saint Helena">Saint Helena</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Swaziland">Swaziland</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+              </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label >Select region</label>
+                <select class="form-control" [(ngModel)]="region" name="region">
+                    <option value="Northern">Northern</option>
+                    <option value="Western">Western</option>
+                    <option value="Central">Central</option>
+                    <option value="Eastern">Eastern</option>
+                    <option value="Southern">Southern</option>
+                </select>
+              </div>        
+        </div>
+      </div>
+
+    
+      <div class="form-group">
+        <label >Legal status of entity </label>
+        <select  class="form-control" [(ngModel)]="legal_status" name="legal_status">
+          <option value="Not registered">Not registered</option>
+          <option value="Sole proprietor business">Sole proprietor business</option>
+          <option value="Partnership">Partnership</option>
+          <option value="Company limited by shares">Company (limited by shares)</option>
+          <option value="Company limited by guarantee">Company (limited by guarantee)</option>
+          <option value="Association">Association</option>
+          <option value="cooperative">cooperative</option>
+          </select>
+      </div>
+
+      <div class="form-group" >
+        <label >Stage of business growth</label>
+        <select class="form-control" [(ngModel)]="business_stage" name="business_stage" >
+            <option value="Business idea">Business idea</option>
+            <option value="Start up">Start up</option>
+            <option value="Early growth">Early growth</option>
+            <option value="Expansion">Expansion</option>
+            <option value="Project">Project</option>
+            <option value="Contract">Contract</option>
+        </select>
+      </div>
+
+
+      <div class="form-group" data-toggle="tooltip" title="click Ctrl and select">
+        <label>Select all sectors that apply to your business.</label>
+        <select  class="form-control" multiple  [(ngModel)]="sectors" name="sectors">
+            <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
+            </option>
+            <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
+            </option>
+            <option value="Technology/ ICT and IT-Enabled Services">Technology/ ICT and IT-Enabled Services</option>
+            <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+            <option value="Healthcare and Pharmaceuticals">Healthcare and Pharmaceuticals</option>
+            <option value="Education">Education</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Trade(Retail and Wholesale)" >Trade(Retail and Wholesale)</option>
+            <option value="Transport and Logistics">Transport and Logistics</option>
+            <option value="Services">Services</option>
+        </select>
+      
+      </div>
+
+      <div class="row" >
+        <div class="col-md-6" >
+            <div class="form-group">
+            <label for="exampleInputEmail1">start date of operations </label>
+            <input type="date" class="form-control"   [(ngModel)]="start_of_operation" name="start_of_operation">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date of registrations </label>
+                <input type="date" class="form-control"   [(ngModel)]="date_of_reg" name="date_of_reg">
+            </div>
+        </div>
+      </div>
+     
+      
+      <div class="row">
+        <div class="col-md-7">
+          <p style="color:red;" *ngIf="error">{{msg}}</p>
+        </div>
+       
+          
+      </div>
+      
+
+   
+     
+    </form> 
+    <div class="test">
+        <div style='float: right;'>
+            <button class="btn btn-primary" (click)="addinfo()">Submit</button>
+          </div>
+          <div style='float: left;'>
+            <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
+          </div>
+        
+     </div>
+  </div>
+    <div  class="questiontype " *ngIf="product_info"><form >
+      
+  
+        <div class="form-group">
+          <label for="pdtname">Product Name/Service Offered</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter product / service name"   [(ngModel)]="prdtname" name="prdtname " >
+        </div>
+        <div class="form-group">
+          <label for="pdtname">Product/Service Price</label>
+          <input type="number" class="form-control" id="price" placeholder="Enter price"   [(ngModel)]="price" name="price">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Product Description</label>
+          <textarea class="form-control" id="validationTextarea"    [(ngModel)]="description" name="description" ></textarea>
+        </div>
+        
+    </form>
+    <div class="test">
+        <div style='float: right;'>
+            <button class="btn btn-primary" (click)="addpdt()">Submit</button>
+          </div>
+          <div style='float: left;'>
+            <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
+          </div>
+        
+    </div>
+  </div>
+    <div *ngIf="doc_info" class="questiontype">
+   
+    <form [formGroup]="docs" >
+      
+      
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Tin registration" value="Tin registration" (change)="getdoc($event)">
+          <label class="form-check-label" for="exampleCheck1" name="Tin registration">Tin registration</label>
+        </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Business plan" value="Business plan" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Business plan">Business plan</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Trading license" value="Trading license" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Trading license">Trading license</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Certificate of registration" value="Certificate of registration" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Certificate of registration">Certificate of registration</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Memorandum and article of associations" value="Memorandum and article of associations" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Memorandum and article of associations">Memorandum and article of associations</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="ids or passports" value="ids or passports" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="ids or passports">ids or passports</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Management Accounts" value="Management Accounts" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Management Accounts">Management Accounts</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Certified or Audited Accounts" value="Certified or Audited Accounts" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Certified or Audited Accounts">Certified or Audited Accounts</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Cash flow Statement or ProjectsCertified or Audited Accounts" value="Cash flow Statement or ProjectsCertified or Audited Accounts" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Cash flow Statement or ProjectsCertified or Audited Accounts">Cash flow Statement or Projects</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Aged Debtors Listing" value="Aged Debtors Listing" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Aged Debtors Listing">Aged Debtors Listing</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1"name="Aged Creditors Listing"  value="Aged Creditors Listing" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Aged Creditors Listing">Aged Creditors Listing</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Confirmation of Tax Affairs" value="Confirmation of Tax Affairs" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Confirmation of Tax Affairs">Confirmation of Tax Affairs</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Contract" value="Contract Document" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" name="Contract Document"  >Contract Document</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Project document" value="Project document" (change)="getdoc($event)">
+        <label class="form-check-label" for="exampleCheck1" >Project document</label>
+      </div>
+      
+      
+    </form> 
+    <div class="test">
+        <div style='float: left;'>
+            <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
+          </div>
+          <div style='float: right;'>
+            
+            <button class="btn btn-primary" (click)="adddocinfo()">Submit</button>
+          </div>
+        
+     </div>
+    </div>
+    
+    <div *ngIf="financial_info" class="questiontype">
+      <form >
+        <h3>Lets know about your revenue range for the last six months</h3>
+        <div class="form-group">
+         
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Revenue" name="revenue" [(ngModel)]="revenue">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        
+        <!-- <button type="submit" class="btn btn-primary"  [ngClass]="['active']" (click)="addfinancial()">Save</button> -->
+      </form>
+      <div class="test">
+          <div style='float: right;'>
+              <button class="btn btn-primary" (click)="addfinancial()">Save</button>
+            </div>
+            <div style='float: left;'>
+              <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
+            </div>
+          
+       </div>
+    </div>
+    <div *ngIf="successful" class="questiontype"> 
+      <div class="card" >
+         <h3>Thank You !</h3>
+         <p> for choosing us, lets help you prepare you for good investment through our program</p>
+         <div class="test finalbtn" style="">
+            <div style='float: right;'>
+                <button class="btn btn-primary">Apply for Program</button>
+            </div>
+              <div style='float: left;'>
+                <button class="btn btn-outline-primary">Apply Later</button>
+              </div>
+            
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

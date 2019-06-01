@@ -49,4 +49,8 @@ export class SessionService {
   get_user_session() {
     return  this.isLoggedin;
   }
+ addbusinessinfo(key:string, businessinfo){
+  let KEY = key
+  localStorage.setItem(KEY, JSON.stringify(businessinfo));
+ }
 }
