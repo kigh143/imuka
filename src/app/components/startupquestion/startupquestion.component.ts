@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionapiService } from 'src/app/provider/sessionapi.service';
 import { SessionService } from 'src/app/provider/session.service';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-startupquestion',
   templateUrl: './startupquestion.component.html',
@@ -32,10 +33,15 @@ export class StartupquestionComponent implements OnInit {
   type;
   prdtname;
   price;
+  businessdocs;
+  businessrevenue;
+  productinformation;
+  
   description;
   revenue;
   ihvedocs=[];
-  constructor( public session:SessionService, public formbuild: FormBuilder) { 
+  generalinformation;
+  constructor( public session:SessionService, public formbuild: FormBuilder, public router: Router) { 
   
 
 }
@@ -59,7 +65,7 @@ export class StartupquestionComponent implements OnInit {
     this.general_info = false;
     this.product_info = true;
     console.log(businessinfo);
-  this.session.addbusinessinfo('generalinfo', businessinfo)
+    this.session.addbusinessinfo('generalinfo', businessinfo)
   }
   addpdt(){
     const productinfo = {
@@ -107,7 +113,49 @@ export class StartupquestionComponent implements OnInit {
    
     //
    }
-   removeunchecked(){
+   previous(currentstate){
+    this.fetchbusiness();
+      if(currentstate == 'product_info'){
+        this.general_info = true;
+        this.product_info = false;
+        this.business_info = false;
+      }
+      else if(currentstate == 'business_info'){
+        this.product_info = true;
+        this.general_info = false;
+        this.business_info = false;
+      }
+      else if(currentstate == 'financial_info'){
+        this.business_info = true;
+        this.general_info = false;
+        this.product_info = false;
+      }
+   }
+   fetchbusiness(){
+    this.generalinformation = localStorage.getItem('generalinfo')
+    console.log(this.generalinformation);
+    this.productinformation = localStorage.getItem('productinfo')
+    this.businessdocs = localStorage.getItem('documents')
+    this.businessrevenue = localStorage.getItem('revenue')   
+   }
+   gotodashboard(){
      
+     this.router.navigate(['/']);
+   }
+   saveinfo(){
+     let allbusinessinfo ={
+      generalinformation: localStorage.getItem('generalinfo'),
+       productinformation: localStorage.getItem('productinfo'),
+       businessdocs: localStorage.getItem('documents'),
+       businessrevenue : localStorage.getItem('revenue'),
+     }
+     if(allbusinessinfo !=null){
+       //send to the backend
+       this.router.navigate(['/'])
+
+     }
+     else{
+       this.router.navigate(['/'])
+     }
    }
 }
