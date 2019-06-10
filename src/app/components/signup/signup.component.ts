@@ -32,7 +32,7 @@ export class SignupComponent {
     public activeRoute: ActivatedRoute,
   ) {
     this.myForm = this.formBuilder.group({
-      email: [ '', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),  Validators.required ])],
+      email: [ '', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),  Validators.required ])],
       password: [ '', Validators.compose([Validators.minLength(5), Validators.required]) ],
       phone: [ '', Validators.compose([Validators.minLength(10), Validators.required]) ],
       name: ['', Validators.compose([Validators.required])]

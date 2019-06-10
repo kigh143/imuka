@@ -3,6 +3,7 @@ import { SessionapiService } from 'src/app/provider/sessionapi.service';
 import { SessionService } from 'src/app/provider/session.service';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BizService } from 'src/app/provider/biz.service';
 @Component({
   selector: 'app-startupquestion',
   templateUrl: './startupquestion.component.html',
@@ -40,12 +41,16 @@ export class StartupquestionComponent implements OnInit {
   description;
   revenue;
   ihvedocs=[];
+  user;
   generalinformation;
-  constructor( public session:SessionService, public formbuild: FormBuilder, public router: Router) { 
+  constructor( public session:SessionService, public formbuild: FormBuilder, public router: Router, public businessservice: BizService) { 
   
 
 }
   ngOnInit() {
+    const data = this.session.getuser();
+    this.user = data;
+    localStorage.getItem('isdone')
   }
 
   addinfo(){
@@ -60,12 +65,13 @@ export class StartupquestionComponent implements OnInit {
       start_of_operation: this.start_of_operation,
       start_contract : this.start_contract,
       end_contract : this.end_contract,
-      type : this.type
+      type : "business"
     }
     this.general_info = false;
     this.product_info = true;
     console.log(businessinfo);
     this.session.addbusinessinfo('generalinfo', businessinfo)
+    localStorage.setItem('isdone', 'false')
   }
   addpdt(){
     const productinfo = {
@@ -79,7 +85,7 @@ export class StartupquestionComponent implements OnInit {
     this.doc_info = true;
     console.log(productinfo);
     this.session.addbusinessinfo('productinfo', productinfo);
-  
+    localStorage.setItem('isdone', 'false')
   }
   adddocinfo(){
     this.general_info = false;
@@ -89,7 +95,7 @@ export class StartupquestionComponent implements OnInit {
     this.doc_info = false;
     this.financial_info = true;
     this.session.addbusinessinfo('documents', this.ihvedocs);
-    
+    localStorage.setItem('isdone', 'false')
   }
   addfinancial(){
    let revenueamt = this.revenue
@@ -101,6 +107,7 @@ export class StartupquestionComponent implements OnInit {
     console.log(revenueamt)
     this.successful = true;
     this.session.addbusinessinfo('revenue', revenueamt);
+    this.saveinfo();
   }
   getdoc(e){
     
@@ -144,14 +151,22 @@ export class StartupquestionComponent implements OnInit {
    }
    saveinfo(){
      let allbusinessinfo ={
+       
       generalinformation: localStorage.getItem('generalinfo'),
        productinformation: localStorage.getItem('productinfo'),
        businessdocs: localStorage.getItem('documents'),
        businessrevenue : localStorage.getItem('revenue'),
      }
+     
      if(allbusinessinfo !=null){
        //send to the backend
-       this.router.navigate(['/'])
+       this.businessservice.capturebusinessinfo(this.user.user_id, JSON.stringify(allbusinessinfo)).subscribe(data =>{
+        if(data.flag){
+          localStorage.setItem('isdone', 'true')
+          console.log("submitted")
+        }
+       });
+      
 
      }
      else{

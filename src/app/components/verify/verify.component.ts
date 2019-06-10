@@ -32,7 +32,7 @@ export class VerifyComponent  {
       this.auth.verify(user).subscribe( data => {
           if (data.flag) {
               this.session.login(data.user);
-              this.router.navigate(['/']);
+              this.router.navigate(['questions']);
           } else {
             this.error = true;
             this.error_message = data.message;
