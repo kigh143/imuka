@@ -12,22 +12,14 @@ export class AuthGuard implements CanActivate {
      isdone = localStorage.getItem(this.KEY2);
   canActivate(): boolean {
       if (localStorage.getItem(this.KEY) != null ) {
-        if(this.isdone !=null){
-          if(this.isdone == 'true'){
-            return true;
-          }
-          else{
-            this.router.navigate(['/questions'])
+          
             return true;
           }
           
-        }
-        else{
-          this.router.navigate(['/questions'])
-          return true;
-        }
         
-      } else {
+        
+        
+      else {
         this.router.navigate(['/login']);
         return false;
       }

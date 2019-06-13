@@ -42,6 +42,7 @@ export class SignupComponent {
       this.urlValue = params['type'];
       this.imageUrl = 'assets/' + params['type'] + '.jpg';
     });
+    localStorage.setItem('isdone', 'false');
    }
 
   signup() {

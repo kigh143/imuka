@@ -48,7 +48,7 @@ export class LoginComponent {
     public sessionapi: SessionapiService
     ) {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),Validators.required])],
+      email: ['', Validators.compose([ Validators.pattern('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+$'),Validators.required])],
       password: ['', Validators.compose([Validators.minLength(5), Validators.required])]
     });
     this.notifier = notifierService;

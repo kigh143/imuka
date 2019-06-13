@@ -24,7 +24,7 @@ export class StartupquestionComponent implements OnInit {
   region;
   country;
   date_of_reg;
-  legal_status ;
+  legal_entity ;
   sectors;
   business_stage;
   start_of_operation;
@@ -59,13 +59,13 @@ export class StartupquestionComponent implements OnInit {
       region: this.region,
       country: this.country,
       date_of_reg: this.date_of_reg,
-      legal_status : this.legal_status,
+      legal_entity : this.legal_entity,
       sectors: JSON.stringify(this.sectors),
       business_stage: this.business_stage,
       start_of_operation: this.start_of_operation,
       start_contract : this.start_contract,
       end_contract : this.end_contract,
-      type : "business"
+      prop_type : "business"
     }
     this.general_info = false;
     this.product_info = true;
@@ -157,20 +157,22 @@ export class StartupquestionComponent implements OnInit {
        businessdocs: localStorage.getItem('documents'),
        businessrevenue : localStorage.getItem('revenue'),
      }
-     
+     localStorage.setItem('isdone', 'true');
+    //  localStorage.removeItem('currentGame');
      if(allbusinessinfo !=null){
        //send to the backend
        this.businessservice.capturebusinessinfo(this.user.user_id, JSON.stringify(allbusinessinfo)).subscribe(data =>{
         if(data.flag){
-          localStorage.setItem('isdone', 'true')
+          
           console.log("submitted")
+         
         }
        });
       
 
      }
      else{
-       this.router.navigate(['/'])
+       this.gotodashboard()
      }
    }
 }
