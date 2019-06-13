@@ -311,7 +311,7 @@
       <div class="card" >
          <h3>Thank You !</h3>
          <p> for choosing us, lets help you prepare you for good investment through our program</p>
-         <div class="test finalbtn" style="">
+         <div class="finalbtn" style="">
             <div style='float: right;'>
                 <button class="btn btn-primary">Apply for Program</button>
             </div>
@@ -322,6 +322,6 @@
          </div>
       </div>
     </div>
-    <div><button class="btn btn-outline-light" (click)="saveinfo()" style="color:cadetblue">Skip</button></div>
+    <div><button *ngIf="!successful" class="btn btn-outline-light" (click)="saveinfo()" style="color:cadetblue">Skip</button></div>
   </div>
 </div>
