@@ -104,7 +104,7 @@
     
       <div class="form-group">
         <label >Legal status of entity </label>
-        <select  class="form-control" [(ngModel)]="legal_status" name="legal_status">
+        <select  class="form-control" [(ngModel)]="legal_entity" name="legal_entity">
           <option value="Not registered">Not registered</option>
           <option value="Sole proprietor business">Sole proprietor business</option>
           <option value="Partnership">Partnership</option>
@@ -175,12 +175,9 @@
    
      
     </form> 
-    <div class="test">
-        <div style='float: right;'>
+    <div class="">
+        <div style=''>
             <button class="btn btn-primary" (click)="addinfo()">Submit</button>
-          </div>
-          <div style='float: left;'>
-            <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
           </div>
         
      </div>
@@ -207,10 +204,11 @@
             <button class="btn btn-primary" (click)="addpdt()">Submit</button>
           </div>
           <div style='float: left;'>
-            <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
+            <button class="btn btn-outline-primary" (click)="previous('product_info')">Previous</button>
           </div>
         
     </div>
+    
   </div>
     <div *ngIf="doc_info" class="questiontype">
    
@@ -278,7 +276,7 @@
     </form> 
     <div class="test">
         <div style='float: left;'>
-            <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
+            <button class="btn btn-outline-primary" (click)="previous(business_info)">Previous</button>
           </div>
           <div style='float: right;'>
             
@@ -304,7 +302,7 @@
               <button class="btn btn-primary" (click)="addfinancial()">Save</button>
             </div>
             <div style='float: left;'>
-              <button class="btn btn-outline-primary" (click)="previous()">Previous</button>
+              <button class="btn btn-outline-primary" (click)="previous(financial_info)">Previous</button>
             </div>
           
        </div>
@@ -313,16 +311,17 @@
       <div class="card" >
          <h3>Thank You !</h3>
          <p> for choosing us, lets help you prepare you for good investment through our program</p>
-         <div class="test finalbtn" style="">
+         <div class="finalbtn" style="">
             <div style='float: right;'>
                 <button class="btn btn-primary">Apply for Program</button>
             </div>
               <div style='float: left;'>
-                <button class="btn btn-outline-primary">Apply Later</button>
+                <button class="btn btn-outline-primary" (click)="gotodashboard()">Apply Later</button>
               </div>
             
          </div>
       </div>
     </div>
+    <div><button *ngIf="!successful" class="btn btn-outline-light" (click)="saveinfo()" style="color:cadetblue">Skip</button></div>
   </div>
 </div>

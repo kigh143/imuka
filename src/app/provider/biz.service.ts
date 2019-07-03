@@ -21,7 +21,11 @@ api_url: string;
     this.headers.append('Accept', 'application/json');
     this.options = new RequestOptions({ headers: this.headers });
   }
-
+  capturebusinessinfo(user_id, businessinfo){
+    return this.http
+      .post(this.api_url + 'firstquestions/user_id/'+user_id+'/json', businessinfo, this.options)
+      .pipe(map(res => res.json()));
+  }
   addbiz(biz) {
       return this.http
       .post(this.api_url + 'addbusiness/json', biz, this.options)

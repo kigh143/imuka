@@ -60,6 +60,17 @@
         
       
 }
+.finalbtn{
+  
+        width:80%;
+        display:inline-block;
+        overflow: auto;
+        white-space: nowrap;
+        margin:2px auto;
+        
+      
+
+}
 .card{
     text-align: center;
     padding:30px;
@@ -84,5 +95,10 @@
     .finalbtn{
         margin:0 !important;
         width:100% !important;
+        display:inline-block;
+        overflow: auto;
+        white-space: nowrap;
+        margin:2px auto;
     }
+    
 }

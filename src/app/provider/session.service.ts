@@ -10,6 +10,7 @@ export class SessionService {
   isLoggedin = false;
   KEY = 'user_object';
   user: any;
+  businessinfo:any;
 
   constructor() {
     this.checkUser();
@@ -52,5 +53,11 @@ export class SessionService {
  addbusinessinfo(key:string, businessinfo){
   let KEY = key
   localStorage.setItem(KEY, JSON.stringify(businessinfo));
+ }
+ get_business_session(key){
+   const data = localStorage.getItem(key);
+   if(data != null){
+     this.businessinfo = data;
+   }
  }
 }
