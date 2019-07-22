@@ -226,6 +226,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     this.businessServices.adddocument(formData).subscribe(data => {
       this.isaddingproduct = false;
       if ( data.flag ) {
+        this.alert.showSuccess("Document added");
         this.bizdoc.reset();
         this.getbusiness(this.business_id);
       }else{

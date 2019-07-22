@@ -34,11 +34,24 @@
                        <hr  style="margin:0">
                         <p class="card-text" style="font-size:12px" >{{opportunity.short_description|flTrancator}}<a [href]="opportunity.link" target="_blank" style="color:#0056b3">Read More  <i class="fa fa-forward"></i></a> </p>
                     </div>
-                    <ul class="list-group list-group-flush">
+                    <!-- <ul class="list-group list-group-flush"> -->
                            
-                            <li class="list-group-item"><span tappable style="color:rgb(0, 86, 179); margin:20px"><i class="fa fa-share" aria-hidden="true" ></i>&nbsp; share</span><span style="margin:20px"><i class="fa fa-bookmark" style="color:#0056b3; font-size: 15px">&nbsp;</i>Bookmark</span></li>
-                     </ul>
-                
+                            <!-- <li class="list-group-item"><span tappable style="color:rgb(0, 86, 179); margin:20px"><i class="fa fa-share" aria-hidden="true" ></i>&nbsp; share</span><span style="margin:20px"><i class="fa fa-bookmark" style="color:#0056b3; font-size: 15px">&nbsp;</i>Bookmark</span></li>
+                     </ul> -->
+                     <ul class="list-group list-group-flush">
+                           
+                        <li class="list-group-item">
+                            <share-buttons [theme]="'circles-dark'"
+                            [include]="['facebook','twitter','email']"
+                            [show]="5"
+                            [url]="'https://www.imukaaccess.com/app/#/sharedevent/'+ opportunity.opportunity_id"
+                            [description]="opportunity.short_description"
+                           ></share-buttons></li>
+                        
+                               
+
+                    </ul>
+               
             </div>
         </div>
     

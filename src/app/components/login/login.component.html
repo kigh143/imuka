@@ -79,7 +79,20 @@
 
     <section class="light">
         <div class="container">
-
+            <div class="row">
+                       <h5>Sessions</h5>
+                       <div class="col-md-6" *ngFor= "let session of sessions">
+                        <div class="card">
+                            <div class="media"  style="width: 100%;">
+                                <img [src]="session?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
+                                <div class="media-body">
+                                  <h6 class="mt-0" style="font-size: 13px; text-transform:lowercase; color:#222; font-weight:700">{{session?.title|flTrancator}}</h6>
+                                  <p style="font-size:12px; color:#666">{{session?.short_description|flTrancator}}  <a href="/sharedevent/{{session.session_id}}">Readmore</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+            </div>            
 
           <hr>
             <div class="row">
@@ -108,6 +121,7 @@
                 </div>
               </div> -->
               </div>
+
               <div class="col-md-6" >
                     <h5>Featured Events.</h5>
                     <hr>

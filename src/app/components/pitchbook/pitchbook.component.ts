@@ -22,6 +22,7 @@ export class PitchbookComponent {
   edit = false;
   products: any;
   purpose:any;
+  financials:any;
   comp_factors={'factor':''};
   factors:boolean= true;
   factor1:number;
@@ -160,6 +161,7 @@ export class PitchbookComponent {
       this.route.params.subscribe(params => {
         this.business_id = +params['id'];
         this.fetch_pitcbook_data(this.business_id);
+        console.log(this.business_id);
       });
   this.months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   
@@ -173,23 +175,25 @@ export class PitchbookComponent {
     this.onchanged_value(event)
   }
 
-  fetch_pitcbook_data( business_id ) {
-    this.businessService.fetch_abusiness( business_id ).subscribe( data => {
+  fetch_pitcbook_data(business_id) {
+    this.businessService.fetch_abusiness(business_id ).subscribe( data => {
         this.business = data.business_info;
-        this.pitch  = data.pitch;
-        this.competitions = JSON.parse(this.pitch.competition);
-        this.team = data.pitch.team;
         this.products  = data.products;
-        this.edit = false;
-        this.enviroment_impact = JSON.parse(this.pitch.env_impact);
-        this.social_impact = JSON.parse(this.pitch.social_impact);
-        this.economic_impacts=JSON.parse(this.pitch.economic_impact);
-        this.investimentNeed = JSON.parse(this.pitch.investimentNeed);
-        this.sdgs = JSON.parse(this.pitch.impact_areas);
+        this.financials = data.financials
+        // this.pitch  = data.pitch;
+        // this.competitions = JSON.parse(this.pitch.competition);
+        // this.team = data.pitch.team;
+       
+        // this.edit = false;
+        // this.enviroment_impact = JSON.parse(this.pitch.env_impact);
+        // this.social_impact = JSON.parse(this.pitch.social_impact);
+        // this.economic_impacts=JSON.parse(this.pitch.economic_impact);
+        // this.investimentNeed = JSON.parse(this.pitch.investimentNeed);
+        // this.sdgs = JSON.parse(this.pitch.impact_areas);
 
-        this.getTotalNeed(this.investimentNeed);
-        this.draw(this.competitions);
-
+        // this.getTotalNeed(this.investimentNeed);
+        // this.draw(this.competitions);
+        console.log(this.financials);
     });
   }
    
