@@ -180,19 +180,19 @@ export class PitchbookComponent {
         this.business = data.business_info;
         this.products  = data.products;
         this.financials = data.financials
-        // this.pitch  = data.pitch;
-        // this.competitions = JSON.parse(this.pitch.competition);
-        // this.team = data.pitch.team;
-       
-        // this.edit = false;
-        // this.enviroment_impact = JSON.parse(this.pitch.env_impact);
-        // this.social_impact = JSON.parse(this.pitch.social_impact);
-        // this.economic_impacts=JSON.parse(this.pitch.economic_impact);
-        // this.investimentNeed = JSON.parse(this.pitch.investimentNeed);
-        // this.sdgs = JSON.parse(this.pitch.impact_areas);
+        this.pitch  = data.pitch;
+        this.competitions = JSON.parse(this.pitch.competition);
+        this.team = data.pitch.team;
+    
+        this.edit = false;
+        this.enviroment_impact = JSON.parse(this.pitch.env_impact);
+        this.social_impact = JSON.parse(this.pitch.social_impact);
+        this.economic_impacts=JSON.parse(this.pitch.economic_impact);
+        this.investimentNeed = JSON.parse(this.pitch.investimentNeed);
+        this.sdgs = JSON.parse(this.pitch.impact_areas);
 
-        // this.getTotalNeed(this.investimentNeed);
-        // this.draw(this.competitions);
+        this.getTotalNeed(this.investimentNeed);
+        this.draw(this.competitions);
         console.log(this.financials);
     });
   }
