@@ -1,19 +1,18 @@
 .mainmenu{
-    background: #fff;
-    border:1px solid #eee;
+
     border-radius: 3px;
 }
 
 .feeds{
     background: #fff;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     background: none;
 }
 
 .content{
     background: transparent;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     padding:10px;
 }
@@ -30,7 +29,7 @@
 }
 .eventtime{
     font-size: 14px !important;
-    
+
 }
 
 .divcover{
@@ -73,12 +72,12 @@
     .floating-form {
         width:320px;
       }
-      
+
       /****  floating-Lable style start ****/
-      .floating-label { 
-        position:relative; 
+      .floating-label {
+        position:relative;
         margin-bottom:20px;
-        background:cadetblue; 
+        background:cadetblue;
       }
       .floating-input , .floating-select {
         font-size:14px;
@@ -90,47 +89,47 @@
         border:none;
         border-bottom:1px solid #757575;
       }
-      
+
       .floating-input:focus , .floating-select:focus {
            outline:none;
-           border-bottom:2px solid #5264AE; 
+           border-bottom:2px solid #5264AE;
       }
-      
+
       label {
-        color:#999; 
+        color:#999;
         font-size:14px;
         font-weight:normal;
-       
-        transition:0.2s ease all; 
-        -moz-transition:0.2s ease all; 
+
+        transition:0.2s ease all;
+        -moz-transition:0.2s ease all;
         -webkit-transition:0.2s ease all;
       }
-      
+
       .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label {
         top:-18px;
         font-size:14px;
         color:#5264AE;
       }
-      
+
       .floating-select:focus ~ label , .floating-select:not([value=""]):valid ~ label {
         top:-18px;
         font-size:14px;
         color:#5264AE;
       }
-      
+
       /* active state */
       .floating-input:focus ~ .bar:before, .floating-input:focus ~ .bar:after, .floating-select:focus ~ .bar:before, .floating-select:focus ~ .bar:after {
         width:50%;
       }
-      
+
       *, *:before, *:after {
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;
           box-sizing: border-box;
       }
-      
-      
-     
+
+
+
 }
 .modal-header{
  height:60px !important;

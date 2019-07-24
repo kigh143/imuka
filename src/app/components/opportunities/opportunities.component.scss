@@ -1,6 +1,4 @@
 .mainmenu{
-    background: #fff;
-    border:1px solid #eee;
     border-radius: 3px;
 }
 .card-title{
@@ -8,7 +6,7 @@
 }
 .eventtime{
     font-size: 14px !important;
-    
+
 }
 .card-text{
     margin-top: 5px !important;
@@ -38,14 +36,14 @@
 }
 .feeds{
     background: #fff;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     background: none;
 }
 
 .content{
     background: transparent;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     padding:10px;
 }
@@ -72,7 +70,7 @@
         font-size:8px !important;
     }
     .card-columns {
-       
+
         column-count:1;
       }
 }

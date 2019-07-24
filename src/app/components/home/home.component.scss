@@ -1,19 +1,18 @@
 .mainmenu{
-    background: #fff;
-    border:1px solid #eee;
+
     border-radius: 3px;
 }
 
 .feeds{
     background: #fff;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     background: none;
 }
 
 .content{
     background: #fff;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
 }
 
@@ -37,7 +36,7 @@ section{
     border:1px solid #eee;
     margin-bottom:10px;
     border:1px solid #d1e4f3;
-    
+
     .heading{
         padding:10px;
         background: #d1e4f3;
@@ -78,7 +77,7 @@ section{
     }
 .quote{
     .card-body{
-     
+
       padding:20px !important;
       justify-content: center;
       .card-text{
@@ -86,7 +85,7 @@ section{
           color:gray ;
       }
     }}
-    
+
 .tagandlikes{
     float: right !important;
     padding:10px !important;
@@ -95,7 +94,7 @@ section{
         border:1px solid gray !important;
         height:35px !important;
         padding:5px;
-        
+
     }
     .foot{
         margin-right:15px !important;
@@ -112,11 +111,11 @@ section{
 }
 @media only screen and (max-width: 750px){
     .media{
-        width:6rem !important; 
+        width:6rem !important;
         margin:0 !important;
         padding:0 !important;
         background: transparent !important;
-       
+
         .mt-0{
             display:none !important;
         }
@@ -145,7 +144,7 @@ section{
         align-items: center !important;
         .card{
             width:21rem !important;
-            
+
         }
     }
     .card1{
@@ -163,7 +162,7 @@ section{
         justify-content:left !important;
         text-align: left !important;
         margin-bottom:0 !important;
-       
+
     }}
 
 }

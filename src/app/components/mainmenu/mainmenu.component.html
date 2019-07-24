@@ -1,22 +1,14 @@
-<div class="profile" (click)="go_to_profile()">
-  <div class="top"></div>
-  <div class="bottom">
-    <div class="imgBox">
-      <img src="{{user?.profile_pic}}" alt="" />
-    </div>
-    <b style="font-size: 15px">{{user?.email}}</b>
-    <span>{{user?.user_type}}</span>
-  </div>
-</div>
 
-<!-- <div class="account" *ngIf="user?.user_type==='investor'">
-  <div>
-      <p>Account info</p>
-      <p>Plan Name: <b>Corporate (Active)</b></p>
-      <p>Expiration Date: <b>Nov 10, 2019</b></p>
-      <button routerLink="/plans" class="btn btn-primary btn-block btn-sm">Renew Plan</button>
-  </div>
-</div> -->
+<ul class="list-unstyled" (click)="go_to_profile()">
+  <li class="media">
+    <img src="{{user?.profile_pic}}" class="mr-3" alt="..." style="height:60px; width: 60px; border-radius: 10px;">
+    <div class="media-body">
+      <h3><b style="font-size:18px;">{{user?.name}}</b></h3>
+      <b>{{user?.email}}</b><br/>
+      <b>{{user?.phone}}</b>
+    </div>
+  </li>
+</ul>
 
 <ul class="list-group list-group-flush"  *ngIf="user?.user_type==='entrepreneur'">
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"  ><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
@@ -49,3 +41,4 @@
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/request"><i class="fa fa-info-circle"></i> Requests and Help</a></li>
     <li class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
 </ul>
+
