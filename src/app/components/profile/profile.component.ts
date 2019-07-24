@@ -72,9 +72,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-
   openModal(template: TemplateRef<any>) {
-
     this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'modal-sm' }));
   }
 
