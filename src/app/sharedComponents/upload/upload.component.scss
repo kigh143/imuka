@@ -1,0 +1,25 @@
+.box{
+   width:200px;
+   height:200px;
+   margin: auto;
+   background: red;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+
+   .img{
+     flex: 3;
+      img {
+        height:100px;
+        width:100px;
+      }
+   }
+
+   .btns {
+    flex:1;
+    button {
+      height:60px;
+    }
+   }
+}

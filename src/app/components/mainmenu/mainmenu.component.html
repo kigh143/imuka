@@ -1,11 +1,14 @@
 <div class="profile" (click)="go_to_profile()">
   <div class="top"></div>
   <div class="bottom">
-    <img src="{{user?.profile_pic}}" alt="" />
+    <div class="imgBox">
+      <img src="{{user?.profile_pic}}" alt="" />
+    </div>
     <b style="font-size: 15px">{{user?.email}}</b>
     <span>{{user?.user_type}}</span>
   </div>
 </div>
+
 <div class="account" *ngIf="user?.user_type==='investor'">
   <div>
       <p>Account info</p>
