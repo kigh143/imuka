@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef} from '@angular/core';
 import { SessionService } from '../../provider/session.service';
 import { AuthService } from '../../provider/auth.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
