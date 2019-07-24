@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { SessionService } from '../../provider/session.service';
+import { AuthService } from '../../provider/auth.service';
 
 @Component({
 
@@ -9,11 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadComponent  {
 
-  imgFile = '../assets/users.png';
+  imgFile = '../../assets/users.png';
   fileToUpload: any;
   error: string;
+  uploadingStatus = false;
+  files: any;
 
-  constructor () {
+  @Input() type: any; // user_profile, org_profile, biz_logos, business_cover, org_cover
+  @Input() id: any;
+  @Input() visibility;
+
+  constructor (public authService: AuthService, public sessionService: SessionService ) {
 
   }
 
@@ -27,7 +35,7 @@ export class UploadComponent  {
       this.error = 'Only images are supported.';
       return;
     }
-
+    this.files = files;
     const reader = new FileReader();
     this.fileToUpload = files;
     reader.readAsDataURL(files[0]);
@@ -37,11 +45,23 @@ export class UploadComponent  {
   }
 
   uploadImage () {
-    alert(90);
+    this.uploadingStatus = true;
+    this.authService.uploadAndProgress(this.files, this.type, this.id).subscribe( result  => {
+      this.uploadingStatus = false;
+      //if type is user_profile save to localstorage;
+      if( this.type === 'user_profile'){
+        this.sessionService.login(result.result['user']);
+      }
+      console.log(result);
+    }, error => {
+      console.log(error);
+      this.error = error.mesaage;
+      this.uploadingStatus = false;
+    });
   }
 
   removeImage () {
-    alert(90);
+    this.imgFile = null;
   }
 
 }

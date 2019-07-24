@@ -1,8 +1,7 @@
 .box{
-   width:200px;
-   height:200px;
+   width:300px;
+   height:300px;
    margin: auto;
-   background: red;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -11,8 +10,8 @@
    .img{
      flex: 3;
       img {
-        height:100px;
-        width:100px;
+        height:120px;
+        width:120px;
       }
    }
 

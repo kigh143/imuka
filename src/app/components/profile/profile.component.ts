@@ -3,7 +3,6 @@ import { SessionService } from '../../provider/session.service';
 import { AuthService } from '../../provider/auth.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { ToastsComponent } from '../toasts/toasts.component';
-import { Http } from '@angular/http';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -34,14 +33,13 @@ export class ProfileComponent implements OnInit {
     files: any;
 
     uploadForm: boolean = false;
-    btnText ="upload File";
+    btnText ='upload File';
 
 
   constructor(
     public sessionService: SessionService,
     public authService: AuthService,
     public spinnerService: Ng4LoadingSpinnerService,
-    public http: Http,
     public alert: ToastsComponent) {
 
     }
@@ -86,23 +84,5 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  upload() {
-    const data = this.sessionService.getuser();
-    this.btnText ="uploading ...";
-    this.authService.uploadAndProgress(this.files, this.type, data.user_id).subscribe( result  => {
-      this.sessionService.login(result.result['user']);
-      this.url = result.result['user']['profile_pic'];
-      this.btnText ="upload";
-      this.uploadForm = false;
-    }, error => {
-      this.btnText ="upload";
-    });
-  }
-
-  getTheImage(files: File[], type) {
-      this.files = files;
-      this.type = type;
-      this.user = false;
-  }
 
 }
