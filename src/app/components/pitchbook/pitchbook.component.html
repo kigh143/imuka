@@ -18,7 +18,7 @@
 
         <div class="content">
             <section>
-                <b>{{business.business_name}}</b><br/>
+                <b style="text-transform: capitalize">{{business.business_name}}</b><br/>
                 <span>{{business.legal_entity}}</span>
             </section>
 
@@ -48,26 +48,32 @@
 
             <section>
                 <b>Product or service</b><br/>
-                  <div class="media" *ngFor="let product of products">
-                        <img src="..." class="mr-3" alt="...">
-                        <div class="media-body">
-                          <h5 class="mt-0">{{product.name}}</h5>
-                          <p>{{product.description}}</p>
-                         <div class="row">
-                              <div class="col">
-                                  <span style="font-size: 12px">price</span><br/>
-                                  <span style="font-size: 12px">{{product.price}}</span>
-                              </div>
-                              <div class="col">
-                                <span style="font-size: 12px">Quantities</span><br/>
-                                <span style="font-size: 12px">Kilograms / grams</span>
-                                </div>
-                                <div class="col">
-
-                                    </div>
-                         </div>
+                <div class="media" *ngFor="let product of products" style="margin-bottom:30px; margin-top:18px">
+                  <img src="{{product.images}}" class="mr-3" alt="..." style="height:150px; width:150px"/>
+                  <div class="media-body">
+                    <h5 class="mt-0" >{{product.name}}</h5>
+                    <p style="color:gray; font-size:14px">{{product.description}}</p>
+                   <div class="row">
+                        <div class="col">
+                          <span style="font-size: 12px; ">price</span>
                         </div>
-                      </div>
+                           <div class="col">
+                             <span style="font-size: 12px">{{product.price}}</span>
+                            </div> 
+                          </div>
+                        <div class="row">
+                            <div class="col">
+                                <span style="font-size: 12px">Quantities</span>
+                            </div>
+                            <div class="col">
+                                <span style="font-size: 12px">Kilograms / grams</span>
+                            </div>
+                        </div>
+                         
+                         
+                          </div>
+                         
+              </div>
                 
             </section>
 
@@ -78,7 +84,7 @@
 
                     <div>
                         <p>Available Markert : <b>{{pitch.available}}</b></p>
-                        <p>Potetinal Markert : <b>{{pitch.potetinal}}</b></p>
+                        <p>Potential Markert : <b>{{pitch.potetinal}}</b></p>
                         <p>Served Markert : <b>{{pitch.served}}</b></p>
                     </div>
                 </div>
@@ -348,7 +354,7 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let financial of financials">
-                      <td>{{financial.period_from}} - {{financial.period_to}}</td>
+                      <td style="font-size:12px">{{financial.period_from}} - {{financial.period_to}}</td>
                       <td>{{financial.ros}}</td>
                       <td>{{financial.roi}}</td>
                       <td>{{financial.roe}}</td>
@@ -631,7 +637,7 @@
                        
                         </div>
                        
-                 </div>
+            </div>
                
            
 

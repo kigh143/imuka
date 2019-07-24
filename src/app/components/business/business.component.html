@@ -6,10 +6,10 @@
       <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <img src="{{biznes.business_cover}}" class="card-img-top" alt="{{biznes?.business_name}}" style="height:160px;">
+                <img src="{{biznes?.business_cover}}" class="card-img-top" alt="{{biznes?.business_name}}" style="height:160px;">
                 <div class="card-body">
                   <div class="media">
-                      <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;">
+                      <img src="{{biznes?.business_logo}}" class="mr-3" style="height:60px; width:60px;">
                       <div class="media-body">
                         <h5 class="mt-0">{{biznes?.business_name}}</h5>
                         {{biznes?.location}} {{biznes?.region}}  {{biznes?.country}}
@@ -103,33 +103,43 @@
                 <div class="content-box row" style="margin-top: 20px">
                   <div class="col-md-6">
                       <div class="text-center">
-                          <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;">
+                          <img src="{{biznes?.business_logo}}" class="mr-3" style="height:60px; width:60px;">
                       </div>
                       <hr/>
                       <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">General Business Info</span>
                       <hr/>
                       <div>
-                        <p>{{biznes.business_name}}</p>
-                        <p>{{biznes.description}}</p>
-                        <p>{{biznes.sectors | stringArray}} </p>
+                        <span style="color:gray">Business Name</span>
+                        <p ><b style="text-transform:capitalize">{{biznes?.business_name}}</b></p>
+                        <span style="color:gray">Business Description</span>
+                        <p><b>{{biznes?.description}}</b></p>
+                        <span style="color:gray">Sectors</span>
+                        <p><b>{{biznes.sectors | stringArray}}</b> </p>
                       </div>
 
                       <hr/>
                       <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Business Contact Info</span>
                       <hr/>
                       <div>
-                        <p>{{biznes.phone}}</p>
-                        <p>{{biznes.website}}</p>
-                        <p>{{biznes.email}}</p>
-                        <p>{{biznes.location}}</p>
+                        <span style="color:gray">Phone number</span>
+                        <p><b>{{biznes?.phone}}</b></p>
+                        <span style="color:gray">Website</span>
+                        <p><b>{{biznes?.website}}</b></p>
+                        <span style="color:gray">Email</span>
+                        <p><b>{{biznes?.email}}</b></p>
+                        <span style="color:gray">Sectors</span>
+                        <p><b>{{biznes?.location}}</b></p>
                       </div>
                       <hr/>
                       <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Other information.</span>
                       <hr/>
                       <div>
-                        <p>{{biznes.mission}}</p>
-                        <p>{{biznes.vision}}</p>
-                        <p>{{biznes.date_of_reg}}</p>
+                        <span style="color:gray">Mission</span>                        
+                        <p><b>{{biznes?.mission}}</b></p>
+                        <span style="color:gray">Vision</span>
+                        <p><b>{{biznes?.vision}}</b></p>
+                        <span style="color:gray">Date found</span>
+                        <p><b>{{biznes?.date_of_reg}}</b></p>
                       </div>
                   </div>
                   <div class="col-md-6 col-xs-12" *ngIf="user?.user_type==='entrepreneur'">
@@ -140,17 +150,17 @@
                         <div style="background:#eee; padding:16px;">
                           <div class="form-group">
                             <label for="inputPassword" class="form-label" >Business name</label>
-                            <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
+                            <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" (ngModelChange)="biznes.business_name = $event"/>
                           </div>
 
                           <div class="form-group">
                             <label for="inputPassword" class="form-label" >Description</label>
-                            <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
+                            <textarea class="form-control" name="description" (ngModelChange)="biznes.description = $event" row="2"></textarea>
                           </div>
 
                           <div class="form-group">
                             <label for="exampleFormControlSelect1">Line of business/ sector</label>
-                            <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
+                            <select  class="form-control" multiple  (ngModelChange)="biznes.sectors = $event" name="sectors">
                               <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
                               </option>
                               <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
@@ -180,24 +190,24 @@
                         <div style="background:#eee; padding:16px;">
                           <div class="form-group">
                               <label for="inputPassword" class="form-label">Phone number</label>
-                              <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
+                              <input type="text"  name="phone" class="form-control"  (ngModelChange)="biznes.phone = $event" placeholder="">
                           </div>
 
                           <div class="form-group">
                               <label for="inputPassword" class="form-label">Website</label>
-                              <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
+                              <input type="" class="form-control" name="website"  (ngModelChange)="biznes.website = $event" placeholder="">
                           </div>
 
                           <div class="form-group">
                               <label for="inputPassword" class="col-form-label">Email</label>
-                              <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
+                              <input type="" class="form-control" name="email"  (ngModelChange)="biznes.email = $event" placeholder="">
                           </div>
                           <span style="font-size:14px">Location</span>
                           <hr>
 
                           <div class="form-group">
                                 <label for="inputPassword" class="form-label">Address line</label>
-                                <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
+                                <input type="text" class="form-control" name="location" (ngModelChange)="biznes.location = $event">
                           </div>
                           <div class="row">
                               <div class="col-md-7"></div>
@@ -213,17 +223,17 @@
                         <div style="background:#eee; padding:16px;">
                             <div class="form-group">
                                 <label for="inputPassword" class="form-label">Mission</label>
-                                <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
+                                <textarea class="form-control" name="mission" (ngModelChange)="biznes.mission = $event" row="2"></textarea>
                             </div>
 
                             <div class="form-group">
                               <label for="inputPassword" class="form-label">Vision</label>
-                                <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
+                                <textarea class="form-control"  name="vision" (ngModelChange)="biznes.vision = $event" row="2"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputPassword" class="form-label">Founded</label>
-                                <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
+                                <input type="text" class="form-control" name="date_of_reg" (ngModelChange)="biznes.date_of_reg = $event">
                             </div>
 
                             <div class="row">
@@ -247,13 +257,13 @@
               <div class="products">
                 <div class="content-box row">
                   <div class="col-md-8 col-xs-12" style="margin-top:10px;">
-                  
-                    <div class="media"  *ngFor="let prdt of products">
+                     
+                    <div class="media"  *ngFor="let prdt of bizproducts">
                       <div class="media-left" style="padding:10px">
-                        <img src="{{prdt.images}}" class="media-object" style="width:100px">
+                        <img src="{{prdt.images}}" class="media-object" style="width:100px; height:50px">
                       </div>
                       <div class="media-body" style="padding:10px">
-                        <h6 class="media-heading" style="padding:10px">{{prdt.name}}</h6>
+                        <h6 class="media-heading" style="padding:10px; text-transform: capitalize">{{prdt.name}}</h6>
                         <p style="font-size:13px" >{{prdt.description}}</p>
                       </div>
                     </div>
