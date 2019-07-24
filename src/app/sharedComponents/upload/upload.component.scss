@@ -1,24 +1,8 @@
-.box{
-   width:300px;
-   height:300px;
-   margin: auto;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-
-   .img{
-     flex: 3;
-      img {
-        height:120px;
-        width:120px;
-      }
-   }
-
-   .btns {
-    flex:1;
-    button {
-      height:60px;
-    }
-   }
+img{
+  height:100px;
+  width:100px;
+  margin:10px auto !important;
+}
+.maim{
+  text-align: center;
 }

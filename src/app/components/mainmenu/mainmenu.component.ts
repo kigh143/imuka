@@ -38,7 +38,7 @@ export class MainmenuComponent implements OnInit {
 
     });
   }
- 
+
   logout(){
     this.sessionService.logout();
     this.router.navigate(['/login']);
@@ -48,7 +48,11 @@ export class MainmenuComponent implements OnInit {
     this.router.navigate(['profile']);
   }
   activateClass(subModule){
-    subModule.active = !subModule.active;    
+    subModule.active = !subModule.active;
+  }
+
+  navigateToPage ( page ) {
+    this.router.navigate([page]);
   }
 
 }

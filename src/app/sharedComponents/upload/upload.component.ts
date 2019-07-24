@@ -16,6 +16,8 @@ export class UploadComponent  {
   error: string;
   uploadingStatus = false;
   files: any;
+  showUpload = false;
+  compeleted = false;
 
   @Input() type: any; // user_profile, org_profile, biz_logos, business_cover, org_cover
   @Input() id: any;
@@ -41,6 +43,7 @@ export class UploadComponent  {
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       this.imgFile = reader.result;
+      this.showUpload = true;
     }
   }
 
@@ -48,10 +51,11 @@ export class UploadComponent  {
     this.uploadingStatus = true;
     this.authService.uploadAndProgress(this.files, this.type, this.id).subscribe( result  => {
       this.uploadingStatus = false;
-      //if type is user_profile save to localstorage;
-      if( this.type === 'user_profile'){
+      // if type is user_profile save to localstorage;
+      if ( this.type === 'user_profile') {
         this.sessionService.login(result.result['user']);
       }
+      this.compeleted = true;
       console.log(result);
     }, error => {
       console.log(error);
@@ -62,6 +66,7 @@ export class UploadComponent  {
 
   removeImage () {
     this.imgFile = null;
+    this.showUpload = false;
   }
 
 }

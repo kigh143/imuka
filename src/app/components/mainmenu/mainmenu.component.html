@@ -1,24 +1,26 @@
+<div style="background:#fff; margin-left:5px; padding:5px; ">
+  <ul class="list-unstyled" (click)="go_to_profile()" style="background:none;">
+    <li class="media" style="background:none;">
+      <img src="{{user?.profile_pic}}" class="mr-3" alt="..." style="height:40px; width: 40px; border-radius: 10px;">
+      <div class="media-body">
+       <b style="font-size:18px;">{{user?.name}}</b> |
+        <b>{{user?.email}}</b><br/>
+        <b>{{user?.phone}}</b>
+      </div>
+    </li>
+  </ul>
+</div>
 
-<ul class="list-unstyled" (click)="go_to_profile()">
-  <li class="media">
-    <img src="{{user?.profile_pic}}" class="mr-3" alt="..." style="height:60px; width: 60px; border-radius: 10px;">
-    <div class="media-body">
-      <h3><b style="font-size:18px;">{{user?.name}}</b></h3>
-      <b>{{user?.email}}</b><br/>
-      <b>{{user?.phone}}</b>
-    </div>
-  </li>
-</ul>
 
 <ul class="list-group list-group-flush"  *ngIf="user?.user_type==='entrepreneur'">
-  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"  ><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item" ><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/my_businesses"  ><i class="fa fa-briefcase"></i> Business(es)</a><span class="badge badge-light float-right">{{business_count}}</span></li>
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/events" ><i class="fa fa-calendar"></i> Events</a><span class="badge badge-light float-right">{{event_counter}}</span></li>
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/opportunities" ><i class="fa fa-globe"></i> Opportunities</a><span class="badge badge-light float-right" >{{opps_count}}</span></li>
   <!--<li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/notifications" ><i class="fa fa-bell"></i> Notifications</a>  <span class="badge badge-light float-right" style="text-align: center; margin-top:5px">4</span></li>-->
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/all_sessions"><i class="fa fa-object-group"></i> Support Sessions</a></li>
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/request"><i class="fa fa-info-circle"></i> Requests and Help</a></li>
-  <li class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
+  <li  class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
 </ul>
 
 <ul class="list-group list-group-flush" *ngIf="user?.user_type==='investor'">

@@ -35,33 +35,11 @@
   font-size:15px !important;
 }
 .active{
-  background: rgb(170, 216, 247) !important;
-  color: #007bff  !important;
+  background: #fff !important;
+  color: #666  !important;
   a{
-    color:#007bff  !important
+    color:#666  !important
   }
-}
-
-.top {
-  background:#007bff !important;
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  border-top-right-radius: 3px !important;
-  border-top-left-radius: 3px !important;
-}
-
-.bottom {
-  text-align: center !important;
-  background: transparent;
-  height: 160px;
-  position: absolute;
-  z-index: 100;
-  top: 50px;
-  left:67px;
 }
 
 .free10 {
@@ -84,13 +62,19 @@ a:hover {
   cursor: pointer;
 }
 
-
-.account{
-  color:#333;
-  background:#d1e4f3 !important;
-
-  div{
-    padding:20px;
-    font-size:12px;
+.list-group-item.active {
+  border-left: 3px solid  rgb(24, 126, 241) !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  a{
+    .fa{
+      color:rgb(24, 126, 241);
+      margin-right:10px !important;
+    }
   }
+}
+
+.fa {
+  font-size:17px !important;
+  margin-right:10px !important;
 }

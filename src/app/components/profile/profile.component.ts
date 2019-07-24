@@ -3,6 +3,9 @@ import { SessionService } from '../../provider/session.service';
 import { AuthService } from '../../provider/auth.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { ToastsComponent } from '../toasts/toasts.component';
+
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -32,14 +35,18 @@ export class ProfileComponent implements OnInit {
     showBtn = false;
     files: any;
 
-    uploadForm: boolean = false;
+    uploadForm = false;
     btnText ='upload File';
+
+    modalRef: BsModalRef;
+
 
 
   constructor(
     public sessionService: SessionService,
     public authService: AuthService,
     public spinnerService: Ng4LoadingSpinnerService,
+    public modalService: BsModalService,
     public alert: ToastsComponent) {
 
     }
@@ -50,9 +57,6 @@ export class ProfileComponent implements OnInit {
     this.url =  data.profile_pic;
   }
 
-  toggleUploadForm(){
-     this.uploadForm = !this.uploadForm;
-  }
 
   save(value) {
     if ( value === 'name') {
@@ -66,6 +70,12 @@ export class ProfileComponent implements OnInit {
    } else  if ( value === 'experience') {
       this.send_request({relevant_exp: this.user.relevant_exp, relevant_skills: this.user.relevant_skills, expertise: this.user.expertise});
     }
+  }
+
+
+  openModal(template: TemplateRef<any>) {
+
+    this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'modal-sm' }));
   }
 
   send_request(object) {
