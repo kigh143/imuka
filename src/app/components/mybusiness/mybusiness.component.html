@@ -18,15 +18,15 @@
           <div class="col-md-12 carddata" *ngFor="let business of businesses">
             <div class="card mb-3">
               <div class="row no-gutters">
-                <div class="col-md-2 bg_image" [ngStyle]="{'background-image':'url(' + business.business_cover + ')'}">
+                <div class="col-md-5 bg_image" [ngStyle]="{'background-image':'url(' + business.business_cover + ')'}">
                   <img [src]="business.business_logo" class="logo" alt="{{business?.business_name}}">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-7">
                   <div class="card-body">
                     <h6 class="card-title">{{business?.business_name}} <small class="text-muted">({{business.legal_entity}})</small></h6>
                     <p class="card-text">{{business.sectors | stringArray}}</p>
                     <p class="card-text">{{business.country}} <small>({{business.region}})</small></p>
-                   
+
 
                     <p class="card-text">
                       <button class="btn btn-danger  btn-sm" *ngIf="business.on_program==='N' && business.prop_type === 'business'" (click)="openModal(Join, business)" style="margin-right:10px;">Apply For Program</button>
@@ -37,7 +37,7 @@
               </div>
             </div>
           </div>
-         
+
         </div>
       </div>
     </div>
@@ -101,7 +101,7 @@
           <label for="exampleInputEmail1"><span>{{type}}</span> name</label>
           <input type="text" class="form-control" [(ngModel)]="business_name" name="business_name" placeholder="Enter Name">
           </div>
-        
+
         </div>
         </div>
           <div class="row">
@@ -183,11 +183,11 @@
                         <option value="Eastern">Eastern</option>
                         <option value="Southern">Southern</option>
                     </select>
-                  </div>        
+                  </div>
             </div>
           </div>
 
-        
+
           <div class="form-group">
             <label >Legal status of entity </label>
             <select  class="form-control" [(ngModel)]="legal_status" name="legal_status">
@@ -230,7 +230,7 @@
                 <option value="Transport and Logistics">Transport and Logistics</option>
                 <option value="Services">Services</option>
             </select>
-          
+
           </div>
 
           <div class="row" *ngIf="type === 'business'">
@@ -261,7 +261,7 @@
                   </div>
               </div>
             </div>
-          
+
           <div class="row">
             <div class="col-md-9">
               <p style="color:red;" *ngIf="error">{{msg}}</p>
@@ -270,7 +270,7 @@
                 <button type="submit" class="btn btn-primary btn-block" (click)="add_business()">{{btnText}}</button>
             </div>
           </div>
-          
+
           </form>
   </div>
 </div>

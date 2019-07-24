@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { SessionService } from '../../provider/session.service';
 import { AuthService } from '../../provider/auth.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { ToastsComponent } from '../toasts/toasts.component';
-import { Http } from '@angular/http';
+
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -33,15 +35,18 @@ export class ProfileComponent implements OnInit {
     showBtn = false;
     files: any;
 
-    uploadForm: boolean = false;
-    btnText ="upload File";
+    uploadForm = false;
+    btnText ='upload File';
+
+    modalRef: BsModalRef;
+
 
 
   constructor(
     public sessionService: SessionService,
     public authService: AuthService,
     public spinnerService: Ng4LoadingSpinnerService,
-    public http: Http,
+    public modalService: BsModalService,
     public alert: ToastsComponent) {
 
     }
@@ -52,9 +57,6 @@ export class ProfileComponent implements OnInit {
     this.url =  data.profile_pic;
   }
 
-  toggleUploadForm(){
-     this.uploadForm = !this.uploadForm;
-  }
 
   save(value) {
     if ( value === 'name') {
@@ -68,6 +70,10 @@ export class ProfileComponent implements OnInit {
    } else  if ( value === 'experience') {
       this.send_request({relevant_exp: this.user.relevant_exp, relevant_skills: this.user.relevant_skills, expertise: this.user.expertise});
     }
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'modal-sm' }));
   }
 
   send_request(object) {
@@ -86,23 +92,5 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  upload() {
-    const data = this.sessionService.getuser();
-    this.btnText ="uploading ...";
-    this.authService.uploadAndProgress(this.files, this.type, data.user_id).subscribe( result  => {
-      this.sessionService.login(result.result['user']);
-      this.url = result.result['user']['profile_pic'];
-      this.btnText ="upload";
-      this.uploadForm = false;
-    }, error => {
-      this.btnText ="upload";
-    });
-  }
-
-  getTheImage(files: File[], type) {
-      this.files = files;
-      this.type = type;
-      this.user = false;
-  }
 
 }

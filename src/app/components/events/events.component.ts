@@ -74,15 +74,17 @@ export class EventsComponent implements OnInit {
     public sessionservice: SessionService,
     public router: Router,
     public alert: ToastsComponent,
-   
-    
+
+
     ) {
-      this.user  = this.sessionservice.getuser();
   }
 
   ngOnInit() {
-     this.get_all_events();
+    this.user  = this.sessionservice.getuser();
+    this.get_all_events();
   }
+
+
 
   onChange(event, main) {
       this.events_clone = this.events_clone.filter((event_value) => {
@@ -141,8 +143,8 @@ export class EventsComponent implements OnInit {
   mybookmark(event){
     // let events = JSON.stringify(event)
     let bmarks= localStorage.getItem('bookmarks')
-    
-      
+
+
       if(bmarks !=null){
        this.bookmarks = JSON.parse(bmarks);
       }
@@ -152,5 +154,5 @@ export class EventsComponent implements OnInit {
       this.alert.showSuccess("Event Bookmarked");
     }
 
-    
+
 }

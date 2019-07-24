@@ -16,7 +16,6 @@ import { ForgotpassComponent } from './components/forgotpass/forgotpass.componen
 import { VerifyComponent } from './components/verify/verify.component';
 import { PeopleComponent } from './components/people/people.component';
 import { ChatComponent } from './components/chat/chat.component';
-
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { EventsComponent } from './components/events/events.component';
 import { OpportunitiesComponent } from './components/opportunities/opportunities.component';
@@ -55,11 +54,11 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NotifierModule } from 'angular-notifier';
 import { JoinprogComponent } from './components/joinprog/joinprog.component';
-import {ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { ToastsComponent } from './components/toasts/toasts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsComponent } from './components/charts/charts.component';
-import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
+import { ChartModule } from 'angular-highcharts';
 import { InvestableBusinessComponent } from './components/investable-business/investable-business.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { FlTrancatorPipe } from './pipes/fl-trancator.pipe';
@@ -85,6 +84,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { StringArrayPipe } from './pipes/string-array.pipe';
 import { InvestneedPipe } from './pipes/investneed.pipe';
 import { StartupquestionComponent } from './components/startupquestion/startupquestion.component';
+import { UploadComponent } from './sharedComponents/upload/upload.component';
+
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
@@ -133,7 +134,7 @@ const app_routes: Routes = [
   { path: 'all_sessions', component :SessionsComponent},
   { path: 'sharedevent/:id', component :SharedEventComponent},
   {path: 'contracts', component: ContractsComponent},
- 
+
 ];
 
 @NgModule({
@@ -197,9 +198,7 @@ const app_routes: Routes = [
     StringArrayPipe,
     InvestneedPipe,
     StartupquestionComponent,
-
-
-
+    UploadComponent
   ],
 
   imports: [
@@ -233,4 +232,5 @@ const app_routes: Routes = [
   providers: [AuthService, EventsService, AuthGuard, OrganisationService, ToastrModule, ToastsComponent, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {}

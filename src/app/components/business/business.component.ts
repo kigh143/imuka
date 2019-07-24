@@ -67,7 +67,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   randomItem;
   isaddingproduct = false;
   addingprdt = false;
-  
+  loadingCompelete = false;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -158,7 +158,9 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   }
 
   getbusiness(biz_id) {
+
       this.businessServices.fetch_abusiness(biz_id).subscribe(data => {
+          this.loadingCompelete = true;
           this.business_data = data;
           this.biznes  = data['business_info'];
           this.sector_info= JSON.parse(this.biznes.sectors)
@@ -177,7 +179,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
       this.sub.unsubscribe();
   }
   go_back(){
-    
+
   }
   getColor(){
     this.randomItem = this.colors[Math.floor(Math.random()*this.colors.length)];
@@ -311,7 +313,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     },
     series: this.dailyupdates.revenue
   });
-    
+
     const linechart = new Chart({
       chart: {
         type: 'line'
@@ -326,7 +328,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
         name: 'Line 1',
         data: [1, 2, 4, 6]
       }
-      
+
     ]
     });
 
@@ -345,7 +347,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
   series: this.dailyupdates.employees,
 });
 
-    
+
     this.chart = chart;
     this.mline = mline;
     this.linechart= linechart;
@@ -387,5 +389,13 @@ export class BusinessComponent implements OnInit,  OnDestroy {
     this.bizproducts = []
     this.documents = []
     this.dailyupdates = [];
+  }
+
+  add_logo(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'modal-sm' }));
+  }
+
+  add_cover (template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'modal-md' }));
   }
 }

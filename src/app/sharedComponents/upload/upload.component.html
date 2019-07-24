@@ -1,0 +1,33 @@
+<!--- Preview --->
+<div *ngIf="!compeleted" class="main">
+  <div *ngIf="!uploadingStatus">
+    <img [src]="imgFile"><br/>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input #file type="file" accept='image/*' (change)="openCamera(file.files)" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div>
+
+    <div *ngIf="showUpload">
+      <button class="btn btn-danger btn-sm" (click)="removeImage()">Close</button>
+      <button class="btn btn-success btn-sm" (click)="uploadImage()">Upload</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="uploadingStatus">
+  Uploaing file please wait ...
+  </div>
+
+</div>
+
+<div  *ngIf="compeleted" class="main">
+  <a routerLink="/" class="btn btn-success"> <i class="fa fa-check"></i>Upload is complete !</a>
+</div>
+
+

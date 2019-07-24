@@ -1,15 +1,18 @@
 <div class="body">
 <app-header></app-header>
 <br/>
-  <div class="container">
+  <div style="padding:20px;" *ngIf="!loadingCompelete">
+
+  </div>
+  <div class="container" *ngIf="loadingCompelete">
 
       <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <img src="{{biznes?.business_cover}}" class="card-img-top" alt="{{biznes?.business_name}}" style="height:160px;">
+                <img src="{{biznes.business_cover}}" class="card-img-top" alt="{{biznes?.business_name}}" style="height:160px;" (click)="add_cover(business_cover)">
                 <div class="card-body">
                   <div class="media">
-                      <img src="{{biznes?.business_logo}}" class="mr-3" style="height:60px; width:60px;">
+                      <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;" (click)="add_logo(business_logo)">
                       <div class="media-body">
                         <h5 class="mt-0">{{biznes?.business_name}}</h5>
                         {{biznes?.location}} {{biznes?.region}}  {{biznes?.country}}
@@ -17,40 +20,21 @@
                     </div>
                 </div>
                 <div class="card-footer btn-group" role="group" aria-label="Basic example" style="padding:8px;">
-                    <button class="btn btn-danger btn-sm spaced" *ngIf="user?.user_type==='entrepreneur'"  (click)="showforms()">Add Logo or Cover Image</button>
                     <button type="button" class="btn btn-primary spaced btn-sm" routerLink="/pitchbook/{{business_id}}">Business Pitch Deck</button>
                     <button *ngIf="biznes?.on_program==='Y' && user?.user_type==='entrepreneur'" type="button" class="btn btn-info spaced btn-sm" routerLink="/einvoice/{{business_id}}">Business Invoices</button>
                     <button *ngIf="biznes?.on_program=='N'" class="btn btn-danger  btn-sm"  routerLink="/my_businesses">Apply For Program</button>
                 </div>
               </div>
         </div>
-
-
-        
       </div>
       <br/>
 
-      <div class="container row" *ngIf="fileload" style="margin: 10px auto; border:1px solid #eee; background:#eee; padding:20px;">
-          <div class="col-md-6">
-              <p>Add business logo (Best results with images at 200x200 pixels.)</p>
-              <input type="file" class="file" (change)="getTheImage($event.target.files, 'biz_logos')" />
-              <p *ngIf="logouploading">uploading please wait ...</p>
-              <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
-          </div>
-
-          <div class="col-md-6">
-              <p>Add business cover image (Best results with images at 1000x150 pixels.)</p>
-              <input type="file" class="file"  (change)="getTheImage($event.target.files, 'business_cover')" />
-              <p *ngIf="coveruploading">Uploading  please wait ...</p>
-              <button  class="btn btn-primary btn-block" [disabled]="showBtn" (click)="upload()">Upload </button>
-          </div>
-      </div>
       <div class="process">
         <div class="process-row milestones">
             <div class="process-step" *ngFor="let milestone of reports; let i = index" >
                 <!-- <button type="button" class="btn btn-default btn-circle" disabled="disabled" [style.background]="getColor()"><i class="fa fa-user fa-3x"></i></button> -->
                 <div class="milestonename" [style.background]= colors[i]><p>{{milestone?.milestone}}</p></div>
-                
+
             </div>
             <!-- <div class="process-step">
                 <button type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fa fa-comments-o fa-3x"></i></button>
@@ -59,7 +43,7 @@
             <div class="process-step">
                 <button type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fa fa-thumbs-up fa-3x"></i></button>
                 <p>Tiger comes</p>
-            </div> 
+            </div>
              <div class="process-step">
                 <button type="button" class="btn btn-success btn-circle" disabled="disabled"><i class="fa fa-eur fa-3x"></i></button>
                 <p>You Pay</p>
@@ -70,15 +54,15 @@
 			<h4>Milestones</h4>
       <ul class="timeline ">
 				<li *ngFor="let milestone of reports" [style.color]=colors[i]>
-          
+
           <p>{{milestone?.milestone}}</p>
           <p>{{milestone?.description}}</p>
-          
+
 				</li>
-				
+
 			</ul>
 		</div>
-     
+
       <div class="card border-primary mb-3" style="max-width: 100%;" *ngIf="biznes?.on_program==='Y'">
         <div class="card-header bg-transparent border-primary">Business Progress</div>
         <div class="card-body text-primary">
@@ -94,7 +78,7 @@
             <button type="button" class="btn btn-primary" *ngIf="user?.user_type==='entrepreneur'" (click)="openModal(template)">Update Business Progress</button>
         </div>
       </div>
-    
+
       <div style="padding:8px; border:1px solid #eee; border-top: 0;  margin-bottom: 200px;">
         <tabset>
           <tab heading="Business Information" id="tab1">
@@ -102,6 +86,7 @@
               <div class="business">
                 <div class="content-box row" style="margin-top: 20px">
                   <div class="col-md-6">
+
                       <div class="text-center">
                           <img src="{{biznes?.business_logo}}" class="mr-3" style="height:60px; width:60px;">
                       </div>
@@ -314,9 +299,9 @@
                                 <div class="media-body">
                                     <h6>{{doc.name}}</h6>
                                     <p>Approved <i class="fa fa-check" aria-hidden="true"></i></p>
-                                    
+
                                 </div>
-                               
+
                               </div>
                               <hr/>
                           </div>
@@ -359,7 +344,7 @@
                         </select>
                       </div>
 
-                     
+
                      <div>
                        <div class="form-group">
                           <div class="form-check form-check-inline">
@@ -370,7 +355,7 @@
                               <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" (change)="uploaddoc()">
                               <label class="form-check-label" for="inlineCheckbox3">upload document</label>
                             </div>
-                       </div> 
+                       </div>
                        <div class="form-group" *ngIf="uploadd">
                         <label for="exampleFormControlFile1">Upload Document</label>
                         <input type="file" class="form-control-file" id="docupload" (change)="getimage($event.target.files)" >
@@ -667,3 +652,29 @@
       </div>
       </div>
 </ng-template>
+
+
+<ng-template #business_logo style="padding:0px">
+    <div class="modal-body" style="padding:5px">
+      <div style="padding:10px;">
+        <b>Upload New business Logo</b>
+      </div>
+      <hr/>
+      <div>
+        <app-upload id={{business_id}} type='biz_logos'></app-upload>
+      </div>
+    </div>
+  </ng-template>
+
+
+  <ng-template #business_cover style="padding:0px">
+      <div class="modal-body" style="padding:5px">
+        <div style="padding:10px;">
+          <b>Upload New business cover</b>
+        </div>
+        <hr/>
+        <div>
+          <app-upload id={{business_id}} type='business_cover'></app-upload>
+        </div>
+      </div>
+    </ng-template>
