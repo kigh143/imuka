@@ -1,8 +1,8 @@
 <div class="body">
 <app-header></app-header>
 <br/>
-  <div style="padding:20px;" *ngIf="!loadingCompelete">
-
+  <div style="padding:20px; text-align: center;" *ngIf="!loadingCompelete">
+      Loading business ....
   </div>
   <div class="container" *ngIf="loadingCompelete">
 
@@ -32,8 +32,8 @@
       <div class="process">
         <div class="process-row milestones">
             <div class="process-step" *ngFor="let milestone of reports; let i = index" >
-                <!-- <button type="button" class="btn btn-default btn-circle" disabled="disabled" [style.background]="getColor()"><i class="fa fa-user fa-3x"></i></button> -->
-                <div class="milestonename" [style.background]= colors[i]><p>{{milestone?.milestone}}</p></div>
+            <!-- <button type="button" class="btn btn-default btn-circle" disabled="disabled" [style.background]="getColor()"><i class="fa fa-user fa-3x"></i></button> -->
+            <div class="milestonename" [style.background]= colors[i]><p>{{milestone?.milestone}}</p></div>
 
             </div>
             <!-- <div class="process-step">
@@ -47,7 +47,7 @@
              <div class="process-step">
                 <button type="button" class="btn btn-success btn-circle" disabled="disabled"><i class="fa fa-eur fa-3x"></i></button>
                 <p>You Pay</p>
-            </div>  -->
+            </div> -->
         </div>
     </div>
     <div class="col-md-6 offset-md-3 milestonesml">
