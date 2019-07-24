@@ -348,7 +348,7 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let financial of financials">
-                      <td>{{financial.year}}</td>
+                      <td>{{financial.period_from}} - {{financial.period_to}}</td>
                       <td>{{financial.ros}}</td>
                       <td>{{financial.roi}}</td>
                       <td>{{financial.roe}}</td>
@@ -606,25 +606,33 @@
         <section>
             <b>Product or service</b><br/>
           
-                    <div class="media">
-                            <img src="..." class="mr-3" alt="...">
-                            <div class="media-body">
-                              <h5 class="mt-0">Media heading</h5>
-                             <div class="row">
-                                  <div class="col">
-                                      <span>price</span><br/>
-                                      <span>20000</span>
-                                  </div>
-                                  <div class="col">
-                                    <span>Quantities</span>
-                                    <span>Kg / grams</span>
-                                    </div>
-                                    <div class="col">
-
-                                        </div>
-                             </div>
-                            </div>
+            <div class="media" *ngFor="let product of products" style="margin-bottom:30px; margin-top:18px">
+                <img src="{{product.images}}" class="mr-3" alt="..." style="height:150px; width:150px"/>
+                <div class="media-body">
+                  <h5 class="mt-0" >{{product.name}}</h5>
+                  <p style="color:gray; font-size:14px">{{product.description}}</p>
+                 <div class="row">
+                      <div class="col">
+                        <span style="font-size: 12px; ">price</span>
+                      </div>
+                         <div class="col">
+                           <span style="font-size: 12px">{{product.price}}</span>
+                          </div> 
+                        </div>
+                      <div class="row">
+                          <div class="col">
+                              <span style="font-size: 12px">Quantities</span>
                           </div>
+                          <div class="col">
+                              <span style="font-size: 12px">Kilograms / grams</span>
+                          </div>
+                      </div>
+                       
+                       
+                        </div>
+                       
+                 </div>
+               
            
 
             <div>
@@ -669,6 +677,28 @@
 
         <section>
             <b>Financials</b><br/>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Year</th>
+                    <th scope="col">Return on sales</th>
+                    <th scope="col">Return on Investment</th>
+                    <th scope="col">Return on equity</th>
+                    <th scope="col">Debt-Equity Ratio</th>
+                    <th scope="col">Internal Rate of Return</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let financial of financials">
+                    <td style="font-size:12px">{{financial.period_from}} - {{financial.period_to}}</td>
+                    <td>{{financial.ros}}</td>
+                    <td>{{financial.roi}}</td>
+                    <td>{{financial.roe}}</td>
+                    <td>{{financial.der}}</td>
+                    <td>{{financial.irr}}</td>
+                  </tr>
+                </tbody>
+              </table>
 
         </section>
 
@@ -713,9 +743,9 @@
             <b>Our Team</b><br/>
             <div class="row">
                 <div class="col-md-4 team">
-                    <img src="asstes/user.png" alt=""><br/>
-                    <b>Katende Iva</b><br/>
-                    <b>CEO and founder</b>
+                    <img src="assets/user.png" alt=""><br/>
+                    <b>name</b><br/>
+                    <b>Position</b>
                 </div>
             </div>
         </section>

@@ -1,5 +1,28 @@
 <section >
-    <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" routerLink="/login">
+                      <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ml-auto ">
+                            <li class="nav-item active">
+                                <a class="nav-link" routerLink="/login">Login </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="/about">About ImukaAccess</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="/howitworks">How it Works</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    <!-- <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" routerLink="/login">
               <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
@@ -23,9 +46,9 @@
               <button class="btn btn-btn-info my-2 my-sm-0" type="submit" >Login</button>
             </form>
         </div>
-    </nav>
+    </nav> -->
     <div class="jumbotron jumbotron-fluid" [ngStyle]="{'background-image':'url(' + imageUrl + ')'}">
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div style="text-align:center;">
@@ -39,7 +62,46 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div style="text-align:center;">
+                        <img src="assets/icon1.png" alt="imukaAccess" style="height:90px; margin-left:20px;">
+                        <h1 style="color:#fff;">Connect to <b>Business Opportunities.</b></h1>
+                        <br/>
+                        <button class="btn btn-outline-primary" routerLink="/signup/investor">Investor</button> &nbsp;&nbsp;
+                        <button class="btn btn-outline-warning" routerLink="/signup/entrepreneur">Entreprenuer</button>  &nbsp;&nbsp;
+                        <button class="btn btn-outline-info" routerLink="/create_organisation">Support</button>  &nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="col-md-5" id="login">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
+                    <div class="card-header">Login</div>
+                    <div class="card-body">
+                        <form  [formGroup]="loginForm" (submit)="login()">
+                            <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" placeholder="Enter email" formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
+                            />
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password"class="form-control" placeholder="Password" formControlName="password" [class.invalid]="loginForm.controls.password.invalid"
+                            />
+                            </div>
+                            <button type="submit" class="btn btn-outline-warning btn-block"  [disabled]="loginForm.invalid">Login</button>
+                        </form>
+                    </div>
+
+                    <div class="card-footer row">
+                        <a class="col-md-12 col-sm-12 col-xs-12" routerLink="/forgotPassword">Forgot password?</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+</div>
     </div>
 
     <section class="dark">
