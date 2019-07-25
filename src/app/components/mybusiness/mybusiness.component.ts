@@ -34,7 +34,7 @@ export class MybusinessComponent implements OnInit {
   btnText = "Add Business";
   error: boolean = false;
   msg : any;
-  
+
   constructor( public modalService: BsModalService, public router: Router,public spinnerService: Ng4LoadingSpinnerService,  public bizy :BizService, public session : SessionService) {
       const data = this.session.getuser();
       this.currentuser = data;
@@ -89,7 +89,7 @@ export class MybusinessComponent implements OnInit {
   getbusinesses() {
     this.bizy.getbusinesses_for_user(this.currentuser.user_id).subscribe(data=>{
         this.businesses = data;
-        
+
         //this.sectors= JSON.parse(data.sectors);
     });
   }
@@ -101,5 +101,7 @@ export class MybusinessComponent implements OnInit {
   selecttype(event){
     this.type= event.target.value;
   }
+
+
 }
 

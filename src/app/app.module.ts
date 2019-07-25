@@ -86,6 +86,8 @@ import { InvestneedPipe } from './pipes/investneed.pipe';
 import { StartupquestionComponent } from './components/startupquestion/startupquestion.component';
 import { UploadComponent } from './sharedComponents/upload/upload.component';
 
+import { ContentLoaderModule } from '@netbasal/ngx-content-loader';
+
 const app_routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate:[AuthGuard] },
   { path: 'welcome', component : InitialpageComponent},
@@ -220,13 +222,11 @@ const app_routes: Routes = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ChartModule,
-    HttpModule,
     HttpClientJsonpModule,
     ShareButtonsModule,
     HttpClientModule,
-    ShareModule
-
-
+    ShareModule,
+    ContentLoaderModule
   ],
 
   providers: [AuthService, EventsService, AuthGuard, OrganisationService, ToastrModule, ToastsComponent, {provide: LocationStrategy, useClass: HashLocationStrategy}],
