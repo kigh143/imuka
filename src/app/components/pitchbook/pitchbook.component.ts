@@ -151,7 +151,8 @@ export class PitchbookComponent {
     total_needed:0,
     investiment_type:''
   };
-
+  servedmkt;
+  potential;
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
@@ -194,6 +195,9 @@ export class PitchbookComponent {
         this.getTotalNeed(this.investimentNeed);
         this.draw(this.competitions);
         console.log(this.financials);
+        this.servedmkt = ((this.pitch.served)/this.pitch.Available)*100;
+        this.potential = 50;
+        //this.remaining = ((this.pitch.remaiing)/this.pitch.Available)*100;
     });
   }
    
@@ -291,7 +295,7 @@ const barchart=new Chart({
       text: 'Competitive Advantage'
   },
   subtitle: {
-      text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+      text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">imuka</a>'
   },
   xAxis: {
       categories: this.competitors_name,
@@ -344,6 +348,34 @@ const barchart=new Chart({
       data: this.factor3_grade
   }]
 });
+// const doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+//   type: "doughnut",
+//   data: {
+//     labels: labels,
+//     datasets: [
+//       {
+//         label: "# of Votes",
+//         data: data,
+//         backgroundColor: [
+//           "rgba(255, 99, 132, 0.2)",
+//           "rgba(54, 162, 235, 0.2)",
+//           "rgba(255, 206, 86, 0.2)",
+//           "rgba(75, 192, 192, 0.2)",
+//           "rgba(153, 102, 255, 0.2)",
+//           "rgba(255, 159, 64, 0.2)"
+//         ],
+//         hoverBackgroundColor: [
+//           "#FF6384",
+//           "#36A2EB",
+//           "#FFCE56",
+//           "#FF6384",
+//           "#36A2EB",
+//           "#FFCE56"
+//         ]
+//       }
+//     ]
+//   }
+// });
 const piechart = new Chart( {
   chart: {
       plotBackgroundColor: null,
@@ -371,15 +403,15 @@ const piechart = new Chart( {
       name: 'Brands',
       data: [{
           name: 'Available',
-          y: 61.41,
+          y: 56,
           sliced: true,
           selected: true
       }, {
           name: 'Potential',
-          y: 11.84
+          y: 36
       }, {
           name: 'Served',
-          y: 10.85
+          y: 24
       }]
   }]
 });
