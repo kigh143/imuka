@@ -361,7 +361,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
 
   upload() {
-    if(this.type == 'biz_logos'){
+    if(this.type === 'biz_logos'){
         this.logouploading = true;
     }else{
       this.coveruploading=true;
