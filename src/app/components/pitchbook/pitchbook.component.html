@@ -506,7 +506,7 @@
                 <div class="form-group">
                     <label for="name">Social Impact</label>
                     <select class="form-control" multiple name="pitch.social_impact"  [(ngModel)]="pitch.social_impact">
-                        <option *ngFor="let impact of social_impacts" value="{{impact.ans}}">{{impact.ans}}</option>
+                        <option *ngFor="let impact of social_impacts" [ngValue]="impact.ans">{{impact.ans}}</option>
                     </select>
                 </div>
                 </div>
