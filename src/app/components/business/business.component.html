@@ -3,12 +3,12 @@
 <br/>
   <div class="container"style="padding:20px; text-align: center;" *ngIf="!loadingCompelete">
      <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <facebook-content-loader></facebook-content-loader>
             <facebook-content-loader></facebook-content-loader>
             <facebook-content-loader></facebook-content-loader>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-8">
         </div>
      </div>
   </div>
@@ -94,45 +94,31 @@
               <div class="business">
                 <div class="content-box row" style="margin-top: 20px">
                   <div class="col-md-6">
-
-                      <div class="text-center">
-                          <img src="{{biznes?.business_logo}}" class="mr-3" style="height:60px; width:60px;">
-                      </div>
                       <hr/>
                       <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">General Business Info</span>
                       <hr/>
                       <div>
-                        <span style="color:gray">Business Name</span>
-                        <p ><b style="text-transform:capitalize">{{biznes?.business_name}}</b></p>
-                        <span style="color:gray">Business Description</span>
-                        <p><b>{{biznes?.description}}</b></p>
-                        <span style="color:gray">Sectors</span>
-                        <p><b>{{biznes.sectors | stringArray}}</b> </p>
+                        <p>{{biznes.business_name}}</p>
+                        <p>{{biznes.description}}</p>
+                        <p>{{biznes.sectors | stringArray}} </p>
                       </div>
 
                       <hr/>
                       <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Business Contact Info</span>
                       <hr/>
                       <div>
-                        <span style="color:gray">Phone number</span>
-                        <p><b>{{biznes?.phone}}</b></p>
-                        <span style="color:gray">Website</span>
-                        <p><b>{{biznes?.website}}</b></p>
-                        <span style="color:gray">Email</span>
-                        <p><b>{{biznes?.email}}</b></p>
-                        <span style="color:gray">Sectors</span>
-                        <p><b>{{biznes?.location}}</b></p>
+                        <p>{{biznes.phone}}</p>
+                        <p>{{biznes.website}}</p>
+                        <p>{{biznes.email}}</p>
+                        <p>{{biznes.location}}</p>
                       </div>
                       <hr/>
                       <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Other information.</span>
                       <hr/>
                       <div>
-                        <span style="color:gray">Mission</span>                        
-                        <p><b>{{biznes?.mission}}</b></p>
-                        <span style="color:gray">Vision</span>
-                        <p><b>{{biznes?.vision}}</b></p>
-                        <span style="color:gray">Date found</span>
-                        <p><b>{{biznes?.date_of_reg}}</b></p>
+                        <p>{{biznes.mission}}</p>
+                        <p>{{biznes.vision}}</p>
+                        <p>{{biznes.date_of_reg}}</p>
                       </div>
                   </div>
                   <div class="col-md-6 col-xs-12" *ngIf="user?.user_type==='entrepreneur'">
@@ -143,17 +129,17 @@
                         <div style="background:#eee; padding:16px;">
                           <div class="form-group">
                             <label for="inputPassword" class="form-label" >Business name</label>
-                            <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" (ngModelChange)="biznes.business_name = $event"/>
+                            <input type="text" class="form-control" name="business_name"  data-toggle="tooltip" title="click Ctrl and select" [(ngModel)]="biznes.business_name"/>
                           </div>
 
                           <div class="form-group">
                             <label for="inputPassword" class="form-label" >Description</label>
-                            <textarea class="form-control" name="description" (ngModelChange)="biznes.description = $event" row="2"></textarea>
+                            <textarea class="form-control" name="description" [(ngModel)]="biznes.description" row="2"></textarea>
                           </div>
 
                           <div class="form-group">
                             <label for="exampleFormControlSelect1">Line of business/ sector</label>
-                            <select  class="form-control" multiple  (ngModelChange)="biznes.sectors = $event" name="sectors">
+                            <select  class="form-control" multiple  [(ngModel)]="biznes.sectors" name="sectors">
                               <option value="Agriculture/Agribusiness/ Value-addition ">Agriculture/Agribusiness/ Value-addition
                               </option>
                               <option value="Clean Energy/Recycling/Upcycling and Environmental Conservation ">Clean Energy/Recycling/Upcycling and Environmental Conservation
@@ -183,24 +169,24 @@
                         <div style="background:#eee; padding:16px;">
                           <div class="form-group">
                               <label for="inputPassword" class="form-label">Phone number</label>
-                              <input type="text"  name="phone" class="form-control"  (ngModelChange)="biznes.phone = $event" placeholder="">
+                              <input type="text"  name="phone" class="form-control"  [(ngModel)]="biznes.phone" placeholder="">
                           </div>
 
                           <div class="form-group">
                               <label for="inputPassword" class="form-label">Website</label>
-                              <input type="" class="form-control" name="website"  (ngModelChange)="biznes.website = $event" placeholder="">
+                              <input type="" class="form-control" name="website"  [(ngModel)]="biznes.website" placeholder="">
                           </div>
 
                           <div class="form-group">
                               <label for="inputPassword" class="col-form-label">Email</label>
-                              <input type="" class="form-control" name="email"  (ngModelChange)="biznes.email = $event" placeholder="">
+                              <input type="" class="form-control" name="email"  [(ngModel)]="biznes.email" placeholder="">
                           </div>
                           <span style="font-size:14px">Location</span>
                           <hr>
 
                           <div class="form-group">
                                 <label for="inputPassword" class="form-label">Address line</label>
-                                <input type="text" class="form-control" name="location" (ngModelChange)="biznes.location = $event">
+                                <input type="text" class="form-control" name="location" [(ngModel)]="biznes.location">
                           </div>
                           <div class="row">
                               <div class="col-md-7"></div>
@@ -216,17 +202,17 @@
                         <div style="background:#eee; padding:16px;">
                             <div class="form-group">
                                 <label for="inputPassword" class="form-label">Mission</label>
-                                <textarea class="form-control" name="mission" (ngModelChange)="biznes.mission = $event" row="2"></textarea>
+                                <textarea class="form-control" name="mission" [(ngModel)]="biznes.mission" row="2"></textarea>
                             </div>
 
                             <div class="form-group">
                               <label for="inputPassword" class="form-label">Vision</label>
-                                <textarea class="form-control"  name="vision" (ngModelChange)="biznes.vision = $event" row="2"></textarea>
+                                <textarea class="form-control"  name="vision" [(ngModel)]="biznes.vision" row="2"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputPassword" class="form-label">Founded</label>
-                                <input type="text" class="form-control" name="date_of_reg" (ngModelChange)="biznes.date_of_reg = $event">
+                                <input type="text" class="form-control" name="date_of_reg" [(ngModel)]="biznes.date_of_reg">
                             </div>
 
                             <div class="row">
@@ -250,8 +236,8 @@
               <div class="products">
                 <div class="content-box row">
                   <div class="col-md-8 col-xs-12" style="margin-top:10px;">
-                     
-                    <div class="media"  *ngFor="let prdt of bizproducts">
+
+                    <div class="media"  *ngFor="let prdt of products">
                       <div class="media-left" style="padding:10px">
                         <img src="{{prdt.images}}" class="media-object" style="width:100px; height:80px">
                       </div>
