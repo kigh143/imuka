@@ -52,6 +52,7 @@ export class PitchbookComponent {
   biz_info;
   heading;
   team:any;
+  savechanges = false;
   competitions;
   comp_factor:{};
   competitor1_info={
@@ -193,8 +194,9 @@ export class PitchbookComponent {
         this.sdgs = JSON.parse(this.pitch.impact_areas);
 
         this.getTotalNeed(this.investimentNeed);
+       
         this.draw(this.competitions);
-        console.log(this.financials);
+        console.log(this.pitch);
         this.servedmkt = ((this.pitch.served)/this.pitch.Available)*100;
         this.potential = 50;
         //this.remaining = ((this.pitch.remaiing)/this.pitch.Available)*100;
@@ -219,6 +221,7 @@ export class PitchbookComponent {
     this.pitch.investimentNeed = JSON.stringify(this.investimentNeed);
     this.pitch.competition = JSON.stringify(this.competitors_info);
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
+      console.log(data)
     });
     this.fetch_pitcbook_data(this.business_id);
     this.draw(this.competitors_info);
@@ -266,6 +269,7 @@ export class PitchbookComponent {
       console.log(this.competitor3_info);
     }
     else if(this.competitor3){
+      this.savechanges = true
       this.competitors_info.push(this.competitor4_info)
       this.pitch.competition= this.competitors_info;
       console.log(this.pitch.competition);
