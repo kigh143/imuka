@@ -1,4 +1,4 @@
-<div class="body"> 
+<div class="body">
     <app-header></app-header>
     <div class="container">
       <div class="row">
@@ -10,23 +10,21 @@
         <div class="col-md-9">
         <div class="jumbotron" [ngStyle]="{background: 'url(/assets/conferenceworkshop.jpg)'}">
            <div class="divcover"> <h4>Events ({{events_clone.length}})</h4>
-          
+
             <p>Find upcoming networking and training events in your sector and region,
             including Imuka Series events.</p>
-            
+
             <div  style="display:flex; flex-direction: row"><div style="flex:1"><a class="btn eventbutton btn-primary btn-sm" (click)="openModal(template)" style="float:left">Post Event</a></div>
             <div style="flex:1"><a class="btn eventbutton btn-success btn-sm" (click)="get_all_events()">All Events</a></div>
            <div style="flex:1"> <a class="btn eventbutton btn-warning btn-sm" (click)="myevent()" >My Event</a></div></div>
         </div>
         </div>
-      
+
             <div class="content">
-                    
                 <div class="row" >
-                    
                     <div class="col-md-6 carddata" *ngFor="let event of events_clone">
                         <div class="card">
-                        <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:250px">
+                        <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:250px; object-fit:cover;">
                         <div class="card-body" style="height:200px">
                            <span tappable (click)="mybookmark(event)" style="float:right; color:rgb(0, 86, 179); font-size:12px"><i class="fa fa-bookmark" style="color:#0056b3; font-size: 15px">&nbsp;</i>Bookmark</span>
                            <h6 class="card-title">{{event.title}}</h6>
@@ -37,31 +35,20 @@
                             <p class="card-text" style="font-size:12px">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Read more <i class="fa fa-forward"></i></a> </p>
                         </div>
                         <ul class="list-group list-group-flush">
-                           
                             <li class="list-group-item"><i class="fa fa-map-marker" style="color:#0056b3; font-size: 15px"></i>  {{event.venue}}</li>
-                            
-                                   
-   
                         </ul>
                         <ul class="list-group list-group-flush">
-                           
-                                <li class="list-group-item"><share-buttons [theme]="'circles-dark'"
-                                    [include]="['facebook','twitter','email']"
-                                    [show]="5"
-                                    [url]="'http://www.imukaaccess.com/app/#/sharedevent/'+ event.event_id"
-                                    
-                                    [description]="event.description"
-                                    
-                                   ></share-buttons></li>
-                                
-                                       
-       
-                            </ul>
-                        
+                          <li class="list-group-item">
+                            <share-buttons [theme]="'circles-dark'"
+                              [include]="['facebook','twitter','email']"
+                              [show]="5"
+                              [url]="'http://www.imukaaccess.com/app/#/sharedevent/'+ event.event_id"
+                              [description]="event.description" ></share-buttons>
+                          </li>
+                        </ul>
                         </div>
                     </div>
                 </div>
-               
                </div>
         </div>
       </div>
@@ -77,7 +64,7 @@
     </div>
     <div class="modal-body modalcontent">
         <form>
-      
+
             <div class="form-group row">
                 <label for="inputPassword"  class="col-sm-2 col-form-label">Event title</label>
                 <div class="col-sm-10">
@@ -132,8 +119,7 @@
                 <button class="btn btn-primary btn-sm" (click)="add_event()">Submit Event</button>
             </div>
         </form>
-       
+
     </div>
     </ng-template>
     <app-footer></app-footer>
-    

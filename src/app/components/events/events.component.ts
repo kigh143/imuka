@@ -73,18 +73,13 @@ export class EventsComponent implements OnInit {
     public eventServices: EventsService,
     public sessionservice: SessionService,
     public router: Router,
-    public alert: ToastsComponent,
-
-
-    ) {
+    public alert: ToastsComponent ) {
   }
 
   ngOnInit() {
     this.user  = this.sessionservice.getuser();
     this.get_all_events();
   }
-
-
 
   onChange(event, main) {
       this.events_clone = this.events_clone.filter((event_value) => {
