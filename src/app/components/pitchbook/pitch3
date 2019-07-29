@@ -478,7 +478,7 @@
             <section>
                 <b>The sustainable Development Goals</b><br/>
                 <ol>
-                    <li *ngFor="let sdg of sdgs">{{sdg |json}}</li>
+                    <li *ngFor="let sdg of sdgs">{{sdg}}</li>
                 </ol>
                   <div *ngIf="edit">
                       <ng-multiselect-dropdown-angular7
@@ -489,7 +489,28 @@
                       (onSelect)="addsdg($event)"
                       (onSelectAll)="onSelectAll($event)"
                     ></ng-multiselect-dropdown-angular7>
-                   
+                    <!-- <div class="form-group">
+                    <label for="name">social Development Goals</label> &nbsp; <span class="multiclick" style="color:gray">Ctrl + Click</span>
+                    <select class="form-control" multiple name="pitch.sdgs" [(ngModel)]="pitch.impact_areas" >
+                                    <option value="No Poverty">No Poverty</option>
+                                    <option value="Zero Hunger">Zero Hunger</option>
+                                    <option value="Good Health and Well-being">Good Health and Well-being</option>
+                                    <option value="Quality Education">Quality Education</option>
+                                    <option value="Gender Equality">Gender Equality</option>
+                                    <option value="Clean Water and Sanitation">Clean Water and Sanitation</option>
+                                    <option value="Affordable and Clean Energy">Affordable and Clean Energy</option>
+                                    <option value="Decent Work and Economic Growth">Decent Work and Economic Growth</option>
+                                    <option value="Industry, Innovation and Infrastructure">Industry, Innovation and Infrastructure</option>
+                                    <option value="Reduced Inequality">Reduced Inequality</option>
+                                    <option value="Sustainable Cities and Communitie">Sustainable Cities and Communities</option>
+                                    <option value="Responsible Consumption and Production">Responsible Consumption and Production</option>
+                                    <option value="Climate Action">Climate Action</option>
+                                    <option value="Life Below Water">Life Below Water</option>
+                                    <option value="Life on Land">Life on Land</option>
+                                    <option value="Peace and Justice Strong Institutions">Peace and Justice Strong Institutions</option>
+                                    <option value="Partnerships to achieve the Goal">Partnerships to achieve the Goal</option>
+                    </select>
+                    </div> -->
                   </div>
             </section>
 
@@ -499,10 +520,15 @@
                     <li *ngFor="let social of social_impact">{{social}}</li>
                 </ol>
                 <div *ngIf="edit">
-               
+                <!-- <div class="form-group">
+                    <label for="name">Social Impact</label>
+                    <select class="form-control" multiple name="pitch.social_impact"  [(ngModel)]="pitch.social_impact">
+                        <option *ngFor="let impact of social_impacts" [ngValue]="impact.ans">{{impact.ans}}</option>
+                    </select>
+                </div> -->
                 <ng-multiselect-dropdown-angular7
-                [placeholder]="'social impacts'"
-                [data]="social_impacts"
+                [placeholder]="'custom placeholder'"
+                [data]="social_impact"
                 [(ngModel)]="social_impact"
                 [settings]="socialSettings"
                 (onSelect)="onSelected($event)"
@@ -517,15 +543,21 @@
                    <li *ngFor = "let economic of economic_impacts">{{economic.ans}}</li>
                 </ol>
                 <div *ngIf="edit">
-               
-                <ng-multiselect-dropdown-angular7
+                <div class="form-group">
+                <label for="name">Economic impact</label> &nbsp;<span class="multiclick" style="color:gray">Ctrl + Click</span>
+                <select class="form-control" multiple name="pitch.economic_impact"  [(ngModel)]="pitch.economic_impact">
+                    <option *ngFor="let economic of economic_impact" [ngValue]="economic">{{economic.ans}}</option>
+                   
+                </select>
+                </div>
+                <!-- <ng-multiselect-dropdown-angular7
                 [placeholder]="'custom placeholder'"
                 [data]="economic_impact"
-                [(ngModel)]="economic_impacts"
+                [(ngModel)]="economic_impact"
                 [settings]="socialSettings"
                 (onSelect)="addeconomic($event)"
                 (onSelectAll)="onSelectAll($event)"
-              ></ng-multiselect-dropdown-angular7>
+              ></ng-multiselect-dropdown-angular7> -->
               
               </div>
             </section>
@@ -536,16 +568,13 @@
                     <li *ngFor="let env of enviroment_impact; let i = index">{{env.ans}}</li>
                 </ol>
                 <div *ngIf="edit">
-
-                  
-                 <ng-multiselect-dropdown-angular7
-                [placeholder]="'custom placeholder'"
-                [data]="env_impact"
-                [(ngModel)]="env_impacts"
-                [settings]="socialSettings"
-                (onSelect)="addenviroment($event)"
-                (onSelectAll)="onSelectAll($event)"
-              ></ng-multiselect-dropdown-angular7>
+                    <div class="form-group">
+                    <label for="name">Environmental impacts</label> &nbsp; <span class="multiclick" style="color:gray">Ctrl + Click</span>
+                    <select class="form-control" multiple name="pitch.env_impact"  [(ngModel)]="pitch.env_impact">
+                       <option *ngFor="let environ_impact of env_impact" [ngValue]="environ_impact">{{environ_impact.ans}}</option>
+                    </select>
+                    </div>
+                 
                   </div>
             </section>
             <section>
