@@ -39,7 +39,7 @@ export class PitchbookComponent {
   sdgs;
   piechart;
   enviroment_impact;
-  social_impact;
+  social_impact=[];
   message: string;
   economic_impacts;
   competitors_name=[];
@@ -54,6 +54,7 @@ export class PitchbookComponent {
   team:any;
   savechanges = false;
   competitions;
+  chosenitem = [];
   comp_factor:{};
   competitor1_info={
     'name':'owner',
@@ -71,76 +72,97 @@ export class PitchbookComponent {
     'name':'',
     comparison:{factor1:1, factor2:1, factor3:1}
   }
-
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
 
   social_impacts = [
-    { selected: false, ans: 'Security' },
-    { selected: false, ans: 'Self esteem' },
-    { selected: false, ans: 'Educational improvement' },
-    { selected: false, ans: 'It promotes girl education' },
-    {
+    { item_id:1,selected: false, ans: 'Security' },
+    { item_id:2,selected: false, ans: 'Self esteem' },
+    { item_id:3,selected: false, ans: 'Educational improvement' },
+    { item_id:4,selected: false, ans: 'It promotes girl education' },
+    {item_id:5,
       selected: false,
       ans: 'It promotes independence of the people especially women'
     },
-    { selected: false, ans: 'Health improvement' },
-    { selected: false, ans: 'Food security' },
-    { selected: false, ans: 'Reduce unemployment through job creation' },
+    { item_id:6,selected: false, ans: 'Health improvement' },
+    { item_id:7,selected: false, ans: 'Food security' },
+    { item_id:8,selected: false, ans: 'Reduce unemployment through job creation' },
     {
-      selected: false,
+      item_id:9,selected: false,
       ans: 'Female engagement in employment or gender equality'
     },
     {
-      selected: false,
+      item_id:10,selected: false,
       ans: 'It improves the living standards and well being of the people'
     },
-    { selected: false, ans: 'Reduces involvement of people in crimes' },
-    { selected: false, ans: 'Reduces idleness' },
-    { selected: false, ans: 'Improves the social infrastructure of the area' },
-    { selected: false, ans: 'It extends social services to the people' },
+    { item_id:11,selected: false, ans: 'Reduces involvement of people in crimes' },
+    { item_id:12,selected: false, ans: 'Reduces idleness' },
+    { item_id:13,selected: false, ans: 'Improves the social infrastructure of the area' },
+    { item_id:14,selected: false, ans: 'It extends social services to the people' },
     {
-      selected: false,
+      item_id:15,selected: false,
       ans: 'It promotes justice and fairness with in the people'
     },
-    { selected: false, ans: 'It improves the confidence of the people' },
+    { item_id:16,selected: false, ans: 'It improves the confidence of the people' },
     {
-      selected: false,
+      item_id:17,selected: false,
       ans: 'It improves the nutritional balance of the food '
     },
     {
-      selected: false,
+      item_id:18,selected: false,
       ans:
         'It promotes technological improvement (such as use of computer and merchinery) and innovation'
     }
   ];
 
   economic_impact = [
-    { selected: false, ans: 'It provides jobs to the people' },
-    { selected: false, ans: 'It increases the incomes of the people' },
+    { item_id:1, ans: 'It provides jobs to the people' },
+    { item_id:2, ans: 'It increases the incomes of the people' },
     {
-      selected: false,
+      item_id:3,
       ans: 'Improvement in the standards of living of the people'
     },
     {
-      selected: false,
+      item_id:4,
       ans: 'It provides cheaper and affordable products or services to the people'
     }
   ];
 
   env_impact = [
-    {
-      selected: false,
+    {item_id:1,
+      
       ans: ' It encourages afforestation and preservation of plantations'
     },
-    {
-      selected: false,
+    {item_id:2,
+      
       ans:
         ' it encourages preservation of swamps and reduce environment degredation'
     },
-    {
-      selected: false,
+    {item_id:3,
+      
       ans: ' it improves waste management within the area or reduces pollution'
     },
-    { selected: false, ans: ' it promotes recycling of the waste or bi products' }
+    { item_id:4, ans: ' it promotes recycling of the waste or bi products' }
+  ];
+  sdg = [
+    {item_id:1,ans:"No Poverty"},
+   {item_id:2,ans:"Zero Hunger"},
+   {item_id:3,ans:"Good Health and Well-being"},
+    {item_id:4,ans:"Quality Education"},
+    {item_id:5,ans:"Gender Equality"},
+   {item_id:6,ans:"Clean Water and Sanitation"},
+    {item_id:7,ans:"Affordable and Clean Energy"},
+    {item_id:8,ans:"Decent Work and Economic Growth"},
+    {item_id:9,ans:"Industry, Innovation and Infrastructure"},
+    {item_id:10,ans:"Reduced Inequality"},
+    {item_id:11,ans:"Sustainable Cities and Communitie"},
+    {item_id:12,ans:"Responsible Consumption and Production"},
+    {item_id:13,ans:"Climate Action"},
+   {item_id:14,ans:"Life Below Water"},
+   { item_id:15,ans:"Life on Land"},
+    {item_id:16,ans:"Peace and Justice Strong Institutions"},
+    {item_id:17,ans:"Partnerships to achieve the Goal"}
   ];
 
   investimentNeed = {
@@ -154,6 +176,7 @@ export class PitchbookComponent {
   };
   servedmkt;
   potential;
+  socialSettings;
   constructor(
     private modalService: BsModalService,
     public route: ActivatedRoute,
@@ -168,9 +191,62 @@ export class PitchbookComponent {
   this.months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   
    this.user = this.session.getuser();
-   
+   this.dropdownList = [
+    { item_id: 1, item_text: 'Mumbai' },
+    { item_id: 2, item_text: 'Bangaluru' },
+    { item_id: 3, item_text: 'Pune' },
+    { item_id: 4, item_text: 'Navsari' },
+    { item_id: 5, item_text: 'New Delhi' }
+  ];
+  this.selectedItems = [
+    { item_id: 3, item_text: 'Pune' },
+    { item_id: 4, item_text: 'Navsari' }
+  ];
+  this.dropdownSettings = {
+    singleSelection: false,
+    idField: 'item_id',
+    textField: 'item_text',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    itemsShowLimit: 1,
+    allowSearchFilter: true
+  };
+  this.socialSettings = {
+    singleSelection: false,
+    idField: 'item_id',
+    textField: 'ans',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    itemsShowLimit: 1,
+    allowSearchFilter: true
+  };
+  }
+  onItemSelect(item: any) {
+    this.chosenitem.push(item);
+    console.log(this.chosenitem);
+  }
+  onSelected(item: any) {
+    this.social_impact.push(item);
+    this.pitch.social_impact= this.social_impact;
+    console.log(this.social_impact);
   }
 
+  addsdg(item: any){
+    this.sdgs.push(item);
+  }
+  addenviroment(item: any){
+    this.enviroment_impact.push(item);
+    this.pitch.env_impact = this.enviroment_impact;
+    console.log(this.pitch.env_impact);
+    this.save_changes();
+
+  }
+  addeconomic(item: any){ 
+     this.pitch.economic_impact = this.economic_impact.push(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
   openModal(template: TemplateRef<any>, event) {
     this.modalRef = this.modalService.show(template);
    
@@ -187,11 +263,11 @@ export class PitchbookComponent {
         this.team = data.pitch.team;
     
         this.edit = false;
-        this.enviroment_impact = JSON.parse(JSON.parse(this.pitch.env_impact));
-        this.social_impact = JSON.parse(JSON.parse(this.pitch.social_impact));
-        this.economic_impacts=JSON.parse(JSON.parse(this.pitch.economic_impact));
-        this.investimentNeed = JSON.parse(JSON.parse(this.pitch.investimentNeed));
-        this.sdgs = JSON.parse(this.pitch.impact_areas);
+        this.enviroment_impact =JSON.parse(this.pitch.env_impact);
+        // this.social_impact = JSON.parse(this.pitch.social_impact);
+         //this.economic_impacts = this.pitch.economic_impact;
+        // this.investimentNeed = JSON.parse(this.pitch.investimentNeed);
+        // this.sdgs = JSON.parse(this.pitch.impact_areas);
 
         this.getTotalNeed(this.investimentNeed);
        
@@ -214,12 +290,12 @@ export class PitchbookComponent {
 
   save_changes() {
     this.getTotalNeed(this.investimentNeed);
-    this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact);
-    this.pitch.impact_areas = JSON.stringify(this.pitch.impact_areas);
-    this.pitch.social_impact = JSON.stringify(this.pitch.social_impact);
-    this.pitch.env_impact = JSON.stringify(this.pitch.env_impact);
-    this.pitch.investimentNeed = JSON.stringify(this.investimentNeed);
-    this.pitch.competition = JSON.stringify(this.competitors_info);
+    // this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact);
+    // this.pitch.impact_areas = this.pitch.impact_areas;
+    // this.pitch.social_impact = this.pitch.social_impact;
+   this.pitch.env_impact = JSON.stringify(this.pitch.env_impact);
+    // this.pitch.investimentNeed = this.investimentNeed;
+    // this.pitch.competition = this.competitors_info;
     this.businessService.edit_pitchbook(this.pitch).subscribe( data => {
       console.log(data)
     });

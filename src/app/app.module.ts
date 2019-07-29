@@ -85,7 +85,7 @@ import { StringArrayPipe } from './pipes/string-array.pipe';
 import { InvestneedPipe } from './pipes/investneed.pipe';
 import { StartupquestionComponent } from './components/startupquestion/startupquestion.component';
 import { UploadComponent } from './sharedComponents/upload/upload.component';
-
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
 import { ContentLoaderModule } from '@netbasal/ngx-content-loader';
 
 const app_routes: Routes = [
@@ -226,7 +226,8 @@ const app_routes: Routes = [
     ShareButtonsModule,
     HttpClientModule,
     ShareModule,
-    ContentLoaderModule
+    ContentLoaderModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
 
   providers: [AuthService, EventsService, AuthGuard, OrganisationService, ToastrModule, ToastsComponent, {provide: LocationStrategy, useClass: HashLocationStrategy}],
