@@ -20,30 +20,29 @@
          </div>
          <div class="card-columns">
             <div class="card" *ngFor="let opportunity of opportunities_clone">
-
-                    <div >
-                        <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="width:100%; height:100%; object-fit: cover;"
-                        onerror="this.src='/assets/conferenceworkshop.jpg'"
-                        >
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">{{opportunity.title}}</h6>
-                        <span class="eventtime"><span style="color:#0056b3">End On: </span>&nbsp;{{opportunity.due_date}}<span style="color:#0056b3; padding-left:10px">Days left: </span>&nbsp;{{opportunity.daysleft}}</span>
-                        <hr style="margin:2px">
-                        <span style="font-size:14px">Type : {{opportunity.opp_type}}</span>
-                       <hr  style="margin:0">
-                        <p class="card-text" style="font-size:12px" >{{opportunity.short_description|flTrancator}}<a [href]="opportunity.link" target="_blank" style="color:#0056b3">Read More  <i class="fa fa-forward"></i></a> </p>
-                    </div>
-                     <ul class="list-group list-group-flush">
-
-                        <li class="list-group-item">
-                            <share-buttons [theme]="'circles-dark'"
-                            [include]="['facebook','twitter','email']"
-                            [show]="5"
-                            [url]="'https://www.imukaaccess.com/app/#/sharedevent/'+ opportunity.opportunity_id"
-                            [description]="opportunity.short_description"
-                           ></share-buttons></li>
-                    </ul>
+              <div>
+                  <img class="card-img-top" [src]="opportunity.image_url" alt="Card image cap" style="width:100%; height:100%; object-fit: cover;"
+                  onerror="this.src='/assets/conferenceworkshop.jpg'"
+                  >
+              </div>
+              <div class="card-body">
+                  <h6 class="card-title">{{opportunity.title}}</h6>
+                  <span class="eventtime"><span style="color:#0056b3">End On: </span>&nbsp;{{opportunity.due_date}}<span style="color:#0056b3; padding-left:10px">Days left: </span>&nbsp;{{opportunity.daysleft}}</span>
+                  <hr style="margin:2px">
+                  <span style="font-size:14px">Type : {{opportunity.opp_type}}</span>
+                  <hr  style="margin:0">
+                  <p class="card-text" style="font-size:12px" >{{opportunity.short_description|flTrancator}}<a [href]="opportunity.link" target="_blank" style="color:#0056b3">Read More  <i class="fa fa-forward"></i></a> </p>
+              </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                      <share-buttons [theme]="'circles-dark'"
+                      [include]="['facebook','twitter','email']"
+                      [show]="5"
+                      [url]="'https://www.imukaaccess.com/app/#/sharedevent/'+ opportunity.opportunity_id"
+                      [description]="opportunity.short_description"
+                      ></share-buttons>
+                  </li>
+              </ul>
             </div>
         </div>
 
