@@ -229,6 +229,9 @@ export class PitchbookComponent {
 
         this.getTotalNeed(this.investimentNeed);
        this.social_impact = JSON.parse(this.pitch.social_impact);
+      //  this.sdgs = JSON.parse(this.pitch.sdgs);
+      //  this.economic_impacts = JSON.parse(this.pitch.economic_impact);
+       this.enviroment_impact = JSON.parse(this.pitch.enviroment_impact)
        console.log(this.social_impact);
         this.draw(this.competitions);
         console.log(this.pitch);
