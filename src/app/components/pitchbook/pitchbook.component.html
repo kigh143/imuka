@@ -15,17 +15,7 @@
           </div>
       </div>
       <div class="col-md-8">
-
         <div class="content">
-           <div> <ng-multiselect-dropdown-angular7
-  [placeholder]="'custom placeholder'"
-  [data]="dropdownList"
-  [(ngModel)]="selectedItems"
-  [settings]="dropdownSettings"
-  (onSelect)="onItemSelect($event)"
-  (onSelectAll)="onSelectAll($event)"
-></ng-multiselect-dropdown-angular7>
-</div>
             <section>
                 <b style="text-transform: capitalize">{{business?.business_name}}</b><br/>
                 <span>{{business?.legal_entity}}</span>
@@ -68,7 +58,7 @@
                         </div>
                            <div class="col">
                              <span style="font-size: 12px">{{product?.price}}</span>
-                            </div> 
+                            </div>
                           </div>
                         <div class="row">
                             <div class="col">
@@ -78,12 +68,12 @@
                                 <span style="font-size: 12px">Kilograms / grams</span>
                             </div>
                         </div>
-                         
-                         
+
+
                           </div>
-                         
+
               </div>
-                
+
             </section>
 
             <section>
@@ -430,7 +420,7 @@
                                   <input type="number" class="form-control" placeholder="operations" [(ngModel)]="investimentNeed.operations" name="operations">
                                 </div>
                               </div>
-    
+
                               <div class="row">
                                     <div class="col col-content">
                                       <label>Machinery</label>
@@ -446,7 +436,7 @@
                                          <label>Raw_material</label>
                                           <input type="number" class="form-control" placeholder="raw_material" [(ngModel)]="investimentNeed.raw_material" name="raw_material">
                                         </div>
-                                       
+
                                       </div>
                                       <div class="row">
                                           <div class="col col-content"><div class="form-group">
@@ -464,15 +454,15 @@
                                         <div class="col col-content">
                                                 <div class="alert alert-success" role="alert">
                                                         <h4 class="alert-heading" style="font-size: 13px"><i class="fa fa-info-circle" style="font-size:18px"></i> {{heading}}</h4>
-                                                        
+
                                                         <hr>
                                                         <p class="mb-0"  style="font-size: 12px">{{message}}</p>
                                                       </div>
-                                           
+
                                         </div>
                                         </div>
                     </div>
-               
+
             </section>
 
             <section>
@@ -489,7 +479,7 @@
                       (onSelect)="addsdg($event)"
                       (onSelectAll)="onSelectAll($event)"
                     ></ng-multiselect-dropdown-angular7>
-                   
+
                   </div>
             </section>
 
@@ -499,7 +489,7 @@
                     <li *ngFor="let social of social_impact">{{social}}</li>
                 </ol>
                 <div *ngIf="edit">
-               
+
                 <ng-multiselect-dropdown-angular7
                 [placeholder]="'social impacts'"
                 [data]="social_impacts"
@@ -517,7 +507,7 @@
                    <li *ngFor = "let economic of economic_impacts">{{economic.ans}}</li>
                 </ol>
                 <div *ngIf="edit">
-               
+
                 <ng-multiselect-dropdown-angular7
                 [placeholder]="'custom placeholder'"
                 [data]="economic_impact"
@@ -526,7 +516,7 @@
                 (onSelect)="addeconomic($event)"
                 (onSelectAll)="onSelectAll($event)"
               ></ng-multiselect-dropdown-angular7>
-              
+
               </div>
             </section>
 
@@ -537,7 +527,7 @@
                 </ol>
                 <div *ngIf="edit">
 
-                  
+
                  <ng-multiselect-dropdown-angular7
                 [placeholder]="'custom placeholder'"
                 [data]="env_impact"
@@ -569,7 +559,7 @@
                 <div class="form-group">
                   <label>Image:</label>
                   <!-- <input type="text" class="form-control" name="team.position" [(ngModel)]="team.position" placeholder=""/> -->
-                
+
                   <!-- add image of the team member -->
                 </div>
               </div>
@@ -592,7 +582,7 @@
     <div class="modal-body">
         <section>
             <b>{{business?.business_name}}</b><br/>
-            
+
         </section>
 
         <section>
@@ -617,7 +607,7 @@
 
         <section>
             <b>Product or service</b><br/>
-          
+
             <div class="media" *ngFor="let product of products" style="margin-bottom:30px; margin-top:18px">
                 <img src="{{product.images}}" class="mr-3" alt="..." style="height:150px; width:150px"/>
                 <div class="media-body">
@@ -629,7 +619,7 @@
                       </div>
                          <div class="col">
                            <span style="font-size: 12px">{{product?.price}}</span>
-                          </div> 
+                          </div>
                         </div>
                       <div class="row">
                           <div class="col">
@@ -639,13 +629,13 @@
                               <span style="font-size: 12px">Kilograms / grams</span>
                           </div>
                       </div>
-                       
-                       
+
+
                         </div>
-                       
+
             </div>
-               
-           
+
+
 
             <div>
                 <b>Service name</b>
@@ -774,8 +764,8 @@
                 </button></div>
       <div class="modal-dialog">
         <div class="message text-center"><P>{{message}}</P></div>
-        
-      
+
+
     </div>
   </ng-template>
   <app-footer></app-footer>
