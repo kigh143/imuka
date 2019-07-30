@@ -188,9 +188,9 @@ export class PitchbookComponent {
   }
  
   onSelected(item: any) {
-    console.log(this.social_impact);
+   
     this.pitch.social_impact= this.social_impact;
-    console.log(this.social_impact);
+    
   }
 
   addsdg(item: any){
@@ -229,6 +229,7 @@ export class PitchbookComponent {
 
         this.getTotalNeed(this.investimentNeed);
        this.social_impact = JSON.parse(this.pitch.social_impact);
+       console.log(this.social_impact);
         this.draw(this.competitions);
         console.log(this.pitch);
         this.servedmkt = ((this.pitch.served)/this.pitch.Available)*100;
