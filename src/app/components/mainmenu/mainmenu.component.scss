@@ -63,12 +63,12 @@ a:hover {
 }
 
 .list-group-item.active {
-  border-left: 3px solid  rgb(24, 126, 241) !important;
+  border-left: 3px solid  #1798d4 !important;
   border-bottom: none !important;
   border-top: none !important;
   a{
     .fa{
-      color:rgb(24, 126, 241);
+      color:#1798d4;
       margin-right:10px !important;
     }
   }

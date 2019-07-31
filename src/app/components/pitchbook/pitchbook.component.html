@@ -538,32 +538,7 @@
               ></ng-multiselect-dropdown-angular7>
                   </div>
             </section>
-            <section>
-              <b>Our Team</b><br/>
-              <div class="row">
-                  <div class="col-md-4 team" *ngFor="let member of team">
-                      <img src="asstes/user.png" alt=""><br/>
-                      <b>Katende Iva</b><br/>
-                      <b>CEO and founder</b>
-                  </div>
-              </div>
-              <div *ngIf="edit">
-                <div class="form-group">
-                  <label>Name:</label>
-                  <input type="text" class="form-control" name="team.name" (ngModelChange)="team.name=$event" placeholder=""/>
-                </div>
-                <div class="form-group">
-                  <label>Position:</label>
-                  <input type="text" class="form-control" name="team.position" (ngModelChange)="team.position=$event" placeholder=""/>
-                </div>
-                <div class="form-group">
-                  <label>Image:</label>
-                  <!-- <input type="text" class="form-control" name="team.position" [(ngModel)]="team.position" placeholder=""/> -->
-
-                  <!-- add image of the team member -->
-                </div>
-              </div>
-          </section>
+           
             <button class="btn btn-warning btn-sm" (click)="save_changes()" *ngIf="edit">Save Changes</button>
         </div>
       </div>

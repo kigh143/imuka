@@ -34,6 +34,7 @@ margin-bottom: 10px;
   position:relative;
   height:150px;
   background:rgb(233, 233, 233);
+  background-image: cover;
 }
 .profile{
   position:absolute;
@@ -42,7 +43,7 @@ margin-bottom: 10px;
 }
 .personal_info{
   height:230px;
-  // background: url("/assets/partners/ppbg.jpeg");
+  
 }
 ul{
  list-style: none;
@@ -59,10 +60,10 @@ ul{
   justify-content: center;
   display:flex;
   align-items: center;
-  color:blue;
+  color:#1798d4;
 }
 i{
-  color:blue;
+  color:#1798d4;
   margin-right:15px;
 }
 li{

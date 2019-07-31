@@ -25,7 +25,7 @@
     background:#f2f2f2;
 }
 .card-title{
-    color:#0056b3 !important;
+    color:#1798d4 !important;
 }
 .eventtime{
     font-size: 14px !important;
@@ -92,7 +92,7 @@
 
       .floating-input:focus , .floating-select:focus {
            outline:none;
-           border-bottom:2px solid #5264AE;
+           border-bottom:2px solid #1798d4;
       }
 
       label {
@@ -108,13 +108,13 @@
       .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label {
         top:-18px;
         font-size:14px;
-        color:#5264AE;
+        color:#1798d4;
       }
 
       .floating-select:focus ~ label , .floating-select:not([value=""]):valid ~ label {
         top:-18px;
         font-size:14px;
-        color:#5264AE;
+        color:#1798d4;
       }
 
       /* active state */
