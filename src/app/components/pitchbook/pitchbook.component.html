@@ -504,7 +504,7 @@
             <section>
                 <b>Economic impact</b><br/>
                 <ol>
-                   <li *ngFor = "let economic of economic_impacts">{{economic.ans}}</li>
+                   <li *ngFor = "let economic of economic_impacts">{{economic}}</li>
                 </ol>
                 <div *ngIf="edit">
 
@@ -523,7 +523,7 @@
             <section>
                 <b>Environmental impacts</b><br/>
                 <ol >
-                    <li *ngFor="let env of enviroment_impact; let i = index">{{env.ans}}</li>
+                    <li *ngFor="let env of enviroment_impact; let i = index">{{env}}</li>
                 </ol>
                 <div *ngIf="edit">
 

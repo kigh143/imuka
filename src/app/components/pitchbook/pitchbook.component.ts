@@ -74,56 +74,38 @@ export class PitchbookComponent {
   }
  
   social_impacts = [
-    'Security' ,
-     'Self esteem' ,
-     'Educational improvement' ,
-    'It promotes girl education' ,
-    'It promotes independence of the people especially women'
-    ,
-     'Health improvement' ,
-    'Food security' ,
-     'Reduce unemployment through job creation' ,
-    'Female engagement in employment or gender equality'
-    ,
-    
-      'It improves the living standards and well being of the people'
-    ,
-     'Reduces involvement of people in crimes' ,
-     'Reduces idleness' ,
-     'Improves the social infrastructure of the area' ,
+    'Security',
+    'Self esteem',
+    'Educational improvement' ,
+    'It promotes girl education',
+    'It promotes independence of the people especially women',
+    'Health improvement',
+    'Food security',
+    'Reduce unemployment through job creation' ,
+    'Female engagement in employment or gender equality',
+    'It improves the living standards and well being of the people',
+    'Reduces involvement of people in crimes',
+    'Reduces idleness',
+    'Improves the social infrastructure of the area' ,
     'It extends social services to the people' ,
-    'It promotes justice and fairness with in the people'
-    ,
-     'It improves the confidence of the people' ,
-    'It improves the nutritional balance of the food '
-    ,
-    
-        'It promotes technological improvement (such as use of computer and merchinery) and innovation'
-    
+    'It promotes justice and fairness with in the people',
+    'It improves the confidence of the people',
+    'It improves the nutritional balance of the food',
+    'It promotes technological improvement (such as use of computer and merchinery) and innovation'
   ];
 
   economic_impact = [
-     'It provides jobs to the people' ,
-
-     'It increases the incomes of the people' ,
-    'Improvement in the standards of living of the people'
-    ,
-    
-     'It provides cheaper and affordable products or services to the people'
-    
+    'It provides jobs to the people',
+    'It increases the incomes of the people' ,
+    'Improvement in the standards of living of the people',
+    'It provides cheaper and affordable products or services to the people'
   ];
 
   env_impact = [
-     ' It encourages afforestation and preservation of plantations'
-    ,
-    
-        ' it encourages preservation of swamps and reduce environment degredation'
-    ,
-    
-      
-       ' it improves waste management within the area or reduces pollution'
-    ,
-    ' it promotes recycling of the waste or bi products' 
+      'It encourages afforestation and preservation of plantations',
+      'it encourages preservation of swamps and reduce environment degredation',
+      'it improves waste management within the area or reduces pollution',
+      'it promotes recycling of the waste or bi products' 
   ];
   
   
@@ -133,7 +115,7 @@ export class PitchbookComponent {
     'Good Health and Well-being',
     'Quality Education',
     'Gender Equality',
-   'Clean Water and Sanitation',
+    'Clean Water and Sanitation',
     'Affordable and Clean Energy',
     'Decent Work and Economic Growth',
     'Industry, Innovation and Infrastructure',
@@ -142,10 +124,9 @@ export class PitchbookComponent {
     'Responsible Consumption and Production',
     'Climate Action',
     'Life Below Water',
-   'Life on Land',
+    'Life on Land',
     'Peace and Justice Strong Institutions',
-    
-     'Partnerships to achieve the Goal'
+    'Partnerships to achieve the Goal'
   ];
 
   investimentNeed = {
@@ -222,17 +203,17 @@ export class PitchbookComponent {
         this.products  = data.products;
         this.financials = data.financials
         this.pitch  = data.pitch;
-        this.competitions = JSON.parse(this.pitch.competition);
+        this.competitions = this.parseMyJson(this.pitch.competition );
         this.team = data.pitch.team;
     
         this.edit = false;
        
 
         this.getTotalNeed(this.investimentNeed);
-        this.social_impact = JSON.parse(this.pitch.social_impact);
-        this.sdgs = JSON.parse(this.pitch.sdgs);
-        this.economic_impacts = JSON.parse(this.pitch.economic_impact);
-        this.enviroment_impact = JSON.parse(this.pitch.enviroment_impact)
+        this.social_impact = this.parseMyJson(this.pitch.social_impact);
+        this.sdgs = this.parseMyJson(this.pitch.sdgs);
+        this.economic_impacts = this.parseMyJson(this.pitch.economic_impact);
+        this.enviroment_impact = this.parseMyJson(this.pitch.env_impact)
        console.log(this.social_impact);
         this.draw(this.competitions);
         console.log(this.pitch);
@@ -242,7 +223,14 @@ export class PitchbookComponent {
       
     });
   }
-   
+   parseMyJson(data){
+     if(data !== "" && data !== null){
+       return JSON.parse(data);
+     }
+     else {
+       return null;
+     }
+   }
    
   getTotalNeed(investimentNeed){
       const {  marketing, operations, machinery, stock, raw_material } = investimentNeed;
@@ -255,10 +243,10 @@ export class PitchbookComponent {
   save_changes() {
    console.log(this.pitch);
    let newdata = this.pitch;
-   this.pitch.social_impact = JSON.stringify(this.pitch.social_impact);
-   this.pitch.env_impact = JSON.stringify(this.pitch.env_impact);
-   this.pitch.sdgs = JSON.stringify(this.pitch.sdgs);
-   this.pitch.economic_impact = JSON.stringify(this.pitch.economic_impact)
+   this.pitch.social_impact = JSON.stringify(this.social_impact);
+   this.pitch.env_impact = JSON.stringify(this.env_impact);
+   this.pitch.sdgs = JSON.stringify(this.sdgs);
+   this.pitch.economic_impact = JSON.stringify(this.economic_impact)
    console.log(newdata);
     this.businessService.edit_pitchbook(newdata).subscribe( data => {
       console.log(newdata);
@@ -323,12 +311,15 @@ export class PitchbookComponent {
   }
 
   draw(competitors) {
-       competitors.forEach(data=>{
-       this.competitors_name.push(data.name);
-       this.factor1_grade.push(parseInt(data.comparison.factor1));
-       this.factor2_grade.push(parseInt(data.comparison.factor2));
-       this.factor3_grade.push(parseInt(data.comparison.factor3));
-    });
+       if(competitors !== null){         
+       
+          competitors.forEach(data=>{
+            this.competitors_name.push(data.name);
+            this.factor1_grade.push(parseInt(data.comparison.factor1));
+            this.factor2_grade.push(parseInt(data.comparison.factor2));
+            this.factor3_grade.push(parseInt(data.comparison.factor3));
+         });
+        }
   
     console.log(this.competitors_info);
     

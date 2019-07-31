@@ -30,7 +30,44 @@ width: 100px;
 border-radius: 5px;
 margin-bottom: 10px;
 }
-
+.profileholder{
+  position:relative;
+  height:150px;
+  background:rgb(233, 233, 233);
+}
+.profile{
+  position:absolute;
+  top:90%;
+  left:5%;
+}
+.personal_info{
+  height:230px;
+  // background: url("/assets/partners/ppbg.jpeg");
+}
+ul{
+ list-style: none;
+}
+.divider{
+  height:10px;
+  background:rgb(233, 233, 233);
+}
+.personal_detail{
+  margin-top:10px;
+}
+.heading{
+  text-align: center;
+  justify-content: center;
+  display:flex;
+  align-items: center;
+  color:blue;
+}
+i{
+  color:blue;
+  margin-right:15px;
+}
+li{
+  margin:10px;
+}
 @media only screen and (max-width: 768px) {
 .container{
     margin-top:10px;
@@ -54,6 +91,7 @@ margin-bottom: 10px;
     background: rgb(222, 224, 224);	
     border-radius: 0px !important;
     color:#666;
+    position:relative;
 }
 
 .display-4{
@@ -71,7 +109,7 @@ margin-bottom: 10px;
     margin-top:20px;
 }
 .profilepic{
-  position:relative;
+  position:absolute;
 }
 .pp{
   position: absolute;

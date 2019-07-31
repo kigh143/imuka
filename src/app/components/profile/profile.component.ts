@@ -34,7 +34,8 @@ export class ProfileComponent implements OnInit {
     type: any;
     showBtn = false;
     files: any;
-
+    personal= false;
+    skills= false;
     uploadForm = false;
     btnText ='upload File';
 
@@ -91,6 +92,11 @@ export class ProfileComponent implements OnInit {
         console.log( error);
       });
   }
-
+ editpersonal(){
+   this.personal = true;
+ }
+ editskills(){
+   this.skills = true;
+ }
 
 }

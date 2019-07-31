@@ -9,9 +9,24 @@
       </div>
         <div class="col-md-9">
             <div class="content">
-                <div class="jumbotron">
-                  <div class="row">
-                      <div class="col-md-12 profilepic" >
+                <div class="">
+                       <div class="personal_info" >
+                            <div class="profileholder">
+                            <div class="profile">
+                             <div class="row"> <img [src]="url">
+                              <div class="personal_detail" style="margin-left:10px">
+                                    <h1 class="display-4">{{user.name}}</h1>
+                                    <p>{{user.email}}</p>
+                                    <p>{{user.phone}}</p>
+                                </div>
+                             </div>
+                            </div>
+                        </div>
+                        </div>
+                       
+                    
+                  <!-- <div class="row">
+                      <div class="col-md-6 profilepic" >
                           <div style="position: relative; height:100px; width:100px; margin:20px auto; ">
                               <img [src]="url">
                               <button (click)="openModal(add)" style="position: absolute; bottom:-5px; right:-5px;" class="btn btn-info btn-sm">
@@ -133,8 +148,91 @@
                             </div>
                         </form>
                     </accordion-group>
-                </accordion>
+                </accordion> -->
+                 
             </div>
+            <div class="divider" style="margin-top:20px; margin-bottom:20px"> 
+                    
+            </div> 
+            
+            <div class="row">
+                <div class="col-3 heading">
+                    <span>About</span>
+                </div>
+                <div class="col-6 headinginfo">
+                    
+                    <ul>
+                        <li><i class="fa fa-calendar"></i> <span>date of birth</span></li>
+                        <li><i class="fa fa-users"></i> <span>marital status</span></li>
+                        <li><i class="fa fa-users"></i> <span>Gender</span></li>
+                        
+                    </ul>
+                    <div *ngIf="personal">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Date of Birth</label>
+                                <input type="date" class="form-control"  name="user.dob" [(ngModel)]="user.dob">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Marital Status</label>
+                                <input type="number" class="form-control"  name="user.mstatus" [(ngModel)]="user.mstatus">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Gender</label>
+                                <input type="text" class="form-control"  name="user.gender" [(ngModel)]="user.gender">
+                            </div>
+
+                            <div class="form-group">
+
+                               
+                            </div>
+                    </form>
+                </div>
+                </div>
+                <div class="col-3">
+                    <a (click)="editpersonal()"><i class="fa fa-pencil" ></i></a>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+                    <div class="col-3 heading">
+                        <span>Relevant Expertise And Skills</span>
+                    </div>
+                    <div class="col-6 headinginfo">
+                            
+                        <ul>
+                            <li><i class="fa fa-certificate"></i><span>Relevant Experience</span></li>
+                            <li><i class="fa fa-cogs"></i><span>Relevant Skills</span></li>
+                            <li><i class="fa fa-star"></i><span>Expertise</span></li>
+                            
+                        </ul>
+                        <form *ngIf="skills">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Relevant Experience</label>
+                                    <input type="email" class="form-control"  name="user.relevant_exp" [(ngModel)]="user.relevant_exp"  >
+                                </div>
+    
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Relevant Skills</label>
+                                    <input type="email" class="form-control"  name="user.relevant_skills" [(ngModel)]="user.relevant_skills"  >
+                                </div>
+    
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Expertise</label>
+                                    <input type="email" class="form-control" name="user.expertise" [(ngModel)]="user.expertise"   >
+                                </div>
+    
+                                <div class="form-group">
+    
+                                    <button type="button" class="btn btn-secondary pull-right btn-sm" (click)="save('experience')">Save changes</button>
+                                </div>
+                            </form>
+    
+                    </div>
+                    <div class="col-3">
+                        <a (click)="editskills()"><i class="fa fa-pencil" ></i></a>
+                    </div>
+                </div>
         </div>
       </div>
     </div>
