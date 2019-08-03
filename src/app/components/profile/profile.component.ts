@@ -60,6 +60,7 @@ export class ProfileComponent implements OnInit {
 
 
   save(value) {
+    
     if ( value === 'name') {
       this.send_request({name: this.user.name});
    } else  if ( value === 'contact') {
@@ -93,10 +94,10 @@ export class ProfileComponent implements OnInit {
       });
   }
  editpersonal(){
-   this.personal = true;
+   this.personal = !this.personal;
  }
  editskills(){
-   this.skills = true;
+   this.skills = !this.skills;
  }
 
 }

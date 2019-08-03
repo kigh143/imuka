@@ -27,7 +27,7 @@
 img {
 height: 100px;
 width: 100px;
-border-radius: 5px;
+border-radius: 50%;
 margin-bottom: 10px;
 }
 .profileholder{
@@ -38,6 +38,7 @@ margin-bottom: 10px;
 }
 .profile{
   position:absolute;
+ 
   top:90%;
   left:5%;
 }

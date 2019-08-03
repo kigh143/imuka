@@ -57,6 +57,11 @@ input.file {
     order: 0;
     
 }
+.cards {
+    box-shadow: 5px 4px 8px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding:10px;
+  }
 
 .process-step {    
     display: table-cell;

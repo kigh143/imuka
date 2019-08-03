@@ -22,7 +22,7 @@
                   <div class="media">
                       <img src="{{biznes.business_logo}}" class="mr-3" style="height:60px; width:60px;" (click)="add_logo(business_logo)">
                       <div class="media-body">
-                        <h5 class="mt-0">{{biznes?.business_name}}</h5>
+                        <h5 class="mt-0" style="text-transform:capitalize">{{biznes?.business_name}}</h5>
                         {{biznes?.location}} {{biznes?.region}}  {{biznes?.country}}
                       </div>
                     </div>
@@ -123,9 +123,12 @@
                       <span style="font-size:18px; font-weight:bolder; color:rgb(41, 137, 175);">Other information.</span>
                       <hr/>
                       <div>
-                        <p>{{biznes.mission}}</p>
-                        <p>{{biznes.vision}}</p>
-                        <p>{{biznes.date_of_reg}}</p>
+                        <span style="color:gray">Mission</span>
+                        <p><b>{{biznes?.mission}}</b></p>
+                        <span style="color:gray">Vision</span>
+                        <p><b>{{biznes?.vision}}</b></p>
+                        <span style="color:gray">Date of Registration</span>
+                        <p><b>{{biznes?.date_of_reg}}</b></p>
                       </div>
                   </div>
                   <div class="col-md-6 col-xs-12" *ngIf="user?.user_type==='entrepreneur'">
@@ -243,15 +246,16 @@
             <div>
               <div class="products">
                 <div class="content-box row">
-                  <div class="col-md-8 col-xs-12" style="margin-top:10px;">
+                  <div class="col-md-8 col-xs-12" style="margin-top:20px;">
 
                     <div class="media"  *ngFor="let prdt of bizproducts">
                       <div class="media-left" style="padding:10px">
                         <img src="{{prdt.images}}" class="media-object" style="width:100px; height:80px">
                       </div>
                       <div class="media-body" style="padding:10px">
-                        <h4 class="media-heading" style="padding:10px; text-transform: capitalize">{{prdt.name}}</h4>
-                        <p style="font-size:13px" >{{prdt.description}}</p>
+                        <span class="" style="padding-top:10px; text-transform: capitalize">{{prdt.name}}</span>
+                        <p style="font-size:13px; color:gray" >{{prdt.description}}</p>
+                        <span>$30/kg</span>
                       </div>
                     </div>
                   </div>
@@ -286,8 +290,9 @@
                 <div class="content-box row">
                   <div class="col-md-8 col-xs-12" style="padding-top:20px">
                     <div class="row">
-                      <div class="col-md-3 col-xs-12" *ngFor="let doc of documents">
-                        <div class="box document" [ngClass]="isclicked?'active':''" >
+                      <div class="col-md-3  col-xs-12" *ngFor="let doc of documents">
+                       <div class="cards">
+                        <div class="box document " style="text-align:center" [ngClass]="isclicked?'active':''" >
                           <img [src]="doc.file_url" style="height:80px; width:80px;" onerror="this.src='assets/wordicon.png'"/>
                           <h6>{{doc.name}}</h6>
                           <p>Approved <i class="fa fa-check" aria-hidden="true"></i></p>
@@ -307,6 +312,7 @@
                               </div>
                               <hr/>
                           </div>
+                        </div>
                       </div>
                     </div>
                   </div>

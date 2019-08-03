@@ -22,7 +22,7 @@
               </p>
             
         </div>
-         <div class=" investornumbers " style="height:130px; position:relative" *ngIf="user?.user_type==='investor'">
+         <!-- <div class=" investornumbers " style="height:130px; position:relative" *ngIf="user?.user_type==='investor'">
                 <div style="position:absolute; border:0; background:transparent; top:10px; width:100%">
                         <div class="row"><div class="col  col-md-4"><div class="card card1" style="padding:5px; margin:0;">
                          <div class="media" style="width:100%; margin:0; padding:0; background:white" >
@@ -76,7 +76,7 @@
                             </div>
                 </div>
                 </div>
-         </div></div>
+         </div></div> -->
         <section *ngIf="user?.user_type==='entrepreneur'" style="border:0">
             <!-- <div class="d-flex bd-highlight heading" (click)="navigate_to('my_businesses')">
                 <div class="p-2 flex-grow-1 bd-highlight">Business(es) </div>
@@ -92,7 +92,7 @@
                 </div>
             </div> -->
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col">
                 <div class="card quote">
                     <div class="tagandlikes">
@@ -129,7 +129,7 @@
                    <div class="foot" style="margin-left:15px"><span class="text-right foot" >-- Adda Birnir -</span></div>
                 </div>
                </div>
-            </div>
+            </div> -->
         </section> 
 
        
@@ -150,12 +150,12 @@
             </div>
         </section> -->
 
-        <div *ngIf="user?.user_type==='investor'" class="" style="" ><h5><b>Business Updates</b></h5>
+        <div *ngIf="user?.user_type==='investor'" class="" style="" >
             <p>Lets Keep you Updated about the businesses</p>
             </div>
        <section class="updates" style="border:0; margin-top:30px" *ngIf="user?.user_type==='investor'">
         
-        <div class="card-columns">
+        <!-- <div class="card-columns">
             <div class="card text-center" *ngFor="let updates of businessupdates" style="width:14rem; margin:10px"> 
                 <div class="card-body" routerLink="/business/{{updates.business_id}}">
                     <div >
@@ -176,8 +176,37 @@
               
                 
                
-        </div>
-       </section>
+        </div> -->
+        <div class="card-columns">
+
+            <div class="card text-center">
+              <div class="card-body">
+                <div [chart]="chart" style="min-width: 310px; max-width: 800px; height: 200px; margin: 0 auto"></div>
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Contracts</h5>
+                  <span>{{counts.contracts}}</span>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Businesses</h5>
+                  <span>{{counts.businesses}}</span>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Entrepreneurs</h5>
+                <span>{{counts.entrepreneurs}}</span>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+    </section>
 
     </div>
   </div>
