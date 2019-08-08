@@ -1,5 +1,6 @@
 .mainmenu {
   border-radius: 3px;
+  background: #fff;
 }
 
 .feeds {
@@ -158,4 +159,15 @@ option{
     margin-left:0 !important;
     margin-right:0 !important;
   }
+}
+.sidenav {
+  height: 100%;
+  width:300px;
+  position: fixed;
+  z-index: 1;
+  top: 8%;
+  padding:30px;
+  left: 2px;
+  overflow-x: hidden;
+  padding-top: 20px;
 }

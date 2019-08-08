@@ -69,3 +69,14 @@
       padding:8px;
     }
   }
+  .sidenav {
+    height: 100%;
+    width:300px;
+    position: fixed;
+    z-index: 1;
+    top: 8%;
+    padding:30px;
+    left: 2px;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }

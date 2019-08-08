@@ -1,4 +1,5 @@
-<div style="background:#fff; margin-left:5px; padding:5px; ">
+<div 
+     style="background:#fff; margin-left:5px; padding:5px; margin-bottom:40px ">
   <ul class="list-unstyled" (click)="go_to_profile()" style="background:none;">
     <li class="media" style="background:none;">
       <img src="{{user?.profile_pic}}" class="mr-3" alt="..." style="height:40px; width: 40px; border-radius: 10px;">
@@ -12,7 +13,7 @@
 </div>
 
 
-<ul class="list-group list-group-flush"  *ngIf="user?.user_type==='entrepreneur'">
+<ul class="list-group list-group-flush"  *ngIf="user?.user_type==='entrepreneur'" no-lines>
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item" ><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/my_businesses"  ><i class="fa fa-briefcase"></i> Business(es)</a><span class="badge badge-light float-right">{{business_count}}</span></li>
   <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  class="list-group-item"><a routerLink="/events" ><i class="fa fa-calendar"></i> Events</a><span class="badge badge-light float-right">{{event_counter}}</span></li>
@@ -23,7 +24,7 @@
   <li  class="list-group-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</li>
 </ul>
 
-<ul class="list-group list-group-flush" *ngIf="user?.user_type==='investor'">
+<ul class="list-group list-group-flush" *ngIf="user?.user_type==='investor'" no-lines>
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investmentrequest"><i class="fa fa-money"></i> Investment(s)</a><span class="badge badge-light float-right" > {{investments_count}}</span></li>
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investiment_opportunities"><i class="fa fa-globe"></i> Investment opportunities</a><span class="badge badge-light float-right" >{{investment_opps}}</span></li>
