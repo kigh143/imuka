@@ -331,7 +331,7 @@ export class BusinessComponent implements OnInit,  OnDestroy {
 
     ]
     });
-
+   
 
 
   const mline = new Chart({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from '../../provider/session.service';
 import { BizService } from 'src/app/provider/biz.service';
-
+import { Chart } from 'angular-highcharts';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   myinvestment_count;
   request_count;
   count;
+  mline : Chart;
   business;
   businessupdates;
   counts:any;
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.draw();
     const data = this.sessionService.getuser();
     this.user = data;
     if ( this.user.name !== '') {
@@ -66,6 +68,26 @@ getbusinessupdate(){
     this.businessupdates = results;
     console.log(this.businessupdates)
   })
+}
+draw(){
+  const mline = new Chart({
+    title: {
+      text: 'Number of businesses in 2019'
+  },
+
+  yAxis: {
+      title: {
+          text: 'Number of Businesses'
+      }
+  },
+  series: [{
+    name: 'Line 1',
+    data: [1, 2, 4, 6]
+  }
+
+]
+});
+this.mline = mline;
 }
 
 }
