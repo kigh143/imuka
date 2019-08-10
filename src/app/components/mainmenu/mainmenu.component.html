@@ -26,8 +26,8 @@
 
 <ul class="list-group list-group-flush" *ngIf="user?.user_type==='investor'" no-lines>
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investmentrequest"><i class="fa fa-money"></i> Investment(s)</a><span class="badge badge-light float-right" > {{investments_count}}</span></li>
-    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investiment_opportunities"><i class="fa fa-globe"></i> Investment opportunities</a><span class="badge badge-light float-right" >{{investment_opps}}</span></li>
+    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investmentrequest"><i class="fa fa-money"></i> Investment(s)</a><span class="badge badge-light float-right" > {{myinvestment_count}}</span></li>
+    <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/investiment_opportunities"><i class="fa fa-globe"></i> Investment opportunities</a><span class="badge badge-light float-right" >{{investment_count}}</span></li>
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/contracts"><i class="fa fa-cubes"></i> Contracts and Projects </a><span class="badge badge-light float-right">{{contracts}}</span></li>
     <!--<li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/notifications"><i class="fa fa-bell"></i> Notifications  </a><span class="badge badge-light float-right" style="text-align: center; margin-top:5px"></span></li>-->
     <li   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item"><a routerLink="/request"><i class="fa fa-info-circle"></i> Requests and Help</a></li>

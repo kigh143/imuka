@@ -17,6 +17,9 @@ export class MainmenuComponent implements OnInit {
   business_count : any;
   myinvestment_count:any;
   investment_count:any;
+  investment_requests: any;
+  notifications: any;
+  contracts: any;
 
 
   constructor(public router : Router, public sessionService :SessionService, public businessService:BizService ) {
@@ -33,10 +36,15 @@ export class MainmenuComponent implements OnInit {
        this.count = data;
        this.event_counter = data.events;
        this.opps_count = data.opps;
-       this.myinvestment_count = data.my_investment;
-       this.investment_count = data.investments;
+       this.notifications = data.notifications
+       this.myinvestment_count = data.investments;
+       this.investment_count = data.investment_opps;
+       this.investment_requests = data.investment_requests
        this.business_count = data.businesses;
+       this.contracts = data.contracts
+       console.log(data)
     });
+    
   }
 
   logout(){

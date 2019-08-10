@@ -18,13 +18,13 @@
         <div class="content row">
           <div class="col-md-6 carddata" *ngFor="let business of investmentopp">
             <div class="card ">
-              <img  class="card-img-top" src="{{business.business_cover}}" alt="{{business.business_name}}" onerror="this.src='assets/partners/logo.webp'" />
+              <img  class="card-img-top" src="{{business.business_cover}}" alt="{{business.business_name}}" onerror="this.src='assets/partners/logo.webp'" style="height:200px" />
               <div class="card-body text-center"  routerLink="/user_business/{{business.business_id}}" >
                 <h1 class="card-title">{{business.business_name}}</h1>
                 <p class="card-text">{{business.legal_entity}} | {{business.country}} ({{business.region}})</p>
                 <p>{{business?.sectors | stringArray}} </p>
                 <hr>
-                Investment Need:{{business.investment_need?.investimentNeed| investneed}}
+                Investment Need: $ {{business.investment_need?.investimentNeed| investneed}}
                 <hr>
               </div>
               <div style="display:flex; flex-direction: row">
