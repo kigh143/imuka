@@ -6,50 +6,50 @@
     border: 1px solid #eee;
     border-radius: 3px;
   }
-  
+
   .feeds {
     background: rgb(223, 156, 156);
     border: 1px solid #eee;
     border-radius: 3px;
     background: none;
   }
-  
+
   .content {
     background: transparent;
     border: 1px solid #eee;
     border-radius: 3px;
     font-family:Helvetica, Arial, sans-serif
   }
-  
+
   .container {
     margin-top: 10px;
   }
-  
+
   .body {
     background: #f2f2f2;
   }
-  
+
   .col-md-3 {
     background: none !important;
   }
-  
+
   .add_btn {
     font-size: 60px;
     color: #555;
   }
-  
+
   .add {
     text-align: center;
     padding: 60px;
   }
-  
+
   .form {
     padding: 10px;
     background: #fff;
     border-radius: 10px;
   }
 
-  
+
 
 .list-group-item {
   display: flex;
@@ -77,13 +77,13 @@
   color:darkcyan !important;
   cursor: pointer;
   text-align: center;
-  
+
 }
-  
+
 .card-body {
   cursor: pointer;
 }
-  
+
 
 .card-title {
   color:rgb(8, 72, 124);
@@ -94,15 +94,4 @@
 }
 .isfollowing{
   color:red !important;
-}
-.sidenav {
-  height: 100%;
-  width:300px;
-  position: fixed;
-  z-index: 1;
-  top: 8%;
-  padding:30px;
-  left: 2px;
-  overflow-x: hidden;
-  padding-top: 20px;
 }
