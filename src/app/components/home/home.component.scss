@@ -1,12 +1,9 @@
 .mainmenu{
-    background:white;
+    background:none;
     border-radius: 3px;
 }
 .card-columns {
-
     column-count: 2;
-
-
 }
 .feeds{
     background: #fff;
@@ -168,6 +165,7 @@ section{
         text-align: left !important;
         margin-bottom:0 !important;
 
-    }}
+    }
+  }
 
 }

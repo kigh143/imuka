@@ -1,16 +1,12 @@
 
 .feeds{
     background: #fff;
-    border:1px solid #eee; 
+    border:1px solid #eee;
     border-radius: 3px;
     background: none;
 }
 
-.content{
-    background: #fff;
-    border:1px solid #eee; 
-    border-radius: 3px;
-}
+
 
 .container{
     margin-top:10px;
@@ -23,35 +19,36 @@
 .col-md-3{
     background: none !important;
 }
- 
+
 img {
 height: 100px;
 width: 100px;
-border-radius: 50%;
 margin-bottom: 10px;
 }
 .profileholder{
   position:relative;
   height:150px;
   background:rgb(233, 233, 233);
-  background-image: cover;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+
 }
 .profile{
   position:absolute;
- 
+
   top:90%;
   left:5%;
 }
 .personal_info{
   height:230px;
-  
+
 }
 ul{
  list-style: none;
 }
 .divider{
-  height:10px;
-  background:rgb(233, 233, 233);
+  height:20px;
+  width: 100%;
 }
 .personal_detail{
   margin-top:10px;
@@ -90,7 +87,7 @@ li{
 .jumbotron{
     margin-bottom: 0px !important;
     text-align: center;
-    background: rgb(222, 224, 224);	
+    background: rgb(222, 224, 224);
     border-radius: 0px !important;
     color:#666;
     position:relative;
@@ -120,28 +117,27 @@ li{
 input {
     display: none;
   }
-  
+
   .image-upload-container {
     cursor: pointer;
   }
-  
+
   .img-preview-container {
     background-color: #f7f7f7;
     position: relative;
 
-  
     .img-preview {
       background: center center no-repeat;
       background-size: contain;
       height: 116px;
       width: 116px;
-  
+
       &-error {
         display: none;
       }
     }
   }
-  
+
   .img-loading-overlay {
       background-color: rgb(23, 248, 79);
       bottom: 0;
@@ -151,7 +147,7 @@ input {
       right: 0;
       top: 0;
   }
-  
+
   .img-spinning-circle {
     display: inline-block;
     width: 64px;
@@ -182,14 +178,14 @@ input {
       transform: rotate(360deg);
     }
   }
-  
+
   .btn-bwm {
     background-color:rgb(23, 248, 79);
     border-color: rgb(23, 248, 79);
     color: white;
     padding: 15px 30px;
     font-size: 20px;
-  
+
     &:hover, &:focus, &:active {
       border-color: rgb(23, 248, 79) !important;
       background-color: rgb(23, 248, 79)!important;
