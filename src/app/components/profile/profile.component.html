@@ -28,9 +28,9 @@
           About   <a (click)="editpersonal()" class="float-right"> Edit <i class="fa fa-pencil" ></i></a>
           </div>
           <div class="card-body">
-          <p><i class="fa fa-calendar"></i> <span>date of birth: {{user.dob}}</span></p>
-          <p><i class="fa fa-users"></i> <span>marital status</span></p>
-          <p><i class="fa fa-users"></i> <span>Gender</span></p>
+          <p><i class="fa fa-calendar"></i> <span>Date of birth: {{user.dob}}</span></p>
+          <p><i class="fa fa-users"></i> <span>marital status : {{user.mstatus}}</span></p>
+          <p><i class="fa fa-users"></i> <span>Gender: {{user.gender}}</span></p>
           <hr>
           <div *ngIf="personal">
           <form>
@@ -63,9 +63,9 @@
           Relevant Expertise And Skills  <a (click)="editskills()" class="float-right"> Edit <i class="fa fa-pencil" ></i></a>
           </h5>
           <div class="card-body">
-          <p><i class="fa fa-certificate"></i><span>Relevant Experience</span></p>
-          <p><i class="fa fa-cogs"></i><span>Relevant Skills</span></p>
-          <p><i class="fa fa-star"></i><span>Expertise</span></p>
+          <p><i class="fa fa-certificate"></i><span>Relevant Experience : {{user.relevant_exp}}</span></p>
+          <p><i class="fa fa-cogs"></i><span>Relevant Skills : {{user.relevant_skills}} </span></p>
+          <p><i class="fa fa-star"></i><span>Expertise : {{user.expertise}}</span></p>
 
           <hr>
 
