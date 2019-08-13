@@ -7,109 +7,92 @@
               <app-mainmenu></app-mainmenu>
           </div>
       </div>
-        <div class="col-md-9">
-            <div class="content">
-                <div class="" >
-                       <div class="personal_info" >
-                            <div class="profileholder" [ngStyle]="{background: 'url(/assets/partners/ppbg.jpeg)'}">
-                            <div class="profile">
-                             <div class="row"> <img [src]="url">
-                              <div class="personal_detail" style="margin-left:10px">
-                                    <h1 class="display-4"><b>{{user.name}}</b></h1>
-                                    <p><b>{{user.email}}</b></p>
-                                    <p>{{user.phone}}</p>
-                                </div>
-                             </div>
-                            </div>
-                        </div>
-                        </div>
-                       
-                    
-                 
-                 
-            </div>
-            <div class="divider" style="margin-top:20px; margin-bottom:20px"> 
-                    
-            </div> 
-            
-            <div class="row">
-                <div class="col-3 heading">
-                    <span><b>About</b></span>
-                </div>
-                <div class="col-6 headinginfo">
-                    
-                    <ul>
-                        <li><i class="fa fa-calendar"></i> <span>date of birth</span></li>
-                        <li><i class="fa fa-users"></i> <span>marital status</span></li>
-                        <li><i class="fa fa-users"></i> <span>Gender</span></li>
-                        
-                    </ul>
-                    <div *ngIf="personal">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Date of Birth</label>
-                                <input type="date" class="form-control"  name="user.dob" [(ngModel)]="user.dob">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Marital Status</label>
-                                <input type="number" class="form-control"  name="user.mstatus" [(ngModel)]="user.mstatus">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Gender</label>
-                                <input type="text" class="form-control"  name="user.gender" [(ngModel)]="user.gender">
-                            </div>
+      <div class="col-md-9">
+        <div class="content">
+          <div style="height:30vh; display: flex; flex-direction: column;">
+          <div style="flex:1; background-repeat:no-repeat; background-size:cover;" [ngStyle]="{background: 'url(/assets/partners/ppbg.jpeg)'}"></div>
+          <div style="flex:1; display: flex; flex-direction: row; padding:10px; background:#fff; ">
+          <img [src]="url" style="object-fit: cover; ">
+          <div style="padding-left: 10px;">
+          <b style="font-size:27px; ">{{user.name}}</b><br/>
+          <span style="color:cadetblue;">{{user.user_type}}</span><br/>
+          <span style="color:#333;">{{user.email}}</span> | <span style="color:#333;">{{user.phone}}</span>
+          </div>
+          </div>
+          </div>
 
-                            <div class="form-group">
+          <div class="divider"></div>
 
-                               
-                            </div>
-                    </form>
-                </div>
-                </div>
-                <div class="col-3">
-                    <a (click)="editpersonal()"><i class="fa fa-pencil" ></i></a>
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="row">
-                    <div class="col-3 heading">
-                        <span><b>Relevant Expertise And Skills</b></span>
-                    </div>
-                    <div class="col-6 headinginfo">
-                            
-                        <ul>
-                            <li><i class="fa fa-certificate"></i><span>Relevant Experience</span></li>
-                            <li><i class="fa fa-cogs"></i><span>Relevant Skills</span></li>
-                            <li><i class="fa fa-star"></i><span>Expertise</span></li>
-                            
-                        </ul>
-                        <form *ngIf="skills">
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Relevant Experience</label>
-                                    <input type="email" class="form-control"  name="user.relevant_exp" [(ngModel)]="user.relevant_exp"  >
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Relevant Skills</label>
-                                    <input type="email" class="form-control"  name="user.relevant_skills" [(ngModel)]="user.relevant_skills"  >
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Expertise</label>
-                                    <input type="email" class="form-control" name="user.expertise" [(ngModel)]="user.expertise"   >
-                                </div>
-    
-                                <div class="form-group">
-    
-                                    <button type="button" class="btn btn-secondary pull-right btn-sm" (click)="save('experience')">Save changes</button>
-                                </div>
-                            </form>
-    
-                    </div>
-                    <div class="col-3">
-                        <a (click)="editskills()"><i class="fa fa-pencil" ></i></a>
-                    </div>
-                </div>
+          <div class="card">
+          <div class="card-header clearfix">
+          About   <a (click)="editpersonal()" class="float-right"> Edit <i class="fa fa-pencil" ></i></a>
+          </div>
+          <div class="card-body">
+          <p><i class="fa fa-calendar"></i> <span>Date of birth: {{user.dob}}</span></p>
+          <p><i class="fa fa-users"></i> <span>marital status : {{user.mstatus}}</span></p>
+          <p><i class="fa fa-users"></i> <span>Gender: {{user.gender}}</span></p>
+          <hr>
+          <div *ngIf="personal">
+          <form>
+          <div class="form-group">
+          <label for="exampleFormControlInput1">Date of Birth</label>
+          <input type="date" class="form-control"  name="user.dob" [(ngModel)]="user.dob">
+          </div>
+          <div class="form-group">
+          <label for="exampleFormControlInput1">Marital Status</label>
+          <input type="number" class="form-control"  name="user.mstatus" [(ngModel)]="user.mstatus">
+          </div>
+          <div class="form-group">
+          <label for="exampleFormControlInput1">Gender</label>
+          <input type="text" class="form-control"  name="user.gender" [(ngModel)]="user.gender">
+          </div>
+
+          <div class="form-group">
+
+
+          </div>
+          </form>
+          </div>
+          </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="card">
+          <h5 class="card-header clearfix">
+          Relevant Expertise And Skills  <a (click)="editskills()" class="float-right"> Edit <i class="fa fa-pencil" ></i></a>
+          </h5>
+          <div class="card-body">
+          <p><i class="fa fa-certificate"></i><span>Relevant Experience : {{user.relevant_exp}}</span></p>
+          <p><i class="fa fa-cogs"></i><span>Relevant Skills : {{user.relevant_skills}} </span></p>
+          <p><i class="fa fa-star"></i><span>Expertise : {{user.expertise}}</span></p>
+
+          <hr>
+
+          <form *ngIf="skills">
+          <div class="form-group">
+          <label for="exampleFormControlInput1">Relevant Experience</label>
+          <input type="email" class="form-control"  name="user.relevant_exp" [(ngModel)]="user.relevant_exp"  >
+          </div>
+
+          <div class="form-group">
+          <label for="exampleFormControlInput1">Relevant Skills</label>
+          <input type="email" class="form-control"  name="user.relevant_skills" [(ngModel)]="user.relevant_skills"  >
+          </div>
+
+          <div class="form-group">
+          <label for="exampleFormControlInput1">Expertise</label>
+          <input type="email" class="form-control" name="user.expertise" [(ngModel)]="user.expertise"   >
+          </div>
+
+          <div class="form-group">
+
+          <button type="button" class="btn btn-secondary pull-right btn-sm" (click)="save('experience')">Save changes</button>
+          </div>
+          </form>
+          </div>
+          </div>
+
         </div>
       </div>
     </div>

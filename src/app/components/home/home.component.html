@@ -2,18 +2,17 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-3 " >
+    <div class="col-md-3">
         <div class="mainmenu sidenav">
             <app-mainmenu></app-mainmenu>
         </div>
-        
     </div>
     <div class="col-md-9">
         <div class="jumbotron">
             <h4>Hello,{{user?.name}} {{header}}! </h4>
             <p><a routerLink="/profile">update your profile.</a></p>
             <p *ngIf="user?.user_type==='entrepreneur'">Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Your access-point for the opportunities, support and financing to scale your business to the next level.</p>
-            <p  *ngIf="user?.user_type==='investor'">
+            <p *ngIf="user?.user_type==='investor'">
                 Welcome to <b style="color:#1798d4;">ImukaAccess!</b> Here you can find a
                 series of Imuka-validated leads for potential investiment opportunities.
                 You can follow business that interest you over time, allowing you top
@@ -21,7 +20,7 @@
                 the option to interact with and provide advice to enterpreneurs to help
                 them grow. Thank you!.
               </p>
-            
+
         </div>
          <!-- <div class=" investornumbers " style="height:130px; position:relative" *ngIf="user?.user_type==='investor'">
                 <div style="position:absolute; border:0; background:transparent; top:10px; width:100%">
@@ -29,51 +28,51 @@
                          <div class="media" style="width:100%; margin:0; padding:0; background:white" >
                             <div class="align-self-center media-icon" style="background:transparent;
                                 display:flex; justify-content:center; align-items:center; border-radius:50%; width:100px; height:100px ">
-                               
+
                                    <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:60px; height:60px;"><i style="text-align:center; font-size:30px" class=" fa fa-users" alt="..."></i></div>
                                   </div>
                              <div class="media-body" style="background:rgb(182, 182, 182); padding-top:5px">
                                <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Entrepreneurs</h5>
                                <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.entrepreneurs}}</p>
-                               
+
                              </div>
                            </div></div>
                          </div>
                          <div class="col  col-md-4">
                          <div class="card card1" style="margin:0; padding:5px">
-                            
-                            
+
+
                              <div class="media" style="width:100%; margin:0; padding:0; background:white" >
-                                
+
                                 <div class="align-self-center media-icon" style="background:transparent;
                                 display:flex; justify-content:center; align-items:center; border-radius:50%; width:80px; height:80px ">
-                                
+
                                    <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:60px; height:60px;"><i style="text-align:center; font-size:30px" class=" fa fa-briefcase" alt="..."></i></div>
                                   </div>
                                 <div class="media-body" style="background:rgb(182, 182, 182); padding-top:5px">
                                     <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Total Businesses</h5>
                                     <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.businesses}}</p>
-                                  
+
                                 </div>
                               </div>
                             </div>
-                            
+
                    </div>
                    <div class="col col-md-4">
                         <div class="card card1" style="padding:5px; margin:0; ">
                             <div class="media" style="width:100%; margin:0; padding:0; background:white" >
                                 <div class="align-self-center media-icon" style="background:transparent;
                                 display:flex; justify-content:center; align-items:center; border-radius:50%; width:80px; height:80px ">
-                                
+
                                    <div style="background:rgb(4, 161, 148);  display:flex; justify-content:center; align-items:center; border-radius:50%; width:60px; height:60px;"><i style="text-align:center; font-size:30px" class="fa fa-pencil-square-o" alt="..."></i></div>
                                   </div>
                                 <div class="media-body" style="background:rgb(182, 182, 182);  padding-top:5px">
                                     <h5 class="mt-0" style="text-align:center; justify-content: center; font-size:13px">Contract Requests</h5>
                                     <p style="text-align:center; justify-content: center; font-size:16px; font-weight:700">{{counts.contracts}}</p>
-                                  
+
                                 </div>
                               </div>
-                             
+
                             </div>
                 </div>
                 </div>
@@ -105,9 +104,9 @@
                        </div>
                     </div>
                    <div class="card-body text-center">
-                    
+
                      <q class="card-text">Achievement seems to be connected with action. Successful men and women keep moving. They make mistakes but they don't quit. </q><br/>
-                     
+
                    </div>
                    <div class="foot"></div><span class="text-right foot" >-- Conrad Hilton-</span>
                 </div>
@@ -123,17 +122,17 @@
                        </div>
                     </div>
                    <div class="card-body text-center">
-                    
+
                      <q class="card-text">One of the most important things I have learned is that businesses don't fail, entrepreneurs give up. Now sometimes, giving up is the right decision. But usually you just need to dig in and figure out how to make things better. Remember: Every day is a new opportunity to get up and do it better than yesterday!</q><br/>
-                     
+
                    </div>
                    <div class="foot" style="margin-left:15px"><span class="text-right foot" >-- Adda Birnir -</span></div>
                 </div>
                </div>
             </div> -->
-        </section> 
+        </section>
 
-       
+
 
         <!-- <section  *ngIf="user?.user_type==='entrepreneur'">
             <div class="d-flex bd-highlight heading">
@@ -155,16 +154,16 @@
             <p>Lets Keep you Updated about the businesses</p>
             </div>
        <section class="updates" style="border:0; margin-top:30px" *ngIf="user?.user_type==='investor'">
-        
+
         <!-- <div class="card-columns">
-            <div class="card text-center" *ngFor="let updates of businessupdates" style="width:14rem; margin:10px"> 
+            <div class="card text-center" *ngFor="let updates of businessupdates" style="width:14rem; margin:10px">
                 <div class="card-body" routerLink="/business/{{updates.business_id}}">
                     <div >
                         <img src="assets/social-care.svg" style="height:40px; width:40px"/><br>
                     </div>
                     <div >
                         <h5 class="card-title">{{updates.business.business_name}}</h5>
-                        
+
                     </div>
                     <p>{{updates.what_happened}}</p>
 
@@ -173,10 +172,10 @@
                     {{updates.date_added}}
                     </div>
             </div>
-           
-              
-                
-               
+
+
+
+
         </div> -->
         <div class="card-columns">
 

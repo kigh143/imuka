@@ -1,12 +1,9 @@
 .mainmenu{
-    background:white;
+    background:none;
     border-radius: 3px;
 }
 .card-columns {
-   
     column-count: 2;
-  
- 
 }
 .feeds{
     background: #fff;
@@ -168,17 +165,7 @@ section{
         text-align: left !important;
         margin-bottom:0 !important;
 
-    }}
+    }
+  }
 
 }
-.sidenav {
-    height: 100%;
-    width:300px;
-    position: fixed;
-    z-index: 1;
-    top: 8%;
-    padding:30px;
-    left: 2px;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
