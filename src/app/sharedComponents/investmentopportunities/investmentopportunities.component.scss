@@ -1,0 +1,35 @@
+.imgdiv{
+    position:absolute;
+    top:82%;
+    left:30px;
+    
+    
+
+
+}
+.coverimage{
+   position:relative;
+   height:150px;
+
+}
+.card-link{
+    flex:1;
+    color:darkcyan !important;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+  
+  }
+  .subtitle{
+      font-weight: 100;
+      color:rgb(101, 102, 102);
+  }
+.card-title {
+color:rgb(0, 1, 2);
+font-weight:700 !important;
+float:right;
+align-items: flex-end;
+display:flex;
+flex-direction:column;
+justify-content:right;
+}

@@ -1,7 +1,98 @@
 <div class="body">
-   <div class="card">
-      <div class="">
+   <div class="row">
+   <div class="col-md-4">
+      <div class="card">
 
+      <div class="coverimage" [ngStyle]="{background: 'url(/assets/partners/ppbg.jpeg)'}">
+        <div class="imgdiv">
+            <div class="row" style="width:100%;"> 
+                 <img src="../assets/honeypride.jpg" style="height:80px; width:120px" />
+         
+            
+         </div>
+        </div>
+      </div>
+      <p style="margin-left:80px">hello</p>
+      <div class="body" style="margin:30px">
+            <div class="row">
+              <div class="col-6">
+                  <span>Investment Type: </span><br/>
+                  <span>Equity</span>
+              </div>
+              <div class="col-6" style="border-left: 1px solid rgb(165, 164, 164)">
+                    <span>Investment Amount:</span><br/>
+                    <span>USD: 100000</span>
+                 </div>
+            </div>
+           </div>
+   </div>
+  </div>
+  <div class="col-md-4">
+      <div class="card">
+
+      <div class="coverimage" [ngStyle]="{background: 'url(/assets/partners/ppbg.jpeg)'}">
+        <div class="imgdiv">
+            <div class="row" style="width:100%;"> 
+                 <img src="../assets/honeypride.jpg" style="height:80px; width:80px" />
+        
+         </div>
+        </div>
+      </div>
+      <div class="card-title" style="float:right; flex-direction: column">
+            <span class="title" style=" margin-right:30px">Elite High School</span>
+            <span class="subtitle" style="float:right; margin-right:30px">Education</span>
+      </div>
+     
+      <div class="body" style="margin:30px">
+         <span style="color:rgb(114, 114, 114); font-size:12px ;font-weight:700">Description</span>
+         <p style="color:rgb(114, 114, 114); font-size:12px">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their </p>
+         <div class="row">
+            <div class="col-6">
+               <span style="color:rgb(114, 114, 114); font-size:12px">Investment Type: </span><br/>
+               <span style="color:rgb(235, 164, 57); font-size:12px">Equity</span>
+            </div>
+            <div class="col-6">
+                  <span style="color:rgb(114, 114, 114); font-size:12px">Investment Amount:</span><br/>
+                  <span style="color:rgb(235, 164, 57); font-size:12px">USD: 100000</span>
+               </div>
+         </div>
+      </div>
+      <div style="display:flex; flex-direction: row">
+            <div class="card-footer text-muted" style="flex:5">
+              <div style="display:flex; flex-direction: row">
+              <a class="card-link" [ngClass]="{isfollowed: business.followed !== null}"
+              (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> Followers</a>
+              <a class="card-link"> <i class="fa fa-eye"></i>  Views</a>
+              <a class="card-link" (click)="openModal(template, 'invest', business)"> <i class="fa fa-money"></i> Invest</a>
+            </div>
+          </div>
+        </div>
+   </div>
+  </div>
+  <div class="col-md-4">
+      <div class="card">
+
+      <div class="coverimage" [ngStyle]="{background: 'url(/assets/partners/ppbg.jpeg)'}">
+        <div class="imgdiv">
+            <div class="row" style="width:100%;"> 
+                 <img src="../assets/honeypride.jpg" style="height:80px; width:120px" /> 
+         </div>
+        </div>
+      </div>
+      <p style="margin-left:80px">hello</p>
+      <div class="body" style="margin-top:30px">
+       <div class="row">
+         <div class="col-6">
+             <span>Investment Type: </span><br/>
+             <span>Equity</span>
+         </div>
+         <div class="col-6">
+               <span>Investment Amount:</span><br/>
+               <span>USD: 100000</span>
+            </div>
+       </div>
       </div>
    </div>
+  </div>
+</div>
 </div>
