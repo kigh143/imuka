@@ -22,7 +22,7 @@ export class UploadComponent  {
   @Input() type: any; // user_profile, org_profile, biz_logos, business_cover, org_cover
   @Input() id: any;
   @Input() visibility;
-
+  
   constructor (public authService: AuthService, public sessionService: SessionService ) {
 
   }
@@ -42,7 +42,7 @@ export class UploadComponent  {
     this.fileToUpload = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.imgFile = reader.result;
+      // this.imgFile = reader.result;
       this.showUpload = true;
     }
   }
