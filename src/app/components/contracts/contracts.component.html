@@ -15,19 +15,62 @@
         </div>
 
         <div class="content row">
-          <div class="col-md-6 carddata" *ngFor="let contract of contracts">
-            <div class="card ">
-              <img  class="card-img-top" src="{{contract.business_cover}}" alt="{{contract.business_name}}" />
-              <div class="card-body text-center" >
-                <h1 class="card-title">{{contract.business_name}}</h1>
-                <p class="card-text">{{contract.legal_entity}} | {{contract.country}} ({{contract.region}})</p>
-                <p>{{contract.sectors | stringArray}} </p>
-                <hr>
-                Investment Need:
-                <hr>
+          <div class="col-md-6 " *ngFor="let contract of contracts">
+            <div class="card">
+
+              <div class="coverimage" [ngStyle]="{background: 'url(../assets/partners/ppbg.jpeg)'}">
+                <div class="imgdiv">
+                    <div class="row" style="width:100%;"> 
+                      <img src="{{contract.business_cover}}" style="height:80px; width:120px" />
+                     
+                
+                 </div>
+                </div>
               </div>
-              
-        </div>
+             
+              <div class="card-title " style="margin:30px">
+                
+                <h1 class="card-title ">{{contract.business_name}}</h1>
+                <span style="color:rgb(114, 114, 114); font-size:12px" >{{contract.legal_entity}} </span><br/>
+                <span style="color:rgb(114, 114, 114); font-size:12px"> {{contract.country}} ({{contract.region}})</span>
+               
+                          
+                
+              </div>
+              <div class="card-body">
+                <span style="color:rgb(114, 114, 114); font-size:12px">Sectors</span>
+                <span style="color:rgb(114, 114, 114); font-size:12px">{{contract.sectors| stringArray}} </span>
+                <p style="color:rgb(114, 114, 114); font-size:12px">Description</p>
+                <p style="color:rgb(114, 114, 114); font-size:12px">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their </p>
+         
+
+                <div class="row">
+                  <div class="col-4">
+                  <span style="color:rgb(114, 114, 114); font-size:12px"> Start of contract: </span><br/>
+                  <span style="color:rgb(235, 164, 57); font-size:12px">{{contract.start_contract}}</span>
+               </div>
+               <div class="col-4">
+                  <span style="color:rgb(114, 114, 114); font-size:12px"> Start of contract: </span><br/>
+                  <span style="color:rgb(235, 164, 57); font-size:12px">{{contract.end_contract}}</span>
+               </div>
+               <div class="col-4">
+                     <span style="color:rgb(114, 114, 114); font-size:12px">Investment Amount:</span><br/>
+                     <span style="color:rgb(235, 164, 57); font-size:12px">USD: 100000</span>
+               </div>
+               </div>
+            </div>
+              </div>
+              <!-- <div style="display:flex; flex-direction: row">
+                    <div class="card-footer text-muted" style="flex:5">
+                      <div style="display:flex; flex-direction: row">
+                      <a class="card-link" [ngClass]="{isfollowed: business.followed !== null}"
+                      (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> Followers</a>
+                      <a class="card-link"> <i class="fa fa-eye"></i>  Views</a>
+                      <a class="card-link" (click)="openModal(template, 'invest', business)"> <i class="fa fa-money"></i> Invest</a>
+                    </div>
+                  </div>
+                </div> -->
+           </div>
       </div>
     </div>
   </div>
