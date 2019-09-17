@@ -14,10 +14,10 @@
             <h3 style="color:rgb(7, 42, 88); font-weight: 700;">Investment Opportunities</h3>
             <p>You can follow business that interest you over time, allowing you top pursue deals at a specific stage in their growth journey.</p>
         </div>
-
+         
         <div class="content row">
-          <div class="col-md-6 carddata" *ngFor="let business of investmentopp">
-            <div class="card ">
+          <div class="col-md-6 " *ngFor="let business of investmentopp">
+            <!-- <div class="card ">
               <img  class="card-img-top" src="{{business.business_cover}}" alt="{{business.business_name}}" onerror="this.src='assets/partners/logo.webp'" style="height:200px" />
               <div class="card-body text-center"  routerLink="/user_business/{{business.business_id}}" >
                 <h1 class="card-title">{{business.business_name}}</h1>
@@ -37,7 +37,56 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+       
+          <div class="card">
+    
+          <div class="coverimage" [ngStyle]="{background: 'url(/assets/partners/ppbg.jpeg)'}">
+            <div class="imgdiv">
+                <div class="row" style="width:100%;"> 
+                  <img src="{{business.business_cover}}" style="height:70px; width:100px" />
+                 
+            
+             </div>
+            </div>
+          </div>
+          <div class="card-title" style="float:right; flex-direction: column">
+                <span class="title" style=" margin-left:30px; margin-right:10px">{{business.business_name}}</span>
+                <span class="subtitle" style="float:right; margin-right:30px">{{business.legal_entity}}</span>
+                
+                <span class="subtitle" style="float:right; margin-right:30px">{{business.country}} ({{business.region}})</span>
+
+          </div>
+         
+          <div class="cardbody" style="margin:10px">
+            <span style="color:rgb(114, 114, 114); font-size:12px ;font-weight:700"> Sector </span>
+            <p style="color:rgb(114, 114, 114); font-size:12px">{{business?.sectors | stringArray}} </p>
+
+             <span style="color:rgb(114, 114, 114); font-size:12px ;font-weight:700">Description</span>
+             <p style="color:rgb(114, 114, 114); font-size:12px">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their </p>
+             <div class="row">
+                <div class="col-6">
+                   <span style="color:rgb(114, 114, 114); font-size:12px">Investment Type: </span><br/>
+                   <span style="color:rgb(235, 164, 57); font-size:12px">Equity</span>
+                </div>
+                <div class="col-6">
+                      <span style="color:rgb(114, 114, 114); font-size:12px">Investment Amount:</span><br/>
+                      <span style="color:rgb(235, 164, 57); font-size:12px">USD: $ {{business.investment_need?.investimentNeed| investneed}}</span>
+                   </div>
+             </div>
+          </div>
+          <div style="display:flex; flex-direction: row">
+                <div class="card-footer text-muted" style="flex:5">
+                  <div style="display:flex; flex-direction: row">
+                  <a class="card-link" [ngClass]="{isfollowed: business.followed !== null}"
+                  (click)="openModal(template, 'follow', business)"><i class="fa fa-users"></i> {{business.follows.length}} Followers</a>
+                  <a class="card-link"> <i class="fa fa-eye"></i> {{business.follows.length}} Views</a>
+                  <a class="card-link" (click)="openModal(template, 'invest', business)"> <i class="fa fa-money"></i> {{business.investors.length}} Invest</a>
+                </div>
+              </div>
+            </div>
+       </div>
+      
       </div>
     </div>
   </div>

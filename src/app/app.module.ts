@@ -87,6 +87,7 @@ import { StartupquestionComponent } from './components/startupquestion/startupqu
 import { UploadComponent } from './sharedComponents/upload/upload.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
 import { ContentLoaderModule } from '@netbasal/ngx-content-loader';
+import { InvestmentopportunitiesComponent } from './sharedComponents/investmentopportunities/investmentopportunities.component';
 
 
 const app_routes: Routes = [
@@ -137,6 +138,7 @@ const app_routes: Routes = [
   { path: 'all_sessions', component :SessionsComponent},
   { path: 'sharedevent/:id', component :SharedEventComponent},
   {path: 'contracts', component: ContractsComponent},
+  {path: 'invopp', component:InvestmentopportunitiesComponent}
   
 
 ];
@@ -203,6 +205,7 @@ const app_routes: Routes = [
     InvestneedPipe,
     StartupquestionComponent,
     UploadComponent,
+    InvestmentopportunitiesComponent,
     
   ],
 
