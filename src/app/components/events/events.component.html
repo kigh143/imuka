@@ -24,28 +24,28 @@
                 <div class="row" >
                     <div class="col-md-6 carddata" *ngFor="let event of events_clone">
                         <div class="card">
-                        <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:250px; object-fit:cover;" onerror ="this.src='/assets/conferenceworkshop.jpg'">
-                        <div class="card-body" style="height:200px">
-                           <span tappable (click)="mybookmark(event)" style="float:right; color:#1798d4; font-size:12px"><i class="fa fa-bookmark" style="color:#1798d4; font-size: 15px">&nbsp;</i>Bookmark</span>
-                           <h6 class="card-title">{{event.title}}</h6>
-                            <span class="eventtime"><span style="color:#1798d4">Date: </span>&nbsp;{{event.time_of_event}} <span style="color:#1798d4; padding-left:10px">Days left: </span>&nbsp;{{event.daysleft}}</span>
-                            <hr style="margin:2px">
-                            <span style="font-size:14px">Type : {{event.event_type}}</span>
-                           <hr  style="margin:0">
-                            <p class="card-text" style="font-size:12px">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Read more <i class="fa fa-forward"></i></a> </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fa fa-map-marker" style="color:#1798d4; font-size: 15px"></i>  {{event.venue}}</li>
-                        </ul>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">
-                            <share-buttons [theme]="'circles-dark'"
-                              [include]="['facebook','twitter','email']"
-                              [show]="5"
-                              [url]="'http://www.imukaaccess.com/app/#/sharedevent/'+ event.event_id"
-                              [description]="event.description" ></share-buttons>
-                          </li>
-                        </ul>
+                          <img class="card-img-top" [src]="event.image_url" alt="Card image cap" style="height:250px; object-fit:cover;" onerror ="this.src='/assets/conferenceworkshop.jpg'">
+                          <div class="card-body" style="height:200px">
+                            <span tappable (click)="mybookmark(event)" style="float:right; color:#1798d4; font-size:12px"><i class="fa fa-bookmark" style="color:#1798d4; font-size: 15px">&nbsp;</i>Bookmark</span>
+                            <h6 class="card-title">{{event.title}}</h6>
+                              <span class="eventtime"><span style="color:#1798d4">Date: </span>&nbsp;{{event.time_of_event}} <span style="color:#1798d4; padding-left:10px">Days left: </span>&nbsp;{{event.daysleft}}</span>
+                              <hr style="margin:2px">
+                              <span style="font-size:14px">Type : {{event.event_type}}</span>
+                            <hr  style="margin:0">
+                              <p class="card-text" style="font-size:12px">{{event.description|flTrancator}}<a [href]="event.link" target="_blank">Read more <i class="fa fa-forward"></i></a> </p>
+                          </div>
+                          <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><i class="fa fa-map-marker" style="color:#1798d4; font-size: 15px"></i>  {{event.venue}}</li>
+                          </ul>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                              <share-buttons [theme]="'circles-dark'"
+                                [include]="['facebook','twitter','email']"
+                                [show]="5"
+                                [url]="'http://www.imukaaccess.com/app/#/sharedevent/'+ event.event_id"
+                                [description]="event.description" ></share-buttons>
+                            </li>
+                          </ul>
                         </div>
                     </div>
                 </div>

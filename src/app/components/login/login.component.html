@@ -1,299 +1,497 @@
-<section >
-        <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" routerLink="/login">
-                      <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ml-auto ">
-                            <li class="nav-item active">
-                                <a class="nav-link" routerLink="/login">Login </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" routerLink="/about">About ImukaAccess</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" routerLink="/howitworks">How it Works</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-    <!-- <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" routerLink="/login">
-              <img src="assets/icon1.png" alt="" style="height:35px; margin-left:20px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav mr-auto ">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/about">About ImukaAccess</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/howitworks">How it Works</a>
-                    </li>
-                </ul>
-            </div>
-            <form class="form-inline my-2 my-lg-0"  [formGroup]="loginForm" (submit)="login()">
-              <input formControlName="email" [class.invalid]="loginForm.controls.email.invalid" class="form-control mr-sm-2" type="email" placeholder="E-mail">
-              <input formControlName="password" [class.invalid]="loginForm.controls.password.invalid" class="form-control mr-sm-2" type="password" placeholder="Password">
-              <button class="btn btn-btn-info my-2 my-sm-0" type="submit" >Login</button>
-            </form>
-        </div>
-    </nav> -->
-    <div class="jumbotron jumbotron-fluid" [ngStyle]="{'background-image':'url(' + imageUrl + ')'}">
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div style="text-align:center;">
-                        <img src="assets/icon1.png" alt="imukaAccess" style="height:90px; margin-left:20px;">
-                        <h1 style="color:#fff;">Connect to <b>Business Opportunities.</b></h1>
-                        <br/>
-                        <button class="btn btn-outline-primary" routerLink="/signup/investor">Investor</button> &nbsp;&nbsp;
-                        <button class="btn btn-outline-warning" routerLink="/signup/entrepreneur">Entreprenuer</button>  &nbsp;&nbsp;
-                        <button class="btn btn-outline-info" routerLink="/create_organisation">Support</button>  &nbsp;&nbsp;
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <div style="text-align:center;">
-                        <img src="assets/icon1.png" alt="imukaAccess" style="height:90px; margin-left:20px;">
-                        <h1 style="color:#fff;">Connect to <b>Business Opportunities.</b></h1>
-                        <br/>
-                        <button class="btn btn-outline-primary" routerLink="/signup/investor">Investor</button> &nbsp;&nbsp;
-                        <button class="btn btn-outline-warning" routerLink="/signup/entrepreneur">Entreprenuer</button>  &nbsp;&nbsp;
-                        <button class="btn btn-outline-info" routerLink="/create_organisation">Support</button>  &nbsp;&nbsp;
-                    </div>
-                </div>
-                <div class="col-md-5" id="login">
-                    <div class="card text-white bg-primary mb-3" style="max-width: 100% ;">
-                    <div class="card-header">Login</div>
-                    <div class="card-body">
-                        <form  [formGroup]="loginForm" (submit)="login()">
-                            <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" placeholder="Enter email" formControlName="email" [class.invalid]="loginForm.controls.email.invalid"
-                            />
-                            </div>
-                            <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password"class="form-control" placeholder="Password" formControlName="password" [class.invalid]="loginForm.controls.password.invalid"
-                            />
-                            </div>
-                            <button type="submit" class="btn btn-outline-warning btn-block"  [disabled]="loginForm.invalid">Login</button>
-                        </form>
-                    </div>
-
-                    <div class="card-footer row">
-                        <a class="col-md-12 col-sm-12 col-xs-12" routerLink="/forgotPassword">Forgot password?</a>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-</div>
+<section class="main">
+  <nav class="navbar navbar-expand-lg  fixed-top navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/login">
+        <img
+          src="assets/icon1.png"
+          alt=""
+          style="height:35px; margin-left:20px;"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto ">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/login">Login </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About ImukaAccess</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/howitworks">How it Works</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+  <section class="slider" [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }">
+      <div>
+        <h1>Imuka Access</h1>
+        <p>Entrepreneurs to Investors and Business Support Specialists.</p>
+      </div>
+  </section>
 
-    <section class="dark">
-        <div class="container">
-            <div class="row text-center stats">
-                <div class="col-md-3">
-                <b>{{counts.organisations}}</b> Support organisations
-                </div>
-                <div class="col-md-3">
-                <b >{{counts.businesses}}</b> Businesses
-                </div>
-                <div class="col-md-3">
-                <b>{{counts.investors}}</b> Investors / Financiers
-                </div>
-                <div class="col-md-3">
-                <b>{{counts.entrepreneurs}}</b> Entrepreneurs
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container padding">
+  <section class="search-sec">
+    <div class="container">
+        <form action="#" method="post" novalidate="novalidate">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="assets/imukaaccess.jpg" style="width:100%;"/>
-                </div>
-                <div class="col-md-8">
-                    <h1><b style="color:rgb(17, 49, 97);">ImukaAccess</b></h1>
-                    <h4>strengthening trust and transparency between entrepreneurs and investors</h4>
-                    <hr/>
-                    <p>ImukaAccess is designed to complement existing incubators, accelerators and business support services
-                      in the entrepreneurial ecosystem in Uganda by connecting entrepreneurs to the right networks, opportunities, personalized support and investment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="light">
-        <div class="container">
-            <div class="row">
-                       <h5>Sessions</h5>
-                       <div class="col-md-6" *ngFor= "let session of sessions">
-                        <div class="card">
-                            <div class="media"  style="width: 100%;">
-                                <img [src]="session?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                  <h6 class="mt-0" style="font-size: 13px; text-transform:lowercase; color:#222; font-weight:700">{{session?.title|flTrancator}}</h6>
-                                  <p style="font-size:12px; color:#666">{{session?.short_description|flTrancator}}  <a href="/sharedevent/{{session.session_id}}">Readmore</a></p>
-                                </div>
-                            </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
                         </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <input type="text" class="form-control search-slt" placeholder="Enter Drop City">
                         </div>
-            </div>            
-
-          <hr>
-            <div class="row">
-              <div class="col-md-6" >
-                    <h5>Featured Opportunities.</h5>
-                    <hr>
-                    <div class="card" *ngFor="let opportunity of opportunities" style="margin-bottom:10px;  border:0">
-
-                    <div class="media"  style="width: 100%;">
-                            <img [src]="opportunity?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
-                            <div class="media-body">
-                              <h6 class="mt-0" style="font-size: 13px; text-transform:lowercase; color:#222; font-weight:700">{{opportunity?.title|flTrancator}}</h6>
-                              <p style="font-size:12px; color:#666">{{opportunity?.short_description|flTrancator}}  <a href="/sharedevent/{{opportunity.event_id}}">Readmore</a></p>
-
-                            </div>
-
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                <option>Select Vehicle</option>
+                                <option>Example one</option>
+                                <option>Example one</option>
+                                <option>Example one</option>
+                                <option>Example one</option>
+                                <option>Example one</option>
+                                <option>Example one</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                        </div>
                     </div>
-               </div>
-               <!-- <div class="card" *ngFor="let opportunity of opportunities" style="width: 18rem; margin-bottom:20px;">
-                <span style=" padding:5px; font-size:13px; text-transform: uppercase; text-align: center; justify-content: center;" >{{opportunity?.title}}</span>
-                <img  style="height:120px" [src]="opportunity?.image_url"  onerror="this.src='/assets/conferenceworkshop.jpg'" alt="..." >
-                 <div class="card-body">
-
-                  <p class="card-text">{{opportunity?.short_description|flTrancator}}</p>
-
-                </div>
-              </div> -->
-              </div>
-
-              <div class="col-md-6" >
-                    <h5>Featured Events.</h5>
-                    <hr>
-                    <div class="card" *ngFor="let opportunity of events" style="margin-bottom:10px; border:0">
-                    <div class="media"  style="width: 100%;">
-                            <img [src]="opportunity?.image_url" class="card-img-top"  onerror="this.src='/assets/conferenceworkshop.jpg'"  style= "height:80px; width:80px" alt="{{opportunity.title}}" class="mr-3" alt="...">
-                            <div class="media-body">
-                              <h6 class="mt-0"style="font-size: 13px; text-transform:lowercase; color:#222; font-weight:700">{{opportunity?.title|flTrancator}}</h6>
-                              <p style="font-size:12px;color:#666">{{opportunity?.description|flTrancator}} <a href="/sharedevent/{{opportunity.opp_id}}">Readmore</a> </p>
-
-                            </div>
-                          </div>
-                  </div>
-                  <!-- <div class="card" *ngFor="let opportunity of events" style="width: 18rem; margin-bottom:20px;">
-                    <h6 style=" padding:5px; text-transform: uppercase; text-align: center; justify-content: center;">{{opportunity?.title}}</h6>
-                    <img [src]="opportunity?.image_url" class="card-img-top" alt="...">
-                    <div class="card-body">
-
-                      <p class="card-text">{{opportunity?.description|flTrancator}} <a href="#login">Readmore</a></p>
-
-                    </div>
-                  </div> -->
-              </div>
-
-            </div>
-        </div>
-      </section>
-
-    <section class="dark">
-        <div class="container">
-            <div class="row text-center icons">
-                <div class="col-md-3">
-                    <i class="fa fa-facebook"></i><br/>
-                    <a href="https://www.facebook.com/ImukaAccess/" target="_blank">@ImukaAccess </a>
-                </div>
-                <div class="col-md-3">
-                    <i class="fa fa-twitter"></i><br/>
-                    <a href="https://twitter.com/ImukaAccess" target="_blank">@ImukaAccess </a>
-                </div>
-                <div class="col-md-3">
-                    <i class="fa fa-instagram"></i><br/>
-                    <a href="https://www.facebook.com/ImukaAccess/" target="_blank">@ImukaAccess </a>
-                </div>
-                <div class="col-md-3">
-                    <i class="fa fa-linkedin"></i><br/>
-                    <a href="https://www.linkedin.com/company/imukaaccess/" target="_blank">@ImukaAccess </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </form>
+    </div>
+  </section>
 
-    <section>
-        <div class="container padding">
-            <div class="row services text-center">
-                <div class="col-md-4">
-                    <h3>Entrepreneurs</h3>
-                    <p>Access Business Growth Opportunities, Technical and Financial support.</p>
-                    <button class="btn btn-outline-warning btn-block" routerLink="/signup/entrepreneur">Entreprenuer</button>
-                </div>
-                <div class="col-md-4">
-                    <h3>Investors</h3>
-                    <p>Access validated investment leads. Convenient & reliable deal origination platform</p>
-                    <button class="btn btn-outline-primary btn-block" routerLink="/signup/investor">Investor</button>
-                </div>
-                <div class="col-md-4">
-                    <h3>Support organisations</h3>
-                    <p>Access Entrepreneur Clients to benefit from your support Programs.</p>
-                    <button class="btn btn-outline-info btn-block" routerLink="/create_organisation">Support</button>
-                </div>
+  <section class="categories">
+    <div class="container">
+      <div class="row fff">
+        <!--team-1-->
+        <div class="col-lg-4">
+          <div class="our-team-main">
+            <div class="team-front">
+              <img
+                src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg"
+                class="img-fluid"
+              />
+              <h3>Events</h3>
+
             </div>
-        </div>
-    </section>
 
-    <section style="padding:100px;  background: #444; ">
+            <div class="team-back">
+              <span>
+                  the course of normal operation for a business that reoccur as business processes are executed. Business events must be defined in the process of automating business practices
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--team-1-->
+
+        <!--team-2-->
+        <div class="col-lg-4">
+          <div class="our-team-main">
+            <div class="team-front">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjv8wSM1sxq-g3sGhqi_Y6HcpLNrckR-Y8eJSpy-BRnS-3DyOX"
+                class="img-fluid"
+              />
+              <h3>Workshops</h3>
+
+            </div>
+
+            <div class="team-back">
+              <span>
+                  ingle, short (although short may mean anything from 45 minutes to two full days) educational program designed to teach or introduce to participants practical skills, techniques, or ideas which they can then use in their work or their daily lives
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--team-2-->
+
+        <!--team-3-->
+        <div class="col-lg-4">
+          <div class="our-team-main">
+            <div class="team-front">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjv8wSM1sxq-g3sGhqi_Y6HcpLNrckR-Y8eJSpy-BRnS-3DyOX"
+                class="img-fluid"
+              />
+              <h3>Training Sessions</h3>
+
+            </div>
+
+            <div class="team-back">
+              <span>
+                  is an event that provides education value to attendees. Whether you're planning a corporate and team skill training or a general certification class
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--team-3-->
+
+        <!--team-4-->
+        <div class="col-lg-4">
+          <div class="our-team-main">
+            <div class="team-front">
+              <img
+                src="http://water.okstate.edu/images-for-water-site/external/funding.png/image"
+                class="img-fluid"
+              />
+              <h3>Funding opportunities</h3>
+
+            </div>
+
+            <div class="team-back">
+              <span>
+                  providing financial resources, usually in the form of money, or other values such as effort or time, to finance a need, program, and project
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--team-4-->
+
+        <!--team-5-->
+        <div class="col-lg-4">
+          <div class="our-team-main">
+            <div class="team-front">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdGcBLs97-TQ4yI5wpypSCosErWey-k3gavAinVDJtOA_KXwAh"
+                class="img-fluid"
+              />
+              <h3>Visiting opportunities</h3>
+
+            </div>
+
+            <div class="team-back">
+              <span>
+                  ImukaAccess is designed to complement existing incubators, accelerators and business support services in the entrepreneurial ecosystem in Uganda by connecting entrepreneurs to the right networks, opportunities, personalized support and investment.
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--team-5-->
+
+        <!--team-6-->
+        <div class="col-lg-4">
+          <div class="our-team-main">
+            <div class="team-front">
+              <img
+                src="http://placehold.it/110x110/2196f3/fff?text=Imuka"
+                class="img-fluid"
+              />
+              <h3>Imuka Access</h3>
+
+            </div>
+
+            <div class="team-back">
+              <span>
+                  ImukaAccess is designed to complement existing incubators, accelerators and business support services in the entrepreneurial ecosystem in Uganda by connecting entrepreneurs to the right networks, opportunities, personalized support and investment.
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--team-6-->
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">Daily Deals</li>
+      </ul>
+      <div class="free20"></div>
       <div class="container">
-        <div style="text-align:center; color:#fff;">
-          <img src="assets/icon1.png" alt="imukaAccess" style="height:90px; margin-left:20px;">
-          <h2>Connect to <b>Business Opportunities.</b></h2>
-          <p>ImukaAccess is a web and mobile platform that links East African Entrepreneurs
-            to Investors and Business Support Specialists. We are building a sustainable model that combines technology and local talent to support early-stage businesses to move from survival to grow and thrive.</p>
-      </div>
-      </div>
-    </section>
+        <div class="row">
+          <div class="col-md-4 first">
+              <div class="promote">
+                  <h1 class="text-center h2">
+                    <span>Daily Deals</span></h1>
+                    <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+              </div>
+          </div>
+          <div class="col-md-4" *ngFor="let opportunity of opportunities">
+              <div class="card profile-card-2">
+                      <div class="card-img-block">
+                          <img class="img-fluid" [src]="opportunity.image_url" [alt]="opportunity.title" style="width:100%; object-fit: cover;"/>
+                      </div>
+                      <div class="card-body pt-5">
+                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                          <h5 class="card-title">{{opportunity.title}}</h5>
+                          <p class="card-text">{{opportunity.description}}</p>
+                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                      </div>
+                  </div>
+          </div>
 
-  
-
-
-    <section class="light">
-        <div class="container">
-            <div class="row text-center partners">
-                <div class="col-md-2">
-                    <div ><img src="assets/partners/ftbic.jpg" class="animated bounce slow"></div>
-                </div>
-                <div class="col-md-2">
-                    <div><img src="assets/partners/grow.jpg" class="animated bounce slow"></div>
-                </div>
-                <div class="col-md-2">
-                    <div><img src="assets/partners/imuka_logo.png"  class="animated bounce slow"></div>
-                </div>
-                <div class="col-md-2">
-                    <div><img src="assets/partners/kcca_esb.jpg" class="animated bounce slow"></div>
-                </div>
-                <div class="col-md-2">
-                    <div><img src="assets/partners/renewable.png" class="animated bounce slow"></div>
-                </div>
-                <div class="col-md-2">
-                    <div><img src="assets/partners/ewb.jpg" class="animated bounce slow"></div>
-                </div>
-
-            </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success">Events</li>
+      </ul>
+      <div class="free20"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 first">
+              <div class="promote">
+                  <h1><span>Events</span></h1>
+                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+              </div>
+          </div>
+          <div class="col-md-4" *ngFor="let event of events" >
+              <div class="card profile-card-2">
+                      <div class="card-img-block">
+                          <img class="img-fluid" [src]="event.image_url" [alt]="event.title" />
+                      </div>
+                      <div class="card-body pt-5">
+                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                          <h5 class="card-title">{{event.title}}</h5>
+                          <p class="card-text">{{event.description}}</p>
+                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                      </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="category">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-danger">WorkShops</li>
+      </ul>
+      <div class="free20"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 first">
+              <div class="promote">
+                  <h1><span>WorkShops</span></h1>
+                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card profile-card-2">
+                      <div class="card-img-block">
+                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
+                      </div>
+                      <div class="card-body pt-5">
+                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                          <h5 class="card-title">Shurvir Mori</h5>
+                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
+                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                      </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-info">Visit Opportunities</li>
+      </ul>
+      <div class="free20"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 first">
+              <div class="promote">
+                  <h1><span>Visit Opportunities</span></h1>
+                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+             </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card profile-card-2">
+                      <div class="card-img-block">
+                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
+                      </div>
+                      <div class="card-body pt-5">
+                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                          <h5 class="card-title">Shurvir Mori</h5>
+                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
+                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                      </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success"> Funding Opportunities</li>
+      </ul>
+      <div class="free20"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 first">
+              <div class="promote">
+                  <h1><span> Funding Opportunities</span></h1>
+                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card profile-card-2">
+                      <div class="card-img-block">
+                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
+                      </div>
+                      <div class="card-body pt-5">
+                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                          <h5 class="card-title">Shurvir Mori</h5>
+                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
+                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                      </div>
+                  </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">Training Session</li>
+      </ul>
+      <div class="free20"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 first">
+              <div class="promote">
+                  <h1><span>Training Session</span></h1>
+                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card profile-card-2">
+                      <div class="card-img-block">
+                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
+                      </div>
+                      <div class="card-body pt-5">
+                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                          <h5 class="card-title">Shurvir Mori</h5>
+                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
+                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                      </div>
+                  </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">
+      <div class="row partners">
+        <div class="col-md-2">
+          <div>
+            <img src="https://www.swisscontact.org/fileadmin/Resources/Public/Images/Logo.png" class="animated bounce slow" />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <img src="https://growmovement.org/wp-content/uploads/2018/09/Pictures-WEB-export_Grow-logo-red.svg" class="animated bounce slow" />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <img
+              src="assets/partners/imuka_logo.png"
+              class="animated bounce slow"
+            />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <img
+              src="assets/partners/ftbic.jpg"
+              class="animated bounce slow"
+            />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <img
+              src="assets/partners/renewable.png"
+              class="animated bounce slow"
+            />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <img src="assets/partners/ewb.jpg" class="animated bounce slow" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
+
+<footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
+  <div class="container">
+    <div class="row row-30">
+      <div class="col-md-4 col-xl-5">
+        <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+          <p>ImukaAccess is designed to complement existing incubators, accelerators and business support services in the entrepreneurial ecosystem in Uganda by connecting entrepreneurs to the right networks, opportunities, personalized support and investment. </p>
+          <!-- Rights-->
+          <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Imuka</span><span>. </span><span>All Rights Reserved.</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Contacts</h5>
+        <dl class="contact-list">
+          <dt>Address:</dt>
+          <dd>Western Gate, Makerere University</dd>
+        </dl>
+        <dl class="contact-list">
+          <dt>email:</dt>
+          <dd><a href="mailto:#">info@imukaaccess.com</a></dd>
+        </dl>
+        <dl class="contact-list">
+          <dt>phones:</dt>
+          <dd><a href="tel:#">https://www.imukaaccess.com</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="col-md-4 col-xl-3">
+        <h5>Links</h5>
+        <ul class="nav-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacts</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutters social-container">
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+  </div>
+</footer>
