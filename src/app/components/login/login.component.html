@@ -34,10 +34,11 @@
       </div>
     </div>
   </nav>
+
   <section class="slider" [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }">
       <div>
-        <h1>Imuka Access</h1>
-        <p>Entrepreneurs to Investors and Business Support Specialists.</p>
+        <p>Imuka Access</p>
+        <h1>Connect to Business Opportunities.</h1>
       </div>
   </section>
 
@@ -48,20 +49,20 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
+                            <input type="text" class="form-control search-slt" placeholder="key words">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Drop City">
+                            <input type="text" class="form-control search-slt" placeholder="Category">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option>Select Vehicle</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
+                                <option>Location</option>
+                                <option>Kampala</option>
+                                <option>Jinja</option>
+                                <option>Masaka</option>
+                                <option>Mengo</option>
+                                <option>Lira</option>
+                                <option>Gulu</option>
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -112,7 +113,7 @@
 
             <div class="team-back">
               <span>
-                  ingle, short (although short may mean anything from 45 minutes to two full days) educational program designed to teach or introduce to participants practical skills, techniques, or ideas which they can then use in their work or their daily lives
+                  Educational program designed to teach or introduce to participants practical skills, techniques, or ideas which they can then use in their work or their daily lives
               </span>
             </div>
           </div>
@@ -133,7 +134,7 @@
 
             <div class="team-back">
               <span>
-                  is an event that provides education value to attendees. Whether you're planning a corporate and team skill training or a general certification class
+                  Event that provides education value to attendees. Whether you're planning a corporate and team skill training or a general certification class.
               </span>
             </div>
           </div>
@@ -154,7 +155,7 @@
 
             <div class="team-back">
               <span>
-                  providing financial resources, usually in the form of money, or other values such as effort or time, to finance a need, program, and project
+                  Providing financial resources, usually in the form of money, or other values such as effort or time, to finance a need, program, and project
               </span>
             </div>
           </div>
@@ -175,7 +176,7 @@
 
             <div class="team-back">
               <span>
-                  ImukaAccess is designed to complement existing incubators, accelerators and business support services in the entrepreneurial ecosystem in Uganda by connecting entrepreneurs to the right networks, opportunities, personalized support and investment.
+                  ImukaAccess is designed to complement existing incubators, and accelerators  in the entrepreneurial ecosystem by connecting entrepreneurs to the right opportunities, personalized support and investment.
               </span>
             </div>
           </div>
@@ -218,21 +219,33 @@
               <div class="promote">
                   <h1 class="text-center h2">
                     <span>Daily Deals</span></h1>
-                    <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+                    <a href="#" target="_blank">See more</a><br/>
               </div>
           </div>
           <div class="col-md-4" *ngFor="let opportunity of opportunities">
               <div class="card profile-card-2">
-                      <div class="card-img-block">
-                          <img class="img-fluid" [src]="opportunity.image_url" [alt]="opportunity.title" style="width:100%; object-fit: cover;"/>
-                      </div>
-                      <div class="card-body pt-5">
-                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
-                          <h5 class="card-title">{{opportunity.title}}</h5>
-                          <p class="card-text">{{opportunity.description}}</p>
-                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                      </div>
-                  </div>
+                <div class="card-img-block">
+                    <img class="img-fluid" [src]="opportunity.image_url" [alt]="opportunity.title" onError="this.src='https://dummyimage.com/600x400/eeeeee/0011ff.png&text=loading+...'"  style="width:100%; object-fit: cover;"/>
+                </div>
+                <div class="card-body pt-5">
+                    <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                    <ul class="list-unstyled">
+                      <li class="media">
+                        <!-- <img src="..." class="mr-3" alt="..."> -->
+                        <div class="mr-3 date">
+                            <h4><b>{{opportunity.date}}</b></h4>{{opportunity.month}}
+                        </div>
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-1" style="color:#444;">{{opportunity.title}} <small style="color:orange;">({{opportunity.opp_type}})</small></h5>
+                         </div>
+                      </li>
+                    </ul>
+                    <p class="card-text" >{{opportunity.short_description | flTrancator}}</p>
+                </div>
+                <div class="card-footer text-muted">
+                  <a href="#" class="card-link">{{opportunity.daysleft}} left.</a>
+                </div>
+              </div>
           </div>
 
         </div>
@@ -251,21 +264,34 @@
           <div class="col-md-4 first">
               <div class="promote">
                   <h1><span>Events</span></h1>
-                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+                  <a href="#" target="_blank">See more</a><br/>
               </div>
           </div>
           <div class="col-md-4" *ngFor="let event of events" >
               <div class="card profile-card-2">
-                      <div class="card-img-block">
-                          <img class="img-fluid" [src]="event.image_url" [alt]="event.title" />
-                      </div>
-                      <div class="card-body pt-5">
-                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
-                          <h5 class="card-title">{{event.title}}</h5>
-                          <p class="card-text">{{event.description}}</p>
-                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                      </div>
-                  </div>
+                <div class="card-img-block">
+                    <img class="img-fluid" [src]="event.image_url" [alt]="event.title" onError="this.src='https://dummyimage.com/600x400/eeeeee/0011ff.png&text=loading+...'"  style="width:100%; object-fit: cover;"/>
+                </div>
+                <div class="card-body pt-5">
+                    <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                    <ul class="list-unstyled">
+                      <li class="media">
+                        <!-- <img src="..." class="mr-3" alt="..."> -->
+                        <div class="mr-3 date">
+                            <h4><b>{{event.date}}</b></h4>{{event.month}}
+                        </div>
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-1" style="color:#444;">{{event.title}} <small style="color:orange;">({{event.event_type}})</small></h5>
+                         </div>
+                      </li>
+                    </ul>
+                    <p class="card-text" >{{event.description | flTrancator}}</p>
+                    <b>Venue : </b> {{event.venue}}
+                </div>
+                <div class="card-footer text-muted">
+                  <a href="#" class="card-link">{{event.daysleft}} left.</a>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -284,19 +310,19 @@
           <div class="col-md-4 first">
               <div class="promote">
                   <h1><span>WorkShops</span></h1>
-                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+                  <a href="#" target="_blank">See more</a><br/>
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" *ngFor="let workshop of workShops">
               <div class="card profile-card-2">
                       <div class="card-img-block">
-                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
+                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" onError="this.src='https://dummyimage.com/600x400/eeeeee/0011ff.png&text=loading+...'" alt="card" />
                       </div>
                       <div class="card-body pt-5">
-                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
-                          <h5 class="card-title">Shurvir Mori</h5>
-                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile" />
+                          <h5 class="card-title">Coming Soon</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+
                       </div>
                   </div>
           </div>
@@ -316,19 +342,19 @@
           <div class="col-md-4 first">
               <div class="promote">
                   <h1><span>Visit Opportunities</span></h1>
-                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+                  <a href="#" target="_blank">See more</a><br/>
              </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" *ngFor="let visitOpportunity of visitOpportunities">
               <div class="card profile-card-2">
                       <div class="card-img-block">
-                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
+                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" onError="this.src='https://dummyimage.com/600x400/eeeeee/0011ff.png&text=loading+...'" alt="card" />
                       </div>
                       <div class="card-body pt-5">
                           <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
-                          <h5 class="card-title">Shurvir Mori</h5>
-                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                          <h5 class="card-title">Coming Soon</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+
                       </div>
                   </div>
           </div>
@@ -348,22 +374,35 @@
           <div class="col-md-4 first">
               <div class="promote">
                   <h1><span> Funding Opportunities</span></h1>
-                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+                  <a href="#" target="_blank">See more</a><br/>
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" *ngFor="let opportunity of opportunities">
               <div class="card profile-card-2">
-                      <div class="card-img-block">
-                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
-                      </div>
-                      <div class="card-body pt-5">
-                          <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
-                          <h5 class="card-title">Shurvir Mori</h5>
-                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                      </div>
-                  </div>
+                <div class="card-img-block">
+                    <img class="img-fluid" [src]="opportunity.image_url" [alt]="opportunity.title" onError="this.src='https://dummyimage.com/600x400/eeeeee/0011ff.png&text=loading+...'"  style="width:100%; object-fit: cover;"/>
+                </div>
+                <div class="card-body pt-5">
+                    <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
+                    <ul class="list-unstyled">
+                      <li class="media">
+                        <!-- <img src="..." class="mr-3" alt="..."> -->
+                        <div class="mr-3 date">
+                            <h4><b>{{opportunity.date}}</b></h4>{{opportunity.month}}
+                        </div>
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-1" style="color:#444;">{{opportunity.title}} <small style="color:orange;">({{opportunity.opp_type}})</small></h5>
+                         </div>
+                      </li>
+                    </ul>
+                    <p class="card-text" >{{opportunity.short_description | flTrancator}}</p>
+                </div>
+                <div class="card-footer text-muted">
+                  <a href="#" class="card-link">{{opportunity.daysleft}} left.</a>
+                </div>
+              </div>
           </div>
+
 
         </div>
       </div>
@@ -381,19 +420,19 @@
           <div class="col-md-4 first">
               <div class="promote">
                   <h1><span>Training Session</span></h1>
-                  <a href="https://shurvir.blogspot.com/?utm_source=bootsnipp&utm_medium=bootsnipp" target="_blank">See more</a><br/>
+                  <a href="#" target="_blank">See more</a><br/>
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" *ngFor="let trainingSession of trainingSessions">
               <div class="card profile-card-2">
                       <div class="card-img-block">
-                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Card image cap" />
+                          <img class="img-fluid" src="https://images.pexels.com/photos/877695/pexels-photo-877695.jpeg?auto=compress&cs=tinysrgb&h=350" onError="this.src='https://dummyimage.com/600x400/eeeeee/0011ff.png&text=loading+...'" alt="card" />
                       </div>
                       <div class="card-body pt-5">
                           <img src="https://www.bizbible.co.uk/wp-content/uploads/2019/02/events-icon-680x680.jpg" alt="profile-image" class="profile"/>
-                          <h5 class="card-title">Shurvir Mori</h5>
-                          <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                          <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+                          <h5 class="card-title">Coming Soon</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+
                       </div>
                   </div>
           </div>

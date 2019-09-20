@@ -28,12 +28,16 @@ export class LoginComponent {
     timeout: 5000
   }];
   private _success = new Subject<string>();
-  imageUrl = 'assets/Imukapp.jpg';
+  imageUrl = 'assets/hun.jpg';
   staticAlertClosed = false;
   successMessage: string;
   counts: any;
   sessions:any;
   opportunities= [];
+
+  visitOpportunities =[];
+  workShops = [];
+  trainingSessions = [];
 
   private readonly notifier: NotifierService;
   constructor(private router: Router,

@@ -114,6 +114,9 @@ section{
   text-align: center;
   color: #eee;
   font-weight: 600;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center;
 }
 
 .box{
@@ -245,7 +248,8 @@ section{
 	left:0;
 	padding:15px 15px 0 15px;
 	text-align:left;
-	background:#eee;
+  background:#eee;
+  text-align: center !important;
 
 }
 
@@ -421,4 +425,27 @@ ul, ol {
   opacity: 0;
   visibility: hidden;
   transition: .22s ease;
+}
+
+
+.card-title{
+  text-transform: lowercase !important;
+  font-size:19px !important;
+  color:#222;
+}
+
+.card-link{
+  color:#333 !important;
+}
+
+.card-text {
+  color:#aaa !important;
+}
+
+.date{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color:rgb(59, 131, 238);
 }
